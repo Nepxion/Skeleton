@@ -1,0 +1,30 @@
+package ${package};
+
+/**
+ * <p>Title: ${title}</p>
+ * <p>Description: ${description}</p>
+ * <p>Copyright: ${copyright}</p>
+ * <p>Company: ${company}</p>
+ * @author ${author}
+ * @email ${email}
+ * @version ${version}
+ */
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+import ${MyContextAwareClassPath};
+import ${MyServiceClassPath};
+
+@EnableAutoConfiguration
+@ComponentScan(basePackages = { "com.nepxion.matrix.test.simple" })
+public class MyApplication {
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(MyApplication.class, args);
+
+        MyService1 myService = MyContextAware.getBean(MyService.class);
+        myService1.doA("A");
+        myService1.doB("B");
+    }
+}
