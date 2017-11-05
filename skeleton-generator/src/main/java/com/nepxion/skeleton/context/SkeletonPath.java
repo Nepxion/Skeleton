@@ -12,7 +12,7 @@ package com.nepxion.skeleton.context;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.util.SkeletonUtil;
 
 public class SkeletonPath {
@@ -34,25 +34,25 @@ public class SkeletonPath {
 
     public String generateBasePackagePath() {
         if (StringUtils.isNotEmpty(basePackagePath)) {
-            return SkeletonConstants.FILE_SEPARATOR + basePackagePath;
+            return SkeletonConstant.FILE_SEPARATOR + basePackagePath;
         }
 
-        return SkeletonConstants.FILE_SEPARATOR + SkeletonConstants.TEMPLATE;
+        return SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.TEMPLATE;
     }
 
     public String getJavaBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstants.FILE_SEPARATOR + SkeletonConstants.JAVA;
+        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.JAVA;
     }
 
     public String getResourcesBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstants.FILE_SEPARATOR + SkeletonConstants.RESOURCES;
+        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.RESOURCES;
     }
 
     public String getDockerBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstants.FILE_SEPARATOR + SkeletonConstants.DOCKER;
+        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.DOCKER;
     }
 
     public String getProjectBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstants.FILE_SEPARATOR + SkeletonConstants.PROJECT;
+        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.PROJECT;
     }
 }

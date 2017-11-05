@@ -18,13 +18,13 @@ import java.io.InputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 
 public class SkeletonContent {
     private String content;
 
     public SkeletonContent(String path) throws IOException {
-        this(path, SkeletonConstants.ENCODING_UTF_8);
+        this(path, SkeletonConstant.ENCODING_UTF_8);
     }
 
     public SkeletonContent(String path, String encoding) throws IOException {
@@ -45,7 +45,7 @@ public class SkeletonContent {
     }
 
     public SkeletonContent(File file) throws IOException {
-        this(file, SkeletonConstants.ENCODING_UTF_8);
+        this(file, SkeletonConstant.ENCODING_UTF_8);
     }
 
     public SkeletonContent(File file, String encoding) throws IOException {

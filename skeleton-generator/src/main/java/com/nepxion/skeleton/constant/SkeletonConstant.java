@@ -10,7 +10,7 @@ package com.nepxion.skeleton.constant;
  * @version 1.0
  */
 
-public class SkeletonConstants {
+public class SkeletonConstant {
     public static final String HTTP = "http://";
     public static final String FILE_SEPARATOR = "/"; // File.separator
     public static final String FILE_ZIP = "zip";

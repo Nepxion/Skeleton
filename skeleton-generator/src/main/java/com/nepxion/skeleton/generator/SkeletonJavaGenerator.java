@@ -17,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -54,13 +54,13 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
 
     public Map<String, Object> generateDataModel() {
         Map<String, Object> defaultDataModel = new HashMap<String, Object>();
-        defaultDataModel.put(SkeletonConstants.TITLE, skeletonProperties.getString(SkeletonConstants.TITLE));
-        defaultDataModel.put(SkeletonConstants.DESCRIPTION, skeletonProperties.getString(SkeletonConstants.DESCRIPTION));
-        defaultDataModel.put(SkeletonConstants.COPYRIGHT, skeletonProperties.getString(SkeletonConstants.COPYRIGHT));
-        defaultDataModel.put(SkeletonConstants.COMPANY, skeletonProperties.getString(SkeletonConstants.COMPANY));
-        defaultDataModel.put(SkeletonConstants.AUTHOR, skeletonProperties.getString(SkeletonConstants.AUTHOR));
-        defaultDataModel.put(SkeletonConstants.EMAIL, skeletonProperties.getString(SkeletonConstants.EMAIL));
-        defaultDataModel.put(SkeletonConstants.VERSION, skeletonProperties.getString(SkeletonConstants.VERSION));
+        defaultDataModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
+        defaultDataModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
+        defaultDataModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
+        defaultDataModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
+        defaultDataModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
+        defaultDataModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
+        defaultDataModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));
 
         return defaultDataModel;
     }
@@ -82,7 +82,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
             throw new SkeletonException("Get parameters error", e);
         }
 
-        String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstants.MAIN_JAVA_CODE_PATH : SkeletonConstants.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstants.FILE_SEPARATOR) + SkeletonConstants.FILE_SEPARATOR + className + "." + SkeletonConstants.JAVA;
+        String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstant.MAIN_JAVA_CODE_PATH : SkeletonConstant.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstant.FILE_SEPARATOR) + SkeletonConstant.FILE_SEPARATOR + className + "." + SkeletonConstant.JAVA;
 
         LOG.info("--------------- Java Generator Information ---------------");
         LOG.info("File Name : {}", className + ".java");

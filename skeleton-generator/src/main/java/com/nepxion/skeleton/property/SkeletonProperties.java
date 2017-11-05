@@ -22,7 +22,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.IOUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 
 public class SkeletonProperties extends PropertiesConfiguration {
     public SkeletonProperties(String path) throws ConfigurationException {
@@ -40,8 +40,8 @@ public class SkeletonProperties extends PropertiesConfiguration {
     public SkeletonProperties(StringBuilder stringBuilder) throws IOException, ConfigurationException {
         InputStream inputStream = null;
         try {
-            inputStream = IOUtils.toInputStream(stringBuilder.toString(), SkeletonConstants.ENCODING_UTF_8);
-            load(inputStream, SkeletonConstants.ENCODING_UTF_8);
+            inputStream = IOUtils.toInputStream(stringBuilder.toString(), SkeletonConstant.ENCODING_UTF_8);
+            load(inputStream, SkeletonConstant.ENCODING_UTF_8);
         } finally {
             if (inputStream != null) {
                 IOUtils.closeQuietly(inputStream);

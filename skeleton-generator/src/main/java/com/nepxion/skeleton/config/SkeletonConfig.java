@@ -10,7 +10,7 @@ package com.nepxion.skeleton.config;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.model.CharacterCaseModel;
 
 import freemarker.template.Configuration;
@@ -23,12 +23,12 @@ public class SkeletonConfig extends Configuration {
         setClassForTemplateLoading(SkeletonConfig.class, basePackagePath);
 
         // 指定文件编码
-        setDefaultEncoding(SkeletonConstants.ENCODING_UTF_8);
+        setDefaultEncoding(SkeletonConstant.ENCODING_UTF_8);
 
         // 添加一个“宏”共享变量，用来将属性名首字母大写
-        setSharedVariable(SkeletonConstants.UPPER_CASE, new CharacterCaseModel(true));
+        setSharedVariable(SkeletonConstant.UPPER_CASE, new CharacterCaseModel(true));
 
         // 添加一个“宏”共享变量，用来将属性名首字母小写
-        setSharedVariable(SkeletonConstants.LOWER_CASE, new CharacterCaseModel(false));
+        setSharedVariable(SkeletonConstant.LOWER_CASE, new CharacterCaseModel(false));
     }
 }

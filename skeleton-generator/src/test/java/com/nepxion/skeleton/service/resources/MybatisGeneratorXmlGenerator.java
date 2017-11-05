@@ -13,7 +13,7 @@ package com.nepxion.skeleton.service.resources;
 import java.io.IOException;
 
 import com.nepxion.skeleton.config.SkeletonConfig;
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -32,7 +32,7 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
 
     @Override
     protected String getOutputPath() {
-        return super.getOutputPath() + SkeletonConstants.MAIN_RESOURCES_FILE_PATH;
+        return super.getOutputPath() + SkeletonConstant.MAIN_RESOURCES_FILE_PATH;
     }
 
     @Override

@@ -12,7 +12,7 @@ package com.nepxion.skeleton.util;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
@@ -42,7 +42,7 @@ public class SkeletonUtil {
     }
 
     public static String getBaseDirectoryName(String projectType, SkeletonProperties skeletonProperties) {
-        return skeletonProperties.getString(SkeletonConstants.MODULE_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.MODULE_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
     }
 
     public static String getBasePackagePath(SkeletonProperties skeletonProperties) {
@@ -56,9 +56,9 @@ public class SkeletonUtil {
     }
 
     public static String getBasePackagePath(String projectType, SkeletonProperties skeletonProperties) {
-        String moduleName = skeletonProperties.getString(SkeletonConstants.MODULE_NAME);
+        String moduleName = skeletonProperties.getString(SkeletonConstant.MODULE_NAME);
 
-        return skeletonProperties.getString(SkeletonConstants.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
     public static String formatGeneratePath(String generatePath) {
@@ -66,9 +66,9 @@ public class SkeletonUtil {
         sb.append(generatePath);
 
         String path = sb.toString();
-        path = path.replace("\\", SkeletonConstants.FILE_SEPARATOR);
-        if (!path.endsWith(SkeletonConstants.FILE_SEPARATOR)) {
-            path += SkeletonConstants.FILE_SEPARATOR;
+        path = path.replace("\\", SkeletonConstant.FILE_SEPARATOR);
+        if (!path.endsWith(SkeletonConstant.FILE_SEPARATOR)) {
+            path += SkeletonConstant.FILE_SEPARATOR;
         }
 
         return path;

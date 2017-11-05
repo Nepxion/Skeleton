@@ -17,7 +17,7 @@ import java.io.OutputStreamWriter;
 
 import org.apache.commons.io.IOUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -89,8 +89,8 @@ public abstract class AbstractSkeletonGenerator {
 
     public void generate(File file, Template template, Object dataModel) throws TemplateException, IOException {
         String filePath = file.getCanonicalPath();
-        filePath = filePath.replace("\\", SkeletonConstants.FILE_SEPARATOR);
-        String directoryPath = filePath.substring(0, filePath.lastIndexOf(SkeletonConstants.FILE_SEPARATOR));
+        filePath = filePath.replace("\\", SkeletonConstant.FILE_SEPARATOR);
+        String directoryPath = filePath.substring(0, filePath.lastIndexOf(SkeletonConstant.FILE_SEPARATOR));
 
         File directory = new File(directoryPath);
         if (!directory.exists() || !directory.isDirectory()) {
@@ -102,7 +102,7 @@ public abstract class AbstractSkeletonGenerator {
         try {
             outputStream = new FileOutputStream(file);
 
-            outputStreamWriter = new OutputStreamWriter(outputStream, SkeletonConstants.ENCODING_UTF_8);
+            outputStreamWriter = new OutputStreamWriter(outputStream, SkeletonConstant.ENCODING_UTF_8);
             template.process(dataModel, outputStreamWriter);
         } catch (TemplateException e) {
             throw e;

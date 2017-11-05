@@ -16,7 +16,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 
 public class StringUtil {
     public static String firstLetterToUpper(String value) {
@@ -34,8 +34,8 @@ public class StringUtil {
     public static List<String> readLines(String value) throws IOException {
         InputStream inputStream = null;
         try {
-            inputStream = IOUtils.toInputStream(value, SkeletonConstants.ENCODING_UTF_8);
-            return IOUtils.readLines(inputStream, SkeletonConstants.ENCODING_UTF_8);
+            inputStream = IOUtils.toInputStream(value, SkeletonConstant.ENCODING_UTF_8);
+            return IOUtils.readLines(inputStream, SkeletonConstant.ENCODING_UTF_8);
         } finally {
             if (inputStream != null) {
                 IOUtils.closeQuietly(inputStream);

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import com.nepxion.skeleton.config.SkeletonConfig;
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -69,7 +69,7 @@ public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
     protected Object getDataModel() {
         Map<String, Object> dataModel = generateDataModel();
         // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如MyContextAware.ClassPath，MyContextAware-ClassPath都会抛错
-        dataModel.put(SkeletonConstants.PACKAGE, getPackage());
+        dataModel.put(SkeletonConstant.PACKAGE, getPackage());
         dataModel.put("MyContextAwareClassPath", "com.nepxion.matrix.test.simple.context.MyContextAware");
         dataModel.put("MyServiceClassPath", "com.nepxion.matrix.test.simple.service.MyService");
 

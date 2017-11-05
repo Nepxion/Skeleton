@@ -23,7 +23,7 @@ import net.lingala.zip4j.util.Zip4jConstants;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstants;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 
 /**
  * 基于Zip4J开源项目(http://www.lingala.net/zip4j/)制作，支持压缩和解压，支持加解密
@@ -68,7 +68,7 @@ public class ZipUtil {
     @SuppressWarnings("unchecked")
     public static File[] unzip(File zipFile, String destPath, String password) throws ZipException {
         ZipFile zFile = new ZipFile(zipFile);
-        zFile.setFileNameCharset(SkeletonConstants.ENCODING_UTF_8);
+        zFile.setFileNameCharset(SkeletonConstant.ENCODING_UTF_8);
         if (!zFile.isValidZipFile()) {
             throw new ZipException("Invalid zip files, it may be damaged");
         }
@@ -174,10 +174,10 @@ public class ZipUtil {
     private static String buildDestinationZipFilePath(File srcFile, String destPath) {
         if (StringUtils.isEmpty(destPath)) {
             if (srcFile.isDirectory()) {
-                destPath = srcFile.getParent() + File.separator + srcFile.getName() + "." + SkeletonConstants.FILE_ZIP;
+                destPath = srcFile.getParent() + File.separator + srcFile.getName() + "." + SkeletonConstant.FILE_ZIP;
             } else {
                 String fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
-                destPath = srcFile.getParent() + File.separator + fileName + "." + SkeletonConstants.FILE_ZIP;
+                destPath = srcFile.getParent() + File.separator + fileName + "." + SkeletonConstant.FILE_ZIP;
             }
         } else {
             createDestDirectoryIfNecessary(destPath); // 在指定路径不存在的情况下将其创建出来  
@@ -188,7 +188,7 @@ public class ZipUtil {
                 } else {
                     fileName = srcFile.getName().substring(0, srcFile.getName().lastIndexOf("."));
                 }
-                destPath += fileName + "." + SkeletonConstants.FILE_ZIP;
+                destPath += fileName + "." + SkeletonConstant.FILE_ZIP;
             }
         }
 
