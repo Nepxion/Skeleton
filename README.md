@@ -178,37 +178,30 @@ public class MyGenerator {
             // 创建文件的输出的路径
             String generatePath = "E:/Download/Skeleton/";
 
-            // 模板文件所在的上层路径，如果不设置，basePackagePath默认为template/
-            // 模板文件的放置路径为{basePackagePath]/[projectType]/[fileType]
-
-            // projectType为工程模块名
-            // 例如server，service，api，client
-
-            // fileType分为四种类型：
-            // 1. java - java类文件创建
-            // 2. resources - resources目录下文件创建
-            // 3. docker - docker目录下文件创建
-            // 4. project - 工程根目录下文件创建            
-            String basePackagePath = "com/nepxion/skeleton/";
-
-            // 配置文件所在的路径
+            // 描述规则的配置文件所在的路径
             String propertiesPath = "properties/my-properties.properties";
-
             // 构造配置文件对象
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
-            // 构造server工程的上下文对象
-            // 根据规则，MyApplication.java.template必须放在com/nepxion/skeleton/server/java下
-            SkeletonContext serverSkeletonContext = new SkeletonContext("server", basePackagePath);
+            // 模板文件所在的上层路径，如果不设置，basePackagePath默认为template/
+            // 模板文件的放置路径为{basePackagePath]/[projectType]/[fileType]
+            // 1. projectType为工程模块名
+            //    例如server，service，api，client
+            // 2. fileType分为四种类型：
+            //    1) java - java类文件创建
+            //    2) resources - resources目录下文件创建
+            //    3) docker - docker目录下文件创建
+            //    4) project - 工程根目录下文件创建
+            String basePackagePath = "com/nepxion/skeleton/";
 
-            // 输出server工程下的文件
+            // 构造server工程的上下文对象
+            SkeletonContext serverSkeletonContext = new SkeletonContext("server", basePackagePath);
+            // 根据MyApplicationClassGenerator的逻辑，MyApplication.java.template必须放在[basePackagePath]/server/java下
             new MyApplicationClassGenerator(generatePath, skeletonProperties, serverSkeletonContext).generate();
 
             // 构造service工程的上下文对象
-            // 根据规则，MyApplication.java.template必须放在com/nepxion/skeleton/service/resources下
             SkeletonContext serviceSkeletonContext = new SkeletonContext("service", basePackagePath);
-
-            // 输出service工程
+            // 根据MybatisGeneratorXmlGenerator的逻辑，mybatis-generator.xml.template必须放在[basePackagePath]/service/resources下
             new MybatisGeneratorXmlGenerator(generatePath, skeletonProperties, serviceSkeletonContext).generate();
         } catch (Exception e) {
             e.printStackTrace();
