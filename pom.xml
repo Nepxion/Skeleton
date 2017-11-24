@@ -11,7 +11,7 @@
 
     <modules>
         <module>skeleton-generator</module>
-        <module>skeleton-generator-test</module>
+        <module>skeleton-generator-spring-cloud</module>
     </modules>
 
     <properties>
@@ -37,7 +37,7 @@
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>skeleton-generator-test</artifactId>
+                <artifactId>skeleton-generator-spring-cloud</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
