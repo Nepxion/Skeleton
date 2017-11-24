@@ -37,16 +37,20 @@ public class SkeletonProperties extends PropertiesConfiguration {
         super(url);
     }
 
-    public SkeletonProperties(StringBuilder stringBuilder) throws IOException, ConfigurationException {
+    public SkeletonProperties(String content, String encoding) throws IOException, ConfigurationException {
         InputStream inputStream = null;
         try {
-            inputStream = IOUtils.toInputStream(stringBuilder.toString(), SkeletonConstant.ENCODING_UTF_8);
-            load(inputStream, SkeletonConstant.ENCODING_UTF_8);
+            inputStream = IOUtils.toInputStream(content, encoding);
+            load(inputStream, encoding);
         } finally {
             if (inputStream != null) {
                 IOUtils.closeQuietly(inputStream);
             }
         }
+    }
+
+    public SkeletonProperties(StringBuilder stringBuilder) throws IOException, ConfigurationException {
+        this(stringBuilder.toString(), SkeletonConstant.ENCODING_UTF_8);
     }
 
     public Map<String, String> convertMap() {
@@ -61,15 +65,5 @@ public class SkeletonProperties extends PropertiesConfiguration {
         }
 
         return map;
-    }
-
-    public static SkeletonProperties createProperties(String path, String encoding) throws IOException, ConfigurationException {
-        SkeletonContent skeletonContent = new SkeletonContent(path, encoding);
-        String content = skeletonContent.getContent();
-
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(content);
-
-        return new SkeletonProperties(stringBuilder);
     }
 }
