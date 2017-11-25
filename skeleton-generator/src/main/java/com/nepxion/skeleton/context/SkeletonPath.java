@@ -17,24 +17,24 @@ import com.nepxion.skeleton.util.SkeletonUtil;
 
 public class SkeletonPath {
     private String projectType;
-    private String basePackagePath;
+    private String templatePath;
 
-    public SkeletonPath(String projectType, String basePackagePath) {
+    public SkeletonPath(String projectType, String templatePath) {
         this.projectType = projectType;
-        this.basePackagePath = basePackagePath;
+        this.templatePath = templatePath;
     }
 
     public String getProjectType() {
         return projectType;
     }
 
-    public String getBasePackagePath() {
-        return basePackagePath;
+    public String getTemplatePath() {
+        return templatePath;
     }
 
     public String generateTemplatePath() {
-        if (StringUtils.isNotEmpty(basePackagePath)) {
-            return SkeletonConstant.FILE_SEPARATOR + basePackagePath;
+        if (StringUtils.isNotEmpty(templatePath)) {
+            return SkeletonConstant.FILE_SEPARATOR + templatePath;
         }
 
         return SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.TEMPLATE;
