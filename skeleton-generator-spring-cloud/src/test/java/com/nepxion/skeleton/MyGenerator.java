@@ -21,11 +21,6 @@ public class MyGenerator {
             // 创建文件的输出的路径
             String generatePath = "E:/Download/Skeleton/";
 
-            // 描述规则的配置文件所在的路径
-            String propertiesPath = "properties/my-properties.properties";
-            // 构造配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
-
             // 模板文件所在的上层路径，如果不设置，basePackagePath默认为template/
             // 模板文件的放置路径为{basePackagePath]/[projectType]/[fileType]
             // 1. projectType为工程模块名
@@ -36,6 +31,12 @@ public class MyGenerator {
             //    3) docker - docker目录下文件创建
             //    4) project - 工程根目录下文件创建
             String basePackagePath = "com/nepxion/skeleton/";
+
+            // 描述规则的配置文件所在的路径
+            String propertiesPath = "properties/my-properties.properties";
+
+            // 构造全局配置文件对象
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 构造server工程的上下文对象
             SkeletonContext serverSkeletonContext = new SkeletonContext("server", basePackagePath);
