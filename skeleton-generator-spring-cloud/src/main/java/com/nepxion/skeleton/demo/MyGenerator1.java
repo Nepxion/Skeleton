@@ -1,4 +1,4 @@
-package com.nepxion.skeleton;
+package com.nepxion.skeleton.demo;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,9 +10,9 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
+import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
+import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.service.resources.MybatisGeneratorXmlGenerator;
 
 // MyGenerator1和MyGenerator2输出结果一致
 // MyGenerator1方式的前提是Generator类必须和template模板文件放在同一目录下，使用较简单

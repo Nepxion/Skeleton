@@ -1,4 +1,4 @@
-package com.nepxion.skeleton;
+package com.nepxion.skeleton.demo;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,10 +10,10 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
+import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
+import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.service.resources.MybatisGeneratorXmlGenerator;
 
 // MyGenerator1和MyGenerator2输出结果一致
 // MyGenerator1方式的前提是Generator类必须和template模板文件放在同一目录下，使用较简单
@@ -34,7 +34,7 @@ public class MyGenerator2 {
             //    2) resources - resources目录下文件创建
             //    3) docker - docker目录下文件创建
             //    4) project - 工程根目录下文件创建
-            String baseTemplatePath = "com/nepxion/skeleton/";
+            String baseTemplatePath = "com/nepxion/skeleton/demo/";
 
             // 描述规则的配置文件所在的路径
             String propertiesPath = "properties/my-properties.properties";

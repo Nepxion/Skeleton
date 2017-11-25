@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.server.java;
+package com.nepxion.skeleton.demo.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>

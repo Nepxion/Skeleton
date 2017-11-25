@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.service.resources;
+package com.nepxion.skeleton.demo.service.resources;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
