@@ -47,7 +47,7 @@ public class MyApplication {
 
 Generator类示例
 ```java
-package com.nepxion.skeleton.test.java.application.java;
+package com.nepxion.skeleton.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -59,66 +59,82 @@ package com.nepxion.skeleton.test.java.application.java;
  * @version 1.0
  */
 
-import java.io.IOException;
 import java.util.Map;
 
-import com.nepxion.skeleton.config.SkeletonConfig;
-import com.nepxion.skeleton.constant.SkeletonConstants;
-import com.nepxion.skeleton.context.SkeletonContext;
+import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
-import com.nepxion.skeleton.io.SkeletonProperties;
+import com.nepxion.skeleton.property.SkeletonProperties;
 
-import freemarker.template.Template;
-
-public class MyApplicationJavaGenerator extends SkeletonJavaGenerator {
+public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
     /**
-     * 构造放放
+     * 构造方法
      * @param generatePath 创建文件的顶级路径
+     * @param projectType 工程类型
      * @param skeletonProperties 全局配置文件对象
-     * @param skeletonContext 上下文对象
      */
-    public MyApplicationJavaGenerator(String generatePath, SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        super(generatePath, skeletonProperties, skeletonContext);
+    public MyApplicationClassGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, MyApplicationClassGenerator.class, skeletonProperties);
     }
 
-    // 设置Java类的包路径，如果没特殊处理，则按照默认顶级包路径来处理，不需要Override该方法
+    /**
+     * 构造方法
+     * @param generatePath 创建文件的顶级路径
+     * @param projectType 工程类型
+     * @param baseTemplatePath 模板文件的等级路径
+     * @param skeletonProperties 全局配置文件对象
+     */
+    public MyApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, baseTemplatePath, skeletonProperties);
+    }
+
+    /**
+     * 设置Java类的包路径，如果没特殊处理，则按照默认顶级包路径来处理，不需要Override该方法
+     */
     /*@Override
     protected String getPackage() {
         return super.getPackage() + "." + "abc";
     }*/
 
-    // 设置Java类名
+    /**
+     * 设置Java类名
+     */
     @Override
     protected String getClassName() {
         return "MyApplication";
     }
 
-    // 设置Java类的输出路径，如果没特殊处理，则按照默认输出路径来处理，不需要Override该方法
+    /**
+     * 设置模板名
+     */
+    @Override
+    protected String getTemplateName() {
+        return "MyApplication.java.template";
+    }
+
+    /**
+     * 设置Java类的输出路径，如果没特殊处理，则按照默认输出路径来处理，不需要Override该方法
+     */
     /*@Override
     protected String getOutputPath() {
         return super.getOutputPath() + "/" + "xyz";
     }*/
 
-    // 设置Java类到main目录下，还是在test目录下
+    /**
+     * 设置Java类到main目录下，还是在test目录下
+     */
     @Override
     protected boolean isMainCode() {
         return true;
     }
 
-    // 设置Java原型模板对象
-    @Override
-    protected Template getTemplate() throws IOException {
-        SkeletonConfig skeletonConfig = skeletonContext.getJavaConfig();
-
-        return skeletonConfig.getTemplate("MyApplication.java.template");
-    }
-
-    // 设置Java类创建的数目模型，主要做动态变量到原型模板的替换（任何文本的替换都支持）
+    /**
+     * 设置Java类创建的所依赖数据模型，主要做动态变量到原型模板的替换（任何文本的替换都支持）
+     */
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = generateDataModel();
         // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如MyContextAware.ClassPath，MyContextAware-ClassPath都会抛错
-        dataModel.put(SkeletonConstants.KEY_PACKAGE, getPackage());
+        dataModel.put(SkeletonConstant.PACKAGE, getPackage());
         dataModel.put("MyContextAwareClassPath", "com.nepxion.matrix.test.simple.context.MyContextAware");
         dataModel.put("MyServiceClassPath", "com.nepxion.matrix.test.simple.service.MyService");
 
@@ -167,12 +183,11 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.server.java.MyApplicationClassGenerator;
 import com.nepxion.skeleton.service.resources.MybatisGeneratorXmlGenerator;
 
-public class MyGenerator {
+public class MyGenerator1 {
     public static void main(String[] args) {
         try {
             // 创建文件的输出的路径
@@ -180,29 +195,17 @@ public class MyGenerator {
 
             // 描述规则的配置文件所在的路径
             String propertiesPath = "properties/my-properties.properties";
-            // 构造配置文件对象
+
+            // 构造全局配置文件对象
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
-            // 模板文件所在的上层路径，如果不设置，basePackagePath默认为template/
-            // 模板文件的放置路径为{basePackagePath]/[projectType]/[fileType]
-            // 1. projectType为工程模块名
-            //    例如server，service，api，client
-            // 2. fileType分为四种类型：
-            //    1) java - java类文件创建
-            //    2) resources - resources目录下文件创建
-            //    3) docker - docker目录下文件创建
-            //    4) project - 工程根目录下文件创建
-            String basePackagePath = "com/nepxion/skeleton/";
+            // 创建Java类文件
+            // 模板文件MyApplication.java.template必须和MyApplicationClassGenerator放在同一个目录下
+            new MyApplicationClassGenerator(generatePath, "server", skeletonProperties).generate();
 
-            // 构造server工程的上下文对象
-            SkeletonContext serverSkeletonContext = new SkeletonContext("server", basePackagePath);
-            // 根据MyApplicationClassGenerator的逻辑，MyApplication.java.template必须放在[basePackagePath]/server/java下
-            new MyApplicationClassGenerator(generatePath, skeletonProperties, serverSkeletonContext).generate();
-
-            // 构造service工程的上下文对象
-            SkeletonContext serviceSkeletonContext = new SkeletonContext("service", basePackagePath);
-            // 根据MybatisGeneratorXmlGenerator的逻辑，mybatis-generator.xml.template必须放在[basePackagePath]/service/resources下
-            new MybatisGeneratorXmlGenerator(generatePath, skeletonProperties, serviceSkeletonContext).generate();
+            // 创建文件到resources目录下
+            // 模板文件mybatis-generator.xml.template必须和MybatisGeneratorXmlGenerator放在同一个目录下
+            new MybatisGeneratorXmlGenerator(generatePath, "service", skeletonProperties).generate();
         } catch (Exception e) {
             e.printStackTrace();
         }
