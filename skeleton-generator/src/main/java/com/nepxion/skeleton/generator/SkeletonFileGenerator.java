@@ -14,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.nepxion.skeleton.context.SkeletonContext;
+import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.util.SkeletonUtil;
@@ -24,18 +24,20 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     protected String defaultOutputPath;
 
-    public SkeletonFileGenerator() {
-        super();
+    public SkeletonFileGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, generatorClass, skeletonProperties);
+
+        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
-    public SkeletonFileGenerator(String generatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonProperties);
-    }
+    public SkeletonFileGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
 
-    public SkeletonFileGenerator(String generatePath, SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        super(generatePath, skeletonProperties, skeletonContext);
+        if (fileType == SkeletonFileType.JAVA) {
+            throw new SkeletonException("Invalid file type for " + fileType);
+        }
 
-        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, skeletonProperties, skeletonContext);
+        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
     public String getDefaultOutputPath() {

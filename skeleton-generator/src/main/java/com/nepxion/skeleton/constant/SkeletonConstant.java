@@ -33,7 +33,6 @@ public class SkeletonConstant {
     public static final String CLASS_NAME = "className";
     public static final String CLASS_PATH = "classPath";
     public static final String MODULE_NAME = "moduleName";
-    public static final String TEMPLATE = "template";
 
     public static final String JAVA = "java";
     public static final String RESOURCES = "resources";

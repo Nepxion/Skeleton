@@ -16,6 +16,8 @@ import com.nepxion.skeleton.model.CharacterCaseModel;
 import freemarker.template.Configuration;
 
 public class SkeletonConfig extends Configuration {
+    private String templatePath;
+
     public SkeletonConfig(String templatePath) {
         super(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
 
@@ -30,5 +32,11 @@ public class SkeletonConfig extends Configuration {
 
         // 添加一个“宏”共享变量，用来将属性名首字母小写
         setSharedVariable(SkeletonConstant.LOWER_CASE, new CharacterCaseModel(false));
+
+        this.templatePath = templatePath;
+    }
+
+    public String getTemplatePath() {
+        return templatePath;
     }
 }

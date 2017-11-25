@@ -13,18 +13,11 @@ package com.nepxion.skeleton.util;
 import org.apache.commons.lang3.StringUtils;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.context.SkeletonContext;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class SkeletonUtil {
     public static String getOutputPath(String generatePath, SkeletonProperties skeletonProperties) {
         return getOutputPath(generatePath, null, skeletonProperties);
-    }
-
-    public static String getOutputPath(String generatePath, SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        String projectType = getProjectType(skeletonContext);
-
-        return getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
     public static String getOutputPath(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
@@ -35,12 +28,6 @@ public class SkeletonUtil {
         return getBaseDirectoryName(null, skeletonProperties);
     }
 
-    public static String getBaseDirectoryName(SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        String projectType = getProjectType(skeletonContext);
-
-        return getBaseDirectoryName(projectType, skeletonProperties);
-    }
-
     public static String getBaseDirectoryName(String projectType, SkeletonProperties skeletonProperties) {
         return skeletonProperties.getString(SkeletonConstant.MODULE_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
     }
@@ -49,16 +36,22 @@ public class SkeletonUtil {
         return getBasePackagePath(null, skeletonProperties);
     }
 
-    public static String getBasePackagePath(SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        String projectType = getProjectType(skeletonContext);
-
-        return getBasePackagePath(projectType, skeletonProperties);
-    }
-
     public static String getBasePackagePath(String projectType, SkeletonProperties skeletonProperties) {
         String moduleName = skeletonProperties.getString(SkeletonConstant.MODULE_NAME);
 
         return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
+    }
+
+    public static String formatGeneratePath(Class<?> generatorClass) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(generatorClass.getCanonicalName());
+
+        String path = sb.toString();
+        path = path.substring(0, path.lastIndexOf("."));
+        path = path.replace(".", SkeletonConstant.FILE_SEPARATOR);
+        path += SkeletonConstant.FILE_SEPARATOR;
+
+        return path;
     }
 
     public static String formatGeneratePath(String generatePath) {
@@ -85,14 +78,5 @@ public class SkeletonUtil {
         String formattedModuleName = sb.toString();
 
         return formattedModuleName.substring(0, formattedModuleName.lastIndexOf("."));
-    }
-
-    public static String getProjectType(SkeletonContext skeletonContext) {
-        String projectType = null;
-        if (skeletonContext != null) {
-            projectType = skeletonContext.getSkeletonPath().getProjectType();
-        }
-
-        return projectType;
     }
 }

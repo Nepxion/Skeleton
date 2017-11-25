@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.context.SkeletonContext;
+import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.util.SkeletonUtil;
@@ -29,19 +29,18 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     protected String defaultBasePackage;
     protected String defaultOutputPath;
 
-    public SkeletonJavaGenerator() {
-        super();
+    public SkeletonJavaGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, generatorClass, skeletonProperties);
+
+        defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
+        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
-    public SkeletonJavaGenerator(String generatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonProperties);
-    }
+    public SkeletonJavaGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, baseTemplatePath, SkeletonFileType.JAVA, skeletonProperties);
 
-    public SkeletonJavaGenerator(String generatePath, SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        super(generatePath, skeletonProperties, skeletonContext);
-
-        defaultBasePackage = SkeletonUtil.getBasePackagePath(skeletonProperties, skeletonContext);
-        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, skeletonProperties, skeletonContext);
+        defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
+        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
     public String getDefaultBasePackage() {

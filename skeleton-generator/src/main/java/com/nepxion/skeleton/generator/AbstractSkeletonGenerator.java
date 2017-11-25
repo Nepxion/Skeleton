@@ -17,8 +17,10 @@ import java.io.OutputStreamWriter;
 
 import org.apache.commons.io.IOUtils;
 
+import com.nepxion.skeleton.config.SkeletonConfig;
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.context.SkeletonContext;
+import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
@@ -39,45 +41,38 @@ public abstract class AbstractSkeletonGenerator {
     }
 
     protected String generatePath;
-    protected SkeletonProperties skeletonProperties;
     protected SkeletonContext skeletonContext;
+    protected SkeletonProperties skeletonProperties;
 
-    public AbstractSkeletonGenerator() {
-        this(null, null);
-    }
-
-    public AbstractSkeletonGenerator(String generatePath, SkeletonProperties skeletonProperties) {
-        this(generatePath, skeletonProperties, null);
-    }
-
-    public AbstractSkeletonGenerator(String generatePath, SkeletonProperties skeletonProperties, SkeletonContext skeletonContext) {
-        this.skeletonProperties = skeletonProperties;
+    public AbstractSkeletonGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         this.generatePath = generatePath;
-        this.skeletonContext = skeletonContext;
+        this.skeletonContext = new SkeletonContext(projectType, generatorClass);
+        this.skeletonProperties = skeletonProperties;
+    }
+
+    public AbstractSkeletonGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+        this.generatePath = generatePath;
+        this.skeletonContext = new SkeletonContext(projectType, baseTemplatePath, fileType);
+        this.skeletonProperties = skeletonProperties;
     }
 
     public String getGeneratePath() {
         return generatePath;
     }
 
-    public void setGeneratePath(String generatePath) {
-        this.generatePath = generatePath;
+    public SkeletonContext getSkeletonContext() {
+        return skeletonContext;
     }
 
     public SkeletonProperties getSkeletonProperties() {
         return skeletonProperties;
     }
 
-    public void setSkeletonProperties(SkeletonProperties skeletonProperties) {
-        this.skeletonProperties = skeletonProperties;
-    }
+    public Template getTemplate() throws IOException {
+        SkeletonConfig skeletonConfig = skeletonContext.getConfig();
+        String templateName = getTemplateName();
 
-    public SkeletonContext getSkeletonContext() {
-        return skeletonContext;
-    }
-
-    public void setSkeletonContext(SkeletonContext skeletonContext) {
-        this.skeletonContext = skeletonContext;
+        return skeletonConfig.getTemplate(templateName);
     }
 
     public void generate() throws SkeletonException, TemplateException, IOException {
@@ -132,9 +127,9 @@ public abstract class AbstractSkeletonGenerator {
         }
     }
 
-    protected abstract String getPath() throws SkeletonException;
+    protected abstract String getTemplateName();
 
-    protected abstract Template getTemplate() throws IOException;
+    protected abstract String getPath() throws SkeletonException;
 
     protected abstract Object getDataModel();
 }
