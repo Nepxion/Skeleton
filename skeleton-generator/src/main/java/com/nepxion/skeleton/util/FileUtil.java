@@ -12,8 +12,11 @@ package com.nepxion.skeleton.util;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -86,6 +89,23 @@ public class FileUtil {
                 }
             } catch (IOException e) {
 
+            }
+        }
+    }
+
+    public static byte[] getBytes(File file) throws FileNotFoundException, IOException {
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+
+            return IOUtils.toByteArray(inputStream);
+        } catch (FileNotFoundException e) {
+            throw e;
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            if (inputStream != null) {
+                IOUtils.closeQuietly(inputStream);
             }
         }
     }

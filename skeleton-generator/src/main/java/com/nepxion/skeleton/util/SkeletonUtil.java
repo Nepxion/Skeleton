@@ -42,6 +42,10 @@ public class SkeletonUtil {
         return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
+    public static String getCanonicalPath(String generatePath, String directoryName, SkeletonProperties skeletonProperties) {
+        return formatGeneratePath(generatePath) + directoryName + getBaseDirectoryName(skeletonProperties);
+    }
+
     public static String formatGeneratePath(Class<?> generatorClass) {
         StringBuilder sb = new StringBuilder();
         sb.append(generatorClass.getCanonicalName());
