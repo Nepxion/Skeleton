@@ -23,12 +23,12 @@ public class SkeletonContext {
         this(projectType, null);
     }
 
-    public SkeletonContext(String projectType, String basePackagePath) {
-        skeletonPath = new SkeletonPath(projectType, basePackagePath);
-        javaConfig = new SkeletonConfig(skeletonPath.getJavaBasePackagePath());
-        resourcesConfig = new SkeletonConfig(skeletonPath.getResourcesBasePackagePath());
-        dockerConfig = new SkeletonConfig(skeletonPath.getDockerBasePackagePath());
-        projectConfig = new SkeletonConfig(skeletonPath.getProjectBasePackagePath());
+    public SkeletonContext(String projectType, String templatePath) {
+        skeletonPath = new SkeletonPath(projectType, templatePath);
+        javaConfig = new SkeletonConfig(skeletonPath.getJavaTemplatePath());
+        resourcesConfig = new SkeletonConfig(skeletonPath.getResourcesTemplatePath());
+        dockerConfig = new SkeletonConfig(skeletonPath.getDockerTemplatePath());
+        projectConfig = new SkeletonConfig(skeletonPath.getProjectTemplatePath());
     }
 
     public SkeletonPath getSkeletonPath() {

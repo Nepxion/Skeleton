@@ -16,11 +16,11 @@ import com.nepxion.skeleton.model.CharacterCaseModel;
 import freemarker.template.Configuration;
 
 public class SkeletonConfig extends Configuration {
-    public SkeletonConfig(String basePackagePath) {
+    public SkeletonConfig(String templatePath) {
         super(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
 
         // 指定模板所在的classpath目录
-        setClassForTemplateLoading(SkeletonConfig.class, basePackagePath);
+        setClassForTemplateLoading(SkeletonConfig.class, templatePath);
 
         // 指定文件编码
         setDefaultEncoding(SkeletonConstant.ENCODING_UTF_8);

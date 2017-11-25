@@ -32,7 +32,7 @@ public class SkeletonPath {
         return basePackagePath;
     }
 
-    public String generateBasePackagePath() {
+    public String generateTemplatePath() {
         if (StringUtils.isNotEmpty(basePackagePath)) {
             return SkeletonConstant.FILE_SEPARATOR + basePackagePath;
         }
@@ -40,19 +40,19 @@ public class SkeletonPath {
         return SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.TEMPLATE;
     }
 
-    public String getJavaBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.JAVA;
+    public String getJavaTemplatePath() {
+        return SkeletonUtil.formatGeneratePath(generateTemplatePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.JAVA;
     }
 
-    public String getResourcesBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.RESOURCES;
+    public String getResourcesTemplatePath() {
+        return SkeletonUtil.formatGeneratePath(generateTemplatePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.RESOURCES;
     }
 
-    public String getDockerBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.DOCKER;
+    public String getDockerTemplatePath() {
+        return SkeletonUtil.formatGeneratePath(generateTemplatePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.DOCKER;
     }
 
-    public String getProjectBasePackagePath() {
-        return SkeletonUtil.formatGeneratePath(generateBasePackagePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.PROJECT;
+    public String getProjectTemplatePath() {
+        return SkeletonUtil.formatGeneratePath(generateTemplatePath()) + projectType + SkeletonConstant.FILE_SEPARATOR + SkeletonConstant.PROJECT;
     }
 }
