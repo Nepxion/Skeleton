@@ -47,7 +47,7 @@ public class MyApplication {
 
 Generator类示例
 ```java
-package com.nepxion.skeleton.server.java;
+package com.nepxion.skeleton.demo.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -171,7 +171,7 @@ version=1.0
 
 运行程序
 ```java
-package com.nepxion.skeleton;
+package com.nepxion.skeleton.demo;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
