@@ -11,8 +11,6 @@ package com.nepxion.skeleton.constant;
  */
 
 public class SkeletonConstant {
-    public static final String SPRING_CLOUD_SKELETON = "spring-cloud-skeleton-";
-
     public static final String HTTP = "http://";
     public static final String FILE_SEPARATOR = "/"; // File.separator
     public static final String FILE_ZIP = "zip";

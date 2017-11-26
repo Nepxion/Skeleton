@@ -10,56 +10,41 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
-import java.io.File;
-import java.io.IOException;
+import javax.annotation.PostConstruct;
 
-import org.apache.commons.configuration.ConfigurationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
 import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
-import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.util.FileUtil;
-import com.nepxion.skeleton.util.SkeletonUtil;
-import com.nepxion.skeleton.util.ZipUtil;
-
-import freemarker.template.TemplateException;
+import com.nepxion.skeleton.transport.SkeletonDataTransport;
 
 @RestController
 public class SkeletonController {
+    public static final String SPRING_CLOUD_SKELETON = "spring-cloud-skeleton-";
+
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
-    @RequestMapping(value = "/download", method = RequestMethod.POST)
-    public byte[] download(@RequestBody String config) {
-        try {
-            SkeletonProperties skeletonProperties = new SkeletonProperties(config, SkeletonConstant.ENCODING_UTF_8);
+    private SkeletonDataTransport dataTransport;
 
-            String path = SkeletonUtil.getCanonicalPath(skeletonGeneratePath, SkeletonConstant.SPRING_CLOUD_SKELETON, skeletonProperties);
-
-            generate(path, skeletonProperties);
-
-            String zipFilePath = ZipUtil.zip(path, null);
-            File zipFile = new File(zipFilePath);
-
-            return FileUtil.getBytes(zipFile);
-        } catch (Exception e) {
-            throw new SkeletonException(e.getMessage(), e);
-        } finally {
-            File directory = new File(skeletonGeneratePath);
-
-            FileUtil.forceDeleteDirectory(directory, 5);
-        }
+    @PostConstruct
+    private void initialize() {
+        dataTransport = new SkeletonDataTransport() {
+            @Override
+            public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
+                new MyApplicationClassGenerator(path, "server", skeletonProperties).generate();
+                new MybatisGeneratorXmlGenerator(path, "service", skeletonProperties).generate();
+            }
+        };
     }
 
-    private void generate(String path, SkeletonProperties skeletonProperties) throws ConfigurationException, SkeletonException, TemplateException, IOException {
-        new MyApplicationClassGenerator(path, "server", skeletonProperties).generate();
-        new MybatisGeneratorXmlGenerator(path, "service", skeletonProperties).generate();
+    @RequestMapping(value = "/download", method = RequestMethod.POST)
+    public byte[] download(@RequestBody String config) {
+        return dataTransport.download(skeletonGeneratePath, SPRING_CLOUD_SKELETON, config);
     }
 }

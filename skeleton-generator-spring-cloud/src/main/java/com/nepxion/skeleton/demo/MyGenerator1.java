@@ -25,7 +25,7 @@ public class MyGenerator1 {
             String generatePath = "E:/Download/Skeleton/";
 
             // 描述规则的配置文件所在的路径
-            String propertiesPath = "properties/my-properties.properties";
+            String propertiesPath = "config/skeleton-data.properties";
 
             // 构造全局配置文件对象
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
