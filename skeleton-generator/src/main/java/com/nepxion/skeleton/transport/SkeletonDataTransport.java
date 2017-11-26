@@ -22,7 +22,7 @@ import com.nepxion.skeleton.util.ZipUtil;
 public abstract class SkeletonDataTransport {
     public byte[] download(String generatePath, String directoryName, String config) {
         try {
-            SkeletonProperties skeletonProperties = new SkeletonProperties(config, SkeletonConstant.ENCODING_UTF_8);
+            SkeletonProperties skeletonProperties = new SkeletonProperties(new StringBuilder(config), SkeletonConstant.ENCODING_UTF_8);
 
             String path = SkeletonUtil.getCanonicalPath(generatePath, directoryName, skeletonProperties);
 

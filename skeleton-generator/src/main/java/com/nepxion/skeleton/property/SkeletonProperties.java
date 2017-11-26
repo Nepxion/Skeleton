@@ -14,15 +14,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.IOUtils;
-
-import com.nepxion.skeleton.constant.SkeletonConstant;
 
 public class SkeletonProperties extends PropertiesConfiguration {
     public SkeletonProperties(String path) throws ConfigurationException {
@@ -37,33 +32,19 @@ public class SkeletonProperties extends PropertiesConfiguration {
         super(url);
     }
 
-    public SkeletonProperties(String content, String encoding) throws IOException, ConfigurationException {
+    public SkeletonProperties(String path, String encoding) throws IOException, ConfigurationException {
+        this(new StringBuilder(new SkeletonContent(path, encoding).getContent()), encoding);
+    }
+
+    public SkeletonProperties(StringBuilder stringBuilder, String encoding) throws IOException, ConfigurationException {
         InputStream inputStream = null;
         try {
-            inputStream = IOUtils.toInputStream(content, encoding);
+            inputStream = IOUtils.toInputStream(stringBuilder.toString(), encoding);
             load(inputStream, encoding);
         } finally {
             if (inputStream != null) {
                 IOUtils.closeQuietly(inputStream);
             }
         }
-    }
-
-    public SkeletonProperties(StringBuilder stringBuilder) throws IOException, ConfigurationException {
-        this(stringBuilder.toString(), SkeletonConstant.ENCODING_UTF_8);
-    }
-
-    public Map<String, String> convertMap() {
-        Map<String, String> map = new LinkedHashMap<String, String>();
-        for (Iterator<String> iterator = getKeys(); iterator.hasNext();) {
-            String key = iterator.next();
-            String value = getString(key);
-            // 排除Properties文件上的注释
-            if (!key.startsWith("﻿#")) {
-                map.put(key, value);
-            }
-        }
-
-        return map;
     }
 }

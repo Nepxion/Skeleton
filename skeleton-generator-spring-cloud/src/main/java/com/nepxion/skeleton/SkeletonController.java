@@ -10,6 +10,8 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
 import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
+import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
 
 @RestController
@@ -31,6 +35,7 @@ public class SkeletonController {
     private String skeletonGeneratePath;
 
     private SkeletonDataTransport dataTransport;
+    private SkeletonConfigTransport configTransport;
 
     @PostConstruct
     private void initialize() {
@@ -41,10 +46,17 @@ public class SkeletonController {
                 new MybatisGeneratorXmlGenerator(path, "service", skeletonProperties).generate();
             }
         };
+
+        configTransport = new SkeletonConfigTransport();
     }
 
     @RequestMapping(value = "/download", method = RequestMethod.POST)
     public byte[] download(@RequestBody String config) {
         return dataTransport.download(skeletonGeneratePath, SPRING_CLOUD_SKELETON, config);
+    }
+
+    @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
+    public Map<String, SkeletonGroup> getMetaData() {
+        return configTransport.getMetaData();
     }
 }
