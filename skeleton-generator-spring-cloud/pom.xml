@@ -43,7 +43,7 @@
         <dependency>
             <groupId>nepxion</groupId>
             <artifactId>skeleton-generator</artifactId>
-            <version>${generator.version}</version>	    
+            <version>${generator.version}</version>
         </dependency>
     </dependencies>
 
