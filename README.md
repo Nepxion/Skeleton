@@ -4,18 +4,52 @@
 基于FreeMarker的框架脚手架生成组件，可以轻松快速实现对框架代码的一键创建（例如业务部门实现对基础架构部提供的框架快速搭建），实现对Spring Cloud的脚手架一键生成
 
 ## 介绍
-
     1. 严格遵照Maven结构进行脚手架编排
     2. 支持任何文件文件的逆向创建，包括Java类文件，配置文件，脚本文件，XML文件，YAML文件等
     3. 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
     4. 使用者根据模板原型文件创建Generator类，进行动态创建和替换
-    5. 基于Spring Cloud的调用
-       1)在Postman上对http://localhost:2222/download进行POST调用，Body的内容为skeleton-generator-spring-cloud\src\main\resources\config\skeleton-data.properties
-       2)如下图，将返回一键创建后的zip文件的byte数组格式
-       3)Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen	   
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman.jpg)
+    5. 基于Spring Cloud的调用，Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen	
 
-## 使用
+## 配置文件使用
+    1. skeleton-data.properties
+       用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)
+    2. skeleton-description.properties
+       用来描述模skeleton-data.properties里面，每个Key对应的中文名。里面的值前缀可以如下特殊符号，用来渲染界面上每个组件的Label，
+       <*> - 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
+       <#> - 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
+       <^> - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
+       <$> - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑	   
+    3. skeleton-item-list.properties
+       用来描述模skeleton-data.properties里面，对应项如果是下来菜单方式的时候，里面的值列表，通过“;”分隔，例如版本号，1.0.0;1.0.1;1.0.2，可让使用者选取
+
+## Spring Cloud示例
+    1. 下载脚手架Zip文件的接口，返回Zip文件的byte数组方式
+    @RequestMapping(value = "/download", method = RequestMethod.POST)
+    public byte[] download(@RequestBody String config)
+
+    在Postman上对http://localhost:2222/download进行POST调用，Body的内容为src\main\resources\config\skeleton-data.properties，如下图，将返回一键创建后的zip文件的byte数组格式
+
+	1. 根据配置文件进行界面驱动的元数据接口
+    @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
+    public Map<String, SkeletonGroup> getMetaData()
+
+    在Postman上对http://localhost:2222/getMetaData进行GET调用，如下图，将返回JSON格式的文件，简单介绍一下格式：
+    {
+      "key": "moduleName", // 组件所对应的唯一Key
+      "label": "【必改项】工程的模块名，首字母必须小写，中间只允许出现“-”", // 组件的标签
+      "value": "payment-ccb", // 组件内容
+      "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD，CHECKBOX，COMBOBOX
+      "options": null, // 对应项如果是下来菜单方式的时候，里面的值列表，可以为null
+      "highlightable": true, // 渲染成高亮方式
+      "defaultable": false, // 渲染成默认项方式
+      "emptiable": false, // 渲染成留空项方式
+      "editable": true // 渲染成不可编辑项方式
+   },
+
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-download.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-getMetaData.jpg)
+
+## 单机示例
 模板文件示例，用${}表示为动态变量
 ```java
 package ${package};
