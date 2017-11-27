@@ -27,13 +27,13 @@
     @RequestMapping(value = "/download", method = RequestMethod.POST)
     public byte[] download(@RequestBody String config)
 
-    在Postman上对http://localhost:2222/download进行POST调用，Body的内容为src\main\resources\config\skeleton-data.properties，如图Postman-download.jpg，将返回一键创建后的zip文件的byte数组格式
+    在Postman上对http://localhost:2222/download进行POST调用，Body的内容为src\main\resources\config\skeleton-data.properties，如图1，将返回一键创建后的zip文件的byte数组格式
 
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
     public Map<String, SkeletonGroup> getMetaData()
 
-    在Postman上对http://localhost:2222/getMetaData进行GET调用，如图Postman-getMetaData.jpg，将返回JSON格式的文件，简单介绍一下格式：
+    在Postman上对http://localhost:2222/getMetaData进行GET调用，如图2，将返回JSON格式的文件，简单介绍一下格式：
     {
       "key": "moduleName", // 组件所对应的唯一Key
       "label": "【必改项】工程的模块名，首字母必须小写，中间只允许出现“-”", // 组件的标签
@@ -46,10 +46,10 @@
       "editable": true // 渲染成不可编辑项方式
    },
 
-Postman-download.jpg
+图1
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-download.jpg)
 
-Postman-getMetaData.jpg
+图2
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-getMetaData.jpg)
 
 ## 单机示例
