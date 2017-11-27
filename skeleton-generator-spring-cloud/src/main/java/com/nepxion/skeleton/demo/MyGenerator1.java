@@ -24,8 +24,11 @@ public class MyGenerator1 {
             // 创建文件的输出的路径
             String generatePath = "E:/Download/Skeleton/";
 
+            // 描述规则的配置文件所在的路径
+            String propertiesPath = "config/skeleton-data.properties";
+
             // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties();
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 创建Java类文件
             // 模板文件MyApplication.java.template必须和MyApplicationClassGenerator放在同一个目录下

@@ -36,8 +36,11 @@ public class MyGenerator2 {
             //    4) project - 工程根目录下文件创建
             String baseTemplatePath = "com/nepxion/skeleton/demo/";
 
+            // 描述规则的配置文件所在的路径
+            String propertiesPath = "config/skeleton-data.properties";
+
             // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties();
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 创建Java类文件
             // 模板文件MyApplication.java.template必须放在[baseTemplatePath]/server/java下

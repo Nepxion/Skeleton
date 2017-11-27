@@ -19,13 +19,7 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.io.IOUtils;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-
 public class SkeletonProperties extends PropertiesConfiguration {
-    public SkeletonProperties() throws ConfigurationException {
-        this(SkeletonConstant.SKELETON_DATA_FILE);
-    }
-
     public SkeletonProperties(String path) throws ConfigurationException {
         super(path);
     }

@@ -30,19 +30,25 @@ import com.nepxion.skeleton.property.SkeletonProperties;
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
 
+    private static final String SKELETON_DATA_FILE = "config/skeleton-data.properties";
+    private static final String SKELETON_DESCRIPTION_FILE = "config/skeleton-description.properties";
+    private static final String SKELETON_ITEM_LIST_FILE = "config/skeleton-item-list.properties";
+
     private SkeletonProperties skeletonDataProperties;
     private SkeletonProperties skeletonDescriptionProperties;
     private SkeletonProperties skeletonItemListProperties;
 
     public SkeletonConfigTransport() {
         try {
-            skeletonDataProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DATA_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonDescriptionProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonItemListProperties = new SkeletonProperties(SkeletonConstant.SKELETON_ITEM_LIST_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonDataProperties = new SkeletonProperties(SKELETON_DATA_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonDescriptionProperties = new SkeletonProperties(SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonItemListProperties = new SkeletonProperties(SKELETON_ITEM_LIST_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (ConfigurationException e) {
             LOG.error("Parse properties failed", e);
+            e.printStackTrace();
         } catch (IOException e) {
             LOG.error("Parse properties failed", e);
+            e.printStackTrace();
         }
     }
 

@@ -45,8 +45,4 @@ public class SkeletonConstant {
     public static final String MAIN_DOCKER_CODE_PATH = "src" + FILE_SEPARATOR + "main" + FILE_SEPARATOR + "docker" + FILE_SEPARATOR;
     public static final String TEST_JAVA_CODE_PATH = "src" + FILE_SEPARATOR + "test" + FILE_SEPARATOR + "java" + FILE_SEPARATOR;
     public static final String TEST_RESOURCES_FILE_PATH = "src" + FILE_SEPARATOR + "test" + FILE_SEPARATOR + "resources" + FILE_SEPARATOR;
-
-    public static final String SKELETON_DATA_FILE = "config/skeleton-data.properties";
-    public static final String SKELETON_DESCRIPTION_FILE = "config/skeleton-description.properties";
-    public static final String SKELETON_ITEM_LIST_FILE = "config/skeleton-item-list.properties";
 }
