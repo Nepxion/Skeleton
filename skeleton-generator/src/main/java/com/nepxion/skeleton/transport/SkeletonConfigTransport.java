@@ -24,14 +24,11 @@ import org.slf4j.LoggerFactory;
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonEntity;
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
-
-    private static final String SKELETON_DATA_FILE = "config/skeleton-data.properties";
-    private static final String SKELETON_DESCRIPTION_FILE = "config/skeleton-description.properties";
-    private static final String SKELETON_ITEM_LIST_FILE = "config/skeleton-item-list.properties";
 
     private SkeletonProperties skeletonDataProperties;
     private SkeletonProperties skeletonDescriptionProperties;
@@ -39,9 +36,9 @@ public class SkeletonConfigTransport {
 
     public SkeletonConfigTransport() {
         try {
-            skeletonDataProperties = new SkeletonProperties(SKELETON_DATA_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonDescriptionProperties = new SkeletonProperties(SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonItemListProperties = new SkeletonProperties(SKELETON_ITEM_LIST_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonDataProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DATA_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonDescriptionProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonItemListProperties = new SkeletonProperties(SkeletonConstant.SKELETON_ITEM_LIST_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (ConfigurationException e) {
             LOG.error("Parse properties failed", e);
         } catch (IOException e) {
@@ -67,7 +64,7 @@ public class SkeletonConfigTransport {
                     metaData.put(groupKey, skeletonGroup);
                 } else {
                     if (skeletonGroup == null) {
-                        throw new IllegalArgumentException("No skeleton group has been initialized");
+                        throw new SkeletonException("No skeleton group has been initialized");
                     }
                     String value = skeletonDataProperties.getString(key);
                     SkeletonEntity skeletonEntity = new SkeletonEntity();
