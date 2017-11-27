@@ -47,10 +47,10 @@
    },
 
 图1
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-download.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman1.jpg)
 
 图2
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman-getMetaData.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman2.jpg)
 
 ## 单机示例
 模板文件示例，用${}表示为动态变量
