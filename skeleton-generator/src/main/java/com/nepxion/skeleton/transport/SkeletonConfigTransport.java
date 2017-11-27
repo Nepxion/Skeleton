@@ -10,40 +10,28 @@ package com.nepxion.skeleton.transport;
  * @version 1.0
  */
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonEntity;
 import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.exception.SkeletonException;
+import com.nepxion.skeleton.handler.SkeletonHandler;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class SkeletonConfigTransport {
-    private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
-
     private SkeletonProperties skeletonDataProperties;
     private SkeletonProperties skeletonDescriptionProperties;
     private SkeletonProperties skeletonItemListProperties;
 
     public SkeletonConfigTransport() {
-        try {
-            skeletonDataProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DATA_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonDescriptionProperties = new SkeletonProperties(SkeletonConstant.SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
-            skeletonItemListProperties = new SkeletonProperties(SkeletonConstant.SKELETON_ITEM_LIST_FILE, SkeletonConstant.ENCODING_UTF_8);
-        } catch (ConfigurationException e) {
-            LOG.error("Parse properties failed", e);
-        } catch (IOException e) {
-            LOG.error("Parse properties failed", e);
-        }
+        skeletonDataProperties = SkeletonHandler.getSkeletonDataProperties();
+        skeletonDescriptionProperties = SkeletonHandler.getSkeletonDescriptionProperties();
+        skeletonItemListProperties = SkeletonHandler.getSkeletonItemListProperties();
     }
 
     public Map<String, SkeletonGroup> getMetaData() {

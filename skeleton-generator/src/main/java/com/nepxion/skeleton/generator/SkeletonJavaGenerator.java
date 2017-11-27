@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.exception.SkeletonException;
+import com.nepxion.skeleton.handler.SkeletonHandler;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.util.SkeletonUtil;
 
@@ -29,11 +30,27 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     protected String defaultBasePackage;
     protected String defaultOutputPath;
 
+    public SkeletonJavaGenerator(String projectType, Class<?> generatorClass) {
+        this(projectType, generatorClass, SkeletonHandler.getSkeletonDataProperties());
+    }
+
+    public SkeletonJavaGenerator(String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        this(SkeletonHandler.getGeneratePath(), projectType, generatorClass, skeletonProperties);
+    }
+
     public SkeletonJavaGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, generatorClass, skeletonProperties);
 
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
+    }
+
+    public SkeletonJavaGenerator(String projectType, String baseTemplatePath) {
+        this(projectType, baseTemplatePath, SkeletonHandler.getSkeletonDataProperties());
+    }
+
+    public SkeletonJavaGenerator(String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+        this(SkeletonHandler.getGeneratePath(), projectType, baseTemplatePath, skeletonProperties);
     }
 
     public SkeletonJavaGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
