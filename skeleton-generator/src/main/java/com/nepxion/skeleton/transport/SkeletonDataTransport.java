@@ -12,6 +12,8 @@ package com.nepxion.skeleton.transport;
 
 import java.io.File;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -21,6 +23,18 @@ import com.nepxion.skeleton.util.ZipUtil;
 
 public abstract class SkeletonDataTransport {
     public byte[] download(String generatePath, String directoryName, String config) {
+        if (StringUtils.isEmpty(generatePath)) {
+            throw new SkeletonException("Generate path is null or empty");
+        }
+
+        if (StringUtils.isEmpty(generatePath)) {
+            throw new SkeletonException("Directory name is null or empty");
+        }
+
+        if (StringUtils.isEmpty(config)) {
+            throw new SkeletonException("Config content is null or empty");
+        }
+
         try {
             SkeletonProperties skeletonProperties = new SkeletonProperties(new StringBuilder(config), SkeletonConstant.ENCODING_UTF_8);
 
