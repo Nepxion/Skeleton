@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.demo;
+package com.nepxion.skeleton.example;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,9 +10,9 @@ package com.nepxion.skeleton.demo;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.entity.SkeletonFileType;
+import com.nepxion.skeleton.example.server.java.MyApplicationClassGenerator;
+import com.nepxion.skeleton.example.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 // MyGenerator1和MyGenerator2输出结果一致

@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nepxion.skeleton.demo.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.demo.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.example.server.java.MyApplicationClassGenerator;
+import com.nepxion.skeleton.example.service.resources.MybatisGeneratorXmlGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
