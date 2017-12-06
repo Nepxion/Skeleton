@@ -11,6 +11,8 @@
     5. 基于Spring Cloud的调用，Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen	
     6. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
 
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
+
 ## 配置文件使用
     1. skeleton-data.properties
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)
