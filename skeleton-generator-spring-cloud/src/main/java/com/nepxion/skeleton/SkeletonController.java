@@ -10,6 +10,10 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +32,7 @@ import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
 
 @RestController
+@Api(value = "脚手架操作")
 public class SkeletonController {
     public static final String SPRING_CLOUD_SKELETON = "spring-cloud-skeleton-";
 
@@ -51,11 +56,13 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/download", method = RequestMethod.POST)
-    public byte[] download(@RequestBody String config) {
+    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的byte数组方式", response = byte[].class, httpMethod = "POST")
+    public byte[] download(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         return dataTransport.download(skeletonGeneratePath, SPRING_CLOUD_SKELETON, config);
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
+    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = Map.class, httpMethod = "GET")
     public Map<String, SkeletonGroup> getMetaData() {
         return configTransport.getMetaData();
     }
