@@ -34,7 +34,7 @@ public class MyGenerator2 {
             //    2) resources - resources目录下文件创建
             //    3) docker - docker目录下文件创建
             //    4) project - 工程根目录下文件创建
-            String baseTemplatePath = "com/nepxion/skeleton/demo/";
+            String baseTemplatePath = "com/nepxion/skeleton/example/";
 
             // 描述规则的配置文件所在的路径
             String propertiesPath = "config/skeleton-data.properties";

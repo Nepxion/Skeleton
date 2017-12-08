@@ -21,11 +21,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class SkeletonGroup implements Serializable {
     private static final long serialVersionUID = -7892454279861098493L;
 
-    // 标识为组
-    public static final String GROUP_PREFIX = "<group>";
-
     private String key;
     private String label;
+    private String description;
 
     private List<SkeletonEntity> entityList;
 
@@ -43,6 +41,14 @@ public class SkeletonGroup implements Serializable {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<SkeletonEntity> getEntityList() {

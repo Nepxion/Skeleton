@@ -12,7 +12,6 @@ package com.nepxion.skeleton.entity;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -21,20 +20,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class SkeletonEntity implements Serializable {
     private static final long serialVersionUID = 4973597750877880158L;
 
-    // 标识为高亮项
-    public static final String HIGHLIGHT_PREFIX = "<*>";
-
-    // 标识为默认项
-    public static final String DEFAULT_PREFIX = "<#>";
-
-    // 标识为留空项
-    public static final String CAN_EMPTY_PREFIX = "<^>";
-
-    // 标识为不可编辑项
-    public static final String NOT_EDITABLE_PREFIX = "<$>";
-
     private String key;
     private String label;
+    private String description;
     private String value;
     private SkeletonEntityType type = SkeletonEntityType.TEXTFIELD;
     private String[] options;
@@ -59,15 +47,28 @@ public class SkeletonEntity implements Serializable {
         this.label = label;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getValue() {
         return value;
     }
 
     public void setValue(String value) {
         this.value = value;
-        if (StringUtils.equalsIgnoreCase(value, "true") || StringUtils.equalsIgnoreCase(value, "false")) {
-            this.type = SkeletonEntityType.CHECKBOX;
-        }
+    }
+
+    public SkeletonEntityType getType() {
+        return type;
+    }
+
+    public void setType(SkeletonEntityType type) {
+        this.type = type;
     }
 
     public String[] getOptions() {
@@ -76,11 +77,6 @@ public class SkeletonEntity implements Serializable {
 
     public void setOptions(String[] options) {
         this.options = options;
-        this.type = SkeletonEntityType.COMBOBOX;
-    }
-
-    public SkeletonEntityType getType() {
-        return type;
     }
 
     public boolean isHighlightable() {

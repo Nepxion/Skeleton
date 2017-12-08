@@ -11,7 +11,32 @@ package com.nepxion.skeleton.entity;
  */
 
 public enum SkeletonEntityType {
-    TEXTFIELD,
-    CHECKBOX,
-    COMBOBOX
+    TEXTFIELD("TEXTFIELD"),
+    CHECKBOX("CHECKBOX"),
+    COMBOBOX("COMBOBOX");
+
+    private String value;
+
+    private SkeletonEntityType(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public static SkeletonEntityType fromString(String value) {
+        for (SkeletonEntityType type : SkeletonEntityType.values()) {
+            if (type.getValue().equalsIgnoreCase(value.trim())) {
+                return type;
+            }
+        }
+
+        throw new IllegalArgumentException("Mismatched type with value=" + value);
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

@@ -16,9 +16,21 @@ public class SkeletonConstant {
     public static final String FILE_ZIP = "zip";
     public static final String ENCODING_UTF_8 = "UTF-8";
     public static final String ENCODING_GBK = "GBK";
+    public static final String ENCODING_ISO_8859_1 = "ISO-8859-1";
 
     public static final String UPPER_CASE = "upperCase";
     public static final String LOWER_CASE = "lowerCase";
+
+    public static final String GROUP = "group";
+    public static final String KEY = "key";
+    public static final String LABEL = "label";
+    public static final String ENTITY = "entity";
+    public static final String TYPE = "type";
+    public static final String OPTIONS = "options";
+    public static final String HIGHLIGHTABLE = "highlightable";
+    public static final String DEFAULTABLE = "defaultable";
+    public static final String EMPTIABLE = "emptiable";
+    public static final String EDITABLE = "editable";
 
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";

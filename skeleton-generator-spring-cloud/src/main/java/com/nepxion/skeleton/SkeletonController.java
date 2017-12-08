@@ -14,7 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-import java.util.Map;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -62,8 +62,8 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = Map.class, httpMethod = "GET")
-    public Map<String, SkeletonGroup> getMetaData() {
+    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    public List<SkeletonGroup> getMetaData() {
         return configTransport.getMetaData();
     }
 }
