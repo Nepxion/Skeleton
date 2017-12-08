@@ -16,12 +16,12 @@
 ## 配置文件使用
     1. skeleton-data.properties
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)
-    2. skeleton-description.properties
-       用来描述模skeleton-data.properties里面，每个Key对应的中文名。里面的值前缀可以如下特殊符号，用来渲染界面上每个组件的Label，
-       <*> - 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
-       <#> - 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
-       <^> - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
-       <$> - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑	   
+    2. skeleton-description.xml
+       用来描述模界面驱动和渲染的组件，分为Group和Entity结构，一个Group包含多个Entity，其他属性比较容易理解，主要介绍如下
+       highlightable - 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
+       defaultable - 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
+       emptiable - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
+       editable - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑	   
     3. skeleton-item-list.properties
        用来描述模skeleton-data.properties里面，对应项如果是下来菜单方式的时候，里面的值列表，通过“;”分隔，例如版本号，1.0.0;1.0.1;1.0.2，可让使用者选取
 
@@ -34,12 +34,13 @@
 
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    public Map<String, SkeletonGroup> getMetaData()
+    public List<SkeletonGroup> getMetaData()
 
     在Postman上对http://localhost:2222/getMetaData进行GET调用，如图2，将返回JSON格式的文件，简单介绍一下格式：
     {
       "key": "moduleName", // 组件所对应的唯一Key
-      "label": "【必改项】工程的模块名，首字母必须小写，中间只允许出现“-”", // 组件的标签
+      "label": "工程的模块名", // 组件的标签
+      "description": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的描述
       "value": "payment-ccb", // 组件内容
       "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD，CHECKBOX，COMBOBOX
       "options": null, // 对应项如果是下来菜单方式的时候，里面的值列表，可以为null
