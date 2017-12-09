@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.xml;
+package com.nepxion.skeleton.parser;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,18 +10,11 @@ package com.nepxion.skeleton.xml;
  * @version 1.0
  */
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,9 +24,9 @@ import com.nepxion.skeleton.entity.SkeletonEntity;
 import com.nepxion.skeleton.entity.SkeletonEntityType;
 import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.util.IOUtil;
+import com.nepxion.skeleton.xml.Dom4JParser;
 
-public class SkeletonXmlParser {
+public class SkeletonXmlParser extends Dom4JParser {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonXmlParser.class);
 
     private List<SkeletonGroup> skeletonGroups;
@@ -43,62 +36,9 @@ public class SkeletonXmlParser {
         this.skeletonDataProperties = skeletonDataProperties;
     }
 
-    public void parsePath(String path) throws IOException, DocumentException {
-        InputStream inputStream = null;
-        try {
-            inputStream = IOUtil.getInputStream(path);
-            parse(inputStream);
-        } finally {
-            if (inputStream != null) {
-                IOUtils.closeQuietly(inputStream);
-            }
-        }
-    }
-
-    public void parse(String text) throws DocumentException {
-        Document document = Dom4JReader.getDocument(text);
-
-        parse(document);
-    }
-
-    public void parseFormat(String text) throws DocumentException, UnsupportedEncodingException {
-        Document document = Dom4JReader.getFormatDocument(text);
-
-        parse(document);
-    }
-
-    public void parse(File file) throws DocumentException, IOException, UnsupportedEncodingException {
-        Document document = Dom4JReader.getDocument(file);
-
-        parse(document);
-    }
-
-    public void parseFormat(File file) throws DocumentException, IOException, UnsupportedEncodingException {
-        Document document = Dom4JReader.getFormatDocument(file);
-
-        parse(document);
-    }
-
-    public void parse(InputStream inputStream) throws DocumentException, IOException {
-        Document document = Dom4JReader.getDocument(inputStream);
-
-        parse(document);
-    }
-
-    public void parseFormat(InputStream inputStream) throws DocumentException, IOException, UnsupportedEncodingException {
-        Document document = Dom4JReader.getFormatDocument(inputStream);
-
-        parse(document);
-    }
-
-    public void parse(Document document) {
-        Element rootElement = document.getRootElement();
-
-        parseRoot(rootElement);
-    }
-
     @SuppressWarnings("rawtypes")
-    private void parseRoot(Element element) {
+    @Override
+    protected void parseRoot(Element element) {
         LOG.info("Start to parse xml...");
 
         skeletonGroups = new ArrayList<SkeletonGroup>();

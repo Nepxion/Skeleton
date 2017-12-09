@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.parser.SkeletonXmlParser;
 import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.xml.SkeletonXmlParser;
 
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
@@ -45,7 +45,7 @@ public class SkeletonConfigTransport {
 
         try {
             skeletonXmlParser = new SkeletonXmlParser(skeletonDataProperties);
-            skeletonXmlParser.parsePath(SKELETON_DESCRIPTION_FILE);
+            skeletonXmlParser.parsePath(SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse xml failed", e);
             e.printStackTrace();

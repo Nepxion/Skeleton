@@ -19,20 +19,14 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-
 public class Dom4JWriter {
     public static Document createDocument() {
         return DocumentHelper.createDocument();
     }
 
-    public static String getText(Document document) throws IOException, UnsupportedEncodingException {
-        return getText(document, SkeletonConstant.ENCODING_UTF_8);
-    }
-
-    public static String getText(Document document, String charset) throws IOException, UnsupportedEncodingException {
+    public static String getText(Document document, String encoding) throws IOException, UnsupportedEncodingException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        OutputFormat outputFormat = new OutputFormat("  ", true, charset);
+        OutputFormat outputFormat = new OutputFormat("  ", true, encoding);
 
         try {
             XMLWriter writer = new XMLWriter(baos, outputFormat);
@@ -49,6 +43,6 @@ public class Dom4JWriter {
             }
         }
 
-        return baos.toString(charset);
+        return baos.toString(encoding);
     }
 }

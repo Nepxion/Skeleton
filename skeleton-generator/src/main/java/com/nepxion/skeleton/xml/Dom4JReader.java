@@ -14,68 +14,33 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 
+import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.InputSource;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-
 public class Dom4JReader {
     public static Document getDocument(String text) throws DocumentException {
         return DocumentHelper.parseText(text);
     }
 
-    public static Document getFormatDocument(String text) throws DocumentException, UnsupportedEncodingException {
-        return getFormatDocument(text, SkeletonConstant.ENCODING_UTF_8);
-    }
-
-    public static Document getFormatDocument(String text, String charset) throws DocumentException, UnsupportedEncodingException {
-        String formatText = new String(text.getBytes(SkeletonConstant.ENCODING_ISO_8859_1), SkeletonConstant.ENCODING_UTF_8);
-
-        return getDocument(formatText);
-    }
-
-    public static Document getDocument(File file) throws DocumentException, IOException {
+    public static Document getDocument(File file, String encoding) throws DocumentException, IOException, UnsupportedEncodingException {
         InputStream inputStream = new FileInputStream(file);
 
-        return getDocument(inputStream);
+        return getDocument(inputStream, encoding);
     }
 
-    public static Document getFormatDocument(File file) throws DocumentException, IOException, UnsupportedEncodingException {
-        return getFormatDocument(file, SkeletonConstant.ENCODING_UTF_8);
-    }
-
-    public static Document getFormatDocument(File file, String charset) throws DocumentException, IOException, UnsupportedEncodingException {
-        InputStream inputStream = new FileInputStream(file);
-
-        return getFormatDocument(inputStream, charset);
-    }
-
-    public static Document getDocument(InputSource inputSource) throws DocumentException {
+    public static Document getDocument(InputStream inputStream, String encoding) throws DocumentException, IOException {
         SAXReader saxReader = new SAXReader();
-
-        return saxReader.read(inputSource);
-    }
-
-    public static Document getFormatDocument(InputSource inputSource) throws DocumentException {
-        return getFormatDocument(inputSource, SkeletonConstant.ENCODING_UTF_8);
-    }
-
-    public static Document getFormatDocument(InputSource inputSource, String charset) throws DocumentException {
-        inputSource.setEncoding(charset);
-
-        return getDocument(inputSource);
-    }
-
-    public static Document getDocument(InputStream inputStream) throws DocumentException, IOException {
-        SAXReader saxReader = new SAXReader();
+        if (StringUtils.isNotEmpty(encoding)) {
+            saxReader.setEncoding(encoding);
+        }
 
         Document document = null;
         try {
@@ -91,18 +56,22 @@ public class Dom4JReader {
         return document;
     }
 
-    public static Document getFormatDocument(InputStream inputStream) throws DocumentException, IOException, UnsupportedEncodingException {
-        return getFormatDocument(inputStream, SkeletonConstant.ENCODING_UTF_8);
-    }
+    public static Document getDocument(InputSource inputSource, String encoding) throws DocumentException {
+        inputSource.setEncoding(encoding);
 
-    public static Document getFormatDocument(InputStream inputStream, String charset) throws DocumentException, IOException, UnsupportedEncodingException {
-        Reader inputStreamReader = new InputStreamReader(inputStream, charset);
-
-        return getDocument(inputStreamReader);
-    }
-
-    public static Document getDocument(Reader reader) throws DocumentException, IOException {
         SAXReader saxReader = new SAXReader();
+        if (StringUtils.isNotEmpty(encoding)) {
+            saxReader.setEncoding(encoding);
+        }
+
+        return saxReader.read(inputSource);
+    }
+
+    public static Document getDocument(Reader reader, String encoding) throws DocumentException, IOException {
+        SAXReader saxReader = new SAXReader();
+        if (StringUtils.isNotEmpty(encoding)) {
+            saxReader.setEncoding(encoding);
+        }
 
         Document document = null;
         try {
@@ -118,8 +87,11 @@ public class Dom4JReader {
         return document;
     }
 
-    public static Document getDocument(URL url) throws DocumentException {
+    public static Document getDocument(URL url, String encoding) throws DocumentException {
         SAXReader saxReader = new SAXReader();
+        if (StringUtils.isNotEmpty(encoding)) {
+            saxReader.setEncoding(encoding);
+        }
 
         return saxReader.read(url);
     }
