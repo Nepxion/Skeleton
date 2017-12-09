@@ -24,6 +24,7 @@ public class SkeletonGroup implements Serializable {
     private String key;
     private String label;
     private String description;
+    private int column = 1;
 
     private List<SkeletonEntity> entityList;
 
@@ -49,6 +50,14 @@ public class SkeletonGroup implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     public List<SkeletonEntity> getEntityList() {

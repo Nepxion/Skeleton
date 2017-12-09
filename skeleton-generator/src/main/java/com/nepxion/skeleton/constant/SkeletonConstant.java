@@ -24,6 +24,7 @@ public class SkeletonConstant {
     public static final String GROUP = "group";
     public static final String KEY = "key";
     public static final String LABEL = "label";
+    public static final String COLUMN = "column";
     public static final String ENTITY = "entity";
     public static final String TYPE = "type";
     public static final String OPTIONS = "options";
