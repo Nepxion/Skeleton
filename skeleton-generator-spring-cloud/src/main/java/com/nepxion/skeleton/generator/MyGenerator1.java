@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.example;
+package com.nepxion.skeleton.generator;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,8 +10,9 @@ package com.nepxion.skeleton.example;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.example.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.example.service.resources.MybatisGeneratorXmlGenerator;
+import com.nepxion.skeleton.generator.server.PomXmlGenerator;
+import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
+import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 // MyGenerator1和MyGenerator2输出结果一致
@@ -31,12 +32,14 @@ public class MyGenerator1 {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 创建Java类文件
-            // 模板文件MyApplication.java.template必须和MyApplicationClassGenerator放在同一个目录下
-            new MyApplicationClassGenerator(generatePath, "server", skeletonProperties).generate();
+            // 模板文件ServerApplication.java.template必须和ServerApplicationClassGenerator.java放在同一个目录下，下同
+            new ServerApplicationClassGenerator(generatePath, "server", skeletonProperties).generate();
 
             // 创建文件到resources目录下
-            // 模板文件mybatis-generator.xml.template必须和MybatisGeneratorXmlGenerator放在同一个目录下
-            new MybatisGeneratorXmlGenerator(generatePath, "service", skeletonProperties).generate();
+            new ApplicationPropertiesGenerator(generatePath, "server", skeletonProperties).generate();
+            
+            // 创建文件到目录下
+            new PomXmlGenerator(generatePath, "server", skeletonProperties).generate();
         } catch (Exception e) {
             e.printStackTrace();
         }

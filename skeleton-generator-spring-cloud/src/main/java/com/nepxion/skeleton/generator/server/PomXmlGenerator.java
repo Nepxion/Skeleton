@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.example.service.resources;
+package com.nepxion.skeleton.generator.server;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,20 +10,22 @@ package com.nepxion.skeleton.example.service.resources;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
-public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
+public class PomXmlGenerator extends SkeletonFileGenerator {
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
      * @param skeletonProperties 全局配置文件对象
      */
-    public MybatisGeneratorXmlGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, MybatisGeneratorXmlGenerator.class, skeletonProperties);
+    public PomXmlGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, PomXmlGenerator.class, skeletonProperties);
     }
 
     /**
@@ -34,7 +36,7 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
      * @param fileType 创建的文件类型
      * @param skeletonProperties 全局配置文件对象
      */
-    public MybatisGeneratorXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+    public PomXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
     }
 
@@ -43,7 +45,7 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getFileName() {
-        return "mybatis-generator.xml";
+        return "pom.xml";
     }
 
     /**
@@ -51,7 +53,7 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getTemplateName() {
-        return "mybatis-generator.xml.template";
+        return "pom.xml.template";
     }
 
     /**
@@ -59,7 +61,7 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getOutputPath() {
-        return super.getOutputPath() + SkeletonConstant.MAIN_RESOURCES_FILE_PATH;
+        return super.getOutputPath();
     }
 
     /**
@@ -67,6 +69,15 @@ public class MybatisGeneratorXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected Object getDataModel() {
-        return null;
+        Map<String, Object> dataModel = new HashMap<String, Object>();
+        dataModel.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
+        dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId"));
+        dataModel.put("pomName", skeletonProperties.getString("pomName"));
+        dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
+        dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+        dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
+        dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
+
+        return dataModel;
     }
 }

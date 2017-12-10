@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.example;
+package com.nepxion.skeleton.generator;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -11,8 +11,9 @@ package com.nepxion.skeleton.example;
  */
 
 import com.nepxion.skeleton.entity.SkeletonFileType;
-import com.nepxion.skeleton.example.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.example.service.resources.MybatisGeneratorXmlGenerator;
+import com.nepxion.skeleton.generator.server.PomXmlGenerator;
+import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
+import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 // MyGenerator1和MyGenerator2输出结果一致
@@ -34,7 +35,7 @@ public class MyGenerator2 {
             //    2) resources - resources目录下文件创建
             //    3) docker - docker目录下文件创建
             //    4) project - 工程根目录下文件创建
-            String baseTemplatePath = "com/nepxion/skeleton/example/";
+            String baseTemplatePath = "com/nepxion/skeleton/generator/";
 
             // 描述规则的配置文件所在的路径
             String propertiesPath = "config/skeleton-data.properties";
@@ -43,12 +44,16 @@ public class MyGenerator2 {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 创建Java类文件
-            // 模板文件MyApplication.java.template必须放在[baseTemplatePath]/server/java下
-            new MyApplicationClassGenerator(generatePath, "server", baseTemplatePath, skeletonProperties).generate();
+            // 模板文件ServerApplication.java.template必须放在[baseTemplatePath]/server/java下
+            new ServerApplicationClassGenerator(generatePath, "server", baseTemplatePath, skeletonProperties).generate();
 
             // 创建文件到resources目录下
-            // 模板mybatis-generator.xml.template必须放在[baseTemplatePath]/service/resources下
-            new MybatisGeneratorXmlGenerator(generatePath, "service", baseTemplatePath, SkeletonFileType.RESOURCES, skeletonProperties).generate();
+            // 模板application.properties.template必须放在[baseTemplatePath]/server/resources下
+            new ApplicationPropertiesGenerator(generatePath, "server", baseTemplatePath, SkeletonFileType.RESOURCES, skeletonProperties).generate();
+
+            // 创建文件到目录下
+            // 模板application.properties.template必须放在[baseTemplatePath]/server的根目录下
+            new PomXmlGenerator(generatePath, "server", baseTemplatePath, SkeletonFileType.ROOT, skeletonProperties).generate();
         } catch (Exception e) {
             e.printStackTrace();
         }

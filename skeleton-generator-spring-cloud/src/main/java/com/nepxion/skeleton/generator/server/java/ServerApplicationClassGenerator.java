@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.example.server.java;
+package com.nepxion.skeleton.generator.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton Generator</p>
@@ -10,21 +10,22 @@ package com.nepxion.skeleton.example.server.java;
  * @version 1.0
  */
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
-public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
+public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
      * @param skeletonProperties 全局配置文件对象
      */
-    public MyApplicationClassGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, MyApplicationClassGenerator.class, skeletonProperties);
+    public ServerApplicationClassGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, ServerApplicationClassGenerator.class, skeletonProperties);
     }
 
     /**
@@ -34,7 +35,7 @@ public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param baseTemplatePath 模板文件的等级路径
      * @param skeletonProperties 全局配置文件对象
      */
-    public MyApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+    public ServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, skeletonProperties);
     }
 
@@ -51,7 +52,7 @@ public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
      */
     @Override
     protected String getClassName() {
-        return "MyApplication";
+        return "ServerApplication";
     }
 
     /**
@@ -59,7 +60,7 @@ public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
      */
     @Override
     protected String getTemplateName() {
-        return "MyApplication.java.template";
+        return "ServerApplication.java.template";
     }
 
     /**
@@ -83,11 +84,10 @@ public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
      */
     @Override
     protected Object getDataModel() {
-        Map<String, Object> dataModel = generateDataModel();
-        // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如MyContextAware.ClassPath，MyContextAware-ClassPath都会抛错
+        Map<String, Object> dataModel = new HashMap<String, Object>();
+        // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如eureka.Enabled，eureka-Enabled都会抛错
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
-        dataModel.put("MyContextAwareClassPath", "com.nepxion.matrix.test.simple.context.MyContextAware");
-        dataModel.put("MyServiceClassPath", "com.nepxion.matrix.test.simple.service.MyService");
+        dataModel.put("eurekaEnabled", skeletonProperties.getString("eurekaEnabled"));
 
         return dataModel;
     }
