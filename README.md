@@ -54,7 +54,6 @@
             "highlightable": true, // 渲染成高亮方式
             "defaultable": false, // 渲染成默认项方式
             "emptiable": false, // 渲染成留空项方式
-            "editable": true e, 
             "editable": true // 渲染成不可编辑项方式
           }
         ]
