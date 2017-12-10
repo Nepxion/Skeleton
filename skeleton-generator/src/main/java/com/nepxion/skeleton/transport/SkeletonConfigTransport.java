@@ -14,14 +14,17 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.parser.SkeletonXmlParser;
 import com.nepxion.skeleton.property.SkeletonProperties;
+import com.nepxion.skeleton.util.SkeletonUtil;
 
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
@@ -53,6 +56,22 @@ public class SkeletonConfigTransport {
             LOG.error("Parse xml failed", e);
             e.printStackTrace();
         }
+    }
+
+    public SkeletonProperties getProperties(String config) {
+        if (StringUtils.isEmpty(config)) {
+            throw new SkeletonException("Config content is null or empty");
+        }
+
+        try {
+            return new SkeletonProperties(new StringBuilder(config), SkeletonConstant.ENCODING_UTF_8);
+        } catch (Exception e) {
+            throw new SkeletonException(e.getMessage(), e);
+        }
+    }
+
+    public String getCanonicalFileName(String directoryName, SkeletonProperties skeletonProperties) {
+        return SkeletonUtil.getCanonicalFileName(directoryName, skeletonProperties);
     }
 
     public List<SkeletonGroup> getMetaData() {
