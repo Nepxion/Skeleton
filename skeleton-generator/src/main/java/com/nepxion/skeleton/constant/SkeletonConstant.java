@@ -50,7 +50,7 @@ public class SkeletonConstant {
     public static final String JAVA = "java";
     public static final String RESOURCES = "resources";
     public static final String DOCKER = "docker";
-    public static final String PROJECT = "project";
+    public static final String ROOT = "";
     public static final String META_INF = "META-INF";
 
     public static final String MAIN_JAVA_CODE_PATH = "src" + FILE_SEPARATOR + "main" + FILE_SEPARATOR + "java" + FILE_SEPARATOR;

@@ -16,7 +16,7 @@ public enum SkeletonFileType {
     JAVA(SkeletonConstant.JAVA),
     RESOURCES(SkeletonConstant.RESOURCES),
     DOCKER(SkeletonConstant.DOCKER),
-    PROJECT(SkeletonConstant.PROJECT);
+    ROOT(SkeletonConstant.ROOT);
 
     private String value;
 
