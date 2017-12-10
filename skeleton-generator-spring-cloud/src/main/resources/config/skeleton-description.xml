@@ -36,7 +36,7 @@
             <key>pomGroupId</key>
             <label>Group Id</label>
             <description></description>
-            <note>【必改项】Group Id</note>
+            <note></note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -47,7 +47,7 @@
             <key>pomArtifactId</key>
             <label>Artifact Id</label>
             <description></description>
-            <note>【必改项】Artifact Id</note>
+            <note></note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -58,7 +58,7 @@
             <key>pomName</key>
             <label>Name</label>
             <description></description>
-            <note>【必改项】Name</note>
+            <note></note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -69,7 +69,7 @@
             <key>pomVersion</key>
             <label>Version</label>
             <description></description>
-            <note>Version</note>
+            <note></note>
             <type>COMBOBOX</type>
             <options>1.0.0</options>
             <highlightable>false</highlightable>
@@ -81,7 +81,7 @@
             <key>springCloudVersion</key>
             <label>Spring Cloud Version</label>
             <description></description>
-            <note>Spring Cloud Version</note>
+            <note></note>
             <type>COMBOBOX</type>
             <options>Dalston.SR4;Edgware.RELEASE</options>
             <highlightable>false</highlightable>
@@ -93,7 +93,7 @@
             <key>springBootVersion</key>
             <label>Spring Boot Version</label>
             <description></description>
-            <note>Spring Boot Version</note>
+            <note></note>
             <type>COMBOBOX</type>
             <options>1.5.6.RELEASE</options>
             <highlightable>false</highlightable>
@@ -105,7 +105,7 @@
             <key>javaVersion</key>
             <label>Java Version</label>
             <description></description>
-            <note>Spring Boot Version</note>
+            <note></note>
             <type>COMBOBOX</type>
             <options>1.8;1.7;1.6</options>
             <highlightable>false</highlightable>
@@ -121,7 +121,7 @@
         <entity>
             <key>serviceName</key>
             <label>服务名</label>
-            <description>serviceName</description>
+            <description></description>
             <note>【必改项】Spring Cloud服务名</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -132,7 +132,7 @@
         <entity>
             <key>port</key>
             <label>端口</label>
-            <description>prot</description>
+            <description></description>
             <note>【必改项】Spring Cloud端口号</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -143,8 +143,8 @@
         <entity>
             <key>eurekaEnabled</key>
             <label>Eureka组件</label>
-            <description>eurekaEnabled</description>
-            <note>Eureka组件(推荐)</note>
+            <description></description>
+            <note></note>
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>false</defaultable>
@@ -154,8 +154,8 @@
         <entity>
             <key>eurekaUrl</key>
             <label>Eureka地址</label>
-            <description>eurekaUrl</description>
-            <note>【必改项】Eureka地址</note>
+            <description></description>
+            <note>【必改项】Eureka URL地址</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
