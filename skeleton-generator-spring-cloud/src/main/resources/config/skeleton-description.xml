@@ -1,22 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <skeleton>
     <group>
-        <key>configGloble</key>
-        <label>全局配置</label>
-        <description>全局配置</description>
-        <entity>
-            <key>moduleName</key>
-            <label>工程的模块名</label>
-            <description>【必改项】首字母必须小写，中间只允许出现“-”</description>
-            <type>TEXTFIELD</type>
-            <highlightable>true</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
+        <key>project</key>
+        <label>工程配置</label>
+        <description>工程配置</description>
         <entity>
             <key>basePackage</key>
-            <label>上层包路径</label>
+            <label>上层包路径(basePackage)</label>
             <description>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
             </description>
             <type>TEXTFIELD</type>
@@ -26,191 +16,130 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>title</key>
-            <label>类信息-标题</label>
-            <description>类信息-标题</description>
+            <key>moduleName</key>
+            <label>工程的模块名(moduleName)</label>
+            <description>【必改项】首字母必须小写，中间只允许出现“-”</description>
             <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>description</key>
-            <label>类信息-描述</label>
-            <description>类信息-描述</description>
+            <key>pomGroupId</key>
+            <label>Pom Group Id</label>
+            <description>【必改项】Pom Group Id</description>
             <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>copyright</key>
-            <label>类信息-版权信息</label>
-            <description>类信息-版权信息</description>
+            <key>pomArtifactId</key>
+            <label>Pom Artifact Id</label>
+            <description>【必改项】Pom Artifact Id</description>
             <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>company</key>
-            <label>类信息-公司</label>
-            <description>类信息-公司</description>
+            <key>pomName</key>
+            <label>Pom Name</label>
+            <description>【必改项】Pom Name</description>
             <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>author</key>
-            <label>类信息-作者</label>
-            <description>类信息-作者</description>
-            <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>email</key>
-            <label>类信息-作者邮箱</label>
-            <description>类信息-作者邮箱</description>
-            <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>version</key>
-            <label>类信息-版本</label>
-            <description>类信息-版本</description>
-            <type>TEXTFIELD</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-    </group>
-    <group>
-        <key>configCheckBox</key>
-        <label>CheckBox配置</label>
-        <description>CheckBox配置</description>
-        <column>3</column>
-        <entity>
-            <key>checkBox1</key>
-            <label>checkBox1</label>
-            <description>checkBox1</description>
-            <type>CHECKBOX</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>checkBox2</key>
-            <label>checkBox2</label>
-            <description>checkBox2</description>
-            <type>CHECKBOX</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>checkBox3</key>
-            <label>checkBox3</label>
-            <description>checkBox3</description>
-            <type>CHECKBOX</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>checkBox4</key>
-            <label>checkBox4</label>
-            <description>checkBox4</description>
-            <type>CHECKBOX</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-    </group>
-    <group>
-        <key>configRadio</key>
-        <label>Radio配置</label>
-        <description>Radio配置</description>
-        <column>3</column>
-        <entity>
-            <key>radio1</key>
-            <label>radio1</label>
-            <description>radio1</description>
-            <type>RADIO</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>radio2</key>
-            <label>radio2</label>
-            <description>radio2</description>
-            <type>RADIO</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>radio3</key>
-            <label>radio3</label>
-            <description>radio3</description>
-            <type>RADIO</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>radio4</key>
-            <label>radio4</label>
-            <description>radio4</description>
-            <type>RADIO</type>
-            <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-    </group>
-    <group>
-        <key>configComboBox</key>
-        <label>ComboBox配置</label>
-        <description>ComboBox配置</description>
-        <column>3</column>
-        <entity>
-            <key>comboBox1</key>
-            <label>comboBox1</label>
-            <description>comboBox1</description>
+            <key>pomVersion</key>
+            <label>Pom Version</label>
+            <description>Pom Version</description>
             <type>COMBOBOX</type>
-            <options>a;b;c</options>
+            <options>1.0.0</options>
             <highlightable>false</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
         <entity>
-            <key>comboBox2</key>
-            <label>comboBox2</label>
-            <description>comboBox2</description>
+            <key>springCloudVersion</key>
+            <label>Spring Cloud Version</label>
+            <description>Spring Cloud Version</description>
             <type>COMBOBOX</type>
-            <options>x;y;z</options>
+            <options>Dalston.SR4;Edgware.RELEASE</options>
             <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>springBootVersion</key>
+            <label>Spring Boot Version</label>
+            <description>Spring Boot Version</description>
+            <type>COMBOBOX</type>
+            <options>1.5.6.RELEASE</options>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>javaVersion</key>
+            <label>Java Version</label>
+            <description>Spring Boot Version</description>
+            <type>COMBOBOX</type>
+            <options>1.8;1.7;1.6</options>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+    </group>
+    <group>
+        <key>framework</key>
+        <label>框架配置</label>
+        <description>框架配置</description>
+        <entity>
+            <key>serviceName</key>
+            <label>服务名(serviceName)</label>
+            <description>【必改项】Spring Cloud服务名</description>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>port</key>
+            <label>端口(prot)</label>
+            <description>【必改项】Spring Cloud端口号</description>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>eurekaEnabled</key>
+            <label>Eureka组件(eurekaEnabled)</label>
+            <description>Eureka组件(推荐)</description>
+            <type>CHECKBOX</type>
+            <highlightable>false</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>eurekaUrl</key>
+            <label>Eureka地址(eurekaUrl)</label>
+            <description>【必改项】Eureka地址</description>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
