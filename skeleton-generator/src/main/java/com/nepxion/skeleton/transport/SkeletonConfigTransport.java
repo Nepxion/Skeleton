@@ -11,6 +11,8 @@ package com.nepxion.skeleton.transport;
  */
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.apache.commons.configuration.ConfigurationException;
@@ -71,7 +73,16 @@ public class SkeletonConfigTransport {
     }
 
     public String getCanonicalFileName(String directoryName, SkeletonProperties skeletonProperties) {
-        return SkeletonUtil.getCanonicalFileName(directoryName, skeletonProperties);
+        if (StringUtils.isEmpty(directoryName)) {
+            throw new SkeletonException("Directory name is null or empty");
+        }
+
+        String canonicalFileName = SkeletonUtil.getCanonicalFileName(directoryName, skeletonProperties);
+        try {
+            return URLEncoder.encode(canonicalFileName + ".zip", SkeletonConstant.ENCODING_UTF_8);
+        } catch (UnsupportedEncodingException e) {
+            throw new SkeletonException(e.getMessage(), e);
+        }
     }
 
     public List<SkeletonGroup> getMetaData() {

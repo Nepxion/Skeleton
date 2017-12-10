@@ -16,8 +16,6 @@ import io.swagger.annotations.ApiParam;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -33,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonGroup;
 import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
 import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
@@ -81,12 +78,10 @@ public class SkeletonController {
 
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
     @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
-    public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) throws UnsupportedEncodingException {
+    public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
         String canonicalFileName = configTransport.getCanonicalFileName(SPRING_CLOUD_SKELETON, properties);
         byte[] bytes = dataTransport.download(skeletonGeneratePath, SPRING_CLOUD_SKELETON, properties);
-
-        String fileName = URLEncoder.encode(canonicalFileName + ".zip", SkeletonConstant.ENCODING_UTF_8);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -94,7 +89,7 @@ public class SkeletonController {
         headers.add("Expires", "0");
         headers.add("charset", "utf-8");
 
-        headers.add("Content-Disposition", "attachment;filename=\"" + fileName + "\"");
+        headers.add("Content-Disposition", "attachment;filename=\"" + canonicalFileName + "\"");
 
         InputStream inputStream = new ByteArrayInputStream(bytes);
         Resource resource = new InputStreamResource(inputStream);
