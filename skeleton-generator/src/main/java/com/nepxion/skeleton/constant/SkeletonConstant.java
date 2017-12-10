@@ -24,6 +24,8 @@ public class SkeletonConstant {
     public static final String GROUP = "group";
     public static final String KEY = "key";
     public static final String LABEL = "label";
+    public static final String DESCRIPTION = "description";
+    public static final String NOTE = "note";
     public static final String COLUMN = "column";
     public static final String ENTITY = "entity";
     public static final String TYPE = "type";
@@ -34,7 +36,6 @@ public class SkeletonConstant {
     public static final String EDITABLE = "editable";
 
     public static final String TITLE = "title";
-    public static final String DESCRIPTION = "description";
     public static final String COPYRIGHT = "copyright";
     public static final String COMPANY = "company";
     public static final String AUTHOR = "author";

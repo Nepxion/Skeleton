@@ -3,12 +3,13 @@
     <group>
         <key>project</key>
         <label>工程配置</label>
-        <description>工程配置</description>
+        <description></description>
         <entity>
             <key>basePackage</key>
-            <label>上层包路径(basePackage)</label>
-            <description>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
-            </description>
+            <label>上层包路径</label>
+            <description>basePackage</description>
+            <note>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
+            </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -17,18 +18,25 @@
         </entity>
         <entity>
             <key>moduleName</key>
-            <label>工程的模块名(moduleName)</label>
-            <description>【必改项】首字母必须小写，中间只允许出现“-”</description>
+            <label>工程的模块名</label>
+            <description>moduleName</description>
+            <note>【必改项】首字母必须小写，中间只允许出现“-”</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
+    </group>
+    <group>
+        <key>pom</key>
+        <label>POM配置</label>
+        <description></description>
         <entity>
             <key>pomGroupId</key>
-            <label>Pom Group Id</label>
-            <description>【必改项】Pom Group Id</description>
+            <label>Group Id</label>
+            <description></description>
+            <note>【必改项】Group Id</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -37,8 +45,9 @@
         </entity>
         <entity>
             <key>pomArtifactId</key>
-            <label>Pom Artifact Id</label>
-            <description>【必改项】Pom Artifact Id</description>
+            <label>Artifact Id</label>
+            <description></description>
+            <note>【必改项】Artifact Id</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -47,8 +56,9 @@
         </entity>
         <entity>
             <key>pomName</key>
-            <label>Pom Name</label>
-            <description>【必改项】Pom Name</description>
+            <label>Name</label>
+            <description></description>
+            <note>【必改项】Name</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -57,8 +67,9 @@
         </entity>
         <entity>
             <key>pomVersion</key>
-            <label>Pom Version</label>
-            <description>Pom Version</description>
+            <label>Version</label>
+            <description></description>
+            <note>Version</note>
             <type>COMBOBOX</type>
             <options>1.0.0</options>
             <highlightable>false</highlightable>
@@ -69,7 +80,8 @@
         <entity>
             <key>springCloudVersion</key>
             <label>Spring Cloud Version</label>
-            <description>Spring Cloud Version</description>
+            <description></description>
+            <note>Spring Cloud Version</note>
             <type>COMBOBOX</type>
             <options>Dalston.SR4;Edgware.RELEASE</options>
             <highlightable>false</highlightable>
@@ -80,7 +92,8 @@
         <entity>
             <key>springBootVersion</key>
             <label>Spring Boot Version</label>
-            <description>Spring Boot Version</description>
+            <description></description>
+            <note>Spring Boot Version</note>
             <type>COMBOBOX</type>
             <options>1.5.6.RELEASE</options>
             <highlightable>false</highlightable>
@@ -91,7 +104,8 @@
         <entity>
             <key>javaVersion</key>
             <label>Java Version</label>
-            <description>Spring Boot Version</description>
+            <description></description>
+            <note>Spring Boot Version</note>
             <type>COMBOBOX</type>
             <options>1.8;1.7;1.6</options>
             <highlightable>false</highlightable>
@@ -103,11 +117,12 @@
     <group>
         <key>framework</key>
         <label>框架配置</label>
-        <description>框架配置</description>
+        <description></description>
         <entity>
             <key>serviceName</key>
-            <label>服务名(serviceName)</label>
-            <description>【必改项】Spring Cloud服务名</description>
+            <label>服务名</label>
+            <description>serviceName</description>
+            <note>【必改项】Spring Cloud服务名</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -116,8 +131,9 @@
         </entity>
         <entity>
             <key>port</key>
-            <label>端口(prot)</label>
-            <description>【必改项】Spring Cloud端口号</description>
+            <label>端口</label>
+            <description>prot</description>
+            <note>【必改项】Spring Cloud端口号</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -126,8 +142,9 @@
         </entity>
         <entity>
             <key>eurekaEnabled</key>
-            <label>Eureka组件(eurekaEnabled)</label>
-            <description>Eureka组件(推荐)</description>
+            <label>Eureka组件</label>
+            <description>eurekaEnabled</description>
+            <note>Eureka组件(推荐)</note>
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>false</defaultable>
@@ -136,8 +153,9 @@
         </entity>
         <entity>
             <key>eurekaUrl</key>
-            <label>Eureka地址(eurekaUrl)</label>
-            <description>【必改项】Eureka地址</description>
+            <label>Eureka地址</label>
+            <description>eurekaUrl</description>
+            <note>【必改项】Eureka地址</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
