@@ -13,7 +13,7 @@
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
-## 配置文件使用
+## 配置文件使用规则
     1. skeleton-data.properties
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)
     2. skeleton-description.xml
@@ -21,240 +21,49 @@
        highlightable - 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
        defaultable - 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
        emptiable - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
-       editable - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑	   
-    3. skeleton-item-list.properties
-       用来描述模skeleton-data.properties里面，对应项如果是下来菜单方式的时候，里面的值列表，通过“;”分隔，例如版本号，1.0.0;1.0.1;1.0.2，可让使用者选取
+       editable - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑
 
-## Spring Cloud示例
-    1. 下载脚手架Zip文件的接口，返回Zip文件的byte数组方式
-    @RequestMapping(value = "/download", method = RequestMethod.POST)
-    public byte[] download(@RequestBody String config)
+## 脚手架使用规则
+    1. 一个Generator类对应一个template模板文件
+    2. Generator类和对应的template模板文件必须放在同一个目录下
+    3. 具体用法参考下图中的代码
 
-    在Postman上对http://localhost:2222/download进行POST调用，Body的内容为src\main\resources\config\skeleton-data.properties，如图1，将返回一键创建后的zip文件的byte数组格式
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Example.jpg)
 
+## Spring Cloud接口
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
     public List<SkeletonGroup> getMetaData()
 
-    在Postman上对http://localhost:2222/getMetaData进行GET调用，如图2，将返回JSON格式的文件，简单介绍一下格式：
-    {
-      "key": "moduleName", // 组件所对应的唯一Key
-      "label": "工程的模块名", // 组件的标签
-      "description": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的描述
-      "value": "payment-ccb", // 组件内容
-      "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD，CHECKBOX，COMBOBOX
-      "options": null, // 对应项如果是下来菜单方式的时候，里面的值列表，可以为null
-      "highlightable": true, // 渲染成高亮方式
-      "defaultable": false, // 渲染成默认项方式
-      "emptiable": false, // 渲染成留空项方式
-      "editable": true // 渲染成不可编辑项方式
-   },
+    返回JSON格式的文件，简单介绍一下格式：
+    [
+      {
+        "key": "project", // 组所对应的唯一Key
+        "label": "工程配置", // 组的标签
+        "description": "工程配置", // 组的描述
+        "column": 1,
+        "entityList": [
+          {
+            "key": "moduleName", // 组件所对应的唯一Key
+            "label": "工程的模块名(moduleName)", // 组件的标签
+            "description": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的描述
+            "value": "sales", // 组件内容
+            "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD，CHECKBOX，RADIO，COMBOBOX
+            "options": null, // 对应项如果是下来菜单(COMBOBOX)方式的时候，里面的值列表，可以为null
+            "highlightable": true, // 渲染成高亮方式
+            "defaultable": false, // 渲染成默认项方式
+            "emptiable": false, // 渲染成留空项方式
+            "editable": true e, 
+            "editable": true // 渲染成不可编辑项方式
+          }
+        ]
+      }
+    ]   
 
-图1
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman1.jpg)
+    2. 下载脚手架Zip文件的接口，返回Zip文件的byte数组类型，Body的内容为src\main\resources\config\skeleton-data.properties 
+    @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
+    public byte[] downloadBytes(@RequestBody String config)
 
-图2
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Postman2.jpg)
-
-## 单机示例
-模板文件示例，用${}表示为动态变量
-```java
-package ${package};
-
-/**
- * <p>Title: ${title}</p>
- * <p>Description: ${description}</p>
- * <p>Copyright: ${copyright}</p>
- * <p>Company: ${company}</p>
- * @author ${author}
- * @email ${email}
- * @version ${version}
- */
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-
-import ${MyContextAwareClassPath};
-import ${MyServiceClassPath};
-
-@EnableAutoConfiguration
-@ComponentScan(basePackages = { "com.nepxion.matrix.test.simple" })
-public class MyApplication {
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(MyApplication.class, args);
-
-        MyService1 myService = MyContextAware.getBean(MyService.class);
-        myService1.doA("A");
-        myService1.doB("B");
-    }
-}
-```
-
-Generator类示例
-```java
-package com.nepxion.skeleton.demo.server.java;
-
-/**
- * <p>Title: Nepxion Skeleton Generator</p>
- * <p>Description: Nepxion Skeleton Generator For Freemarker</p>
- * <p>Copyright: Copyright (c) 2017</p>
- * <p>Company: Nepxion</p>
- * @author Haojun Ren
- * @email 1394997@qq.com
- * @version 1.0
- */
-
-import java.util.Map;
-
-import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.generator.SkeletonJavaGenerator;
-import com.nepxion.skeleton.property.SkeletonProperties;
-
-public class MyApplicationClassGenerator extends SkeletonJavaGenerator {
-    /**
-     * 构造方法
-     * @param generatePath 创建文件的顶级路径
-     * @param projectType 工程类型
-     * @param skeletonProperties 全局配置文件对象
-     */
-    public MyApplicationClassGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, MyApplicationClassGenerator.class, skeletonProperties);
-    }
-
-    /**
-     * 构造方法
-     * @param generatePath 创建文件的顶级路径
-     * @param projectType 工程类型
-     * @param baseTemplatePath 模板文件的等级路径
-     * @param skeletonProperties 全局配置文件对象
-     */
-    public MyApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, baseTemplatePath, skeletonProperties);
-    }
-
-    /**
-     * 设置Java类的包路径，如果没特殊处理，则按照默认顶级包路径来处理，不需要Override该方法
-     */
-    /*@Override
-    protected String getPackage() {
-        return super.getPackage() + "." + "abc";
-    }*/
-
-    /**
-     * 设置Java类名
-     */
-    @Override
-    protected String getClassName() {
-        return "MyApplication";
-    }
-
-    /**
-     * 设置模板名
-     */
-    @Override
-    protected String getTemplateName() {
-        return "MyApplication.java.template";
-    }
-
-    /**
-     * 设置Java类的输出路径，如果没特殊处理，则按照默认输出路径来处理，不需要Override该方法
-     */
-    /*@Override
-    protected String getOutputPath() {
-        return super.getOutputPath() + "/" + "xyz";
-    }*/
-
-    /**
-     * 设置Java类到main目录下，还是在test目录下
-     */
-    @Override
-    protected boolean isMainCode() {
-        return true;
-    }
-
-    /**
-     * 设置Java类创建的所依赖数据模型，主要做动态变量到原型模板的替换（任何文本的替换都支持）
-     */
-    @Override
-    protected Object getDataModel() {
-        Map<String, Object> dataModel = generateDataModel();
-        // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如MyContextAware.ClassPath，MyContextAware-ClassPath都会抛错
-        dataModel.put(SkeletonConstant.PACKAGE, getPackage());
-        dataModel.put("MyContextAwareClassPath", "com.nepxion.matrix.test.simple.context.MyContextAware");
-        dataModel.put("MyServiceClassPath", "com.nepxion.matrix.test.simple.service.MyService");
-
-        return dataModel;
-    }
-}
-```
-
-Generator类示例
-配置全局配置文件skeleton-data.properties
-```java
-# 工程的模块名，首字母必须小写，中间只允许出现“-”
-# moduleName=payment
-moduleName=payment-ccb
-
-# 上层包路径，该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
-basePackage=com.nepxion
-
-# 类信息-标题
-title=Nepxion Skeleton Generator
-# 类信息-描述
-description=Nepxion Skeleton Generator For Freemarker
-# 类信息-版权信息
-copyright=Copyright (c) 2017
-# 类信息-公司
-company=Nepxion
-# 类信息-作者
-author=Haojun Ren
-# 类信息-作者邮箱
-email=1394997@qq.com
-# 类信息-版本
-version=1.0
-```
-
-运行程序
-```java
-package com.nepxion.skeleton.demo;
-
-/**
- * <p>Title: Nepxion Skeleton Generator</p>
- * <p>Description: Nepxion Skeleton Generator For Freemarker</p>
- * <p>Copyright: Copyright (c) 2017</p>
- * <p>Company: Nepxion</p>
- * @author Haojun Ren
- * @email 1394997@qq.com
- * @version 1.0
- */
-
-import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.server.java.MyApplicationClassGenerator;
-import com.nepxion.skeleton.service.resources.MybatisGeneratorXmlGenerator;
-
-public class MyGenerator1 {
-    public static void main(String[] args) {
-        try {
-            // 创建文件的输出的路径
-            String generatePath = "E:/Download/Skeleton/";
-
-            // 描述规则的配置文件所在的路径
-            String propertiesPath = "config/skeleton-data.properties";
-
-            // 构造全局配置文件对象
-            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
-
-            // 创建Java类文件
-            // 模板文件MyApplication.java.template必须和MyApplicationClassGenerator放在同一个目录下
-            new MyApplicationClassGenerator(generatePath, "server", skeletonProperties).generate();
-
-            // 创建文件到resources目录下
-            // 模板文件mybatis-generator.xml.template必须和MybatisGeneratorXmlGenerator放在同一个目录下
-            new MybatisGeneratorXmlGenerator(generatePath, "service", skeletonProperties).generate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
+    3. 下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型
+    @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
+    public ResponseEntity<Resource> downloadResponse(@RequestBody String config)
