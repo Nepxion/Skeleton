@@ -78,7 +78,7 @@ public class SkeletonXmlParser extends Dom4JParser {
                 } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.DESCRIPTION)) {
                     skeletonGroup.setDescription(text);
                 } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.COLUMN)) {
-                    skeletonGroup.setColumn(Integer.parseInt(text));                    
+                    skeletonGroup.setColumn(Integer.parseInt(text));
                 } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.ENTITY)) {
                     SkeletonEntity skeletonEntity = new SkeletonEntity();
 
