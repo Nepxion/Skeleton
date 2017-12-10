@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.generator.server.PomXmlGenerator;
 import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
 import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -58,6 +59,7 @@ public class SkeletonController {
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
                 new ServerApplicationClassGenerator(path, "server", skeletonProperties).generate();
                 new ApplicationPropertiesGenerator(path, "server", skeletonProperties).generate();
+                new PomXmlGenerator(path, "server", skeletonProperties).generate();
             }
         };
     }
