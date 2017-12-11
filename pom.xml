@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <groupId>nepxion</groupId>
+    <groupId>com.nepxion</groupId>
     <artifactId>skeleton</artifactId>
     <name>Nepxion Skeleton</name>
     <packaging>pom</packaging>
@@ -10,8 +10,9 @@
     <url>https://github.com/Nepxion/</url>
 
     <modules>
-        <module>skeleton-generator</module>
-        <module>skeleton-generator-spring-cloud</module>
+        <module>skeleton-engine</module>
+        <module>skeleton-rest</module>
+        <module>skeleton-spring-cloud</module>
     </modules>
 
     <properties>
@@ -32,13 +33,19 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>skeleton-generator</artifactId>
+                <artifactId>skeleton-engine</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>skeleton-generator-spring-cloud</artifactId>
+                <artifactId>skeleton-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>skeleton-spring-cloud</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
