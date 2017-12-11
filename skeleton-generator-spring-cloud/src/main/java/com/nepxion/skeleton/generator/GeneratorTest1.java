@@ -15,11 +15,11 @@ import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerato
 import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
-// MyGenerator1和MyGenerator2输出结果一致
-// MyGenerator1方式的前提是Generator类必须和template模板文件放在同一目录下，使用较简单
-// MyGenerator2方式的前提是template模板文件在遵循一定规则下，可以放在任意位置，使用较复杂
-// 推荐MyGenerator1方式
-public class MyGenerator1 {
+// GeneratorTest1和GeneratorTest2输出结果一致
+// GeneratorTest1方式的前提是Generator类必须和template模板文件放在同一目录下，使用较简单
+// GeneratorTest2方式的前提是template模板文件在遵循一定规则下，可以放在任意位置，使用较复杂
+// 推荐GeneratorTest1方式
+public class GeneratorTest1 {
     public static void main(String[] args) {
         try {
             // 创建文件的输出的路径
