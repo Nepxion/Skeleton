@@ -10,9 +10,6 @@ package com.nepxion.skeleton.generator;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.generator.server.PomXmlGenerator;
-import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
-import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class GeneratorTest {
@@ -27,15 +24,9 @@ public class GeneratorTest {
             // 构造全局配置文件对象
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
-            // 创建Java类文件
-            // 模板文件ServerApplication.java.template必须和ServerApplicationClassGenerator.java放在同一个目录下，下同
-            new ServerApplicationClassGenerator(generatePath, "server", skeletonProperties).generate();
-
-            // 创建文件到resources目录下
-            new ApplicationPropertiesGenerator(generatePath, "server", skeletonProperties).generate();
-            
-            // 创建文件到目录下
-            new PomXmlGenerator(generatePath, "server", skeletonProperties).generate();
+            // 输出脚手架文件
+            GeneratorService generatorService = new GeneratorService();
+            generatorService.generator(generatePath, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
         }
