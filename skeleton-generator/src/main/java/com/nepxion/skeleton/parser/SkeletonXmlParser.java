@@ -23,6 +23,8 @@ import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonEntity;
 import com.nepxion.skeleton.entity.SkeletonEntityType;
 import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.entity.SkeletonGroupLayoutType;
+import com.nepxion.skeleton.entity.SkeletonGroupType;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.xml.Dom4JParser;
 
@@ -77,8 +79,10 @@ public class SkeletonXmlParser extends Dom4JParser {
                     skeletonGroup.setLabel(text);
                 } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.DESCRIPTION)) {
                     skeletonGroup.setDescription(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.COLUMN)) {
-                    skeletonGroup.setColumn(Integer.parseInt(text));
+                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.TYPE)) {
+                    skeletonGroup.setType(SkeletonGroupType.fromString(text));
+                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.LAYOUT)) {
+                    skeletonGroup.setLayoutType(SkeletonGroupLayoutType.fromString(text));
                 } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.ENTITY)) {
                     SkeletonEntity skeletonEntity = new SkeletonEntity();
 

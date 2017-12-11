@@ -24,7 +24,8 @@ public class SkeletonGroup implements Serializable {
     private String key;
     private String label;
     private String description;
-    private int column = 1;
+    private SkeletonGroupType type = SkeletonGroupType.NORMAL_GROUP;
+    private SkeletonGroupLayoutType layoutType = SkeletonGroupLayoutType.VERTICAL;
 
     private List<SkeletonEntity> entityList;
 
@@ -52,12 +53,20 @@ public class SkeletonGroup implements Serializable {
         this.description = description;
     }
 
-    public int getColumn() {
-        return column;
+    public SkeletonGroupType getType() {
+        return type;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public void setType(SkeletonGroupType type) {
+        this.type = type;
+    }
+
+    public SkeletonGroupLayoutType getLayoutType() {
+        return layoutType;
+    }
+
+    public void setLayoutType(SkeletonGroupLayoutType layoutType) {
+        this.layoutType = layoutType;
     }
 
     public List<SkeletonEntity> getEntityList() {

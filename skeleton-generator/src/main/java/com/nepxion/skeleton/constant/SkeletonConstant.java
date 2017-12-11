@@ -26,7 +26,7 @@ public class SkeletonConstant {
     public static final String LABEL = "label";
     public static final String DESCRIPTION = "description";
     public static final String NOTE = "note";
-    public static final String COLUMN = "column";
+    public static final String LAYOUT = "layout";
     public static final String ENTITY = "entity";
     public static final String TYPE = "type";
     public static final String OPTIONS = "options";
