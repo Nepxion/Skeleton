@@ -27,6 +27,7 @@
     1. 一个Generator类对应一个template模板文件
     2. Generator类和对应的template模板文件必须放在同一个目录下
     3. 具体用法参考下图中的代码
+    4. 运行com.nepxion.skeleton.test.GeneratorTest.java类，可以通过非界面模式创建脚手架
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Example.jpg)
 
