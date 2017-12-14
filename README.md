@@ -28,8 +28,8 @@
     2. 模板文件(*.template)有如下两种放置方式
        2.1 模板文件resources/template目录下(String templateDirectory = "template")，目录结构参照第一张图片
        2.2 Generator类和对应的模板文件必须放在同一个目录下(下面例子中，指定templateDirectory = null)，目录结构参照第二张图片   
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1)
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2.jpg)
 
 ## 本地使用方式
 运行com.nepxion.skeleton.test.GeneratorTest.java类，可在本地创建脚手架文件
@@ -76,7 +76,7 @@ public class GeneratorTest {
 ```
 ## Spring Cloud使用方式
 
-### Spring Cloud配置文件，application.properties
+### Spring Cloud配置文件(application.properties)
 ```java
 # Spring cloud config
 spring.application.name=skeleton-generator-spring-cloud-service
