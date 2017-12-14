@@ -22,10 +22,11 @@ public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
+     * @param prefixTemplateDirectory 前置模板目录名，例如template
      * @param skeletonProperties 全局配置文件对象
      */
-    public ServerApplicationClassGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, ServerApplicationClassGenerator.class, skeletonProperties);
+    public ServerApplicationClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, ServerApplicationClassGenerator.class, skeletonProperties);
     }
 
     /**
@@ -35,9 +36,9 @@ public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param baseTemplatePath 模板文件的等级路径
      * @param skeletonProperties 全局配置文件对象
      */
-    public ServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
+    /*public ServerApplicationClassGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, skeletonProperties);
-    }
+    }*/
 
     /**
      * 设置Java类的包路径，如果没特殊处理，则按照默认顶级包路径来处理，不需要Override该方法

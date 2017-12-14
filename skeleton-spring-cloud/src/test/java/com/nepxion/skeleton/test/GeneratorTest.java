@@ -19,6 +19,10 @@ public class GeneratorTest {
             // 创建文件的输出的路径
             String generatePath = "E:/Download/Skeleton/";
 
+            // 模板文件所在的前置目录名
+            String templateDirectory = "template";
+            // String templateDirectory = null;
+
             // 描述规则的配置文件所在的路径
             String propertiesPath = "config/skeleton-data.properties";
 
@@ -27,7 +31,7 @@ public class GeneratorTest {
 
             // 输出脚手架文件
             GeneratorService generatorService = new GeneratorService();
-            generatorService.generator(generatePath, skeletonProperties);
+            generatorService.generator(generatePath, templateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
         }

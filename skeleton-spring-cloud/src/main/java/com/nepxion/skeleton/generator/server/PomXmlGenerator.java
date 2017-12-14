@@ -13,7 +13,6 @@ package com.nepxion.skeleton.generator.server;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nepxion.skeleton.entity.SkeletonFileType;
 import com.nepxion.skeleton.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
@@ -22,10 +21,11 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
      * 构造方法
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
+     * @param prefixTemplateDirectory 前置模板目录名，例如template
      * @param skeletonProperties 全局配置文件对象
      */
-    public PomXmlGenerator(String generatePath, String projectType, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, PomXmlGenerator.class, skeletonProperties);
+    public PomXmlGenerator(String generatePath, String projectType, String prefixTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, PomXmlGenerator.class, skeletonProperties);
     }
 
     /**
@@ -36,9 +36,9 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
      * @param fileType 创建的文件类型
      * @param skeletonProperties 全局配置文件对象
      */
-    public PomXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+    /*public PomXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
-    }
+    }*/
 
     /**
      * 设置文件名

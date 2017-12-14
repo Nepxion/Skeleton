@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -40,24 +41,28 @@ import com.nepxion.skeleton.transport.SkeletonDataTransport;
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
+    @Value("${skeleton.template.prefix.template.directory}")
+    private String skeletonPrefixTemplateDirectory;
+
     @Value("${skeleton.generate.file.name}")
     private String skeletonGenerateFileName;
 
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
+    @Autowired
     private GeneratorService generatorService;
+
     private SkeletonConfigTransport configTransport;
     private SkeletonDataTransport dataTransport;
 
     @PostConstruct
     private void initialize() {
-        generatorService = new GeneratorService();
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                generatorService.generator(path, skeletonProperties);
+                generatorService.generator(path, skeletonPrefixTemplateDirectory, skeletonProperties);
             }
         };
     }
