@@ -23,15 +23,93 @@
        emptiable - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
        editable - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑
 
-## 脚手架使用规则
+## 脚手架创建规则
     1. 一个Generator类对应一个template模板文件
-    2. Generator类和对应的template模板文件必须放在同一个目录下
-    3. 具体用法参考下图中的代码
-    4. 运行com.nepxion.skeleton.test.GeneratorTest.java类，可以通过非界面模式创建脚手架
+    2. 模板文件(*.template)有如下两种放置方式
+       2.1 模板文件resources/template目录下(String templateDirectory = "template")，目录结构参照第一张图片
+       2.2 Generator类和对应的模板文件必须放在同一个目录下(下面例子中，指定templateDirectory = null)，目录结构参照第二张图片   
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2)
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Example.jpg)
+## 本地使用方式
+运行com.nepxion.skeleton.test.GeneratorTest.java类，可在本地创建脚手架文件
+```java
+package com.nepxion.skeleton.test;
 
-## Spring Cloud接口
+/**
+ * <p>Title: Nepxion Skeleton</p>
+ * <p>Description: Nepxion Skeleton For Freemarker</p>
+ * <p>Copyright: Copyright (c) 2017</p>
+ * <p>Company: Nepxion</p>
+ * @author Haojun Ren
+ * @email 1394997@qq.com
+ * @version 1.0
+ */
+
+import com.nepxion.skeleton.generator.GeneratorService;
+import com.nepxion.skeleton.property.SkeletonProperties;
+
+public class GeneratorTest {
+    public static void main(String[] args) {
+        try {
+            // 创建文件的输出的路径
+            String generatePath = "E:/Download/Skeleton/";
+
+            // 模板文件所在的前置目录名
+            String templateDirectory = "template";
+            // String templateDirectory = null;
+
+            // 描述规则的配置文件所在的路径
+            String propertiesPath = "config/skeleton-data.properties";
+
+            // 构造全局配置文件对象
+            SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
+
+            // 输出脚手架文件
+            GeneratorService generatorService = new GeneratorService();
+            generatorService.generator(generatePath, templateDirectory, skeletonProperties);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+## Spring Cloud使用方式
+
+### Spring Cloud配置文件，application.properties
+```java
+# Spring cloud config
+spring.application.name=skeleton-generator-spring-cloud-service
+server.port=2222
+
+eureka.instance.lease-renewal-interval-in-seconds=10
+eureka.instance.lease-expiration-duration-in-seconds=30
+
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=false
+
+eureka.client.serviceUrl.defaultZone=http://cluster-1:1111/eureka/,http://cluster-2:1112/eureka/,http://cluster-3:1113/eureka/
+
+# Skeleton config
+# 模板文件所在的前置目录名
+skeleton.template.prefix.template.directory=template
+# 在前端下载zip包名
+skeleton.generate.file.name=spring-cloud-skeleton
+# 在后端创建zip包的目录
+skeleton.generate.path=E:/Download/Skeleton/
+
+# Swagger config
+swagger.service.base.package=com.nepxion.skeleton
+swagger.service.description=Skeleton Spring Cloud Restful APIs
+swagger.service.version=1.0.0
+swagger.service.license=Apache License 2.0
+swagger.service.license.url=http://www.apache.org/licenses/LICENSE-2.0
+swagger.service.contact.name=Haojun Ren
+swagger.service.contact.url=https://github.com/Nepxion/Skeleton
+swagger.service.contact.email=1394997@qq.com
+```
+
+### Spring Cloud接口
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
     public List<SkeletonGroup> getMetaData()
