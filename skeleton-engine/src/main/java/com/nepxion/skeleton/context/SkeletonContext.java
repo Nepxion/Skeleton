@@ -10,6 +10,8 @@ package com.nepxion.skeleton.context;
  * @version 1.0
  */
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.nepxion.skeleton.config.SkeletonConfig;
 import com.nepxion.skeleton.constant.SkeletonConstant;
 import com.nepxion.skeleton.entity.SkeletonFileType;
@@ -18,6 +20,7 @@ import com.nepxion.skeleton.util.SkeletonUtil;
 public class SkeletonContext {
     private String projectType;
 
+    private String prefixTemplateDirectory;
     private Class<?> generatorClass;
 
     private String baseTemplatePath;
@@ -25,8 +28,9 @@ public class SkeletonContext {
 
     private SkeletonConfig config;
 
-    public SkeletonContext(String projectType, Class<?> generatorClass) {
+    public SkeletonContext(String projectType, String prefixTemplateDirectory, Class<?> generatorClass) {
         this.projectType = projectType;
+        this.prefixTemplateDirectory = prefixTemplateDirectory;
         this.generatorClass = generatorClass;
         this.config = new SkeletonConfig(generateTemplatePath());
     }
@@ -40,6 +44,10 @@ public class SkeletonContext {
 
     public String getProjectType() {
         return projectType;
+    }
+
+    public String getPrefixTemplateDirectory() {
+        return prefixTemplateDirectory;
     }
 
     public Class<?> getGeneratorClass() {
@@ -60,7 +68,7 @@ public class SkeletonContext {
 
     private String generateTemplatePath() {
         if (generatorClass != null) {
-            return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(generatorClass);
+            return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplateDirectory) ? prefixTemplateDirectory + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass);
         }
 
         return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(baseTemplatePath) + projectType + SkeletonConstant.FILE_SEPARATOR + fileType;

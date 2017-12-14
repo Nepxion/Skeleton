@@ -44,9 +44,9 @@ public abstract class AbstractSkeletonGenerator {
     protected SkeletonContext skeletonContext;
     protected SkeletonProperties skeletonProperties;
 
-    public AbstractSkeletonGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+    public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplateDirectory, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         this.generatePath = generatePath;
-        this.skeletonContext = new SkeletonContext(projectType, generatorClass);
+        this.skeletonContext = new SkeletonContext(projectType, prefixTemplateDirectory, generatorClass);
         this.skeletonProperties = skeletonProperties;
     }
 

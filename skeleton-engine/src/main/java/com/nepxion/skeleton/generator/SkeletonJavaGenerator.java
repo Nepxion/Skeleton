@@ -29,8 +29,8 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     protected String defaultBasePackage;
     protected String defaultOutputPath;
 
-    public SkeletonJavaGenerator(String generatePath, String projectType, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, generatorClass, skeletonProperties);
+    public SkeletonJavaGenerator(String generatePath, String projectType, String prefixTemplateDirectory, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, generatorClass, skeletonProperties);
 
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
