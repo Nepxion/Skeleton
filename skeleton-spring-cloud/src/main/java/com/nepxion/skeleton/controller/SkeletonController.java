@@ -20,7 +20,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -50,7 +49,6 @@ public class SkeletonController {
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
-    @Autowired
     private GeneratorService generatorService;
 
     private SkeletonConfigTransport configTransport;
@@ -58,6 +56,7 @@ public class SkeletonController {
 
     @PostConstruct
     private void initialize() {
+        generatorService = new GeneratorService();
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override
