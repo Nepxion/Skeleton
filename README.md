@@ -26,8 +26,8 @@
 ## 脚手架创建规则
     1. 一个Generator类对应一个template模板文件
     2. 模板文件(*.template)有如下两种放置方式
-       2.1 模板文件resources/template目录下(templateDirectory = "template")，目录结构参照第一张图片
-       2.2 Generator类和对应的模板文件必须放在同一个目录下(下面例子中，指定templateDirectory = null)，目录结构参照第二张图片   
+       2.1 模板文件resources/template目录下(参数templateDirectory = "template")，目录结构参照第一张图片
+       2.2 Generator类和对应的模板文件必须放在同一个目录下(参数templateDirectory = null)，目录结构参照第二张图片   
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2.jpg)
 
