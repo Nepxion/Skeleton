@@ -120,7 +120,8 @@ swagger.service.contact.email=1394997@qq.com
         "key": "project", // 组所对应的唯一Key
         "label": "工程配置", // 组的标签
         "description": "工程配置", // 组的描述
-        "column": 1,
+		"type": "MIX_GROUP", // 组的类型，包括MIX_GROUP(默认，组里可以放任何种类的组件，混合组)，CHECKBOX_GROUP(组里只能放CHECKBOX)，RADIO_GROUP(组里只能放RADIO)，COMBOBOX_GROUP(组里只能放COMBOBOX)
+		"layout": "VERTICAL", // 组的布局，包括VERTICAL(默认，组里组件以垂直方向布局)，HORIZONTAL(默认，组里组件以水平方向布局)
         "entityList": [
           {
             "key": "moduleName", // 组件所对应的唯一Key
@@ -128,7 +129,7 @@ swagger.service.contact.email=1394997@qq.com
             "description": "moduleName", // 组件的描述
             "note": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的使用提示
             "value": "sales", // 组件内容
-            "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD，CHECKBOX，RADIO，COMBOBOX
+            "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD(默认)，CHECKBOX，RADIO，COMBOBOX
             "options": null, // 对应项如果是下来菜单(COMBOBOX)方式的时候，里面的值列表，可以为null
             "highlightable": true, // 渲染成高亮方式
             "defaultable": false, // 渲染成默认项方式
