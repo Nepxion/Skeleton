@@ -23,10 +23,11 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
      * @param generatePath 创建文件的顶级路径
      * @param projectType 工程类型
      * @param prefixTemplateDirectory 前置模板目录名，例如template
+     * @param reducedTemplateDirectory 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public ApplicationPropertiesGenerator(String generatePath, String projectType, String prefixTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, ApplicationPropertiesGenerator.class, skeletonProperties);
+    public ApplicationPropertiesGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ApplicationPropertiesGenerator.class, skeletonProperties);
     }
 
     /**
