@@ -24,7 +24,7 @@ public class SkeletonGroup implements Serializable {
     private String key;
     private String label;
     private String description;
-    private SkeletonGroupType type = SkeletonGroupType.NORMAL_GROUP;
+    private SkeletonGroupType type = SkeletonGroupType.MIX_GROUP;
     private SkeletonGroupLayoutType layoutType = SkeletonGroupLayoutType.VERTICAL;
 
     private List<SkeletonEntity> entityList;

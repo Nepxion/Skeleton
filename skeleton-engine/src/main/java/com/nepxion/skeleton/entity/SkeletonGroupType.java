@@ -11,9 +11,10 @@ package com.nepxion.skeleton.entity;
  */
 
 public enum SkeletonGroupType {
-    NORMAL_GROUP("NORMAL_GROUP"),
+    MIX_GROUP("MIX_GROUP"),
     CHECKBOX_GROUP("CHECKBOX_GROUP"),
-    RADIO_GROUP("RADIO_GROUP");
+    RADIO_GROUP("RADIO_GROUP"),
+    COMBOBOX_GROUP("COMBOBOX_GROUP");
 
     private String value;
 
