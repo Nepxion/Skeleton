@@ -24,8 +24,8 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     protected String defaultOutputPath;
 
-    public SkeletonFileGenerator(String generatePath, String projectType, String prefixTemplateDirectory, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, generatorClass, skeletonProperties);
+    public SkeletonFileGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, generatorClass, skeletonProperties);
 
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }

@@ -13,6 +13,7 @@ package com.nepxion.skeleton.util;
 import org.apache.commons.lang3.StringUtils;
 
 import com.nepxion.skeleton.constant.SkeletonConstant;
+import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class SkeletonUtil {
@@ -50,7 +51,7 @@ public class SkeletonUtil {
         return formatGeneratePath(generatePath) + getCanonicalFileName(directoryName, skeletonProperties);
     }
 
-    public static String formatGeneratePath(Class<?> generatorClass) {
+    public static String formatGeneratePath(Class<?> generatorClass, String reducedDirectory) {
         StringBuilder sb = new StringBuilder();
         sb.append(generatorClass.getCanonicalName());
 
@@ -58,6 +59,14 @@ public class SkeletonUtil {
         path = path.substring(0, path.lastIndexOf("."));
         path = path.replace(".", SkeletonConstant.FILE_SEPARATOR);
         path += SkeletonConstant.FILE_SEPARATOR;
+
+        if (StringUtils.isNotEmpty(reducedDirectory)) {
+            try {
+                return path.substring(reducedDirectory.length(), path.length() - 1);
+            } catch (Exception e) {
+                throw new SkeletonException("Path=[" + path + "] doesn't contain reducedDirectory=[" + reducedDirectory + "]");
+            }
+        }
 
         return path;
     }

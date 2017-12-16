@@ -21,6 +21,7 @@ public class SkeletonContext {
     private String projectType;
 
     private String prefixTemplateDirectory;
+    private String reducedTemplateDirectory;
     private Class<?> generatorClass;
 
     private String baseTemplatePath;
@@ -28,9 +29,10 @@ public class SkeletonContext {
 
     private SkeletonConfig config;
 
-    public SkeletonContext(String projectType, String prefixTemplateDirectory, Class<?> generatorClass) {
+    public SkeletonContext(String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, Class<?> generatorClass) {
         this.projectType = projectType;
         this.prefixTemplateDirectory = prefixTemplateDirectory;
+        this.reducedTemplateDirectory = reducedTemplateDirectory;
         this.generatorClass = generatorClass;
         this.config = new SkeletonConfig(generateTemplatePath());
     }
@@ -48,6 +50,10 @@ public class SkeletonContext {
 
     public String getPrefixTemplateDirectory() {
         return prefixTemplateDirectory;
+    }
+
+    public String getReducedTemplateDirectory() {
+        return reducedTemplateDirectory;
     }
 
     public Class<?> getGeneratorClass() {
@@ -68,7 +74,7 @@ public class SkeletonContext {
 
     private String generateTemplatePath() {
         if (generatorClass != null) {
-            return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplateDirectory) ? prefixTemplateDirectory + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass);
+            return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplateDirectory) ? prefixTemplateDirectory + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass, reducedTemplateDirectory);
         }
 
         return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(baseTemplatePath) + projectType + SkeletonConstant.FILE_SEPARATOR + fileType;
