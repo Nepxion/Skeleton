@@ -22,7 +22,7 @@ import com.nepxion.skeleton.property.SkeletonProperties;
 
 import freemarker.template.TemplateException;
 
-public class GeneratorService {
+public class SkeletonService {
     public void generator(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件到main/java目录下
         new ServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();

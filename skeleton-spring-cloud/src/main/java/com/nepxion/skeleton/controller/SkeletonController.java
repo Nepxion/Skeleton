@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nepxion.skeleton.entity.SkeletonGroup;
-import com.nepxion.skeleton.generator.GeneratorService;
+import com.nepxion.skeleton.generator.SkeletonService;
 import com.nepxion.skeleton.property.SkeletonProperties;
 import com.nepxion.skeleton.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.transport.SkeletonDataTransport;
@@ -52,19 +52,19 @@ public class SkeletonController {
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
-    private GeneratorService generatorService;
+    private SkeletonService service;
 
     private SkeletonConfigTransport configTransport;
     private SkeletonDataTransport dataTransport;
 
     @PostConstruct
     private void initialize() {
-        generatorService = new GeneratorService();
+        service = new SkeletonService();
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                generatorService.generator(path, skeletonPrefixTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generator(path, skeletonPrefixTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }

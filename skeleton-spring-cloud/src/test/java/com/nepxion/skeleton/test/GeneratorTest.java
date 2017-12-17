@@ -10,7 +10,7 @@ package com.nepxion.skeleton.test;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.generator.GeneratorService;
+import com.nepxion.skeleton.generator.SkeletonService;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
 public class GeneratorTest {
@@ -35,7 +35,7 @@ public class GeneratorTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 输出脚手架文件
-            GeneratorService generatorService = new GeneratorService();
+            SkeletonService generatorService = new SkeletonService();
             generatorService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
