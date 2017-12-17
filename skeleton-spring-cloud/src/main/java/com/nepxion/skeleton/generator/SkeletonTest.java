@@ -34,8 +34,8 @@ public class SkeletonTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 输出脚手架文件
-            SkeletonService generatorService = new SkeletonService();
-            generatorService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+            SkeletonService skeletonService = new SkeletonService();
+            skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
         }
