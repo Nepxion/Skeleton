@@ -33,9 +33,9 @@
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2.jpg)
 
 ## 本地使用方式
-运行com.nepxion.skeleton.test.GeneratorTest.java类，可在本地创建脚手架文件
+运行com.nepxion.skeleton.generator.SkeletonTest.java类，可在本地创建脚手架文件
 ```java
-package com.nepxion.skeleton.test;
+package com.nepxion.skeleton.generator;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -47,10 +47,9 @@ package com.nepxion.skeleton.test;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.generator.GeneratorService;
 import com.nepxion.skeleton.property.SkeletonProperties;
 
-public class GeneratorTest {
+public class SkeletonTest {
     public static void main(String[] args) {
         try {
             // 创建文件的输出的路径
@@ -72,7 +71,7 @@ public class GeneratorTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath);
 
             // 输出脚手架文件
-            GeneratorService generatorService = new GeneratorService();
+            SkeletonService generatorService = new SkeletonService();
             generatorService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
