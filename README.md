@@ -25,9 +25,10 @@
 
 ## 脚手架创建规则
     1. 一个Generator类对应一个template模板文件
-    2. 模板文件(*.template)有如下两种放置方式
-       2.1 模板文件resources/template目录下(模板文件所在的前置目录名必须设置为"template")，目录结构参照第一张图片
-       2.2 Generator类和对应的模板文件必须放在同一个目录下(模板文件所在的前置目录名必须设置为null)，目录结构参照第二张图片   
+    2. 提供SkeletonFileGenerator和SkeletonJavaGenerator两种方式，前者可以生成任何类型的文本文件，后者因为Java文件相对比较特殊，所以做了一些封装
+    3. 模板文件(*.template)有如下两种放置方式
+       3.1 模板文件resources/template目录下(模板文件所在的前置目录名必须设置为"template")，目录结构参照第一张图片
+       3.2 Generator类和对应的模板文件必须放在同一个目录下(模板文件所在的前置目录名必须设置为null)，目录结构参照第二张图片   
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2.jpg)
 
@@ -55,9 +56,14 @@ public class GeneratorTest {
             // 创建文件的输出的路径
             String generatePath = "E:/Download/Skeleton/";
 
+            // 如果prefixTemplateDirectory和reducedTemplateDirectory同时为null，那么Generator类目录和Template目录必须完全一致
             // 模板文件所在的前置目录名
-            String templateDirectory = "template";
-            // String templateDirectory = null;
+            String prefixTemplateDirectory = "template";
+            // String prefixTemplateDirectory = null;
+
+            // 模板目录缩减
+            String reducedTemplateDirectory = "com/nepxion/skeleton/generator/";
+            // String reducedTemplateDirectory = null;
 
             // 描述规则的配置文件所在的路径
             String propertiesPath = "config/skeleton-data.properties";
@@ -67,7 +73,7 @@ public class GeneratorTest {
 
             // 输出脚手架文件
             GeneratorService generatorService = new GeneratorService();
-            generatorService.generator(generatePath, templateDirectory, skeletonProperties);
+            generatorService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,10 +98,12 @@ eureka.client.serviceUrl.defaultZone=http://cluster-1:1111/eureka/,http://cluste
 
 # Skeleton config
 # 模板文件所在的前置目录名
-skeleton.template.prefix.template.directory=template
+skeleton.prefix.template.directory=template
+# 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
+skeleton.reduced.template.directory=com/nepxion/skeleton/generator/
 # 在前端下载zip包名
 skeleton.generate.file.name=spring-cloud-skeleton
-# 在后端创建zip包的目录
+# 在前端下载zip包名
 skeleton.generate.path=E:/Download/Skeleton/
 
 # Swagger config
