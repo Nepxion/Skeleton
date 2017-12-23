@@ -18,6 +18,8 @@ public class SkeletonConstant {
     public static final String ENCODING_GBK = "GBK";
     public static final String ENCODING_ISO_8859_1 = "ISO-8859-1";
 
+    public static final String SKELETON = "skeleton";
+
     public static final String UPPER_CASE = "upperCase";
     public static final String LOWER_CASE = "lowerCase";
 

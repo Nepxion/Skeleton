@@ -96,4 +96,10 @@ public class SkeletonUtil {
 
         return formattedModuleName.substring(0, formattedModuleName.lastIndexOf("."));
     }
+
+    public static String getTempGeneratePath() {
+        String tempGeneratePath = formatGeneratePath(System.getProperty("java.io.tmpdir")) + SkeletonConstant.SKELETON;
+
+        return tempGeneratePath;
+    }
 }

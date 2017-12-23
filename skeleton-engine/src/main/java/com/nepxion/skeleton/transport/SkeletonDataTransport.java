@@ -23,10 +23,10 @@ import com.nepxion.skeleton.util.ZipUtil;
 public abstract class SkeletonDataTransport {
     public byte[] download(String generatePath, String directoryName, SkeletonProperties skeletonProperties) {
         if (StringUtils.isEmpty(generatePath)) {
-            throw new SkeletonException("Generate path is null or empty");
+            generatePath = SkeletonUtil.getTempGeneratePath();
         }
 
-        if (StringUtils.isEmpty(generatePath)) {
+        if (StringUtils.isEmpty(directoryName)) {
             throw new SkeletonException("Directory name is null or empty");
         }
 
