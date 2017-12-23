@@ -12,7 +12,7 @@
     6. 支持Docker化，使用方式参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example
     7. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Dockers.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
 ## 配置文件使用规则
