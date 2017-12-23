@@ -14,6 +14,7 @@ public class SkeletonConstant {
     public static final String HTTP = "http://";
     public static final String FILE_SEPARATOR = "/"; // File.separator
     public static final String FILE_ZIP = "zip";
+
     public static final String ENCODING_UTF_8 = "UTF-8";
     public static final String ENCODING_GBK = "GBK";
     public static final String ENCODING_ISO_8859_1 = "ISO-8859-1";
