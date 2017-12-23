@@ -8,9 +8,11 @@
     2. 支持任何文件文件的逆向创建，包括Java类文件，配置文件，脚本文件，XML文件，YAML文件等
     3. 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
     4. 使用者根据模板原型文件创建Generator类，进行动态创建和替换
-    5. 基于Spring Cloud的调用，Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen	
-    6. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
+    5. 基于Spring Cloud的调用，Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen
+    6. 支持Docker化，使用方式参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example
+    7. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
 
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Dockers.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
 ## 配置文件使用规则
