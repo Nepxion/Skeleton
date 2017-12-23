@@ -15,9 +15,11 @@
 
 ## 配置文件使用规则
     1. skeleton-data.properties
-       用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)
+       用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
+
     2. skeleton-description.xml
-       用来描述模界面驱动和渲染的组件，分为Group和Entity结构，一个Group包含多个Entity，其他属性比较容易理解，主要介绍如下
+       用来描述模界面驱动的数据结构，渲染和布局组件，它里面定义的组件里的value值则取值于skeleton-data.properties
+       分为Group和Entity结构，一个Group包含多个Entity，其他属性比较容易理解，主要介绍如下
        highlightable - 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
        defaultable - 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
        emptiable - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
