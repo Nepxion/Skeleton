@@ -19,6 +19,7 @@
         <skeleton.version>1.0.0</skeleton.version>
         <spring.cloud.version>Dalston.SR4</spring.cloud.version>
         <!-- <spring.cloud.version>Edgware.RELEASE</spring.cloud.version> -->
+        <spring.boot.version>1.5.8.RELEASE</spring.boot.version>
         <swagger.version>2.7.0</swagger.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -62,6 +63,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -73,6 +75,50 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>com.nepxion.skeleton.SkeletonApplication</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Forbid to contain uppercase characters -->
+                    <imageName>${project.artifactId}</imageName>
+                    <baseImage>java</baseImage>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <!-- <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint> -->
+                    <!-- Copy the service's jar file from target into the root directory of the image -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <!-- <exposes>
+                        <expose>2222</expose>
+                    </exposes> -->
                 </configuration>
             </plugin>
         </plugins>
