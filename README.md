@@ -1,9 +1,11 @@
 # Skeleton Generator
 [![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
-基于FreeMarker的框架脚手架生成组件，可以轻松快速实现对框架代码的一键创建（例如业务部门实现对基础架构部提供的框架快速搭建），实现对Spring Cloud的脚手架一键生成
+Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文件的生成器，可以轻松快速实现对框架代码的一键创建，并提供Docker化的基于Spring Cloud的脚手架一键生成
 
-## 介绍
+## 简介
+支持如下功能
+
     1. 严格遵照Maven结构进行脚手架编排
     2. 支持任何文件文件的逆向创建，包括Java类文件，配置文件，脚本文件，XML文件，YAML文件等
     3. 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
@@ -15,7 +17,8 @@
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
-## 配置文件使用规则
+## 配置
+
     1. skeleton-data.properties，见skeleton-spring-cloud/src/main/resources/config下
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
 
@@ -27,7 +30,7 @@
        emptiable - 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
        editable - 标识为不可编辑项，一般组件渲染成不可编辑项方式，如果false则把组件灰掉，提示使用者对应值不可编辑
 
-## 脚手架创建规则
+## 规则
     1. 一个Generator类对应一个template模板文件
     2. 提供SkeletonFileGenerator和SkeletonJavaGenerator两种方式，前者可以生成任何类型的文本文件，后者因为Java文件相对比较特殊，所以做了一些封装
     3. 模板文件(*.template)有如下两种放置方式
@@ -36,7 +39,9 @@
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template1.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Template2.jpg)
 
-## 本地使用方式
+## 示例
+
+### 本地使用方式
 运行com.nepxion.skeleton.generator.SkeletonTest.java类，可在本地创建脚手架文件
 ```java
 package com.nepxion.skeleton.generator;
@@ -89,9 +94,9 @@ public class SkeletonTest {
 }
 ```
 
-## Spring Cloud使用方式
+### Spring Cloud使用方式
 
-### Spring Cloud配置文件(application.properties)
+Spring Cloud配置文件(application.properties)
 ```java
 # Spring cloud config
 spring.application.name=skeleton-generator-spring-cloud-service
@@ -126,7 +131,8 @@ swagger.service.contact.url=https://github.com/Nepxion/Skeleton
 swagger.service.contact.email=1394997@qq.com
 ```
 
-### Spring Cloud接口
+Spring Cloud接口
+
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
     public List<SkeletonGroup> getMetaData()
