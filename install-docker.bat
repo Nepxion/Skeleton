@@ -42,6 +42,6 @@ set DOCKER_HOST=tcp://localhost:2375
 call mvn package docker:build -DskipTests
 @rem call mvn package docker:build -DskipTests && java -jar target\%PROJECT_NAME%-1.0.0.jar
 
-call docker run -i -t -p 127.0.0.1:9010:2222 --name %IMAGE_NAME% %IMAGE_NAME%:latest
+call docker run -i -t -p 2222:2222 --name %IMAGE_NAME% %IMAGE_NAME%:latest
 
 pause
