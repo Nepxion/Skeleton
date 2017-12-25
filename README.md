@@ -14,7 +14,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     6. 支持Docker化一键部署
     7. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker1.jpg)
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
 ## 配置
@@ -174,7 +174,4 @@ Spring Cloud接口
 Spring Cloud容器
 
     1. 在根目录下执行install-docker.bat里的语句，一键创建镜像和容器。等待一段时间后，在当前Dos窗口直接模拟运行Spring Boot的可执行包，是为了验证镜像是否制作正确
-    2. 在所选容器的的Settings->Hostname/Ports界面，端口已经自动映射好了，点击SAVE(很重要)让端口映射生效，容器将自动重启，见下图
-    3. 具体使用方式，请参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example	
-
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker2.jpg)
+    2. 具体使用方式，请参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example
