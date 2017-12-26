@@ -68,13 +68,14 @@ public class SkeletonConfigTransport {
         }
     }
 
-    public String getCanonicalFileName(String directoryName, SkeletonProperties skeletonProperties) {
-        if (StringUtils.isEmpty(directoryName)) {
-            throw new SkeletonException("Directory name is null or empty");
+    public String getCanonicalFileName(String fileName, SkeletonProperties skeletonProperties) {
+        if (StringUtils.isEmpty(fileName)) {
+            throw new SkeletonException("File name is null or empty");
         }
 
-        String canonicalFileName = SkeletonUtil.getCanonicalFileName(directoryName, skeletonProperties);
         try {
+            String canonicalFileName = SkeletonUtil.getCanonicalFileName(fileName, skeletonProperties);
+
             return URLEncoder.encode(canonicalFileName + ".zip", SkeletonConstant.ENCODING_UTF_8);
         } catch (UnsupportedEncodingException e) {
             throw new SkeletonException(e.getMessage(), e);

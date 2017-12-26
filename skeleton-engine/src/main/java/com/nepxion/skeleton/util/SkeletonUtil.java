@@ -43,12 +43,12 @@ public class SkeletonUtil {
         return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatModuleName(moduleName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
-    public static String getCanonicalFileName(String directoryName, SkeletonProperties skeletonProperties) {
-        return directoryName + "-" + getBaseDirectoryName(skeletonProperties);
+    public static String getCanonicalFileName(String fileName, SkeletonProperties skeletonProperties) {
+        return fileName + "-" + getBaseDirectoryName(skeletonProperties);
     }
 
-    public static String getCanonicalPath(String generatePath, String directoryName, SkeletonProperties skeletonProperties) {
-        return formatGeneratePath(generatePath) + getCanonicalFileName(directoryName, skeletonProperties);
+    public static String getCanonicalPath(String generatePath, String fileName, SkeletonProperties skeletonProperties) {
+        return formatGeneratePath(generatePath) + getCanonicalFileName(fileName, skeletonProperties);
     }
 
     public static String formatGeneratePath(Class<?> generatorClass, String reducedDirectory) {

@@ -25,24 +25,24 @@ import com.nepxion.skeleton.util.ZipUtil;
 public abstract class SkeletonDataTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonDataTransport.class);
 
-    public byte[] download(String generatePath, String directoryName, SkeletonProperties skeletonProperties) {
+    public byte[] download(String generatePath, String fileName, SkeletonProperties skeletonProperties) {
         if (StringUtils.isEmpty(generatePath)) {
             generatePath = SkeletonUtil.getTempGeneratePath();
         }
 
-        if (StringUtils.isEmpty(directoryName)) {
-            throw new SkeletonException("Directory name is null or empty");
+        if (StringUtils.isEmpty(fileName)) {
+            throw new SkeletonException("File name is null or empty");
         }
 
         try {
-            String path = SkeletonUtil.getCanonicalPath(generatePath, directoryName, skeletonProperties);
+            String canonicalPath = SkeletonUtil.getCanonicalPath(generatePath, fileName, skeletonProperties);
 
-            generate(path, skeletonProperties);
+            generate(canonicalPath, skeletonProperties);
 
-            String zipFilePath = ZipUtil.zip(path, null);
+            String zipFilePath = ZipUtil.zip(canonicalPath, null);
             File zipFile = new File(zipFilePath);
 
-            LOG.info("Download skeleton file for " + directoryName + ".zip is executed");
+            LOG.info("Download skeleton file for " + zipFile.getName() + " is executed");
 
             return FileUtil.getBytes(zipFile);
         } catch (Exception e) {
