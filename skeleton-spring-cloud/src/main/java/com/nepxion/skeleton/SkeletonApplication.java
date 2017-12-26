@@ -10,13 +10,12 @@ package com.nepxion.skeleton;
  * @version 1.0
  */
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 // @EnableDiscoveryClient
-@EnableAutoConfiguration
+// @EnableAutoConfiguration
 public class SkeletonApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SkeletonApplication.class).web(true).run(args);

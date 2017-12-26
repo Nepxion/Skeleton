@@ -13,6 +13,8 @@ package com.nepxion.skeleton.transport;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.nepxion.skeleton.exception.SkeletonException;
 import com.nepxion.skeleton.property.SkeletonProperties;
@@ -21,6 +23,8 @@ import com.nepxion.skeleton.util.SkeletonUtil;
 import com.nepxion.skeleton.util.ZipUtil;
 
 public abstract class SkeletonDataTransport {
+    private static final Logger LOG = LoggerFactory.getLogger(SkeletonDataTransport.class);
+
     public byte[] download(String generatePath, String directoryName, SkeletonProperties skeletonProperties) {
         if (StringUtils.isEmpty(generatePath)) {
             generatePath = SkeletonUtil.getTempGeneratePath();
@@ -37,6 +41,8 @@ public abstract class SkeletonDataTransport {
 
             String zipFilePath = ZipUtil.zip(path, null);
             File zipFile = new File(zipFilePath);
+
+            LOG.info("Download skeleton file for " + directoryName + ".zip is executed");
 
             return FileUtil.getBytes(zipFile);
         } catch (Exception e) {

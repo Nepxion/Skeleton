@@ -82,6 +82,10 @@ public class SkeletonConfigTransport {
     }
 
     public List<SkeletonGroup> getMetaData() {
-        return skeletonXmlParser.getSkeletonGroups();
+        List<SkeletonGroup> skeletonGroups = skeletonXmlParser.getSkeletonGroups();
+
+        LOG.info("Get skeleton meta data for {} groups is executed...", skeletonGroups.size());
+
+        return skeletonGroups;
     }
 }
