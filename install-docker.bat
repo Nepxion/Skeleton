@@ -15,8 +15,9 @@
 @title Nepxion Skeleton
 @color 0a
 
-@set DEPENDENCY_LIST=skeleton-engine
+
 @set PROJECT_NAME=skeleton-spring-cloud
+@set PROJECT_LIST=skeleton-engine,%PROJECT_NAME%
 @set IMAGE_NAME=skeleton-spring-cloud
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
@@ -24,7 +25,7 @@
 if exist %PROJECT_NAME%\target rmdir /s/q %PROJECT_NAME%\target
 
 @rem 执行相关模块的Maven Install
-call mvn clean install -DskipTests -pl %DEPENDENCY_LIST% ,%PROJECT_NAME% -am
+call mvn clean install -DskipTests -pl %PROJECT_LIST% -am
 
 @rem 停止和删除Docker容器
 call docker stop %IMAGE_NAME%
