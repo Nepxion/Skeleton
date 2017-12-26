@@ -15,9 +15,11 @@
 @title Nepxion Skeleton
 @color 0a
 
-
 @set PROJECT_NAME=skeleton-spring-cloud
 @set PROJECT_LIST=skeleton-engine,%PROJECT_NAME%
+
+set DOCKER_HOST=tcp://localhost:2375
+@rem set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
 @set IMAGE_NAME=skeleton-spring-cloud
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
@@ -36,9 +38,6 @@ call docker rm %IMAGE_NAME%
 call docker rmi %IMAGE_NAME%
 
 cd %PROJECT_NAME%
-
-set DOCKER_HOST=tcp://localhost:2375
-@rem set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
 
 @rem 安装Docker镜像
 call mvn package docker:build -DskipTests
