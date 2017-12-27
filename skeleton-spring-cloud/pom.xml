@@ -117,7 +117,7 @@
                         </resource>
                     </resources>
                     <exposes>
-                        <expose>2222</expose>
+                        <expose>${exposePort}</expose>
                     </exposes>
                 </configuration>
             </plugin>

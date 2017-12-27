@@ -40,7 +40,7 @@ call docker rmi %IMAGE_NAME%
 cd %PROJECT_NAME%
 
 @rem 安装Docker镜像
-call mvn package docker:build -DskipTests
+call mvn package docker:build -DskipTests -DexposePort=%CONTAINER_PORT%
 
 @rem 安装和启动Docker容器，并自动执行端口映射
 call docker run -i -t -p %MACHINE_PORT%:%CONTAINER_PORT% --name %IMAGE_NAME% %IMAGE_NAME%:latest
