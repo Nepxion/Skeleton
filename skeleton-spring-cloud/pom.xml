@@ -117,7 +117,7 @@
                         </resource>
                     </resources>
                     <exposes>
-                        <expose>2222</expose>
+                        <expose>8888</expose>
                     </exposes>
                 </configuration>
             </plugin>
