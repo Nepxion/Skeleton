@@ -11,7 +11,9 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     3. 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
     4. 使用者根据模板原型文件创建Generator类，进行动态创建和替换
     5. 基于Spring Cloud的调用，Spring Cloud中国社区的spring-cloud-codegen将采用本框架，参考https://github.com/SpringCloud/spring-cloud-codegen
-    6. 支持Docker化一键部署(参照页面最底部)
+    6. 支持Docker化一键部署
+       6.1 参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example中“Win10 Docker部署”->“部署前准备工作”
+       6.2 在根目录下执行install-docker.bat或者install-docker.sh里的语句，一键创建镜像和容器
     7. 支持Swagger，打开http://localhost:2222/swagger-ui.html访问
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker.jpg)
@@ -170,8 +172,3 @@ Spring Cloud接口
     3. 下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
     public ResponseEntity<Resource> downloadResponse(@RequestBody String config)
-
-Spring Cloud容器
-
-    1. 参考https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example中Win10 Docker部署->部署前准备工作
-    2. 在根目录下执行install-docker.bat或者install-docker.sh里的语句，一键创建镜像和容器。等待一段时间后，在当前Dos窗口直接模拟运行Spring Boot的可执行包，是为了验证镜像是否制作正确
