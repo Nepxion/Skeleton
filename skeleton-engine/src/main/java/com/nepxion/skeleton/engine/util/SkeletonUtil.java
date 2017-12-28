@@ -62,7 +62,13 @@ public class SkeletonUtil {
 
         if (StringUtils.isNotEmpty(reducedDirectory)) {
             try {
-                return path.substring(reducedDirectory.length(), path.length() - 1);
+                int reducedDirectoryLength = reducedDirectory.length();
+                int pathLength = path.length();
+                if (reducedDirectoryLength < pathLength) {
+                    return path.substring(reducedDirectoryLength, pathLength - 1);
+                } else {
+                    return "";
+                }
             } catch (Exception e) {
                 throw new SkeletonException("Path=[" + path + "] doesn't contain reducedDirectory=[" + reducedDirectory + "]");
             }
