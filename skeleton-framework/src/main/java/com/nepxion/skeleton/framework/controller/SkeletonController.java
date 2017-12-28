@@ -72,7 +72,7 @@ public class SkeletonController {
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
                 String dynamicTemplateDirectory = generateDynamicTemplateDirectory(skeletonProperties);
 
-                service.generator(path, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generate(path, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }
@@ -88,8 +88,6 @@ public class SkeletonController {
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
 
-        generateDynamicTemplateDirectory(properties);
-
         return dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
     }
 
@@ -97,8 +95,6 @@ public class SkeletonController {
     @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
-
-        generateDynamicTemplateDirectory(properties);
 
         String canonicalFileName = configTransport.getCanonicalFileName(skeletonGenerateFileName, properties);
         byte[] bytes = dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
