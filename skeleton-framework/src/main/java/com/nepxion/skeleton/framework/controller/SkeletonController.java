@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -33,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nepxion.skeleton.engine.entity.SkeletonGroup;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.engine.transport.SkeletonDataTransport;
@@ -47,11 +49,16 @@ public class SkeletonController {
     @Value("${skeleton.reduced.template.directory}")
     private String skeletonReducedTemplateDirectory;
 
+    @Value("${skeleton.dynamic.template.directory.key}")
+    private String skeletonDynamicTemplateDirectoryKey;
+
     @Value("${skeleton.generate.file.name}")
     private String skeletonGenerateFileName;
 
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
+
+    private String templateDirectory;
 
     @Autowired
     private SkeletonService service;
@@ -65,7 +72,7 @@ public class SkeletonController {
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                service.generator(path, skeletonPrefixTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generator(path, templateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }
@@ -81,6 +88,8 @@ public class SkeletonController {
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
 
+        generateDynamicTemplateDirectory(properties);
+
         return dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
     }
 
@@ -88,6 +97,9 @@ public class SkeletonController {
     @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/skeleton-data.properties的内容", required = true) String config) {
         SkeletonProperties properties = configTransport.getProperties(config);
+
+        generateDynamicTemplateDirectory(properties);
+
         String canonicalFileName = configTransport.getCanonicalFileName(skeletonGenerateFileName, properties);
         byte[] bytes = dataTransport.download(skeletonGeneratePath, skeletonGenerateFileName, properties);
 
@@ -103,5 +115,20 @@ public class SkeletonController {
         Resource resource = new InputStreamResource(inputStream);
 
         return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/x-msdownload")).body(resource);
+    }
+
+    private void generateDynamicTemplateDirectory(SkeletonProperties properties) {
+        if (StringUtils.isEmpty(skeletonDynamicTemplateDirectoryKey)) {
+            templateDirectory = skeletonPrefixTemplateDirectory;
+
+            return;
+        }
+
+        String skeletonDynamicTemplateDirectoryValue = properties.getString(skeletonDynamicTemplateDirectoryKey);
+        if (StringUtils.isEmpty(skeletonDynamicTemplateDirectoryValue)) {
+            throw new SkeletonException(skeletonDynamicTemplateDirectoryKey + " is null or empty");
+        }
+
+        templateDirectory = skeletonPrefixTemplateDirectory + "/" + skeletonDynamicTemplateDirectoryValue;
     }
 }
