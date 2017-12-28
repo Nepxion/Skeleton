@@ -103,12 +103,9 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <!-- Forbid to contain uppercase characters -->
                     <imageName>${project.artifactId}</imageName>
                     <baseImage>java</baseImage>
-                    <!-- <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory> -->
                     <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-                    <!-- Copy the service's jar file from target into the root directory of the image -->
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -117,7 +114,7 @@
                         </resource>
                     </resources>
                     <exposes>
-                        <expose>${exposePort}</expose>
+                        <expose>${ExposePort}</expose>
                     </exposes>
                 </configuration>
             </plugin>

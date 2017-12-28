@@ -42,7 +42,7 @@ docker rmi ${IMAGE_NAME}
 cd ${PROJECT_NAME}
 
 # 安装Docker镜像
-mvn package docker:build -DskipTests -DexposePort=${CONTAINER_PORT%}
+mvn package docker:build -DskipTests -DExposePort=${CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
 docker run -i -t -p ${MACHINE_PORT}:${CONTAINER_PORT} --name ${IMAGE_NAME} ${IMAGE_NAME}:latest
