@@ -42,7 +42,7 @@ public class SkeletonTest {
 
             // 输出脚手架文件
             SkeletonService skeletonService = new SkeletonServiceImpl();
-            skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+            skeletonService.generate(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
         }
