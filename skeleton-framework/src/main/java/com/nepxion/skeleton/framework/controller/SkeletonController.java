@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.controller;
+package com.nepxion.skeleton.framework.controller;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -35,7 +36,7 @@ import com.nepxion.skeleton.engine.entity.SkeletonGroup;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.engine.transport.SkeletonDataTransport;
-import com.nepxion.skeleton.generator.SkeletonService;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 @RestController
 @Api(tags = { "脚手架接口" })
@@ -52,6 +53,7 @@ public class SkeletonController {
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
+    @Autowired
     private SkeletonService service;
 
     private SkeletonConfigTransport configTransport;
@@ -59,7 +61,6 @@ public class SkeletonController {
 
     @PostConstruct
     private void initialize() {
-        service = new SkeletonService();
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override

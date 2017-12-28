@@ -11,6 +11,7 @@
 
     <modules>
         <module>skeleton-engine</module>
+        <module>skeleton-framework</module>
         <module>skeleton-spring-cloud</module>
     </modules>
 
@@ -26,6 +27,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>skeleton-engine</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>skeleton-framework</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

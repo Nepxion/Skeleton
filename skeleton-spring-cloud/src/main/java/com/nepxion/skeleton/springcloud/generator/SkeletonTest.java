@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.generator;
+package com.nepxion.skeleton.springcloud.generator;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -13,6 +13,7 @@ package com.nepxion.skeleton.generator;
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
 
 public class SkeletonTest {
     public static void main(String[] args) {
@@ -28,7 +29,7 @@ public class SkeletonTest {
             // String prefixTemplateDirectory = null;
 
             // 模板目录缩减
-            String reducedTemplateDirectory = "com/nepxion/skeleton/generator/";
+            String reducedTemplateDirectory = "com/nepxion/skeleton/springcloud/generator/";
             // String reducedTemplateDirectory = null;
 
             // 描述规则的配置文件所在的路径
@@ -39,7 +40,7 @@ public class SkeletonTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
-            SkeletonService skeletonService = new SkeletonService();
+            SkeletonServiceImpl skeletonService = new SkeletonServiceImpl();
             skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();

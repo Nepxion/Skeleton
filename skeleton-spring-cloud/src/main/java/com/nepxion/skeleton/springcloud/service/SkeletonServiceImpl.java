@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.generator;
+package com.nepxion.skeleton.springcloud.service;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -14,15 +14,17 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.generator.server.PomXmlGenerator;
-import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
-import com.nepxion.skeleton.generator.server.java.TestServerApplicationClassGenerator;
-import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
-import com.nepxion.skeleton.generator.server.resources.LogbackXmlGenerator;
+import com.nepxion.skeleton.framework.service.SkeletonService;
+import com.nepxion.skeleton.springcloud.generator.server.PomXmlGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.java.ServerApplicationClassGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.java.TestServerApplicationClassGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.resources.ApplicationPropertiesGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.resources.LogbackXmlGenerator;
 
 import freemarker.template.TemplateException;
 
-public class SkeletonService {
+public class SkeletonServiceImpl implements SkeletonService {
+    @Override
     public void generator(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件到main/java目录下
         new ServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();

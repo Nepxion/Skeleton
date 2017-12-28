@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.generator.server.java;
+package com.nepxion.skeleton.springcloud.generator.server.java;
 
 /**
  * <p>Title: Nepxion Skeleton</p>

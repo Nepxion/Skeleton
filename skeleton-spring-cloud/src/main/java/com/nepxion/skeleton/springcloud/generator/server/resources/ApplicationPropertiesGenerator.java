@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.generator.server.resources;
+package com.nepxion.skeleton.springcloud.generator.server.resources;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -17,7 +17,7 @@ import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
-public class LogbackXmlGenerator extends SkeletonFileGenerator {
+public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
@@ -26,8 +26,8 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
      * @param reducedTemplateDirectory 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public LogbackXmlGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, LogbackXmlGenerator.class, skeletonProperties);
+    public ApplicationPropertiesGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ApplicationPropertiesGenerator.class, skeletonProperties);
     }
 
     /**
@@ -38,7 +38,7 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
      * @param fileType 创建的文件类型
      * @param skeletonProperties 全局配置文件对象
      */
-    /*public LogbackXmlGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
+    /*public ApplicationPropertiesGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
     }*/
 
@@ -47,7 +47,7 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getFileName() {
-        return "logback.xml";
+        return "application.properties";
     }
 
     /**
@@ -55,7 +55,7 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getTemplateName() {
-        return "logback.xml.template";
+        return "application.properties.template";
     }
 
     /**
@@ -63,7 +63,7 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
      */
     @Override
     protected String getOutputPath() {
-        return super.getOutputPath() + SkeletonConstant.TEST_RESOURCES_FILE_PATH;
+        return super.getOutputPath() + SkeletonConstant.MAIN_RESOURCES_FILE_PATH;
     }
 
     /**
