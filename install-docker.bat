@@ -21,9 +21,9 @@
 set DOCKER_HOST=tcp://localhost:2375
 @rem set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
 @set IMAGE_NAME=skeleton-spring-cloud
+@set MAIN_CLASS=com.nepxion.skeleton.springcloud.SkeletonApplication
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
-@set MAIN_CLASS=com.nepxion.skeleton.springcloud.SkeletonApplication
 
 if exist %PROJECT_NAME%\target rmdir /s/q %PROJECT_NAME%\target
 
@@ -41,7 +41,7 @@ call docker rmi %IMAGE_NAME%
 cd %PROJECT_NAME%
 
 @rem 安装Docker镜像
-call mvn package docker:build -DskipTests -DExposePort=%CONTAINER_PORT% -DMainClass=%MAIN_CLASS%
+call mvn package docker:build -DskipTests -DMainClass=%MAIN_CLASS% -DExposePort=%CONTAINER_PORT%
 
 @rem 安装和启动Docker容器，并自动执行端口映射
 call docker run -i -t -p %MACHINE_PORT%:%CONTAINER_PORT% --name %IMAGE_NAME% %IMAGE_NAME%:latest
