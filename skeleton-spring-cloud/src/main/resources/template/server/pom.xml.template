@@ -40,6 +40,7 @@
     </dependencies>
 
     <build>
+        <finalName>${r"$"}{project.artifactId}-${r"$"}{project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -51,6 +52,46 @@
                     <encoding>${r"$"}{project.build.sourceEncoding}</encoding>
                     <source>${r"$"}{java.version}</source>
                     <target>${r"$"}{java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                    <mainClass>${mainClass}</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <imageName>${r"$"}{project.artifactId}</imageName>
+                    <baseImage>java</baseImage>
+                    <entryPoint>["java", "-jar", "/${r"$"}{project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${r"$"}{project.build.directory}</directory>
+                            <include>${r"$"}{project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                    <exposes>
+                        <expose>${r"$"}{ExposePort}</expose>
+                    </exposes>
                 </configuration>
             </plugin>
         </plugins>

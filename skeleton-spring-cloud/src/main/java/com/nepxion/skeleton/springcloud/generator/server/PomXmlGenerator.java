@@ -15,6 +15,7 @@ import java.util.Map;
 
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
 
 public class PomXmlGenerator extends SkeletonFileGenerator {
     public PomXmlGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
@@ -46,6 +47,7 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
         dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
         dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
         dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
+        dataModel.put("mainClass", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties) + ".ServerApplication");
 
         return dataModel;
     }
