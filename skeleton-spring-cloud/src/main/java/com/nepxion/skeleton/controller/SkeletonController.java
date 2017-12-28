@@ -31,11 +31,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nepxion.skeleton.entity.SkeletonGroup;
+import com.nepxion.skeleton.engine.entity.SkeletonGroup;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.transport.SkeletonConfigTransport;
+import com.nepxion.skeleton.engine.transport.SkeletonDataTransport;
 import com.nepxion.skeleton.generator.SkeletonService;
-import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.transport.SkeletonConfigTransport;
-import com.nepxion.skeleton.transport.SkeletonDataTransport;
 
 @RestController
 @Api(tags = { "脚手架接口" })

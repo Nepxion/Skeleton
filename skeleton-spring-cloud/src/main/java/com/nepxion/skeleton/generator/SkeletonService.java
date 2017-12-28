@@ -12,13 +12,13 @@ package com.nepxion.skeleton.generator;
 
 import java.io.IOException;
 
-import com.nepxion.skeleton.exception.SkeletonException;
+import com.nepxion.skeleton.engine.exception.SkeletonException;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.generator.server.PomXmlGenerator;
 import com.nepxion.skeleton.generator.server.java.ServerApplicationClassGenerator;
 import com.nepxion.skeleton.generator.server.java.TestServerApplicationClassGenerator;
 import com.nepxion.skeleton.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.generator.server.resources.LogbackXmlGenerator;
-import com.nepxion.skeleton.property.SkeletonProperties;
 
 import freemarker.template.TemplateException;
 
