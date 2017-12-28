@@ -12,12 +12,10 @@ package com.nepxion.skeleton.springcloud;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 // @EnableDiscoveryClient
 // @EnableAutoConfiguration
-@ComponentScan(basePackages = { "com.nepxion.skeleton" })
 public class SkeletonApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SkeletonApplication.class).web(true).run(args);
