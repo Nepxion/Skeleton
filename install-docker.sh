@@ -16,7 +16,7 @@ title=Nepxion Skeleton
 color=0a
 
 PROJECT_NAME=skeleton-spring-cloud
-PROJECT_LIST=skeleton-engine,${PROJECT_NAME}
+PROJECT_LIST=skeleton-engine,skeleton-framework,${PROJECT_NAME}
 
 DOCKER_HOST=tcp://localhost:2375
 # DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs

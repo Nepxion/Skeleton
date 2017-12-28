@@ -16,7 +16,7 @@
 @color 0a
 
 @set PROJECT_NAME=skeleton-spring-cloud
-@set PROJECT_LIST=skeleton-engine,%PROJECT_NAME%
+@set PROJECT_LIST=skeleton-engine,skeleton-framework,%PROJECT_NAME%
 
 set DOCKER_HOST=tcp://localhost:2375
 @rem set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
