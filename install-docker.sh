@@ -23,7 +23,6 @@ DOCKER_HOST=tcp://localhost:2375
 IMAGE_NAME=skeleton-spring-cloud
 MACHINE_PORT=2222
 CONTAINER_PORT=2222
-MAIN_CLASS=com.nepxion.skeleton.springcloud.SkeletonApplication
 
 if [ ! -d ${PROJECT_NAME}\target];then
 rmdir /s/q ${PROJECT_NAME}\target
@@ -43,7 +42,7 @@ docker rmi ${IMAGE_NAME}
 cd ${PROJECT_NAME}
 
 # 安装Docker镜像
-mvn package docker:build -DskipTests -DMainClass=${MAIN_CLASS} -DExposePort=${CONTAINER_PORT}
+mvn package docker:build -DskipTests -DExposePort=${CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
 docker run -i -t -p ${MACHINE_PORT}:${CONTAINER_PORT} --name ${IMAGE_NAME} ${IMAGE_NAME}:latest

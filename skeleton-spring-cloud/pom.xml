@@ -71,7 +71,7 @@
                 <version>${spring.boot.version}</version>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>${MainClass}</mainClass>
+                    <mainClass>com.nepxion.skeleton.springcloud.SkeletonApplication</mainClass>
                     <layout>JAR</layout>
                 </configuration>
                 <executions>
