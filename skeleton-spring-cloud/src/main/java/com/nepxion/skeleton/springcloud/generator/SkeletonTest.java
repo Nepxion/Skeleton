@@ -13,6 +13,7 @@ package com.nepxion.skeleton.springcloud.generator;
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
 
 public class SkeletonTest {
@@ -40,7 +41,7 @@ public class SkeletonTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
-            SkeletonServiceImpl skeletonService = new SkeletonServiceImpl();
+            SkeletonService skeletonService = new SkeletonServiceImpl();
             skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
