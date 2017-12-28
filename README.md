@@ -45,9 +45,9 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ## 示例
 
 ### 本地使用方式
-运行com.nepxion.skeleton.generator.SkeletonTest.java类，可在本地创建脚手架文件
+运行com.nepxion.skeleton.springcloud.generator.SkeletonTest.java类，可在本地创建脚手架文件
 ```java
-package com.nepxion.skeleton.generator;
+package com.nepxion.skeleton.springcloud.generator;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -59,9 +59,11 @@ package com.nepxion.skeleton.generator;
  * @version 1.0
  */
 
-import com.nepxion.skeleton.constant.SkeletonConstant;
-import com.nepxion.skeleton.property.SkeletonProperties;
-import com.nepxion.skeleton.util.SkeletonUtil;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.framework.service.SkeletonService;
+import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
 
 public class SkeletonTest {
     public static void main(String[] args) {
@@ -77,7 +79,7 @@ public class SkeletonTest {
             // String prefixTemplateDirectory = null;
 
             // 模板目录缩减
-            String reducedTemplateDirectory = "com/nepxion/skeleton/generator/";
+            String reducedTemplateDirectory = "com/nepxion/skeleton/springcloud/generator/";
             // String reducedTemplateDirectory = null;
 
             // 描述规则的配置文件所在的路径
@@ -88,7 +90,7 @@ public class SkeletonTest {
             SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
 
             // 输出脚手架文件
-            SkeletonService skeletonService = new SkeletonService();
+            SkeletonService skeletonService = new SkeletonServiceImpl();
             skeletonService.generator(generatePath, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,8 +118,10 @@ eureka.client.serviceUrl.defaultZone=http://cluster-1:1111/eureka/,http://cluste
 # Skeleton config
 # 模板文件所在的前置目录名
 skeleton.prefix.template.directory=template
+# 模板文件所在的目录根据传入的Key动态切换，不设置则表示不切换
+skeleton.dynamic.template.directory.key=
 # 模板目录缩减，考虑到模板目录和类目录必须一致，会导致目录目录太长，可以缩减掉一部分
-skeleton.reduced.template.directory=com/nepxion/skeleton/generator/
+skeleton.reduced.template.directory=com/nepxion/skeleton/springcloud/generator/
 # 在前端下载zip包名
 skeleton.generate.file.name=spring-cloud-skeleton
 # 在后端生成zip包的放置目录，不设置则放在操作系统的临时目录下
