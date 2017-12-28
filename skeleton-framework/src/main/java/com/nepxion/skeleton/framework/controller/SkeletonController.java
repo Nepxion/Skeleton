@@ -58,8 +58,6 @@ public class SkeletonController {
     @Value("${skeleton.generate.path}")
     private String skeletonGeneratePath;
 
-    private String templateDirectory;
-
     @Autowired
     private SkeletonService service;
 
@@ -72,7 +70,9 @@ public class SkeletonController {
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
-                service.generator(path, templateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                String dynamicTemplateDirectory = generateDynamicTemplateDirectory(skeletonProperties);
+
+                service.generator(path, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }
@@ -117,11 +117,9 @@ public class SkeletonController {
         return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/x-msdownload")).body(resource);
     }
 
-    private void generateDynamicTemplateDirectory(SkeletonProperties properties) {
+    private String generateDynamicTemplateDirectory(SkeletonProperties properties) {
         if (StringUtils.isEmpty(skeletonDynamicTemplateDirectoryKey)) {
-            templateDirectory = skeletonPrefixTemplateDirectory;
-
-            return;
+            return skeletonPrefixTemplateDirectory;
         }
 
         String skeletonDynamicTemplateDirectoryValue = properties.getString(skeletonDynamicTemplateDirectoryKey);
@@ -129,6 +127,6 @@ public class SkeletonController {
             throw new SkeletonException(skeletonDynamicTemplateDirectoryKey + " is null or empty");
         }
 
-        templateDirectory = skeletonPrefixTemplateDirectory + "/" + skeletonDynamicTemplateDirectoryValue;
+        return skeletonPrefixTemplateDirectory + "/" + skeletonDynamicTemplateDirectoryValue;
     }
 }
