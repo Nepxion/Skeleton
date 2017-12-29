@@ -11,6 +11,13 @@
         <version>${pomVersion}</version>
     </parent>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>${r"$"}{project.artifactId}-${r"$"}{project.version}</finalName>
         <plugins>
