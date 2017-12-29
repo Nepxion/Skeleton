@@ -8,14 +8,18 @@
     <modelVersion>4.0.0</modelVersion>
     <version>${pomVersion}</version>
     <url>https://github.com/Nepxion/</url>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>${springBootVersion}</version>
+    </parent>
 
     <modules>
         <module>${moduleName}-server</module>
     </modules>
 
     <properties>
-        <disruptor.version>3.3.7</disruptor.version>
-        <log4j.version>2.9.1</log4j.version>
+        <spring.cloud.version>${springCloudVersion}</spring.cloud.version>
         <java.version>${javaVersion}</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -27,29 +31,21 @@
                 <artifactId>${moduleName}-server</artifactId>
                 <version>${r"$"}{project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${r"$"}{spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>com.lmax</groupId>
-            <artifactId>disruptor</artifactId>
-            <version>${r"$"}{disruptor.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-1.2-api</artifactId>
-            <version>${r"$"}{log4j.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${r"$"}{log4j.version}</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
     </dependencies>
 

@@ -38,6 +38,8 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
         dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId"));
         dataModel.put("pomName", skeletonProperties.getString("pomName"));
         dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
+        dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
+        dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
         dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
         dataModel.put("moduleName", skeletonProperties.getString("moduleName"));
 
