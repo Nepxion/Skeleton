@@ -16,7 +16,7 @@ title=Nepxion Skeleton
 color=0a
 
 PROJECT_NAME=${projectName}
-PROJECT_LIST=<#if projectDependencies != "">${projectDependencies},</#if>%PROJECT_NAME%
+PROJECT_LIST=<#if projectDependencies != "">${projectDependencies},</#if>${r"$"}{PROJECT_NAME}
 
 DOCKER_HOST=${dockerHost}
 <#if dockerCertEnabled == "true">
@@ -26,8 +26,8 @@ IMAGE_NAME=${imageName}
 MACHINE_PORT=${port}
 CONTAINER_PORT=${port}
 
-if [ ! -d ${r"$"}{PROJECT_NAME}\target];then
-rmdir /s/q ${r"$"}{PROJECT_NAME}\target
+if [ ! -d ${r"$"}{PROJECT_NAME}/target];then
+rmdir /s/q ${r"$"}{PROJECT_NAME}/target
 fi
 
 # 执行相关模块的Maven Install

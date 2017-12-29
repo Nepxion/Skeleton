@@ -20,7 +20,7 @@
 
 @ set DOCKER_HOST=${dockerHost}
 <#if dockerCertEnabled == "true">
-set DOCKER_CERT_PATH=${dockerCertPath}
+@set DOCKER_CERT_PATH=${dockerCertPath}
 </#if>
 @set IMAGE_NAME=${imageName}
 @set MACHINE_PORT=${port}
