@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>${pomGroupId}</groupId>
+    <artifactId>${pomArtifactId}</artifactId>
+    <name>${pomName}</name>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <version>${pomVersion}</version>
+    <url>https://github.com/Nepxion/</url>
+
+    <modules>
+        <module>${moduleName}-server</module>
+    </modules>
+
+    <properties>
+        <disruptor.version>3.3.7</disruptor.version>
+        <log4j.version>2.9.1</log4j.version>
+        <java.version>${javaVersion}</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${r"$"}{project.groupId}</groupId>
+                <artifactId>${moduleName}-server</artifactId>
+                <version>${r"$"}{project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${r"$"}{disruptor.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>${r"$"}{log4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${r"$"}{log4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${r"$"}{project.build.sourceEncoding}</encoding>
+                    <source>${r"$"}{java.version}</source>
+                    <target>${r"$"}{java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
