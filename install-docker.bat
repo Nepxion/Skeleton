@@ -18,8 +18,8 @@
 @set PROJECT_NAME=skeleton-spring-cloud
 @set PROJECT_LIST=skeleton-engine,skeleton-framework,%PROJECT_NAME%
 
-set DOCKER_HOST=tcp://localhost:2375
-@rem set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
+@set DOCKER_HOST=tcp://localhost:2375
+@rem @set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
 @set IMAGE_NAME=skeleton-spring-cloud
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
