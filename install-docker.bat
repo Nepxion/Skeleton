@@ -16,7 +16,6 @@
 @color 0a
 
 @set PROJECT_NAME=skeleton-spring-cloud
-@set PROJECT_LIST=skeleton-engine,skeleton-framework,%PROJECT_NAME%
 
 @set DOCKER_HOST=tcp://localhost:2375
 @rem @set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
@@ -27,7 +26,7 @@
 if exist %PROJECT_NAME%\target rmdir /s/q %PROJECT_NAME%\target
 
 @rem 执行相关模块的Maven Install
-call mvn clean install -DskipTests -pl %PROJECT_LIST% -am
+call mvn clean install -DskipTests -pl %PROJECT_NAME% -am
 
 @rem 停止和删除Docker容器
 call docker stop %IMAGE_NAME%

@@ -16,7 +16,6 @@ title=Nepxion Skeleton
 color=0a
 
 PROJECT_NAME=skeleton-spring-cloud
-PROJECT_LIST=skeleton-engine,skeleton-framework,${PROJECT_NAME}
 
 DOCKER_HOST=tcp://localhost:2375
 # DOCKER_CERT_PATH=/User/Neptune/.docker/machine/certs
@@ -29,7 +28,7 @@ rmdir /s/q ${PROJECT_NAME}/target
 fi
 
 # 执行相关模块的Maven Install
-mvn clean install -DskipTests -pl ${PROJECT_LIST} -am
+mvn clean install -DskipTests -pl ${PROJECT_NAME} -am
 
 # 停止和删除Docker容器
 docker stop ${IMAGE_NAME}
