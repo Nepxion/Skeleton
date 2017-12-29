@@ -18,7 +18,7 @@
 @set PROJECT_NAME=${projectName}
 @set PROJECT_LIST=<#if projectDependencies != "">${projectDependencies},</#if>%PROJECT_NAME%
 
-@ set DOCKER_HOST=${dockerHost}
+@set DOCKER_HOST=${dockerHost}
 <#if dockerCertEnabled == "true">
 @set DOCKER_CERT_PATH=${dockerCertPath}
 </#if>
