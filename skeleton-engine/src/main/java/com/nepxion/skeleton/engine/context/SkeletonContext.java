@@ -77,6 +77,6 @@ public class SkeletonContext {
             return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplateDirectory) ? prefixTemplateDirectory + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass, reducedTemplateDirectory);
         }
 
-        return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(baseTemplatePath) + projectType + SkeletonConstant.FILE_SEPARATOR + fileType;
+        return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(baseTemplatePath) + (StringUtils.isNotEmpty(projectType) ? projectType : "") + SkeletonConstant.FILE_SEPARATOR + fileType;
     }
 }
