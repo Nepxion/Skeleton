@@ -15,7 +15,9 @@
     </parent>
 
     <modules>
+        <module>${moduleName}-eureka</module>
         <module>${moduleName}-server</module>
+        <module>${moduleName}-client</module>
     </modules>
 
     <properties>
@@ -28,7 +30,19 @@
         <dependencies>
             <dependency>
                 <groupId>${r"$"}{project.groupId}</groupId>
+                <artifactId>${moduleName}-eureka</artifactId>
+                <version>${r"$"}{project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${r"$"}{project.groupId}</groupId>
                 <artifactId>${moduleName}-server</artifactId>
+                <version>${r"$"}{project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${r"$"}{project.groupId}</groupId>
+                <artifactId>${moduleName}-client</artifactId>
                 <version>${r"$"}{project.version}</version>
             </dependency>
 

@@ -14,19 +14,13 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.framework.service.SkeletonService;
+import com.nepxion.skeleton.springcloud.generator.eureka.PomXmlGenerator;
 
 import freemarker.template.TemplateException;
 
-public class SkeletonServiceImpl implements SkeletonService {
-    @Override
+public class EurekaGenerator {
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        new ParentGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
-
-        new EurekaGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
-
-        new ServerGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
-
-        new ClientGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+        // 创建文件到根目录下
+        new PomXmlGenerator(path, "eureka", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
     }
 }
