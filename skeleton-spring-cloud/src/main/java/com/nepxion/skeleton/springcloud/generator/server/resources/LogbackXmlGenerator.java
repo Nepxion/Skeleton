@@ -34,15 +34,13 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
 
     @Override
     protected String getOutputPath() {
-        return super.getOutputPath() + SkeletonConstant.TEST_RESOURCES_FILE_PATH;
+        return super.getOutputPath() + SkeletonConstant.MAIN_RESOURCES_FILE_PATH;
     }
 
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put("serviceName", skeletonProperties.getString("serviceName"));
-        dataModel.put("port", skeletonProperties.getString("port"));
-        dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
 
         return dataModel;
     }
