@@ -16,6 +16,7 @@ import java.util.Map;
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.engine.util.SkeletonUtil;
 
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     /**
@@ -76,6 +77,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
         dataModel.put("serviceName", skeletonProperties.getString("serviceName"));
         dataModel.put("port", skeletonProperties.getString("port"));
         dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
+        dataModel.put("basePackage", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties));
 
         return dataModel;
     }

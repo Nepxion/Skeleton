@@ -16,6 +16,8 @@ import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.springcloud.generator.server.PomXmlGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.java.ServerApplicationClassGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.java.ServerControllerClassGenerator;
+import com.nepxion.skeleton.springcloud.generator.server.java.ServerWebConfigClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.java.TestServerApplicationClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.resources.ApplicationPropertiesGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.resources.LogbackXmlGenerator;
@@ -28,6 +30,12 @@ public class ServerGenerator {
 
         // 创建Java类文件到main/java目录下
         new ServerApplicationClassGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        // 创建Java类文件到main/java目录下
+        new ServerControllerClassGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        // 创建Java类文件到main/java目录下
+        new ServerWebConfigClassGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
         // 创建Java类文件到test/java目录下
         new TestServerApplicationClassGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();

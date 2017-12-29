@@ -11,10 +11,26 @@
         <version>${pomVersion}</version>
     </parent>
 
+    <properties>
+        <swagger.version>2.7.0</swagger.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${r"$"}{swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${r"$"}{swagger.version}</version>
         </dependency>
     </dependencies>
 
