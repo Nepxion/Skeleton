@@ -24,15 +24,18 @@ import freemarker.template.TemplateException;
 
 public class ParentGenerator {
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+        String projectType = null;
+        String subProjectType = "server";
+
         // 创建文件到顶级目录下
-        new PomXmlGenerator(path, null, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
-        new InstallDockerBatGenerator(path, null, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
-        
-        new InstallDockerShGenerator(path, null, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();        
+        new InstallDockerBatGenerator(path, projectType, subProjectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
-        new GitAttributesGenerator(path, null, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new InstallDockerShGenerator(path, projectType, subProjectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
-        new GitIgnoreGenerator(path, null, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new GitAttributesGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        new GitIgnoreGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
     }
 }

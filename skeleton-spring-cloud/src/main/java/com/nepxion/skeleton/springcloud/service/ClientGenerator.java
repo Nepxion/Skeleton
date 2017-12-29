@@ -20,7 +20,9 @@ import freemarker.template.TemplateException;
 
 public class ClientGenerator {
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+        String projectType = "client";
+
         // 创建文件到根目录下
-        new PomXmlGenerator(path, "client", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
     }
 }

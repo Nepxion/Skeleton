@@ -15,12 +15,26 @@ import java.io.IOException;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.springcloud.generator.eureka.PomXmlGenerator;
+import com.nepxion.skeleton.springcloud.generator.eureka.java.EurekaApplicationClassGenerator;
+import com.nepxion.skeleton.springcloud.generator.eureka.resources.ApplicationPropertiesGenerator;
+import com.nepxion.skeleton.springcloud.generator.eureka.resources.LogbackXmlGenerator;
 
 import freemarker.template.TemplateException;
 
 public class EurekaGenerator {
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+        String projectType = "eureka";
+
+        // 创建Java类文件到main/java目录下
+        new EurekaApplicationClassGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        // 创建文件到main/resources目录下
+        new ApplicationPropertiesGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        // 创建文件到main/resources目录下
+        new LogbackXmlGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
         // 创建文件到根目录下
-        new PomXmlGenerator(path, "eureka", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(path, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
     }
 }
