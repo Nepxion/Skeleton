@@ -33,21 +33,17 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
     }
 
     @Override
-    protected String getOutputPath() {
-        return super.getOutputPath();
-    }
-
-    @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put("pomGroupId", skeletonProperties.getString("pomGroupId"));
-        dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId"));
+        dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("pomName", skeletonProperties.getString("pomName"));
         dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
         dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
         dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
         dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
         dataModel.put("mainClass", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties) + ".ServerApplication");
+        dataModel.put("imageName", skeletonProperties.getString("serviceName"));
 
         return dataModel;
     }

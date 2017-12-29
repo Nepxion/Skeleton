@@ -7,6 +7,7 @@
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <version>${pomVersion}</version>
+    <url>https://github.com/Nepxion/</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -79,7 +80,7 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <imageName>${r"$"}{project.artifactId}</imageName>
+                    <imageName>${r"$"}{ImageName}</imageName>
                     <baseImage>java</baseImage>
                     <entryPoint>["java", "-jar", "/${r"$"}{project.build.finalName}.jar"]</entryPoint>
                     <resources>

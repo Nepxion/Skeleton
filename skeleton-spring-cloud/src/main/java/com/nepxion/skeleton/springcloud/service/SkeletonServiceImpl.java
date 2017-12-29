@@ -15,30 +15,14 @@ import java.io.IOException;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.framework.service.SkeletonService;
-import com.nepxion.skeleton.springcloud.generator.server.PomXmlGenerator;
-import com.nepxion.skeleton.springcloud.generator.server.java.ServerApplicationClassGenerator;
-import com.nepxion.skeleton.springcloud.generator.server.java.TestServerApplicationClassGenerator;
-import com.nepxion.skeleton.springcloud.generator.server.resources.ApplicationPropertiesGenerator;
-import com.nepxion.skeleton.springcloud.generator.server.resources.LogbackXmlGenerator;
 
 import freemarker.template.TemplateException;
 
 public class SkeletonServiceImpl implements SkeletonService {
     @Override
-    public void generator(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        // 创建Java类文件到main/java目录下
-        new ServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+    public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+        new ParentGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
 
-        // 创建Java类文件到test/java目录下
-        new TestServerApplicationClassGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
-
-        // 创建文件到main/resources目录下
-        new ApplicationPropertiesGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
-
-        // 创建文件到test/resources目录下
-        new LogbackXmlGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
-
-        // 创建文件到根目录下
-        new PomXmlGenerator(path, "server", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new ServerGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
     }
 }
