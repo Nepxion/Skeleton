@@ -128,6 +128,17 @@
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
+        <entity>
+            <key>eurekaUrl</key>
+            <label>Eureka地址</label>
+            <description></description>
+            <note>【必改项】Eureka URL地址</note>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
     </group>
     <group>
         <key>service</key>
@@ -163,17 +174,6 @@
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
-            <key>eurekaUrl</key>
-            <label>Eureka地址</label>
-            <description></description>
-            <note>【必改项】Eureka URL地址</note>
-            <type>TEXTFIELD</type>
-            <highlightable>true</highlightable>
-            <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
