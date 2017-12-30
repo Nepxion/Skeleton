@@ -46,6 +46,12 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     3. 在浏览器里输入http://localhost:8080/#/codegen访问
 
 ## 二次开发
+### 介绍
+
+    1. skeleton-engine是脚手架的生成引擎，不依赖Spring环境，你只需要在Java环境下可以对任何格式的文本文件进行模板化创建
+    2. skeleton-framework是基于Spring环境的脚手架框架，并抽象在Spring环境下的配置和行为
+    3. skeleton-spring-cloud是最终的“业务”实现，基于Spring Cloud，如果你想二次开发，引入skeleton-framework即可，然后按照skeleton-spring-cloud的结构和代码进行开发
+
 ### 配置
 
     1. skeleton-data.properties，见skeleton-spring-cloud/src/main/resources/config下
