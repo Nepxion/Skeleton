@@ -7,7 +7,7 @@
         <entity>
             <key>moduleName</key>
             <label>工程模块名</label>
-            <description>moduleName</description>
+            <description></description>
             <note>【必改项】首字母必须小写，中间只允许出现“-”</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -18,7 +18,7 @@
         <entity>
             <key>basePackage</key>
             <label>上层包路径</label>
-            <description>basePackage</description>
+            <description></description>
             <note>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
@@ -70,10 +70,9 @@
             <label>Version</label>
             <description></description>
             <note></note>
-            <type>COMBOBOX</type>
-            <options>1.0.0</options>
+            <type>TEXTFIELD</type>
             <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
+            <defaultable>true</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
@@ -85,7 +84,7 @@
             <type>COMBOBOX</type>
             <options>Dalston.SR4;Edgware.RELEASE</options>
             <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
+            <defaultable>true</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
@@ -97,7 +96,7 @@
             <type>COMBOBOX</type>
             <options>1.5.6.RELEASE</options>
             <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
+            <defaultable>true</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
@@ -109,14 +108,30 @@
             <type>COMBOBOX</type>
             <options>1.8;1.7;1.6</options>
             <highlightable>false</highlightable>
+            <defaultable>true</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+    </group>
+    <group>
+        <key>registry</key>
+        <label>服务注册发现配置</label>
+        <description></description>
+        <entity>
+            <key>eurekaPort</key>
+            <label>Eureka端口</label>
+            <description></description>
+            <note></note>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
             <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
     </group>
     <group>
-        <key>framework</key>
-        <label>框架配置</label>
+        <key>service</key>
+        <label>服务端配置</label>
         <description></description>
         <entity>
             <key>serviceName</key>
@@ -144,10 +159,10 @@
             <key>eurekaEnabled</key>
             <label>Eureka组件</label>
             <description></description>
-            <note></note>
+            <note>是否启动服务端的服务注册发现</note>
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
-            <defaultable>false</defaultable>
+            <defaultable>true</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
@@ -159,6 +174,44 @@
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+    </group>
+    <group>
+        <key>container</key>
+        <label>容器配置</label>
+        <description></description>
+        <entity>
+            <key>dockerHost</key>
+            <label>Docker服务器地址</label>
+            <description></description>
+            <note>【必改项】Docker服务器地址，默认为本地地址</note>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>dockerCertEnabled</key>
+            <label>Docker认证模式</label>
+            <description></description>
+            <note>Docker认证模式，如果Docker服务器在本地，建议不需要开启</note>
+            <type>CHECKBOX</type>
+            <highlightable>false</highlightable>
+            <defaultable>true</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>dockerCertPath</key>
+            <label>Docker证书本地路径</label>
+            <description></description>
+            <note>Docker开启认证模式下，该项目才起作用</note>
+            <type>TEXTFIELD</type>
+            <highlightable>false</highlightable>
+            <defaultable>true</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
