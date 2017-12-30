@@ -28,18 +28,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public abstract class AbstractSkeletonGenerator {
-    static {
-        System.out.println("");
-        System.out.println("╔═══╦╗    ╔╗    ╔╗");
-        System.out.println("║╔═╗║║    ║║   ╔╝╚╗");
-        System.out.println("║╚══╣║╔╦══╣║╔══╬╗╔╬══╦═╗");
-        System.out.println("╚══╗║╚╝╣║═╣║║║═╣║║║╔╗║╔╗╗");
-        System.out.println("║╚═╝║╔╗╣║═╣╚╣║═╣║╚╣╚╝║║║║");
-        System.out.println("╚═══╩╝╚╩══╩═╩══╝╚═╩══╩╝╚╝");
-        System.out.println("Nepxion Skeleton  v1.0.0.RELEASE");
-        System.out.println("");
-    }
-
     protected String generatePath;
     protected SkeletonContext skeletonContext;
     protected SkeletonProperties skeletonProperties;

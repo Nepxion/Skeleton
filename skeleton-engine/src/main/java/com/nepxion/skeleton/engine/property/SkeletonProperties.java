@@ -27,6 +27,18 @@ import org.apache.commons.io.IOUtils;
 import com.nepxion.skeleton.engine.util.MathsUtil;
 
 public class SkeletonProperties implements Serializable {
+    static {
+        System.out.println("");
+        System.out.println("╔═══╦╗    ╔╗    ╔╗");
+        System.out.println("║╔═╗║║    ║║   ╔╝╚╗");
+        System.out.println("║╚══╣║╔╦══╣║╔══╬╗╔╬══╦═╗");
+        System.out.println("╚══╗║╚╝╣║═╣║║║═╣║║║╔╗║╔╗╗");
+        System.out.println("║╚═╝║╔╗╣║═╣╚╣║═╣║╚╣╚╝║║║║");
+        System.out.println("╚═══╩╝╚╩══╩═╩══╝╚═╩══╩╝╚╝");
+        System.out.println("Nepxion Skeleton  v1.0.0.RELEASE");
+        System.out.println("");
+    }
+
     private static final long serialVersionUID = 1722927234615067236L;
 
     private final Map<String, String> map = new LinkedHashMap<String, String>();
