@@ -46,7 +46,7 @@ public class InstallDockerShellGenerator extends SkeletonFileGenerator {
         dataModel.put("dockerCertPath", skeletonProperties.getString("dockerCertPath"));
         dataModel.put("dockerCertEnabled", skeletonProperties.getString("dockerCertEnabled"));
         dataModel.put("imageName", skeletonProperties.getString("serviceName") + "-" + subProjectType);
-        dataModel.put("port", skeletonProperties.getString("serverPort"));
+        dataModel.put("port", skeletonProperties.getString(subProjectType + "Port"));
 
         return dataModel;
     }

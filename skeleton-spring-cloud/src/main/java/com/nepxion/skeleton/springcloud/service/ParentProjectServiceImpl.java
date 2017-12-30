@@ -30,6 +30,10 @@ public class ParentProjectServiceImpl implements SkeletonService {
         // 创建文件到顶级目录下
         new PomXmlGenerator(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "bat", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "sh", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+
         new InstallDockerShellGenerator(generatePath, projectType, "server", "bat", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
 
         new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
