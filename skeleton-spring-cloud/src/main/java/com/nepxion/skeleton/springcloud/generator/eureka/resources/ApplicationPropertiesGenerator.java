@@ -40,7 +40,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
-        dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-eureka");
+        dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("port", skeletonProperties.getString("eurekaPort"));
         dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
 

@@ -40,7 +40,7 @@ public class LogbackXmlGenerator extends SkeletonFileGenerator {
     @Override
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
-        dataModel.put("serviceName", skeletonProperties.getString("serviceName"));
+        dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
 
         return dataModel;
     }
