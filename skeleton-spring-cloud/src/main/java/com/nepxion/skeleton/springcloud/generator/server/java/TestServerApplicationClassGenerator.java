@@ -41,7 +41,6 @@ public class TestServerApplicationClassGenerator extends SkeletonJavaGenerator {
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
-        dataModel.put("eurekaEnabled", skeletonProperties.getString("eurekaEnabled"));
 
         return dataModel;
     }

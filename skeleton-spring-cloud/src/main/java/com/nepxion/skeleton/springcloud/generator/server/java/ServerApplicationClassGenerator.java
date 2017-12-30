@@ -89,7 +89,6 @@ public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如eureka.Enabled，eureka-Enabled都会抛错
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
-        dataModel.put("eurekaEnabled", skeletonProperties.getString("eurekaEnabled"));
 
         return dataModel;
     }

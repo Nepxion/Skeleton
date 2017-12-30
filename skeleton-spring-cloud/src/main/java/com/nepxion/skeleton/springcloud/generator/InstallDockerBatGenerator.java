@@ -43,8 +43,8 @@ public class InstallDockerBatGenerator extends SkeletonFileGenerator {
         dataModel.put("dockerHost", skeletonProperties.getString("dockerHost"));
         dataModel.put("dockerCertPath", skeletonProperties.getString("dockerCertPath"));
         dataModel.put("dockerCertEnabled", skeletonProperties.getString("dockerCertEnabled"));
-        dataModel.put("imageName", skeletonProperties.getString("serviceName"));
-        dataModel.put("port", skeletonProperties.getString("port"));
+        dataModel.put("imageName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
+        dataModel.put("port", skeletonProperties.getString("serverPort"));
 
         return dataModel;
     }
