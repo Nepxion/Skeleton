@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.springcloud.generator.server.PomXmlGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.java.ServerApplicationClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.java.ServerControllerClassGenerator;
@@ -24,7 +25,8 @@ import com.nepxion.skeleton.springcloud.generator.server.resources.LogbackXmlGen
 
 import freemarker.template.TemplateException;
 
-public class ServerGenerator {
+public class ServerProjectServiceImpl implements SkeletonService {
+    @Override
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         String projectType = "server";
 

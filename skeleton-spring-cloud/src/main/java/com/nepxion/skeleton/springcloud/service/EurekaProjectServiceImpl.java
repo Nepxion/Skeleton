@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.springcloud.generator.eureka.PomXmlGenerator;
 import com.nepxion.skeleton.springcloud.generator.eureka.java.EurekaApplicationClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.eureka.resources.ApplicationPropertiesGenerator;
@@ -21,7 +22,8 @@ import com.nepxion.skeleton.springcloud.generator.eureka.resources.LogbackXmlGen
 
 import freemarker.template.TemplateException;
 
-public class EurekaGenerator {
+public class EurekaProjectServiceImpl implements SkeletonService {
+    @Override
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         String projectType = "eureka";
 

@@ -21,12 +21,12 @@ import freemarker.template.TemplateException;
 public class SkeletonServiceImpl implements SkeletonService {
     @Override
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        new ParentGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+        new ParentProjectServiceImpl().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
 
-        new EurekaGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+        new EurekaProjectServiceImpl().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
 
-        new ServerGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+        new ServerProjectServiceImpl().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
 
-        new ClientGenerator().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
+        new ClientProjectServiceImpl().generate(path, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties);
     }
 }

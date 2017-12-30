@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.springcloud.generator.GitAttributesGenerator;
 import com.nepxion.skeleton.springcloud.generator.GitIgnoreGenerator;
 import com.nepxion.skeleton.springcloud.generator.InstallDockerBatGenerator;
@@ -22,7 +23,8 @@ import com.nepxion.skeleton.springcloud.generator.PomXmlGenerator;
 
 import freemarker.template.TemplateException;
 
-public class ParentGenerator {
+public class ParentProjectServiceImpl implements SkeletonService {
+    @Override
     public void generate(String path, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         String projectType = null;
         String subProjectType = "server";
