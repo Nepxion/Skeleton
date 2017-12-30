@@ -69,10 +69,10 @@ public class SkeletonController {
         configTransport = new SkeletonConfigTransport();
         dataTransport = new SkeletonDataTransport() {
             @Override
-            public void generate(String path, SkeletonProperties skeletonProperties) throws Exception {
+            public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
                 String dynamicTemplateDirectory = generateDynamicTemplateDirectory(skeletonProperties);
 
-                service.generate(path, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generate(generatePath, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
             }
         };
     }

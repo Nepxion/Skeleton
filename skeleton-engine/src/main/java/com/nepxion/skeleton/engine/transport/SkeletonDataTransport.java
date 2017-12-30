@@ -54,5 +54,5 @@ public abstract class SkeletonDataTransport {
         }
     }
 
-    public abstract void generate(String path, SkeletonProperties skeletonProperties) throws Exception;
+    public abstract void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception;
 }
