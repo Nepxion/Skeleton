@@ -114,14 +114,14 @@
         </entity>
     </group>
     <group>
-        <key>registry</key>
-        <label>服务注册发现配置</label>
+        <key>springCloud</key>
+        <label>Spring Cloud配置</label>
         <description></description>
         <entity>
-            <key>eurekaPort</key>
-            <label>Eureka端口</label>
+            <key>serviceName</key>
+            <label>服务名前缀</label>
             <description></description>
-            <note></note>
+            <note>【必改项】Spring Cloud服务名前缀</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -132,23 +132,7 @@
             <key>eurekaUrl</key>
             <label>Eureka地址</label>
             <description></description>
-            <note>【必改项】Eureka URL地址</note>
-            <type>TEXTFIELD</type>
-            <highlightable>true</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-    </group>
-    <group>
-        <key>service</key>
-        <label>服务端配置</label>
-        <description></description>
-        <entity>
-            <key>serviceName</key>
-            <label>服务名</label>
-            <description></description>
-            <note>【必改项】Spring Cloud服务名</note>
+            <note>【必改项】Spring Cloud服务注册地址</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -156,10 +140,10 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>port</key>
-            <label>端口</label>
+            <key>eurekaPort</key>
+            <label>服务注册端端口</label>
             <description></description>
-            <note>【必改项】Spring Cloud端口号</note>
+            <note></note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -167,13 +151,22 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>eurekaEnabled</key>
-            <label>Eureka组件</label>
+            <key>serverPort</key>
+            <label>服务端端口</label>
             <description></description>
-            <note>是否启动服务端的服务注册发现</note>
-            <type>CHECKBOX</type>
-            <highlightable>false</highlightable>
-            <defaultable>true</defaultable>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
+            <key>clientPort</key>
+            <label>客户端端口</label>
+            <description></description>
+            <type>TEXTFIELD</type>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
