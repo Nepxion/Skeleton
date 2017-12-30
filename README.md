@@ -13,13 +13,20 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     5. 基于Spring Cloud的调用
     6. 支持Docker化一键部署
     7. 支持Swagger
-    8. 支持在线生成代码，并下载
+    8. 支持在线生成代码并下载
 
 ## 在线访问
-   在浏览器里输入http://start.springcloud.cn/访问
+
+   1. 在浏览器里输入http://start.springcloud.cn/访问
+   2. 解压后，可获取到脚手架代码
+      2.1 导入IDE，即可运行
+      2.2 执行脚本，即可一键部署到Docker容器里
+      2.3 集成Spring Cloud主要组件
+      2.4 支持Swagger操作
 
 ## 本地部署
 ### 服务端部署
+
     1. 部署在IDE
        导入IDE，运行skeleton-spring-cloud下的SkeletonApplication即可
     2. 部署到Docker
@@ -32,7 +39,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Docker.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Swagger.jpg)
 
-### 客户端部署	
+### 客户端部署
+
     1. 下载界面代码 https://github.com/SpringCloud/spring-cloud-codegen
     2. 在代码目录中执行npm install，结束后执行npm start
     3. 在浏览器里输入http://localhost:8080/#/codegen访问
