@@ -17,9 +17,9 @@ import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
-public class ServerWebConfigClassGenerator extends SkeletonJavaGenerator {
-    public ServerWebConfigClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ServerWebConfigClassGenerator.class, skeletonProperties);
+public class ServerConfigClassGenerator extends SkeletonJavaGenerator {
+    public ServerConfigClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ServerConfigClassGenerator.class, skeletonProperties);
     }
 
     @Override
@@ -29,12 +29,12 @@ public class ServerWebConfigClassGenerator extends SkeletonJavaGenerator {
 
     @Override
     protected String getClassName() {
-        return "ServerWebConfig";
+        return "ServerConfig";
     }
 
     @Override
     protected String getTemplateName() {
-        return "ServerWebConfig.java.template";
+        return "ServerConfig.java.template";
     }
 
     @Override
