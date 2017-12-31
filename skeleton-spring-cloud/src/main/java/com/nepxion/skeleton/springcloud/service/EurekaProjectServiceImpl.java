@@ -18,7 +18,7 @@ import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.springcloud.generator.eureka.PomXmlGenerator;
 import com.nepxion.skeleton.springcloud.generator.eureka.java.EurekaApplicationClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.eureka.resources.ApplicationPropertiesGenerator;
-import com.nepxion.skeleton.springcloud.generator.eureka.resources.LogbackXmlGenerator;
+import com.nepxion.skeleton.springcloud.generator.shared.resources.LogbackXmlGenerator;
 
 import freemarker.template.TemplateException;
 

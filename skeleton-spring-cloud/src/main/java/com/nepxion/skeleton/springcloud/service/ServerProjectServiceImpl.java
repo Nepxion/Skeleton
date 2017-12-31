@@ -21,7 +21,7 @@ import com.nepxion.skeleton.springcloud.generator.server.java.ServerControllerCl
 import com.nepxion.skeleton.springcloud.generator.server.java.ServerConfigClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.java.TestServerApplicationClassGenerator;
 import com.nepxion.skeleton.springcloud.generator.server.resources.ApplicationPropertiesGenerator;
-import com.nepxion.skeleton.springcloud.generator.server.resources.LogbackXmlGenerator;
+import com.nepxion.skeleton.springcloud.generator.shared.resources.LogbackXmlGenerator;
 
 import freemarker.template.TemplateException;
 
