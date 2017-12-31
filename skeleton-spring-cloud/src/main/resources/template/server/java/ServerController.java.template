@@ -20,32 +20,40 @@ public class ServerController {
     @RequestMapping(value = "/invokeGet/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "执行GET操作", notes = "执行GET操作", response = String.class, httpMethod = "GET")
     public String invokeGet(@PathVariable(value = "id") @ApiParam(value = "参数", required = true) Integer id) {
-        LOG.info("Server - Invoke GET is response for {}", id);
+        String value = "Invoke GET is response, parameter=" + id;
 
-        return "Invoke GET is response for " + id;
+        LOG.info("Server - {}", value);
+
+        return value;
     }
 
     @RequestMapping(value = "/invokePost", method = RequestMethod.POST)
     @ApiOperation(value = "执行POST操作", notes = "执行POST操作", response = String.class, httpMethod = "POST")
     public String invokePost(@RequestParam(value = "data") @ApiParam(value = "参数", required = true) String data) {
-        LOG.info("Server - Invoke POST response for {}", data);
+        String value = "Invoke POST is response, parameter=" + data;
 
-        return "Invoke POST response for " + data;
+        LOG.info("Server - {}", value);
+
+        return value;
     }
 
     @RequestMapping(value = "/invokePut", method = RequestMethod.PUT)
     @ApiOperation(value = "执行PUT操作", notes = "执行PUT操作", response = String.class, httpMethod = "PUT")
     public String invokePut(@RequestParam(value = "data") @ApiParam(value = "参数", required = true) String data) {
-        LOG.info("Server - Invoke PUT response for {}", data);
+        String value = "Invoke PUT is response, parameter=" + data;
 
-        return "Invoke PUT response for " + data;
+        LOG.info("Server - {}", value);
+
+        return value;
     }
 
     @RequestMapping(value = "/invokeDelete/{id}", method = RequestMethod.DELETE)
     @ApiOperation(value = "执行DELETE操作", notes = "执行DELETE操作", response = String.class, httpMethod = "DELETE")
     public String invokeDelete(@PathVariable(value = "id") @ApiParam(value = "参数", required = true) Integer id) {
-        LOG.info("Server - Invoke DELETE is response for {}", id);
+        String value = "Invoke DELETE is response, parameter=" + id;
 
-        return "Invoke DELETE is response for " + id;
+        LOG.info("Server - {}", value);
+
+        return value;
     }
 }
