@@ -139,9 +139,9 @@
         </entity>
         <entity>
             <key>eurekaUrl</key>
-            <label>Eureka地址</label>
+            <label>Eureka地址(在Docker上的配置，查看右边"?"按钮)</label>
             <description></description>
-            <note>【必改项】Spring Cloud服务注册地址</note>
+            <note>【必改项】Spring Cloud服务注册地址，如果运行在Docker容器里，需要配置成Docker宿主机IP，例如http://10.0.75.1:9528/eureka/</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
