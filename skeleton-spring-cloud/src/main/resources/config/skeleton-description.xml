@@ -4,6 +4,8 @@
         <key>project</key>
         <label>工程配置</label>
         <description></description>
+        <type>MIX_GROUP</type>
+        <layout>VERTICAL</layout>
         <entity>
             <key>moduleName</key>
             <label>工程模块名</label>
@@ -32,6 +34,8 @@
         <key>pom</key>
         <label>POM配置</label>
         <description></description>
+        <type>MIX_GROUP</type>
+        <layout>VERTICAL</layout>
         <entity>
             <key>pomGroupId</key>
             <label>Group Id</label>
@@ -117,6 +121,8 @@
         <key>springCloud</key>
         <label>Spring Cloud配置</label>
         <description></description>
+        <type>MIX_GROUP</type>
+        <layout>VERTICAL</layout>
         <entity>
             <key>serviceName</key>
             <label>服务名前缀</label>
@@ -175,6 +181,8 @@
         <key>container</key>
         <label>容器配置</label>
         <description></description>
+        <type>MIX_GROUP</type>
+        <layout>VERTICAL</layout>
         <entity>
             <key>dockerHost</key>
             <label>Docker服务器地址</label>
@@ -191,7 +199,7 @@
             <label>Docker认证模式</label>
             <description></description>
             <note>Docker认证模式，如果Docker服务器在本地，建议不需要开启</note>
-            <type>CHECKBOX</type>
+            <type>TOGGLEBUTTON</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>

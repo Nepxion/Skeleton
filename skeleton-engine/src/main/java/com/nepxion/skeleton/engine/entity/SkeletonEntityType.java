@@ -12,8 +12,9 @@ package com.nepxion.skeleton.engine.entity;
 
 public enum SkeletonEntityType {
     TEXTFIELD("TEXTFIELD"),
+    TOGGLEBUTTON("TOGGLEBUTTON"),
     CHECKBOX("CHECKBOX"),
-    RADIO("RADIO"),    
+    RADIO("RADIO"),
     COMBOBOX("COMBOBOX");
 
     private String value;
