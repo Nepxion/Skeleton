@@ -17,12 +17,14 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ## 在线访问
 
-    1. 在浏览器里输入http://start.springcloud.cn/访问
-    2. 解压后，可获取到脚手架代码
-       2.1 导入IDE，即可运行，脚手架代码，如图1
-       2.2 执行三个脚本，即可一键部署到Docker容器里，图2
-       2.3 集成Spring Cloud主要组件
-       2.4 支持Swagger操作
+    1. 获取脚手架代码 
+       在浏览器里输入http://start.springcloud.cn/访问，填入相关参数，点“生成工程”，保存代码压缩包。解压后，可获取到脚手架代码
+    2. 代码运行
+       2.1 在IDE里运行：导入IDE，即可运行，脚手架代码，代码执行顺序一般为EurekaApplication，ServerApplication，ClientApplication，如图1
+       2.2 在Docker里运行：执行三个脚本，即可一键部署到Docker容器里，脚本执行顺序一般为install-eureka-docker，install-server-docker，install-client-docker，如图2
+    3. 组件集成
+       3.1 集成Spring Cloud基础组件，包括Eureka，Ribbon，Feign，Hystrix等
+       3.2 集成Swagger组件
 
 图1
 
@@ -39,6 +41,10 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 图4
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator4.jpg)
+
+图5
+
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator5.jpg)
 
 ## 本地部署
 ### 服务端部署
