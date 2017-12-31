@@ -46,4 +46,4 @@ cd ${r"$"}{PROJECT_NAME}
 mvn package docker:build -DskipTests -DImageName=${r"$"}{IMAGE_NAME} -DExposePort=${r"$"}{CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
-docker run -i -t -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME} --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest
+docker run -i -t -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME}<#if linkDocker != ""> --link ${linkDocker}:${linkDocker}</#if> --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest

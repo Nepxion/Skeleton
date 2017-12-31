@@ -13,6 +13,8 @@ package com.nepxion.skeleton.springcloud.generator;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
@@ -20,12 +22,14 @@ import com.nepxion.skeleton.engine.util.SkeletonUtil;
 public class InstallDockerShellGenerator extends SkeletonFileGenerator {
     private String subProjectType;
     private String shellType;
+    private String linkDocker;
 
-    public InstallDockerShellGenerator(String generatePath, String projectType, String subProjectType, String shellType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+    public InstallDockerShellGenerator(String generatePath, String projectType, String subProjectType, String shellType, String linkDocker, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, InstallDockerShellGenerator.class, skeletonProperties);
 
         this.subProjectType = subProjectType;
         this.shellType = shellType;
+        this.linkDocker = linkDocker;
     }
 
     @Override
@@ -47,6 +51,7 @@ public class InstallDockerShellGenerator extends SkeletonFileGenerator {
         dataModel.put("dockerCertEnabled", skeletonProperties.getString("dockerCertEnabled"));
         dataModel.put("imageName", skeletonProperties.getString("serviceName") + "-" + subProjectType);
         dataModel.put("port", skeletonProperties.getString(subProjectType + "Port"));
+        dataModel.put("linkDocker", StringUtils.isNotEmpty(linkDocker) ? linkDocker : "");
 
         return dataModel;
     }

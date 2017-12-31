@@ -30,17 +30,17 @@ public class ParentProjectServiceImpl implements SkeletonService {
         // 创建文件到顶级目录下
         new PomXmlGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "bat", null, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "sh", null, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "server", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "server", "bat", null, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", null, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "client", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "client", "bat", skeletonProperties.getString("serviceName") + "-server", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "client", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "client", "sh", skeletonProperties.getString("serviceName") + "-server", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
         new GitAttributesGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
