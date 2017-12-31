@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.entity.SkeletonFileType;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
@@ -60,8 +61,8 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
         String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + fileName;
 
         LOG.info("--------------- File Generator Information ---------------");
-        LOG.info("File Name : {}", fileName);
-        LOG.info("Path : {}", fullPath);
+        LOG.info("Template Path : {}", getSkeletonContext().getConfig().getTemplatePath() + SkeletonConstant.FILE_SEPARATOR + getTemplateName());
+        LOG.info("Output Path : {}", fullPath);
         LOG.info("Data Model : {}", dataModel);
         LOG.info("----------------------------------------------------------");
 

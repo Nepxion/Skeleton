@@ -84,9 +84,9 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstant.MAIN_JAVA_CODE_PATH : SkeletonConstant.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstant.FILE_SEPARATOR) + SkeletonConstant.FILE_SEPARATOR + className + "." + SkeletonConstant.JAVA;
 
         LOG.info("--------------- Java Generator Information ---------------");
-        LOG.info("File Name : {}", className + ".java");
+        LOG.info("Template Path : {}", getSkeletonContext().getConfig().getTemplatePath() + SkeletonConstant.FILE_SEPARATOR + getTemplateName());
+        LOG.info("Output Path : {}", fullPath);
         LOG.info("Package : {}", packagePath);
-        LOG.info("Path : {}", fullPath);
         LOG.info("Data Model : {}", dataModel);
         LOG.info("----------------------------------------------------------");
 
