@@ -19,10 +19,19 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
     1. 在浏览器里输入http://start.springcloud.cn/访问
     2. 解压后，可获取到脚手架代码
-       2.1 导入IDE，即可运行
-       2.2 执行脚本，即可一键部署到Docker容器里
+       2.1 导入IDE，即可运行，脚手架代码，如图1
+       2.2 执行三个脚本，即可一键部署到Docker容器里，图2
        2.3 集成Spring Cloud主要组件
        2.4 支持Swagger操作
+
+图1
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator1.jpg)
+图2
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator2.jpg)
+图3
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator3.jpg)
+图4
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator4.jpg)
 
 ## 本地部署
 ### 服务端部署
