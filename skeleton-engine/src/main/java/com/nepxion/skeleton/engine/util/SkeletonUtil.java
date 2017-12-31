@@ -51,7 +51,7 @@ public class SkeletonUtil {
         return formatGeneratePath(generatePath) + getCanonicalFileName(fileName, skeletonProperties);
     }
 
-    public static String formatGeneratePath(Class<?> generatorClass, String reducedDirectory) {
+    public static String formatGeneratePath(Class<?> generatorClass, String reducedPath) {
         StringBuilder sb = new StringBuilder();
         sb.append(generatorClass.getCanonicalName());
 
@@ -60,17 +60,17 @@ public class SkeletonUtil {
         path = path.replace(".", SkeletonConstant.FILE_SEPARATOR);
         path += SkeletonConstant.FILE_SEPARATOR;
 
-        if (StringUtils.isNotEmpty(reducedDirectory)) {
+        if (StringUtils.isNotEmpty(reducedPath)) {
             try {
-                int reducedDirectoryLength = reducedDirectory.length();
+                int reducedPathLength = reducedPath.length();
                 int pathLength = path.length();
-                if (reducedDirectoryLength < pathLength) {
-                    return path.substring(reducedDirectoryLength, pathLength - 1);
+                if (reducedPathLength < pathLength) {
+                    return path.substring(reducedPathLength, pathLength - 1);
                 } else {
                     return "";
                 }
             } catch (Exception e) {
-                throw new SkeletonException("Path=[" + path + "] doesn't contain reducedDirectory=[" + reducedDirectory + "]");
+                throw new SkeletonException("Path=[" + path + "] doesn't contain reducedPath=[" + reducedPath + "]");
             }
         }
 

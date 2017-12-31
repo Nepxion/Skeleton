@@ -20,8 +20,8 @@ import com.nepxion.skeleton.engine.util.SkeletonUtil;
 public class SkeletonContext {
     private String projectType;
 
-    private String prefixTemplateDirectory;
-    private String reducedTemplateDirectory;
+    private String prefixTemplatePath;
+    private String reducedTemplatePath;
     private Class<?> generatorClass;
 
     private String baseTemplatePath;
@@ -29,10 +29,10 @@ public class SkeletonContext {
 
     private SkeletonConfig config;
 
-    public SkeletonContext(String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, Class<?> generatorClass) {
+    public SkeletonContext(String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass) {
         this.projectType = projectType;
-        this.prefixTemplateDirectory = prefixTemplateDirectory;
-        this.reducedTemplateDirectory = reducedTemplateDirectory;
+        this.prefixTemplatePath = prefixTemplatePath;
+        this.reducedTemplatePath = reducedTemplatePath;
         this.generatorClass = generatorClass;
         this.config = new SkeletonConfig(generateTemplatePath());
     }
@@ -48,12 +48,12 @@ public class SkeletonContext {
         return projectType;
     }
 
-    public String getPrefixTemplateDirectory() {
-        return prefixTemplateDirectory;
+    public String getPrefixTemplatePath() {
+        return prefixTemplatePath;
     }
 
-    public String getReducedTemplateDirectory() {
-        return reducedTemplateDirectory;
+    public String getReducedTemplatePath() {
+        return reducedTemplatePath;
     }
 
     public Class<?> getGeneratorClass() {
@@ -74,7 +74,7 @@ public class SkeletonContext {
 
     private String generateTemplatePath() {
         if (generatorClass != null) {
-            return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplateDirectory) ? prefixTemplateDirectory + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass, reducedTemplateDirectory);
+            return SkeletonConstant.FILE_SEPARATOR + (StringUtils.isNotEmpty(prefixTemplatePath) ? prefixTemplatePath + SkeletonConstant.FILE_SEPARATOR : "") + SkeletonUtil.formatGeneratePath(generatorClass, reducedTemplatePath);
         }
 
         return SkeletonConstant.FILE_SEPARATOR + SkeletonUtil.formatGeneratePath(baseTemplatePath) + (StringUtils.isNotEmpty(projectType) ? projectType : "") + SkeletonConstant.FILE_SEPARATOR + fileType;
