@@ -18,8 +18,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ServerConfigClassGenerator extends SkeletonJavaGenerator {
-    public ServerConfigClassGenerator(String generatePath, String projectType, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, ServerConfigClassGenerator.class, skeletonProperties);
+    public ServerConfigClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ServerConfigClassGenerator.class, skeletonProperties);
     }
 
     @Override

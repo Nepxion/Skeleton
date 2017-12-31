@@ -24,22 +24,22 @@ import freemarker.template.TemplateException;
 
 public class ParentProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         String projectType = null;
 
         // 创建文件到顶级目录下
-        new PomXmlGenerator(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "bat", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "sh", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "eureka", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "server", "bat", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "server", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new GitAttributesGenerator(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new GitAttributesGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
-        new GitIgnoreGenerator(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new GitIgnoreGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
     }
 }

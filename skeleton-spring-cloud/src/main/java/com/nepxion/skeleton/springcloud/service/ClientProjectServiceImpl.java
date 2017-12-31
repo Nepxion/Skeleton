@@ -21,10 +21,10 @@ import freemarker.template.TemplateException;
 
 public class ClientProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         String projectType = "client";
 
         // 创建文件到根目录下
-        new PomXmlGenerator(generatePath, projectType, prefixTemplateDirectory, reducedTemplateDirectory, skeletonProperties).generate();
+        new PomXmlGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
     }
 }
