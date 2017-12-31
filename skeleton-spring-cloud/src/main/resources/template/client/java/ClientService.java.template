@@ -1,0 +1,22 @@
+package cn.springcloud.sales.client.service;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(value = "${r"$"}{service.cluster.name}")
+public interface ClientService {
+    @RequestMapping(value = "/invokeGet/{id}", method = RequestMethod.GET)
+    String invokeGet(@PathVariable(value = "id") Integer id);
+
+    @RequestMapping(value = "/invokePost", method = RequestMethod.POST)
+    String invokePost(@RequestParam(value = "data") String data);
+
+    @RequestMapping(value = "/invokePut", method = RequestMethod.PUT)
+    String invokePut(@RequestParam(value = "data") String data);
+
+    @RequestMapping(value = "/invokeDelete/{id}", method = RequestMethod.DELETE)
+    String invokeDelete(@PathVariable(value = "id") Integer id);
+}

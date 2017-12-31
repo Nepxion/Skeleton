@@ -1,0 +1,66 @@
+package cn.springcloud.sales.client.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import cn.springcloud.sales.client.service.ClientService;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@RestController
+public class ClientController {
+    @Autowired
+    private ClientService clientService;
+
+    @RequestMapping(value = "/invokeGet/{id}", method = RequestMethod.GET)
+    @HystrixCommand(fallbackMethod = "invokeGetFallback")
+    public String invokeGet(@PathVariable(value = "id") Integer id) {
+        return clientService.invokeGet(id);
+    }
+
+    @RequestMapping(value = "/invokePost", method = RequestMethod.POST)
+    @HystrixCommand(fallbackMethod = "invokePostFallback")
+    public String invokePost(@RequestParam(value = "data") String data) {
+        return clientService.invokePost(data);
+    }
+
+    @RequestMapping(value = "/invokePut", method = RequestMethod.PUT)
+    @HystrixCommand(fallbackMethod = "invokePutFallback")
+    public String invokePut(@RequestParam(value = "data") String data) {
+        return clientService.invokePut(data);
+    }
+
+    @RequestMapping(value = "/invokeDelete/{id}", method = RequestMethod.DELETE)
+    @HystrixCommand(fallbackMethod = "invokeDeleteFallback")
+    public String invokeDelete(@PathVariable(value = "id") Integer id) {
+        return clientService.invokeDelete(id);
+    }
+
+    public String invokeGetFallback(Integer id) {
+        String value = "Invoke GET is fallback, parameter=" + id;
+
+        return value;
+    }
+
+    public String invokePostFallback(String data) {
+        String value = "Invoke POST is fallback, parameter=" + data;
+
+        return value;
+    }
+
+    public String invokePutFallback(String data) {
+        String value = "Invoke PUT is fallback, parameter=" + data;
+
+        return value;
+    }
+
+    public String invokeDeleteFallback(Integer id) {
+        String value = "Invoke DELETE is fallback, parameter=" + id;
+
+        return value;
+    }
+}

@@ -1,0 +1,6 @@
+spring.application.name=${serviceName}
+server.port=${port}
+
+service.cluster.name=${clusterName}
+
+eureka.client.serviceUrl.defaultZone=${eurekaUrl}

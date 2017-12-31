@@ -1,0 +1,44 @@
+package cn.springcloud.sales.client;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+
+import cn.springcloud.sales.client.context.ClientContextAware;
+import cn.springcloud.sales.client.controller.ClientController;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
+@EnableCircuitBreaker
+public class ClientApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(ClientApplication.class);
+
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(ClientApplication.class).web(true).run(args);
+
+        ClientController clientController = ClientContextAware.getBean(ClientController.class);
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        LOG.info("Client - {}", clientController.invokeGet(123));
+                        LOG.info("Client - {}", clientController.invokePost("abc"));
+                        LOG.info("Client - {}", clientController.invokePut("xzy"));
+                        LOG.info("Client - {}", clientController.invokeDelete(456));
+                    }
+                }).start();
+            }
+        }, 0L, 4000L);
+    }
+}
