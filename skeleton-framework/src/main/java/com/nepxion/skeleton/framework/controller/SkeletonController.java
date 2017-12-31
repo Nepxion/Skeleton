@@ -43,14 +43,14 @@ import com.nepxion.skeleton.framework.service.SkeletonService;
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
-    @Value("${skeleton.prefix.template.directory}")
-    private String skeletonPrefixTemplateDirectory;
+    @Value("${skeleton.prefix.template.path}")
+    private String skeletonPrefixTemplatePath;
 
-    @Value("${skeleton.reduced.template.directory}")
-    private String skeletonReducedTemplateDirectory;
+    @Value("${skeleton.reduced.template.path}")
+    private String skeletonReducedTemplatePath;
 
-    @Value("${skeleton.dynamic.template.directory.key}")
-    private String skeletonDynamicTemplateDirectoryKey;
+    @Value("${skeleton.dynamic.template.path.key}")
+    private String skeletonDynamicTemplatePathKey;
 
     @Value("${skeleton.generate.file.name}")
     private String skeletonGenerateFileName;
@@ -70,9 +70,9 @@ public class SkeletonController {
         dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
-                String dynamicTemplateDirectory = generateDynamicTemplateDirectory(skeletonProperties);
+                String dynamicTemplatePath = generateDynamicTemplatePath(skeletonProperties);
 
-                service.generate(generatePath, dynamicTemplateDirectory, skeletonReducedTemplateDirectory, skeletonProperties);
+                service.generate(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath, skeletonProperties);
             }
         };
     }
@@ -113,16 +113,16 @@ public class SkeletonController {
         return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("application/x-msdownload")).body(resource);
     }
 
-    private String generateDynamicTemplateDirectory(SkeletonProperties properties) {
-        if (StringUtils.isEmpty(skeletonDynamicTemplateDirectoryKey)) {
-            return skeletonPrefixTemplateDirectory;
+    private String generateDynamicTemplatePath(SkeletonProperties properties) {
+        if (StringUtils.isEmpty(skeletonDynamicTemplatePathKey)) {
+            return skeletonPrefixTemplatePath;
         }
 
-        String skeletonDynamicTemplateDirectoryValue = properties.getString(skeletonDynamicTemplateDirectoryKey);
-        if (StringUtils.isEmpty(skeletonDynamicTemplateDirectoryValue)) {
-            throw new SkeletonException(skeletonDynamicTemplateDirectoryKey + " is null or empty");
+        String skeletonDynamicTemplatePathValue = properties.getString(skeletonDynamicTemplatePathKey);
+        if (StringUtils.isEmpty(skeletonDynamicTemplatePathValue)) {
+            throw new SkeletonException(skeletonDynamicTemplatePathKey + " is null or empty");
         }
 
-        return skeletonPrefixTemplateDirectory + "/" + skeletonDynamicTemplateDirectoryValue;
+        return skeletonPrefixTemplatePath + "/" + skeletonDynamicTemplatePathValue;
     }
 }

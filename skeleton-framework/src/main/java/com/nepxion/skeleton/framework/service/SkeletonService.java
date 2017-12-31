@@ -18,5 +18,5 @@ import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import freemarker.template.TemplateException;
 
 public interface SkeletonService {
-    void generate(String generatePath, String prefixTemplateDirectory, String reducedTemplateDirectory, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException;
+    void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException;
 }
