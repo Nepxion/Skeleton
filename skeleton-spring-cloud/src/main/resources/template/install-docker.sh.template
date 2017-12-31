@@ -12,7 +12,7 @@ echo '============================================================='
 echo '.'
 echo 'off'
 
-title=Nepxion Skeleton
+title=Nepxion Skeleton [${imageName}]
 color=0a
 
 PROJECT_NAME=${projectName}
