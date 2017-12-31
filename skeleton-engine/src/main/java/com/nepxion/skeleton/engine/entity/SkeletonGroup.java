@@ -26,6 +26,7 @@ public class SkeletonGroup implements Serializable {
     private String description;
     private SkeletonGroupType type = SkeletonGroupType.MIX_GROUP;
     private SkeletonGroupLayoutType layoutType = SkeletonGroupLayoutType.VERTICAL;
+    private boolean titledBorder = true;
 
     private List<SkeletonEntity> entityList;
 
@@ -75,6 +76,14 @@ public class SkeletonGroup implements Serializable {
 
     public void setEntityList(List<SkeletonEntity> entityList) {
         this.entityList = entityList;
+    }
+
+    public boolean isTitledBorder() {
+        return titledBorder;
+    }
+
+    public void setTitledBorder(boolean titledBorder) {
+        this.titledBorder = titledBorder;
     }
 
     @Override

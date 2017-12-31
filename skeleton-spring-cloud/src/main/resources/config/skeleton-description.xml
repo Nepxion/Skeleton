@@ -6,6 +6,7 @@
         <description></description>
         <type>MIX_GROUP</type>
         <layout>VERTICAL</layout>
+        <titledBorder>true</titledBorder>
         <entity>
             <key>moduleName</key>
             <label>工程模块名</label>
@@ -36,6 +37,7 @@
         <description></description>
         <type>MIX_GROUP</type>
         <layout>VERTICAL</layout>
+        <titledBorder>true</titledBorder>
         <entity>
             <key>pomGroupId</key>
             <label>Group Id</label>
@@ -123,6 +125,7 @@
         <description></description>
         <type>MIX_GROUP</type>
         <layout>VERTICAL</layout>
+        <titledBorder>true</titledBorder>
         <entity>
             <key>serviceName</key>
             <label>服务名前缀</label>
@@ -183,6 +186,7 @@
         <description></description>
         <type>MIX_GROUP</type>
         <layout>VERTICAL</layout>
+        <titledBorder>true</titledBorder>
         <entity>
             <key>dockerHost</key>
             <label>Docker服务器地址</label>

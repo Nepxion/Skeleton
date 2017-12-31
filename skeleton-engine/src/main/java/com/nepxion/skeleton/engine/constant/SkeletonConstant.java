@@ -30,6 +30,8 @@ public class SkeletonConstant {
     public static final String DESCRIPTION = "description";
     public static final String NOTE = "note";
     public static final String LAYOUT = "layout";
+    public static final String TITLED_BORDER = "titledBorder";
+
     public static final String ENTITY = "entity";
     public static final String TYPE = "type";
     public static final String OPTIONS = "options";
