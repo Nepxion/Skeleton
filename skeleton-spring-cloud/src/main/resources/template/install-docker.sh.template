@@ -24,6 +24,9 @@ DOCKER_CERT_PATH=${dockerCertPath}
 IMAGE_NAME=${imageName}
 MACHINE_PORT=${port}
 CONTAINER_PORT=${port}
+<#if linkDocker != "">
+LINK_CONTAINER=${linkDocker}
+</#if>
 
 if [ ! -d ${r"$"}{PROJECT_NAME}/target];then
 rmdir /s/q ${r"$"}{PROJECT_NAME}/target
@@ -46,4 +49,4 @@ cd ${r"$"}{PROJECT_NAME}
 mvn package docker:build -DskipTests -DImageName=${r"$"}{IMAGE_NAME} -DExposePort=${r"$"}{CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
-docker run -i -t -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME}<#if linkDocker != ""> --link ${linkDocker}:${linkDocker}</#if> --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest
+docker run -i -t -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME}<#if linkDocker != ""> --link ${r"$"}{LINK_CONTAINER}:${r"$"}{LINK_CONTAINER}</#if> --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest
