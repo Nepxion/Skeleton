@@ -38,6 +38,10 @@ public class ParentProjectServiceImpl implements SkeletonService {
 
         new InstallDockerShellGenerator(generatePath, projectType, "server", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
+        new InstallDockerShellGenerator(generatePath, projectType, "client", "bat", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+
+        new InstallDockerShellGenerator(generatePath, projectType, "client", "sh", prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+
         new GitAttributesGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
         new GitIgnoreGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
