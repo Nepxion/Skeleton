@@ -40,6 +40,7 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
         dataModel.put("pomArtifactId", skeletonProperties.getString("pomArtifactId") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("pomName", skeletonProperties.getString("pomName") + " " + StringUtil.firstLetterToUpper(getSkeletonContext().getProjectType()));
         dataModel.put("pomVersion", skeletonProperties.getString("pomVersion"));
+        dataModel.put("clientHystrixEnabled", skeletonProperties.getString("clientHystrixEnabled"));
 
         return dataModel;
     }

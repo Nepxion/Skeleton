@@ -41,6 +41,7 @@ public class ClientApplicationClassGenerator extends SkeletonJavaGenerator {
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
+        dataModel.put("clientHystrixEnabled", skeletonProperties.getString("clientHystrixEnabled"));
 
         return dataModel;
     }

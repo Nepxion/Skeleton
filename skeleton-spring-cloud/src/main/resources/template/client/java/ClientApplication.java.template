@@ -17,7 +17,9 @@ import cn.springcloud.sales.client.controller.ClientController;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
+<#if clientHystrixEnabled == "true">
 @EnableCircuitBreaker
+</#if>
 public class ClientApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ClientApplication.class);
 

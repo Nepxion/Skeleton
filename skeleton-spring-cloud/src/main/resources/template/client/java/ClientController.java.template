@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.springcloud.sales.client.service.ClientService;
+<#if clientHystrixEnabled == "true">
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+</#if>
 
 @RestController
 public class ClientController {
@@ -17,28 +19,37 @@ public class ClientController {
     private ClientService clientService;
 
     @RequestMapping(value = "/invokeGet/{id}", method = RequestMethod.GET)
+    <#if clientHystrixEnabled == "true">
     @HystrixCommand(fallbackMethod = "invokeGetFallback")
+    </#if>
     public String invokeGet(@PathVariable(value = "id") Integer id) {
         return clientService.invokeGet(id);
     }
 
     @RequestMapping(value = "/invokePost", method = RequestMethod.POST)
+    <#if clientHystrixEnabled == "true">
     @HystrixCommand(fallbackMethod = "invokePostFallback")
+    </#if>
     public String invokePost(@RequestParam(value = "data") String data) {
         return clientService.invokePost(data);
     }
 
     @RequestMapping(value = "/invokePut", method = RequestMethod.PUT)
+    <#if clientHystrixEnabled == "true">
     @HystrixCommand(fallbackMethod = "invokePutFallback")
+    </#if>
     public String invokePut(@RequestParam(value = "data") String data) {
         return clientService.invokePut(data);
     }
 
     @RequestMapping(value = "/invokeDelete/{id}", method = RequestMethod.DELETE)
+    <#if clientHystrixEnabled == "true">
     @HystrixCommand(fallbackMethod = "invokeDeleteFallback")
+    </#if>
     public String invokeDelete(@PathVariable(value = "id") Integer id) {
         return clientService.invokeDelete(id);
     }
+    <#if clientHystrixEnabled == "true">
 
     public String invokeGetFallback(Integer id) {
         String value = "Invoke GET is fallback, parameter=" + id;
@@ -63,4 +74,5 @@ public class ClientController {
 
         return value;
     }
+    </#if>
 }
