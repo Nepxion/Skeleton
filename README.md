@@ -25,12 +25,19 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
        2.4 支持Swagger操作
 
 图1
+
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator1.jpg)
+
 图2
+
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator2.jpg)
+
 图3
+
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator3.jpg)
+
 图4
+
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/Generator4.jpg)
 
 ## 本地部署
