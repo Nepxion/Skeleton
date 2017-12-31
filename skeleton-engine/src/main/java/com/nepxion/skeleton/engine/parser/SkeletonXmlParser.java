@@ -49,8 +49,9 @@ public class SkeletonXmlParser extends Dom4JParser {
             Object childElementObject = elementIterator.next();
             if (childElementObject instanceof Element) {
                 Element childElement = (Element) childElementObject;
+                String name = childElement.getName();
 
-                if (StringUtils.equals(childElement.getName(), SkeletonConstant.GROUP)) {
+                if (StringUtils.equals(name, SkeletonConstant.GROUP)) {
                     SkeletonGroup skeletonGroup = new SkeletonGroup();
 
                     parseGroup(childElement, skeletonGroup);
@@ -71,21 +72,22 @@ public class SkeletonXmlParser extends Dom4JParser {
             Object childElementObject = elementIterator.next();
             if (childElementObject instanceof Element) {
                 Element childElement = (Element) childElementObject;
+                String name = childElement.getName();
                 String text = childElement.getTextTrim();
 
-                if (StringUtils.equals(childElement.getName(), SkeletonConstant.KEY)) {
+                if (StringUtils.equals(name, SkeletonConstant.KEY)) {
                     skeletonGroup.setKey(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.LABEL)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.LABEL)) {
                     skeletonGroup.setLabel(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.DESCRIPTION)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.DESCRIPTION)) {
                     skeletonGroup.setDescription(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.TYPE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.TYPE)) {
                     skeletonGroup.setType(SkeletonGroupType.fromString(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.LAYOUT)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.LAYOUT)) {
                     skeletonGroup.setLayoutType(SkeletonGroupLayoutType.fromString(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.TITLED_BORDER)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.TITLED_BORDER)) {
                     skeletonGroup.setTitledBorder(Boolean.parseBoolean(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.ENTITY)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.ENTITY)) {
                     SkeletonEntity skeletonEntity = new SkeletonEntity();
 
                     parseEntity(childElement, skeletonEntity);
@@ -102,32 +104,33 @@ public class SkeletonXmlParser extends Dom4JParser {
             Object childElementObject = elementIterator.next();
             if (childElementObject instanceof Element) {
                 Element childElement = (Element) childElementObject;
+                String name = childElement.getName();
                 String text = childElement.getTextTrim();
 
-                if (StringUtils.equals(childElement.getName(), SkeletonConstant.KEY)) {
+                if (StringUtils.equals(name, SkeletonConstant.KEY)) {
                     skeletonEntity.setKey(text);
                     try {
                         skeletonEntity.setValue(skeletonDataProperties.getString(text));
                     } catch (Exception e) {
                         LOG.warn("Undefined value in properties file for key={}", text);
                     }
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.LABEL)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.LABEL)) {
                     skeletonEntity.setLabel(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.DESCRIPTION)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.DESCRIPTION)) {
                     skeletonEntity.setDescription(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.NOTE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.NOTE)) {
                     skeletonEntity.setNote(text);
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.TYPE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.TYPE)) {
                     skeletonEntity.setType(SkeletonEntityType.fromString(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.OPTIONS)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.OPTIONS)) {
                     skeletonEntity.setOptions(text.split(";"));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.HIGHLIGHTABLE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.HIGHLIGHTABLE)) {
                     skeletonEntity.setHighlightable(Boolean.parseBoolean(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.DEFAULTABLE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.DEFAULTABLE)) {
                     skeletonEntity.setDefaultable(Boolean.parseBoolean(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.EMPTIABLE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.EMPTIABLE)) {
                     skeletonEntity.setEmptiable(Boolean.parseBoolean(text));
-                } else if (StringUtils.equals(childElement.getName(), SkeletonConstant.EDITABLE)) {
+                } else if (StringUtils.equals(name, SkeletonConstant.EDITABLE)) {
                     skeletonEntity.setEditable(Boolean.parseBoolean(text));
                 }
             }
