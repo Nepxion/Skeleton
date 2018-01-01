@@ -17,24 +17,24 @@ import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
-public class ClientControllerClassGenerator extends SkeletonJavaGenerator {
-    public ClientControllerClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ClientControllerClassGenerator.class, skeletonProperties);
+public class ClientRestTestClassGenerator extends SkeletonJavaGenerator {
+    public ClientRestTestClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ClientRestTestClassGenerator.class, skeletonProperties);
     }
 
     @Override
     protected String getPackage() {
-        return super.getPackage() + ".controller";
+        return super.getPackage() + ".test";
     }
 
     @Override
     protected String getClassName() {
-        return "ClientController";
+        return "ClientRestTest";
     }
 
     @Override
     protected String getTemplateName() {
-        return "ClientController.java.template";
+        return "ClientRestTest.java.template";
     }
 
     @Override
@@ -47,7 +47,6 @@ public class ClientControllerClassGenerator extends SkeletonJavaGenerator {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
         dataModel.put(SkeletonConstant.BASE_PACKAGE, super.getPackage());
-        dataModel.put("clientHystrixEnabled", skeletonProperties.getString("clientHystrixEnabled"));
 
         return dataModel;
     }

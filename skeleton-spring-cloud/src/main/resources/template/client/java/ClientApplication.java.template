@@ -1,10 +1,8 @@
-package cn.springcloud.sales.client;
+package ${package};
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 <#if clientHystrixEnabled == "true">
@@ -13,8 +11,8 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
-import cn.springcloud.sales.client.context.ClientContextAware;
-import cn.springcloud.sales.client.controller.ClientController;
+import ${package}.test.ClientRestTest;
+import ${package}.test.ClientRpcTest;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -23,12 +21,11 @@ import cn.springcloud.sales.client.controller.ClientController;
 @EnableCircuitBreaker
 </#if>
 public class ClientApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(ClientApplication.class);
-
     public static void main(String[] args) {
         new SpringApplicationBuilder(ClientApplication.class).web(true).run(args);
 
-        ClientController clientController = ClientContextAware.getBean(ClientController.class);
+        ClientRpcTest clientRpcTest = new ClientRpcTest();
+        ClientRestTest clientRestTest = new ClientRestTest();
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -36,13 +33,11 @@ public class ClientApplication {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        LOG.info("Client - {}", clientController.invokeGet(123));
-                        LOG.info("Client - {}", clientController.invokePost("abc"));
-                        LOG.info("Client - {}", clientController.invokePut("xzy"));
-                        LOG.info("Client - {}", clientController.invokeDelete(456));
+                        clientRpcTest.test();
+                        clientRestTest.test();
                     }
                 }).start();
             }
-        }, 0L, 4000L);
+        }, 0L, 5000L);
     }
 }

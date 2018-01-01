@@ -1,0 +1,52 @@
+package ${package};
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ${basePackage}.context.ClientContextAware;
+import ${basePackage}.controller.ClientController;
+
+public class ClientRpcTest extends AbstractClientTest {
+    private static final Logger LOG = LoggerFactory.getLogger(ClientRpcTest.class);
+
+    private ClientController clientController;
+
+    public ClientRpcTest() {
+        clientController = ClientContextAware.getBean(ClientController.class);
+    }
+
+    @Override
+    public void test() {
+        LOG.info("===== Test Rpc Invoker =====");
+
+        super.test();
+    }
+
+    @Override
+    public void testGet() {
+        String value = clientController.invokeGet(123);
+
+        LOG.info("Client - {}", value);
+    }
+
+    @Override
+    public void testPost() {
+        String value = clientController.invokePost("abc");
+
+        LOG.info("Client - {}", value);
+    }
+
+    @Override
+    public void testPut() {
+        String value = clientController.invokePut("xzy");
+
+        LOG.info("Client - {}", value);
+    }
+
+    @Override
+    public void testDelete() {
+        String value = clientController.invokeDelete(456);
+
+        LOG.info("Client - {}", value);
+    }
+}

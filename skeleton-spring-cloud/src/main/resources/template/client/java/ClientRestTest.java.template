@@ -1,0 +1,64 @@
+package ${package};
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+public class ClientRestTest extends AbstractClientTest {
+    private static final Logger LOG = LoggerFactory.getLogger(ClientRestTest.class);
+
+    private static final String URL = "http://localhost:9628";
+
+    private RestTemplate restTemplate;
+
+    public ClientRestTest() {
+        restTemplate = new RestTemplate();
+    }
+
+    @Override
+    public void test() {
+        LOG.info("===== Test Rest Invoker =====");
+
+        super.test();
+    }
+
+    @Override
+    public void testGet() {
+        String value = restTemplate.getForObject(URL + "/invokeGet/123", String.class);
+
+        LOG.info("Client - {}", value);
+    }
+
+    @Override
+    public void testPost() {
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+        parameters.add("data", "abc");
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<>(parameters, headers);
+
+        String value = restTemplate.postForObject(URL + "/invokePost", entity, String.class);
+
+        LOG.info("Client - {}", value);
+    }
+
+    @Override
+    public void testPut() {
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+        parameters.add("data", "abc");
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<>(parameters, headers);
+
+        restTemplate.put(URL + "/invokePut", entity);
+    }
+
+    @Override
+    public void testDelete() {
+        restTemplate.delete(URL + "/invokeDelete/456");
+    }
+}

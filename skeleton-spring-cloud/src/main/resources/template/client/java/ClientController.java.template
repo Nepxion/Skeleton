@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.springcloud.sales.client.service.ClientService;
+import ${basePackage}.service.ClientService;
 <#if clientHystrixEnabled == "true">
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;

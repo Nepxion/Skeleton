@@ -1,0 +1,18 @@
+package ${package};
+
+public abstract class AbstractClientTest {
+    public void test() {
+        testGet();
+        testPost();
+        testPut();
+        testDelete();
+    }
+
+    public abstract void testGet();
+
+    public abstract void testPost();
+
+    public abstract void testPut();
+
+    public abstract void testDelete();
+}
