@@ -18,8 +18,12 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ClientRestTestClassGenerator extends SkeletonJavaGenerator {
-    public ClientRestTestClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+    private String dependencyProjectType;
+
+    public ClientRestTestClassGenerator(String generatePath, String projectType, String dependencyProjectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ClientRestTestClassGenerator.class, skeletonProperties);
+
+        this.dependencyProjectType = dependencyProjectType;
     }
 
     @Override
@@ -47,6 +51,7 @@ public class ClientRestTestClassGenerator extends SkeletonJavaGenerator {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
         dataModel.put(SkeletonConstant.BASE_PACKAGE, super.getPackage());
+        dataModel.put("clusterUrl", SkeletonConstant.HTTP + skeletonProperties.getString("serviceName") + "-" + dependencyProjectType);
 
         return dataModel;
     }

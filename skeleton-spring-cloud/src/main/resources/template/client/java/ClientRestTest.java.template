@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class ClientRestTest extends AbstractClientTest {
     private static final Logger LOG = LoggerFactory.getLogger(ClientRestTest.class);
 
-    private static final String URL = "http://localhost:9628";
+    private static final String URL = "${clusterUrl}";
 
     private RestTemplate restTemplate;
 
