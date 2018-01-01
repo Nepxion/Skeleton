@@ -20,17 +20,10 @@ public class ClientRestTest extends AbstractClientTest {
     }
 
     @Override
-    public void test() {
-        LOG.info("===== Test Rest Invoker =====");
-
-        super.test();
-    }
-
-    @Override
     public void testGet() {
         String value = restTemplate.getForObject(URL + "/invokeGet/123", String.class);
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rest :: {}", value);
     }
 
     @Override
@@ -43,7 +36,7 @@ public class ClientRestTest extends AbstractClientTest {
 
         String value = restTemplate.postForObject(URL + "/invokePost", entity, String.class);
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rest :: {}", value);
     }
 
     @Override

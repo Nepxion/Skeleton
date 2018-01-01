@@ -16,37 +16,30 @@ public class ClientRpcTest extends AbstractClientTest {
     }
 
     @Override
-    public void test() {
-        LOG.info("===== Test Rpc Invoker =====");
-
-        super.test();
-    }
-
-    @Override
     public void testGet() {
         String value = clientController.invokeGet(123);
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rpc :: {}", value);
     }
 
     @Override
     public void testPost() {
         String value = clientController.invokePost("abc");
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rpc :: {}", value);
     }
 
     @Override
     public void testPut() {
         String value = clientController.invokePut("xzy");
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rpc :: {}", value);
     }
 
     @Override
     public void testDelete() {
         String value = clientController.invokeDelete(456);
 
-        LOG.info("Client - {}", value);
+        LOG.info("Client - Rpc :: {}", value);
     }
 }
