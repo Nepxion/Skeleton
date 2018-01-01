@@ -53,7 +53,7 @@ public class ClientProjectServiceImpl implements SkeletonService {
         new ClientRpcTestClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
         // 创建Java类文件到main/java目录下
-        new ClientRestTestClassGenerator(generatePath, projectType, dependencyProjectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new ClientRestTestClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
 
         // 创建文件到main/resources目录下
         new ApplicationPropertiesGenerator(generatePath, projectType, dependencyProjectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
