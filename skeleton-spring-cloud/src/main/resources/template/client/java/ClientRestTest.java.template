@@ -11,7 +11,8 @@ import org.springframework.web.client.RestTemplate;
 public class ClientRestTest extends AbstractClientTest {
     private static final Logger LOG = LoggerFactory.getLogger(ClientRestTest.class);
 
-    private static final String URL = "${clusterUrl}";
+    // 客户端调用客户端，已演示熔断场景(中途关闭服务端，即触发熔断)
+    private static final String URL = "http://localhost:${port}";
 
     private RestTemplate restTemplate;
 

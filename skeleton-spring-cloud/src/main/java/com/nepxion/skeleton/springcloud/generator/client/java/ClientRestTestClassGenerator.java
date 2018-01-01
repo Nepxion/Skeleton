@@ -51,7 +51,7 @@ public class ClientRestTestClassGenerator extends SkeletonJavaGenerator {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put(SkeletonConstant.PACKAGE, getPackage());
         dataModel.put(SkeletonConstant.BASE_PACKAGE, super.getPackage());
-        dataModel.put("clusterUrl", SkeletonConstant.HTTP + skeletonProperties.getString("serviceName") + "-" + dependencyProjectType);
+        dataModel.put("port", skeletonProperties.getString("clientPort"));
 
         return dataModel;
     }
