@@ -22,6 +22,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     2. 代码运行
        2.1 在IDE里运行：导入IDE，即可运行，脚手架代码，代码执行顺序一般为EurekaApplication，ServerApplication，ClientApplication，如图1
        2.2 在Docker里运行：执行三个脚本，即可一键部署到Docker容器里，脚本执行顺序一般为install-eureka-docker，install-server-docker，install-client-docker，如图2
+       2.3 提供Rpc和Rest两种测试(启动ClientApplication服务即可启动定时测试)，提供正常调用和熔断调用场景(停止ServerApplication服务即可)
     3. 组件集成
        3.1 集成Spring Cloud基础组件，包括Eureka，Ribbon，Feign，Hystrix等
        3.2 集成Swagger组件
