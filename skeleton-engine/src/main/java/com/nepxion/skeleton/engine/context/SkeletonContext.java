@@ -18,6 +18,7 @@ import com.nepxion.skeleton.engine.entity.SkeletonFileType;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
 
 public class SkeletonContext {
+    private String generatePath;
     private String projectType;
 
     private String prefixTemplatePath;
@@ -29,7 +30,8 @@ public class SkeletonContext {
 
     private SkeletonConfig config;
 
-    public SkeletonContext(String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass) {
+    public SkeletonContext(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass) {
+        this.generatePath = generatePath;
         this.projectType = projectType;
         this.prefixTemplatePath = prefixTemplatePath;
         this.reducedTemplatePath = reducedTemplatePath;
@@ -37,20 +39,27 @@ public class SkeletonContext {
         this.config = new SkeletonConfig(generateTemplatePath());
     }
 
-    public SkeletonContext(String prefixTemplatePath, String reducedTemplatePath) {
+    public SkeletonContext(String generatePath, String prefixTemplatePath, String reducedTemplatePath) {
+        this.generatePath = generatePath;
         this.prefixTemplatePath = prefixTemplatePath;
         this.reducedTemplatePath = reducedTemplatePath;
     }
 
-    public SkeletonContext(String projectType, String baseTemplatePath, SkeletonFileType fileType) {
+    public SkeletonContext(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType) {
+        this.generatePath = generatePath;
         this.projectType = projectType;
         this.baseTemplatePath = baseTemplatePath;
         this.fileType = fileType;
         this.config = new SkeletonConfig(generateTemplatePath());
     }
 
-    public SkeletonContext(String baseTemplatePath) {
+    public SkeletonContext(String generatePath, String baseTemplatePath) {
+        this.generatePath = generatePath;
         this.baseTemplatePath = baseTemplatePath;
+    }
+
+    public String getGeneratePath() {
+        return generatePath;
     }
 
     public String getProjectType() {
@@ -82,11 +91,11 @@ public class SkeletonContext {
     }
 
     public SkeletonContext clone(String projectType, Class<?> generatorClass) {
-        return new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
+        return new SkeletonContext(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
     }
 
     public SkeletonContext clone(String projectType, SkeletonFileType fileType) {
-        return new SkeletonContext(projectType, baseTemplatePath, fileType);
+        return new SkeletonContext(generatePath, projectType, baseTemplatePath, fileType);
     }
 
     private String generateTemplatePath() {

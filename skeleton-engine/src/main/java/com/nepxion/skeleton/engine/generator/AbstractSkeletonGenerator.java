@@ -28,26 +28,20 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 public abstract class AbstractSkeletonGenerator {
-    protected String generatePath;
     protected SkeletonContext skeletonContext;
     protected SkeletonProperties skeletonProperties;
 
-    public AbstractSkeletonGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        this.generatePath = generatePath;
+    public AbstractSkeletonGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
         this.skeletonContext = skeletonContext;
         this.skeletonProperties = skeletonProperties;
     }
 
     public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
-        this(generatePath, new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass), skeletonProperties);
+        this(new SkeletonContext(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass), skeletonProperties);
     }
 
     public AbstractSkeletonGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
-        this(generatePath, new SkeletonContext(projectType, baseTemplatePath, fileType), skeletonProperties);
-    }
-
-    public String getGeneratePath() {
-        return generatePath;
+        this(new SkeletonContext(generatePath, projectType, baseTemplatePath, fileType), skeletonProperties);
     }
 
     public SkeletonContext getSkeletonContext() {

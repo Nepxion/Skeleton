@@ -26,8 +26,8 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     protected String defaultOutputPath;
 
-    public SkeletonFileGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext, skeletonProperties);
+    public SkeletonFileGenerator( SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext, skeletonProperties);
 
         initialize();
     }
@@ -50,6 +50,7 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
             throw new SkeletonException("Invalid file type for " + fileType);
         }*/
 
+        String generatePath = skeletonContext.getGeneratePath();
         String projectType = skeletonContext.getProjectType();
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }

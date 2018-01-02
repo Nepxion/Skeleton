@@ -30,8 +30,8 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     protected String defaultBasePackage;
     protected String defaultOutputPath;
 
-    public SkeletonJavaGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext, skeletonProperties);
+    public SkeletonJavaGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext, skeletonProperties);
 
         initialize();
     }
@@ -49,6 +49,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     }
 
     private void initialize() {
+        String generatePath = skeletonContext.getGeneratePath();
         String projectType = skeletonContext.getProjectType();
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
