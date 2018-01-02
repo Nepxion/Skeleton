@@ -14,10 +14,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
+    /**
+     * 构造方法
+     * @param generatePath 创建文件的顶级路径
+     * @param skeletonContext 封装了参数的上下文对象
+     * @param skeletonProperties 全局配置文件对象
+     */
+    public ServerApplicationClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone("server", ServerApplicationClassGenerator.class), skeletonProperties);
+    }
+
     /**
      * 构造方法
      * @param generatePath 创建文件的顶级路径
@@ -26,9 +37,9 @@ public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
      * @param reducedTemplatePath 模板路径缩减，考虑到模板路径和类路径必须一致，会导致路径太长，可以缩减掉一部分
      * @param skeletonProperties 全局配置文件对象
      */
-    public ServerApplicationClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
+    /*public ServerApplicationClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ServerApplicationClassGenerator.class, skeletonProperties);
-    }
+    }*/
 
     /**
      * 构造方法
