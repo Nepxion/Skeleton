@@ -13,14 +13,15 @@ package com.nepxion.skeleton.springcloud.generator.eureka;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
 import com.nepxion.skeleton.engine.util.StringUtil;
 
 public class PomXmlGenerator extends SkeletonFileGenerator {
-    public PomXmlGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, PomXmlGenerator.class, skeletonProperties);
+    public PomXmlGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone("eureka", PomXmlGenerator.class), skeletonProperties);
     }
 
     @Override

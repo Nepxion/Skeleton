@@ -14,12 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
-    public ApplicationPropertiesGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ApplicationPropertiesGenerator.class, skeletonProperties);
+    public ApplicationPropertiesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone("eureka", ApplicationPropertiesGenerator.class), skeletonProperties);
     }
 
     @Override
