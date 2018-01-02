@@ -10,12 +10,13 @@ package com.nepxion.skeleton.springcloud.generator;
  * @version 1.0
  */
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class GitAttributesGenerator extends SkeletonFileGenerator {
-    public GitAttributesGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, GitAttributesGenerator.class, skeletonProperties);
+    public GitAttributesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone(null, GitAttributesGenerator.class), skeletonProperties);
     }
 
     @Override

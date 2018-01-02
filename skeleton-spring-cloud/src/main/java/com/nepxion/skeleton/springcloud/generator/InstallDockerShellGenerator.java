@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
@@ -24,8 +25,8 @@ public class InstallDockerShellGenerator extends SkeletonFileGenerator {
     private String shellType;
     private String linkDocker;
 
-    public InstallDockerShellGenerator(String generatePath, String projectType, String subProjectType, String shellType, String linkDocker, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, InstallDockerShellGenerator.class, skeletonProperties);
+    public InstallDockerShellGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String subProjectType, String shellType, String linkDocker) {
+        super(generatePath, skeletonContext.clone(null, InstallDockerShellGenerator.class), skeletonProperties);
 
         this.subProjectType = subProjectType;
         this.shellType = shellType;
