@@ -119,12 +119,12 @@ import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
 
 public class SkeletonTest {
     public static void main(String[] args) throws Exception {
+        // ********** 构建全局上下文对象 **********
         // 创建文件的输出的路径
         // 放在操作系统的临时目录下
         String generatePath = SkeletonUtil.getTempGeneratePath();
         // String generatePath = "E:/Download/skeleton/";
 
-        // ********** 构建全局上下文对象 **********
         // 如何理解prefixTemplatePath和reducedTemplatePath含义？
         // FreeMarker规定，模板文件必须放在classpath下，即以com/...开头的路径为其classpath
         // 1. 有需求要求，模板文件移动到resources中，并希望放在template/com/a/b/c...，那么template就是prefixTemplatePath，模板的前置路径
@@ -140,7 +140,7 @@ public class SkeletonTest {
         // String reducedTemplatePath = null;
 
         // 全局上下文对象
-        SkeletonContext skeletonContext = new SkeletonContext(prefixTemplatePath, reducedTemplatePath);
+        SkeletonContext skeletonContext = new SkeletonContext(generatePath, prefixTemplatePath, reducedTemplatePath);
         // **************************************
 
         // ********** 构建全局配置类对象 **********
@@ -154,7 +154,7 @@ public class SkeletonTest {
 
         // 输出脚手架文件
         SkeletonService skeletonService = new SkeletonServiceImpl();
-        skeletonService.generate(generatePath, skeletonContext, skeletonProperties);
+        skeletonService.generate(skeletonContext, skeletonProperties);
     }
 }
 ```
