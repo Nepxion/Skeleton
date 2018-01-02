@@ -184,7 +184,7 @@
             <label>客户端熔断模式</label>
             <description></description>
             <note>客户端熔断模式，当服务端异常，客户端将启动熔断机制，并返回客户端默认定义的值</note>
-            <type>TOGGLEBUTTON</type>
+            <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -214,7 +214,7 @@
             <label>Docker认证模式</label>
             <description></description>
             <note>Docker认证模式，如果Docker服务器在本地，建议不需要开启</note>
-            <type>TOGGLEBUTTON</type>
+            <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
