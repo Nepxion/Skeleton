@@ -12,6 +12,7 @@ package com.nepxion.skeleton.springcloud.service;
 
 import java.io.IOException;
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.framework.service.SkeletonService;
@@ -30,38 +31,21 @@ import freemarker.template.TemplateException;
 
 public class ClientProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        String projectType = "client";
-        String dependencyProjectType = "server";
-
+    public void generate(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件到main/java目录下
-        new ClientApplicationClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new ClientContextAwareClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new ClientControllerClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new ClientServiceClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new AbstractClientTestClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new ClientRpcTestClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建Java类文件到main/java目录下
-        new ClientRestTestClassGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new ClientApplicationClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientContextAwareClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientControllerClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientServiceClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new AbstractClientTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientRpcTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientRestTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
 
         // 创建文件到main/resources目录下
-        new ApplicationPropertiesGenerator(generatePath, projectType, dependencyProjectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
-
-        // 创建文件到main/resources目录下
-        new LogbackXmlGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new ApplicationPropertiesGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new LogbackXmlGenerator(generatePath, skeletonContext, skeletonProperties, "client").generate();
 
         // 创建文件到根目录下
-        new PomXmlGenerator(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, skeletonProperties).generate();
+        new PomXmlGenerator(generatePath, skeletonContext, skeletonProperties).generate();
     }
 }
