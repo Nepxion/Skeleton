@@ -73,7 +73,7 @@ public class SkeletonController {
             public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
                 String dynamicTemplatePath = generateDynamicTemplatePath(skeletonProperties);
 
-                service.generate(generatePath, new SkeletonContext(dynamicTemplatePath, skeletonReducedTemplatePath), skeletonProperties);
+                service.generate(new SkeletonContext(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath), skeletonProperties);
             }
         };
     }
