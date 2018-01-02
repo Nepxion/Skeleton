@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.entity.SkeletonGroup;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
@@ -72,7 +73,7 @@ public class SkeletonController {
             public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {
                 String dynamicTemplatePath = generateDynamicTemplatePath(skeletonProperties);
 
-                service.generate(generatePath, dynamicTemplatePath, skeletonReducedTemplatePath, skeletonProperties);
+                service.generate(generatePath, new SkeletonContext(dynamicTemplatePath, skeletonReducedTemplatePath), skeletonProperties);
             }
         };
     }
