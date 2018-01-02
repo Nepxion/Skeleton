@@ -18,8 +18,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class PomXmlGenerator extends SkeletonFileGenerator {
-    public PomXmlGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone(null, PomXmlGenerator.class), skeletonProperties);
+    public PomXmlGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone(null, PomXmlGenerator.class), skeletonProperties);
     }
 
     @Override

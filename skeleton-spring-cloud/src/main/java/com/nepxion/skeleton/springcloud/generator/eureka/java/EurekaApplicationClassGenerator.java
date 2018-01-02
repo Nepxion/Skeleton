@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class EurekaApplicationClassGenerator extends SkeletonJavaGenerator {
-    public EurekaApplicationClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("eureka", EurekaApplicationClassGenerator.class), skeletonProperties);
+    public EurekaApplicationClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("eureka", EurekaApplicationClassGenerator.class), skeletonProperties);
     }
 
     @Override

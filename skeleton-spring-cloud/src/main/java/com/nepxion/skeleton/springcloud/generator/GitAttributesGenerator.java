@@ -15,8 +15,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class GitAttributesGenerator extends SkeletonFileGenerator {
-    public GitAttributesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone(null, GitAttributesGenerator.class), skeletonProperties);
+    public GitAttributesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone(null, GitAttributesGenerator.class), skeletonProperties);
     }
 
     @Override

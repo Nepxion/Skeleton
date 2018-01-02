@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ClientControllerClassGenerator extends SkeletonJavaGenerator {
-    public ClientControllerClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("client", ClientControllerClassGenerator.class), skeletonProperties);
+    public ClientControllerClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("client", ClientControllerClassGenerator.class), skeletonProperties);
     }
 
     @Override

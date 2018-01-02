@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
-    public ApplicationPropertiesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("client", ApplicationPropertiesGenerator.class), skeletonProperties);
+    public ApplicationPropertiesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("client", ApplicationPropertiesGenerator.class), skeletonProperties);
     }
 
     @Override

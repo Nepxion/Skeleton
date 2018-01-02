@@ -25,16 +25,16 @@ import freemarker.template.TemplateException;
 
 public class ParentProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建文件到顶级目录下
-        new PomXmlGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "eureka", "bat", null).generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "eureka", "sh", null).generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "server", "bat", null).generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "server", "sh", null).generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "client", "bat", skeletonProperties.getString("serviceName") + "-server").generate();
-        new InstallDockerShellGenerator(generatePath, skeletonContext, skeletonProperties, "client", "sh", skeletonProperties.getString("serviceName") + "-server").generate();
-        new GitAttributesGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new GitIgnoreGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new PomXmlGenerator(skeletonContext, skeletonProperties).generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "eureka", "bat", null).generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "eureka", "sh", null).generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "server", "bat", null).generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "server", "sh", null).generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "client", "bat", skeletonProperties.getString("serviceName") + "-server").generate();
+        new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "client", "sh", skeletonProperties.getString("serviceName") + "-server").generate();
+        new GitAttributesGenerator(skeletonContext, skeletonProperties).generate();
+        new GitIgnoreGenerator(skeletonContext, skeletonProperties).generate();
     }
 }

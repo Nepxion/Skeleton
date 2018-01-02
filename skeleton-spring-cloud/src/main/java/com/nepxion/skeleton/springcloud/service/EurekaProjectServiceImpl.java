@@ -25,15 +25,15 @@ import freemarker.template.TemplateException;
 
 public class EurekaProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件到main/java目录下
-        new EurekaApplicationClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ApplicationPropertiesGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new EurekaApplicationClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ApplicationPropertiesGenerator(skeletonContext, skeletonProperties).generate();
 
         // 创建文件到main/resources目录下
-        new LogbackXmlGenerator(generatePath, skeletonContext, skeletonProperties, "eureka").generate();
+        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "eureka").generate();
 
         // 创建文件到根目录下
-        new PomXmlGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new PomXmlGenerator(skeletonContext, skeletonProperties).generate();
     }
 }

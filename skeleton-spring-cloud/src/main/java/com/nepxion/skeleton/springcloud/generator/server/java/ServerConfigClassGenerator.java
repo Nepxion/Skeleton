@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ServerConfigClassGenerator extends SkeletonJavaGenerator {
-    public ServerConfigClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("server", ServerConfigClassGenerator.class), skeletonProperties);
+    public ServerConfigClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("server", ServerConfigClassGenerator.class), skeletonProperties);
     }
 
     @Override

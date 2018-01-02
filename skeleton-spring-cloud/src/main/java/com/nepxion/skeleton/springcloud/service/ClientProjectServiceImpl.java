@@ -31,21 +31,21 @@ import freemarker.template.TemplateException;
 
 public class ClientProjectServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+    public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
         // 创建Java类文件到main/java目录下
-        new ClientApplicationClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ClientContextAwareClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ClientControllerClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ClientServiceClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new AbstractClientTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ClientRpcTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new ClientRestTestClassGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new ClientApplicationClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ClientContextAwareClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ClientControllerClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ClientServiceClassGenerator(skeletonContext, skeletonProperties).generate();
+        new AbstractClientTestClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ClientRpcTestClassGenerator(skeletonContext, skeletonProperties).generate();
+        new ClientRestTestClassGenerator(skeletonContext, skeletonProperties).generate();
 
         // 创建文件到main/resources目录下
-        new ApplicationPropertiesGenerator(generatePath, skeletonContext, skeletonProperties).generate();
-        new LogbackXmlGenerator(generatePath, skeletonContext, skeletonProperties, "client").generate();
+        new ApplicationPropertiesGenerator(skeletonContext, skeletonProperties).generate();
+        new LogbackXmlGenerator(skeletonContext, skeletonProperties, "client").generate();
 
         // 创建文件到根目录下
-        new PomXmlGenerator(generatePath, skeletonContext, skeletonProperties).generate();
+        new PomXmlGenerator(skeletonContext, skeletonProperties).generate();
     }
 }

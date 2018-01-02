@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class LogbackXmlGenerator extends SkeletonFileGenerator {
-    public LogbackXmlGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
-        super(generatePath, skeletonContext.clone(projectType, LogbackXmlGenerator.class), skeletonProperties);
+    public LogbackXmlGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
+        super(skeletonContext.clone(projectType, LogbackXmlGenerator.class), skeletonProperties);
     }
 
     @Override

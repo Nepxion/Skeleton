@@ -21,12 +21,11 @@ import com.nepxion.skeleton.engine.property.SkeletonProperties;
 public class ServerApplicationClassGenerator extends SkeletonJavaGenerator {
     /**
      * 构造方法
-     * @param generatePath 创建文件的顶级路径
      * @param skeletonContext 封装了参数的上下文对象
      * @param skeletonProperties 全局配置文件对象
      */
-    public ServerApplicationClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("server", ServerApplicationClassGenerator.class), skeletonProperties);
+    public ServerApplicationClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("server", ServerApplicationClassGenerator.class), skeletonProperties);
     }
 
     /**

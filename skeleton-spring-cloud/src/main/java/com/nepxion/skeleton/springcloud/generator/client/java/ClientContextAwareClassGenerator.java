@@ -19,8 +19,8 @@ import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ClientContextAwareClassGenerator extends SkeletonJavaGenerator {
-    public ClientContextAwareClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("client", ClientContextAwareClassGenerator.class), skeletonProperties);
+    public ClientContextAwareClassGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("client", ClientContextAwareClassGenerator.class), skeletonProperties);
     }
 
     @Override

@@ -22,12 +22,11 @@ import com.nepxion.skeleton.engine.util.SkeletonUtil;
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     /**
      * 构造方法
-     * @param generatePath 创建文件的顶级路径
      * @param skeletonContext 封装了参数的上下文对象
      * @param skeletonProperties 全局配置文件对象
      */
-    public ApplicationPropertiesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
-        super(generatePath, skeletonContext.clone("server", ApplicationPropertiesGenerator.class), skeletonProperties);
+    public ApplicationPropertiesGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(skeletonContext.clone("server", ApplicationPropertiesGenerator.class), skeletonProperties);
     }
 
     /**

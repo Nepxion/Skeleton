@@ -25,8 +25,8 @@ public class InstallDockerShellGenerator extends SkeletonFileGenerator {
     private String shellType;
     private String linkDocker;
 
-    public InstallDockerShellGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String subProjectType, String shellType, String linkDocker) {
-        super(generatePath, skeletonContext.clone(null, InstallDockerShellGenerator.class), skeletonProperties);
+    public InstallDockerShellGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String subProjectType, String shellType, String linkDocker) {
+        super(skeletonContext.clone(null, InstallDockerShellGenerator.class), skeletonProperties);
 
         this.subProjectType = subProjectType;
         this.shellType = shellType;

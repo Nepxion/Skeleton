@@ -21,10 +21,10 @@ import freemarker.template.TemplateException;
 
 public class SkeletonServiceImpl implements SkeletonService {
     @Override
-    public void generate(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        new ParentProjectServiceImpl().generate(generatePath, skeletonContext, skeletonProperties);
-        new EurekaProjectServiceImpl().generate(generatePath, skeletonContext, skeletonProperties);
-        new ServerProjectServiceImpl().generate(generatePath, skeletonContext, skeletonProperties);
-        new ClientProjectServiceImpl().generate(generatePath, skeletonContext, skeletonProperties);
+    public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
+        new ParentProjectServiceImpl().generate(skeletonContext, skeletonProperties);
+        new EurekaProjectServiceImpl().generate(skeletonContext, skeletonProperties);
+        new ServerProjectServiceImpl().generate(skeletonContext, skeletonProperties);
+        new ClientProjectServiceImpl().generate(skeletonContext, skeletonProperties);
     }
 }
