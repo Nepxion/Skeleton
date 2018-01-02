@@ -37,11 +37,20 @@ public class SkeletonContext {
         this.config = new SkeletonConfig(generateTemplatePath());
     }
 
+    public SkeletonContext(String prefixTemplatePath, String reducedTemplatePath) {
+        this.prefixTemplatePath = prefixTemplatePath;
+        this.reducedTemplatePath = reducedTemplatePath;
+    }
+
     public SkeletonContext(String projectType, String baseTemplatePath, SkeletonFileType fileType) {
         this.projectType = projectType;
         this.baseTemplatePath = baseTemplatePath;
         this.fileType = fileType;
         this.config = new SkeletonConfig(generateTemplatePath());
+    }
+
+    public SkeletonContext(String baseTemplatePath) {
+        this.baseTemplatePath = baseTemplatePath;
     }
 
     public String getProjectType() {
@@ -70,6 +79,14 @@ public class SkeletonContext {
 
     public SkeletonConfig getConfig() {
         return config;
+    }
+
+    public SkeletonContext clone(String projectType, Class<?> generatorClass) {
+        return new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
+    }
+
+    public SkeletonContext clone(String projectType, SkeletonFileType fileType) {
+        return new SkeletonContext(projectType, baseTemplatePath, fileType);
     }
 
     private String generateTemplatePath() {

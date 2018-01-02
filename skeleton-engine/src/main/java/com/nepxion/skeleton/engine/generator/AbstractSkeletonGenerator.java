@@ -32,16 +32,18 @@ public abstract class AbstractSkeletonGenerator {
     protected SkeletonContext skeletonContext;
     protected SkeletonProperties skeletonProperties;
 
-    public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+    public AbstractSkeletonGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
         this.generatePath = generatePath;
-        this.skeletonContext = new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass);
+        this.skeletonContext = skeletonContext;
         this.skeletonProperties = skeletonProperties;
     }
 
+    public AbstractSkeletonGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
+        this(generatePath, new SkeletonContext(projectType, prefixTemplatePath, reducedTemplatePath, generatorClass), skeletonProperties);
+    }
+
     public AbstractSkeletonGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
-        this.generatePath = generatePath;
-        this.skeletonContext = new SkeletonContext(projectType, baseTemplatePath, fileType);
-        this.skeletonProperties = skeletonProperties;
+        this(generatePath, new SkeletonContext(projectType, baseTemplatePath, fileType), skeletonProperties);
     }
 
     public String getGeneratePath() {

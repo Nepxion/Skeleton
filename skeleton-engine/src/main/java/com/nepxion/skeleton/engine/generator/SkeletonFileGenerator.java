@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.entity.SkeletonFileType;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
@@ -25,19 +26,31 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     protected String defaultOutputPath;
 
+    public SkeletonFileGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext, skeletonProperties);
+
+        initialize();
+    }
+
     public SkeletonFileGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, Class<?> generatorClass, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, generatorClass, skeletonProperties);
 
-        defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
+        initialize();
     }
 
     public SkeletonFileGenerator(String generatePath, String projectType, String baseTemplatePath, SkeletonFileType fileType, SkeletonProperties skeletonProperties) {
         super(generatePath, projectType, baseTemplatePath, fileType, skeletonProperties);
 
-        if (fileType == SkeletonFileType.JAVA) {
-            throw new SkeletonException("Invalid file type for " + fileType);
-        }
+        initialize();
+    }
 
+    private void initialize() {
+        /*SkeletonFileType fileType = skeletonContext.getFileType();
+        if (fileType != null && fileType == SkeletonFileType.JAVA) {
+            throw new SkeletonException("Invalid file type for " + fileType);
+        }*/
+
+        String projectType = skeletonContext.getProjectType();
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
