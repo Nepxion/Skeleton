@@ -14,12 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonJavaGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ClientContextAwareClassGenerator extends SkeletonJavaGenerator {
-    public ClientContextAwareClassGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ClientContextAwareClassGenerator.class, skeletonProperties);
+    public ClientContextAwareClassGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone("client", ClientContextAwareClassGenerator.class), skeletonProperties);
     }
 
     @Override

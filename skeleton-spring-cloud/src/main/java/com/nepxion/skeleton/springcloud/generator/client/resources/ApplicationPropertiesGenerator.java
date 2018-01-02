@@ -14,16 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
-    private String dependencyProjectType;
-
-    public ApplicationPropertiesGenerator(String generatePath, String projectType, String dependencyProjectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, ApplicationPropertiesGenerator.class, skeletonProperties);
-
-        this.dependencyProjectType = dependencyProjectType;
+    public ApplicationPropertiesGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
+        super(generatePath, skeletonContext.clone("client", ApplicationPropertiesGenerator.class), skeletonProperties);
     }
 
     @Override
@@ -45,7 +42,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
     protected Object getDataModel() {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
-        dataModel.put("clusterName", skeletonProperties.getString("serviceName") + "-" + dependencyProjectType);
+        dataModel.put("clusterName", skeletonProperties.getString("serviceName") + "-server");
         dataModel.put("port", skeletonProperties.getString("clientPort"));
         dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
 
