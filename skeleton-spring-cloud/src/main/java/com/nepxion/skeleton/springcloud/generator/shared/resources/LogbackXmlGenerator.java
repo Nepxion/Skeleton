@@ -14,12 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
+import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 
 public class LogbackXmlGenerator extends SkeletonFileGenerator {
-    public LogbackXmlGenerator(String generatePath, String projectType, String prefixTemplatePath, String reducedTemplatePath, SkeletonProperties skeletonProperties) {
-        super(generatePath, projectType, prefixTemplatePath, reducedTemplatePath, LogbackXmlGenerator.class, skeletonProperties);
+    public LogbackXmlGenerator(String generatePath, SkeletonContext skeletonContext, SkeletonProperties skeletonProperties, String projectType) {
+        super(generatePath, skeletonContext.clone(projectType, LogbackXmlGenerator.class), skeletonProperties);
     }
 
     @Override
