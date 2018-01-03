@@ -63,7 +63,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         return defaultOutputPath;
     }
 
-    public Map<String, Object> generateDefaultMapModel() {
+    public Map<String, Object> getDefaultMapModel() {
         Map<String, Object> defaultMapModel = new HashMap<String, Object>();
         /*defaultMapModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
         defaultMapModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
