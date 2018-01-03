@@ -138,10 +138,10 @@
             <editable>true</editable>
         </entity>
         <entity>
-            <key>eurekaUrl</key>
-            <label>Eureka地址</label>
+            <key>registryUrl</key>
+            <label>服务注册地址</label>
             <description></description>
-            <note>Spring Cloud服务注册地址。如果运行在本地(IDE)里，配置localhost即可，例如http://localhost:9528/eureka/，如果运行在Docker容器里，需要配置成Docker宿主机IP，例如http://10.0.75.1:9528/eureka/</note>
+            <note>Spring Cloud服务注册地址，可以多个，用逗号分隔。如果运行在本地(IDE)里，配置localhost即可，例如http://localhost:9528/eureka/，如果运行在Docker容器里，需要配置成Docker宿主机IP，例如http://10.0.75.1:9528/eureka/</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
