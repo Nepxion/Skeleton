@@ -22,7 +22,7 @@
             <key>basePackage</key>
             <label>包路径</label>
             <description></description>
-            <note>该路径会作为所有Java代码的上层路径。产品名、包路径和工程类型三者组合起来解析出相关目录和结构规则，例如产品名=payment-ccb，包路径=cn.springcloud，工程类型=server，那么工程名为payment-ccb-server，类路径为cn.springcloud.payment.ccb.server
+            <note>将作为所有Java代码的上层路径。产品名、包路径和工程类型三者组合起来解析出相关目录和结构规则，例如产品名=payment-ccb，包路径=cn.springcloud，工程类型=server，那么工程名为payment-ccb-server，类路径为cn.springcloud.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
