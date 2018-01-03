@@ -63,17 +63,18 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         return defaultOutputPath;
     }
 
-    public Map<String, Object> generateDataModel() {
-        Map<String, Object> defaultDataModel = new HashMap<String, Object>();
-        defaultDataModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
-        defaultDataModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
-        defaultDataModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
-        defaultDataModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
-        defaultDataModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
-        defaultDataModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
-        defaultDataModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));
+    public Map<String, Object> generateDefaultMapModel() {
+        Map<String, Object> defaultMapModel = new HashMap<String, Object>();
+        /*defaultMapModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
+        defaultMapModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
+        defaultMapModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
+        defaultMapModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
+        defaultMapModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
+        defaultMapModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
+        defaultMapModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));*/
+        defaultMapModel.put(SkeletonConstant.PACKAGE, getPackage());
 
-        return defaultDataModel;
+        return defaultMapModel;
     }
 
     @Override
