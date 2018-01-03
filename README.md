@@ -64,9 +64,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ### 客户端部署
 
-    1. 下载界面代码 https://github.com/SpringCloud/spring-cloud-codegen
-    2. 在代码目录中执行npm install，结束后执行npm start
-    3. 在浏览器里输入http://localhost:8080/#/codegen访问
+    1. 在skeleton-ui目录中执行npm install，结束后执行npm start
+    2. 在浏览器里输入http://localhost:8080/#/codegen访问
 
 ## 二次开发
 ### 介绍
