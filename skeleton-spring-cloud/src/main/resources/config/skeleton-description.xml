@@ -9,7 +9,7 @@
         <titledBorder>true</titledBorder>
         <entity>
             <key>moduleName</key>
-            <label>工程模块名</label>
+            <label>项目名</label>
             <description></description>
             <note>【必改项】首字母必须小写，中间只允许出现“-”</note>
             <type>TEXTFIELD</type>
@@ -20,9 +20,9 @@
         </entity>
         <entity>
             <key>basePackage</key>
-            <label>上层包路径</label>
+            <label>包路径</label>
             <description></description>
-            <note>【必改项】该路径会作为所有Java代码的上层路径。moduleName、basePackage和projectType三者组合起来解析出相关目录和结构规则，例如moduleName=payment-ccb，basePackage=com.nepxion，projectType=server，那么工程名为payment-ccb-server，类路径为com.nepxion.payment.ccb.server
+            <note>【必改项】该路径会作为所有Java代码的上层路径。项目名、包路径和工程类型三者组合起来解析出相关目录和结构规则，例如项目名=payment-ccb，包路径=cn.springcloud，工程类型=server，那么工程名为payment-ccb-server，类路径为cn.springcloud.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -130,7 +130,7 @@
             <key>serviceName</key>
             <label>服务名前缀</label>
             <description></description>
-            <note>【必改项】Spring Cloud服务名前缀</note>
+            <note>【必改项】Spring Cloud服务名前缀。如果工程类型为server，那么此工程的服务名为[服务名前缀]-server</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -139,9 +139,9 @@
         </entity>
         <entity>
             <key>eurekaUrl</key>
-            <label>Eureka地址 (注意"?")</label>
+            <label>Eureka地址</label>
             <description></description>
-            <note>【必改项】Spring Cloud服务注册地址，如果运行在Docker容器里，需要配置成Docker宿主机IP，例如http://10.0.75.1:9528/eureka/</note>
+            <note>【必改项】Spring Cloud服务注册地址。如果运行在本地(IDE)里，配置localhost即可，例如http://localhost:9528/eureka/，如果运行在Docker容器里，需要配置成Docker宿主机IP，例如http://10.0.75.1:9528/eureka/</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -183,7 +183,7 @@
             <key>clientHystrixEnabled</key>
             <label>客户端熔断模式</label>
             <description></description>
-            <note>客户端熔断模式，当服务端异常，客户端将启动熔断机制，并返回客户端默认定义的值</note>
+            <note>客户端熔断模式(Hystrix)。当服务端异常，客户端将启动熔断机制，并返回客户端默认定义的值</note>
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
@@ -202,7 +202,7 @@
             <key>dockerHost</key>
             <label>Docker服务器地址</label>
             <description></description>
-            <note>【必改项】Docker服务器地址，默认为本地地址</note>
+            <note>【必改项】Docker服务器地址，默认为localhost</note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
             <defaultable>false</defaultable>
@@ -213,7 +213,7 @@
             <key>dockerCertEnabled</key>
             <label>Docker认证模式</label>
             <description></description>
-            <note>Docker认证模式，如果Docker服务器在本地，建议不需要开启</note>
+            <note>Docker认证模式。如果Docker服务器在本地，建议不需要开启</note>
             <type>CHECKBOX</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
