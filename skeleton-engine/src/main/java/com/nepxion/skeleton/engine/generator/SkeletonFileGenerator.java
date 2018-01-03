@@ -10,9 +10,6 @@ package com.nepxion.skeleton.engine.generator;
  * @version 1.0
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,12 +57,6 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
 
     public String getDefaultOutputPath() {
         return defaultOutputPath;
-    }
-
-    public Map<String, Object> getDefaultMapModel() {
-        Map<String, Object> defaultMapModel = new HashMap<String, Object>();
-
-        return defaultMapModel;
     }
 
     @Override

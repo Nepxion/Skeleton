@@ -65,14 +65,13 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
 
     public Map<String, Object> getDefaultMapModel() {
         Map<String, Object> defaultMapModel = new HashMap<String, Object>();
-        /*defaultMapModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
+        defaultMapModel.put(SkeletonConstant.TITLE, skeletonProperties.getString(SkeletonConstant.TITLE));
         defaultMapModel.put(SkeletonConstant.DESCRIPTION, skeletonProperties.getString(SkeletonConstant.DESCRIPTION));
         defaultMapModel.put(SkeletonConstant.COPYRIGHT, skeletonProperties.getString(SkeletonConstant.COPYRIGHT));
         defaultMapModel.put(SkeletonConstant.COMPANY, skeletonProperties.getString(SkeletonConstant.COMPANY));
         defaultMapModel.put(SkeletonConstant.AUTHOR, skeletonProperties.getString(SkeletonConstant.AUTHOR));
         defaultMapModel.put(SkeletonConstant.EMAIL, skeletonProperties.getString(SkeletonConstant.EMAIL));
-        defaultMapModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));*/
-        defaultMapModel.put(SkeletonConstant.PACKAGE, getPackage());
+        defaultMapModel.put(SkeletonConstant.VERSION, skeletonProperties.getString(SkeletonConstant.VERSION));
 
         return defaultMapModel;
     }
