@@ -93,14 +93,14 @@ public class SkeletonUtil {
     public static String formatProductName(String productName) {
         StringBuilder sb = new StringBuilder();
 
-        String[] splittedProductNames = productName.split("-");
-        for (String splittedProductName : splittedProductNames) {
-            sb.append(splittedProductName.trim()).append(".");
+        String[] array = productName.split("-");
+        for (String text : array) {
+            sb.append(text.trim()).append(".");
         }
 
-        String formattedProductName = sb.toString();
+        String name = sb.toString();
 
-        return formattedProductName.substring(0, formattedProductName.lastIndexOf("."));
+        return name.substring(0, name.lastIndexOf("."));
     }
 
     public static String getTempGeneratePath() {
