@@ -32,7 +32,7 @@ export default {
 	},
 	data() {
 		return {
-			sysName: 'Smart CodeGen',
+			sysName: 'Spring Cloud Skeleton',
 			collapsed: false,
 			sysUserName: '',
 			sysUserAvatar: '',
@@ -144,7 +144,7 @@ export default {
 			}
 		}
 		.logo-width {
-			width: 360px;
+			width: 425px;
 		}
 		.logo-collapse-width {
 			width: 60px
