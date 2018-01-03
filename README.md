@@ -76,14 +76,16 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ### 配置
 
-    1. skeleton-data.properties，见skeleton-spring-cloud/src/main/resources/config下
+    1. skeleton-data.properties，见skeleton-spring-cloud/src/main/resources/config/skeleton-data.properties
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
+       配置文件中，“工程配置”下的productName和basePackage是必需的，其他字段可自己随便定义，建议驼峰形式命名
 
-    2. skeleton-description.xml，见skeleton-spring-cloud/src/main/resources/config下
+    2. skeleton-description.xml，见skeleton-spring-cloud/src/main/resources/config/skeleton-description.xml
        用来描述模界面驱动的数据结构，渲染和布局组件，它里面定义的组件里的value值则取值于skeleton-data.properties
        分为Group和Entity结构，一个Group包含多个Entity
 
 ### 规则
+
     1. 一个Generator类对应一个template模板文件
     2. 提供SkeletonFileGenerator和SkeletonJavaGenerator两种方式，前者可以生成任何类型的文本文件，后者因为Java文件相对比较特殊，所以做了一些封装
     3. 模板文件(*.template)有如下两种放置方式
@@ -95,109 +97,13 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ### 示例
 
 #### 本地使用方式
-运行com.nepxion.skeleton.springcloud.generator.SkeletonTest.java类，可在本地创建脚手架文件
-```java
-package com.nepxion.skeleton.springcloud.generator;
-
-/**
- * <p>Title: Nepxion Skeleton</p>
- * <p>Description: Nepxion Skeleton For Freemarker</p>
- * <p>Copyright: Copyright (c) 2017</p>
- * <p>Company: Nepxion</p>
- * @author Haojun Ren
- * @email 1394997@qq.com
- * @version 1.0
- */
-
-import com.nepxion.skeleton.engine.constant.SkeletonConstant;
-import com.nepxion.skeleton.engine.context.SkeletonContext;
-import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.util.SkeletonUtil;
-import com.nepxion.skeleton.framework.service.SkeletonService;
-import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
-
-public class SkeletonTest {
-    public static void main(String[] args) throws Exception {
-        // ********** 构建全局上下文对象 **********
-        // 创建文件的输出的路径
-        // 放在操作系统的临时目录下
-        String generatePath = SkeletonUtil.getTempGeneratePath();
-        // String generatePath = "E:/Download/skeleton/";
-
-        // 如何理解prefixTemplatePath和reducedTemplatePath含义？
-        // FreeMarker规定，模板文件必须放在classpath下，即以com/...开头的路径为其classpath
-        // 1. 有需求要求，模板文件移动到resources中，并希望放在template/com/a/b/c...，那么template就是prefixTemplatePath，模板的前置路径
-        // 2. 有需求要求，模板文件路径如果template/com/a/b/c/...，觉得路径太长，那么a/b/c/就是reducedTemplatePath，模板路径缩减，把这部分裁剪掉       
-        // 3. 如果把模板文件和Generator类放在一起，则prefixTemplatePath和reducedTemplatePath同时为null即可
-
-        // 模板文件所在的前置路径
-        String prefixTemplatePath = "template";
-        // String prefixTemplatePath = null;
-
-        // 模板路径缩减
-        String reducedTemplatePath = "com/nepxion/skeleton/springcloud/generator/";
-        // String reducedTemplatePath = null;
-
-        // 全局上下文对象
-        SkeletonContext skeletonContext = new SkeletonContext(generatePath, prefixTemplatePath, reducedTemplatePath);
-        // **************************************
-
-        // ********** 构建全局配置类对象 **********
-        // 描述规则的配置文件所在的路径
-        // 配置文件含中文，stringEncoding必须为GBK，readerEncoding必须为UTF-8，文本文件编码必须为ANSI
-        String propertiesPath = "config/skeleton-data.properties";
-
-        // 全局配置类对象
-        SkeletonProperties skeletonProperties = new SkeletonProperties(propertiesPath, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
-        // **************************************
-
-        // 输出脚手架文件
-        SkeletonService skeletonService = new SkeletonServiceImpl();
-        skeletonService.generate(skeletonContext, skeletonProperties);
-    }
-}
-```
+运行skeleton-spring-cloud/src/test/com.nepxion.skeleton.springcloud.generator.SkeletonTest.java，可在本地创建脚手架文件，具体使用方式，参考该类里的中文注释
 
 #### Spring Cloud使用方式
 
-Spring Cloud配置文件(application.properties)
-```java
-# Spring cloud config
-spring.application.name=skeleton-spring-cloud
-server.port=2222
+Spring Cloud配置文件，见skeleton-spring-cloud/src/main/resources/application.properties
 
-eureka.instance.lease-renewal-interval-in-seconds=10
-eureka.instance.lease-expiration-duration-in-seconds=30
-
-eureka.client.register-with-eureka=true
-eureka.client.fetch-registry=false
-
-eureka.client.serviceUrl.defaultZone=http://cluster-1:1111/eureka/,http://cluster-2:1112/eureka/,http://cluster-3:1113/eureka/
-
-# Skeleton config
-# 模板文件所在的前置路径
-skeleton.prefix.template.path=template
-# 模板文件所在的路径根据传入的Key动态切换，不设置则表示不切换
-skeleton.dynamic.template.path.key=
-# 模板路径缩减，考虑到模板路径和类路径必须一致，会导致路径太长，可以缩减掉一部分
-skeleton.reduced.template.path=com/nepxion/skeleton/springcloud/generator/
-# 在前端下载zip包名
-skeleton.generate.file.name=spring-cloud-skeleton
-# 在后端生成zip包的放置路径，不设置则放在操作系统的临时目录下
-skeleton.generate.path=
-
-# Swagger config
-swagger.service.base.package=com.nepxion.skeleton
-swagger.service.description=Skeleton Spring Cloud Restful APIs
-swagger.service.version=1.0.0
-swagger.service.license=Apache License 2.0
-swagger.service.license.url=http://www.apache.org/licenses/LICENSE-2.0
-swagger.service.contact.name=Haojun Ren
-swagger.service.contact.url=https://github.com/Nepxion/Skeleton
-swagger.service.contact.email=1394997@qq.com
-```
-
-Spring Cloud接口
+Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.framework.controller.java
 
     1. 根据配置文件进行界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
@@ -214,9 +120,9 @@ Spring Cloud接口
         "titledBorder": "true", // 是否需要显示组标题(默认显示)
         "entityList": [
           {
-            "key": "moduleName", // 组件所对应的唯一Key
-            "label": "工程的模块名", // 组件的标签
-            "description": "moduleName", // 组件的描述
+            "key": "productName", // 组件所对应的唯一Key
+            "label": "产品名", // 组件的标签
+            "description": "", // 组件的描述
             "note": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的使用提示
             "value": "sales", // 组件内容
             "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD(默认)，CHECKBOX，RADIO，COMBOBOX
