@@ -1,7 +1,7 @@
 spring.application.name=${serviceName}
 server.port=${port}
 
-eureka.client.serviceUrl.defaultZone=${eurekaUrl}
+eureka.client.serviceUrl.defaultZone=${registryUrl}
 
 swagger.service.base.package=${basePackage}
 swagger.service.description=Skeleton Spring Cloud Restful APIs

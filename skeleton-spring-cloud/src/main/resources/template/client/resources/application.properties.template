@@ -3,4 +3,4 @@ server.port=${port}
 
 service.cluster.name=${clusterName}
 
-eureka.client.serviceUrl.defaultZone=${eurekaUrl}
+eureka.client.serviceUrl.defaultZone=${registryUrl}

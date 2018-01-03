@@ -44,7 +44,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
         dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("clusterName", skeletonProperties.getString("serviceName") + "-server");
         dataModel.put("port", skeletonProperties.getString("clientPort"));
-        dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
+        dataModel.put("registryUrl", skeletonProperties.getString("registryUrl"));
 
         return dataModel;
     }

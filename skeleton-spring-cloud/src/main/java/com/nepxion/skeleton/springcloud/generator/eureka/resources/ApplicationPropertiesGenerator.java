@@ -43,7 +43,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
         Map<String, Object> dataModel = new HashMap<String, Object>();
         dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("port", skeletonProperties.getString("eurekaPort"));
-        dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
+        dataModel.put("registryUrl", skeletonProperties.getString("registryUrl"));
 
         return dataModel;
     }

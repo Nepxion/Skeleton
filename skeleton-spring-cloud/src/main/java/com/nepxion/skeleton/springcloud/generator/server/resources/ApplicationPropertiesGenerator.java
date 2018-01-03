@@ -86,7 +86,7 @@ public class ApplicationPropertiesGenerator extends SkeletonFileGenerator {
         // 注意：根据freemarker的规范，dataModel中的key似乎只能支持字母和数字，不支持符号，例如service.Name，service-Name都会抛错
         dataModel.put("serviceName", skeletonProperties.getString("serviceName") + "-" + getSkeletonContext().getProjectType());
         dataModel.put("port", skeletonProperties.getString("serverPort"));
-        dataModel.put("eurekaUrl", skeletonProperties.getString("eurekaUrl"));
+        dataModel.put("registryUrl", skeletonProperties.getString("registryUrl"));
         dataModel.put("basePackage", SkeletonUtil.getBasePackagePath(getSkeletonContext().getProjectType(), skeletonProperties));
 
         return dataModel;
