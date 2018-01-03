@@ -13,6 +13,7 @@ package com.nepxion.skeleton.springcloud.generator;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
@@ -42,7 +43,7 @@ public class PomXmlGenerator extends SkeletonFileGenerator {
         dataModel.put("springCloudVersion", skeletonProperties.getString("springCloudVersion"));
         dataModel.put("springBootVersion", skeletonProperties.getString("springBootVersion"));
         dataModel.put("javaVersion", skeletonProperties.getString("javaVersion"));
-        dataModel.put("moduleName", skeletonProperties.getString("moduleName"));
+        dataModel.put("moduleName", skeletonProperties.getString(SkeletonConstant.PRODUCT_NAME));
 
         return dataModel;
     }
