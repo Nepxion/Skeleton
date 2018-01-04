@@ -88,7 +88,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>Dalston.SR4;Edgware.RELEASE</options>
+            <options>Camden.SR7;Dalston.SR5;Edgware.RELEASE;Finchley.M5</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -100,7 +100,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>1.5.6.RELEASE</options>
+            <options>1.4.7.RELEASE;1.5.6.RELEASE;1.5.9.RELEASE;2.0.0.M7</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -112,7 +112,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>1.8;1.7;1.6</options>
+            <options>1.9;1.8;1.7;1.6</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -249,7 +249,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>openjdk:8-jre-alpine;openjdk:7-jre-alpine;openjdk:6-jre-slim</options>
+            <options>openjdk:9-jre-slim;openjdk:8-jre-alpine;openjdk:8-jre-alpine;openjdk:7-jre-alpine;openjdk:6-jre-slim</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
