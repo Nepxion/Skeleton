@@ -18,9 +18,7 @@
 @set PROJECT_NAME=${projectName}
 
 @set DOCKER_HOST=${dockerHost}
-<#if dockerCertEnabled == "true">
-@set DOCKER_CERT_PATH=${dockerCertPath}
-</#if>
+<#if dockerCertEnabled != "true">@rem </#if>@set DOCKER_CERT_PATH=${dockerCertPath}
 @set IMAGE_NAME=${imageName}
 @set MACHINE_PORT=${port}
 @set CONTAINER_PORT=${port}

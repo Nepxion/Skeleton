@@ -18,9 +18,7 @@ color=0a
 PROJECT_NAME=${projectName}
 
 DOCKER_HOST=${dockerHost}
-<#if dockerCertEnabled == "true">
-DOCKER_CERT_PATH=${dockerCertPath}
-</#if>
+<#if dockerCertEnabled != "true"># </#if>DOCKER_CERT_PATH=${dockerCertPath}
 IMAGE_NAME=${imageName}
 MACHINE_PORT=${port}
 CONTAINER_PORT=${port}
