@@ -22,6 +22,8 @@
 @set IMAGE_NAME=skeleton-spring-cloud
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
+@set RUN_MODE=-i -t
+@rem @set RUN_MODE=-d
 
 if exist %PROJECT_NAME%\target rmdir /s/q %PROJECT_NAME%\target
 
@@ -42,6 +44,6 @@ cd %PROJECT_NAME%
 call mvn package docker:build -DskipTests -DImageName=%IMAGE_NAME% -DExposePort=%CONTAINER_PORT%
 
 @rem 安装和启动Docker容器，并自动执行端口映射
-call docker run -i -t -p %MACHINE_PORT%:%CONTAINER_PORT% -h %IMAGE_NAME% --name %IMAGE_NAME% %IMAGE_NAME%:latest
+call docker run %RUN_MODE% -p %MACHINE_PORT%:%CONTAINER_PORT% -h %IMAGE_NAME% --name %IMAGE_NAME% %IMAGE_NAME%:latest
 
 pause

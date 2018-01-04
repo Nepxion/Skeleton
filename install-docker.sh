@@ -22,6 +22,8 @@ DOCKER_HOST=tcp://localhost:2375
 IMAGE_NAME=skeleton-spring-cloud
 MACHINE_PORT=2222
 CONTAINER_PORT=2222
+RUN_MODE=-i -t
+# RUN_MODE=-d
 
 if [ ! -d ${PROJECT_NAME}/target];then
 rmdir /s/q ${PROJECT_NAME}/target
@@ -44,4 +46,4 @@ cd ${PROJECT_NAME}
 mvn package docker:build -DskipTests -DImageName=${IMAGE_NAME} -DExposePort=${CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
-docker run -i -t -p ${MACHINE_PORT}:${CONTAINER_PORT} -h ${IMAGE_NAME} --name ${IMAGE_NAME} ${IMAGE_NAME}:latest
+docker run ${RUN_MODE} -p ${MACHINE_PORT}:${CONTAINER_PORT} -h ${IMAGE_NAME} --name ${IMAGE_NAME} ${IMAGE_NAME}:latest
