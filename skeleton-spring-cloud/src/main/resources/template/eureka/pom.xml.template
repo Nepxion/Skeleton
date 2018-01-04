@@ -59,7 +59,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
                     <imageName>${r"$"}{ImageName}</imageName>
-                    <baseImage>openjdk:8-jre-alpine</baseImage>
+                    <baseImage>${javaImageVersion}</baseImage>
                     <entryPoint>["java", "-jar", "/${r"$"}{project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>

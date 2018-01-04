@@ -243,5 +243,17 @@
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
+        <entity>
+            <key>javaImageVersion</key>
+            <label>Java基础镜像版本</label>
+            <description></description>
+            <note></note>
+            <type>COMBOBOX</type>
+            <options>openjdk:8-jre-alpine;openjdk:7-jre-alpine;openjdk:6-jre-slim</options>
+            <highlightable>false</highlightable>
+            <defaultable>true</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
     </group>
 </skeleton>
