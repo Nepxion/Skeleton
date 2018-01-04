@@ -236,7 +236,7 @@
             <key>dockerCertPath</key>
             <label>Docker证书本地路径</label>
             <description></description>
-            <note>Docker开启认证模式下，该项目才起作用</note>
+            <note>Docker开启认证模式下，该项才起作用</note>
             <type>TEXTFIELD</type>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
