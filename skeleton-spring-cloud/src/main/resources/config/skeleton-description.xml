@@ -210,6 +210,18 @@
             <editable>true</editable>
         </entity>
         <entity>
+            <key>dockerType</key>
+            <label>Docker容器类型</label>
+            <description></description>
+            <note>交互型(Interaction Container)容器，同时运行在前台和后台，装有Docker、Kitematic客户端的Win10和Mac系统下建议采用该模式；后台型容器(Daemon Container)，运行在后台，创建后与终端无关，Linux系统下必须采用该模式</note>
+            <type>COMBOBOX</type>
+            <options>Interaction Container;Daemon Container</options>
+            <highlightable>true</highlightable>
+            <defaultable>false</defaultable>
+            <emptiable>false</emptiable>
+            <editable>true</editable>
+        </entity>
+        <entity>
             <key>dockerCertEnabled</key>
             <label>Docker认证模式</label>
             <description></description>

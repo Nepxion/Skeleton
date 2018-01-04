@@ -22,6 +22,8 @@ DOCKER_HOST=${dockerHost}
 IMAGE_NAME=${imageName}
 MACHINE_PORT=${port}
 CONTAINER_PORT=${port}
+<#if dockerType != "Interaction Container"># </#if>RUN_MODE=-i -t
+<#if dockerType != "Daemon Container"># </#if>RUN_MODE=-d
 <#if linkDocker != "">
 LINK_CONTAINER=${linkDocker}
 </#if>
@@ -47,4 +49,4 @@ cd ${r"$"}{PROJECT_NAME}
 mvn package docker:build -DskipTests -DImageName=${r"$"}{IMAGE_NAME} -DExposePort=${r"$"}{CONTAINER_PORT}
 
 # 安装和启动Docker容器，并自动执行端口映射
-docker run -i -t -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME}<#if linkDocker != ""> --link ${r"$"}{LINK_CONTAINER}:${r"$"}{LINK_CONTAINER}</#if> --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest
+docker run ${r"$"}{RUN_MODE} -p ${r"$"}{MACHINE_PORT}:${r"$"}{CONTAINER_PORT} -h ${r"$"}{IMAGE_NAME}<#if linkDocker != ""> --link ${r"$"}{LINK_CONTAINER}:${r"$"}{LINK_CONTAINER}</#if> --name ${r"$"}{IMAGE_NAME} ${r"$"}{IMAGE_NAME}:latest

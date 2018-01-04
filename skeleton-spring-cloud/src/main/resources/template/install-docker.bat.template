@@ -22,6 +22,8 @@
 @set IMAGE_NAME=${imageName}
 @set MACHINE_PORT=${port}
 @set CONTAINER_PORT=${port}
+<#if dockerType != "Interaction Container">@rem </#if>@set RUN_MODE=-i -t
+<#if dockerType != "Daemon Container">@rem </#if>@set RUN_MODE=-d
 <#if linkDocker != "">
 @set LINK_CONTAINER=${linkDocker}
 </#if>
@@ -45,6 +47,6 @@ cd %PROJECT_NAME%
 call mvn package docker:build -DskipTests -DImageName=%IMAGE_NAME% -DExposePort=%CONTAINER_PORT%
 
 @rem 安装和启动Docker容器，并自动执行端口映射
-call docker run -i -t -p %MACHINE_PORT%:%CONTAINER_PORT% -h %IMAGE_NAME%<#if linkDocker != ""> --link %LINK_CONTAINER%:%LINK_CONTAINER%</#if> --name %IMAGE_NAME% %IMAGE_NAME%:latest
+call docker run %RUN_MODE% -p %MACHINE_PORT%:%CONTAINER_PORT% -h %IMAGE_NAME%<#if linkDocker != ""> --link %LINK_CONTAINER%:%LINK_CONTAINER%</#if> --name %IMAGE_NAME% %IMAGE_NAME%:latest
 
 pause
