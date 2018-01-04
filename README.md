@@ -18,7 +18,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ## 在线访问
 
     1. 获取脚手架代码 
-       在浏览器里输入http://start.springcloud.cn/v2访问，填入相关参数，点“生成工程”，保存代码压缩包。解压后，可获取到脚手架代码
+       在浏览器里输入http://springcloud.battcn.com访问，填入相关参数，点“生成工程”，保存代码压缩包。解压后，可获取到脚手架代码
     2. 代码运行
        2.1 在IDE里运行：导入IDE，即可运行，脚手架代码，代码执行顺序一般为EurekaApplication，ServerApplication，ClientApplication，如图1
        2.2 在Docker里运行：执行三个脚本，即可一键部署到Docker容器里，脚本执行顺序必须为install-eureka-docker，install-server-docker，install-client-docker，如图2
