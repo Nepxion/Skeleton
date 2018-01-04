@@ -100,7 +100,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>1.4.7.RELEASE;1.5.6.RELEASE;1.5.9.RELEASE;2.0.0.M7</options>
+            <options>1.4.7.RELEASE;1.5.6.RELEASE;2.0.0.M7</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
