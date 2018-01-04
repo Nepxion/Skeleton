@@ -88,7 +88,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>Camden.SR7;Dalston.SR5;Edgware.RELEASE;Finchley.M5</options>
+            <options>Camden.SR7;Dalston.SR4;Edgware.RELEASE;Finchley.M5</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
