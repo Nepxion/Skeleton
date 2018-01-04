@@ -125,8 +125,8 @@ Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.fr
             "description": "", // 组件的描述
             "note": "【必改项】首字母必须小写，中间只允许出现“-”", // 组件的使用提示
             "value": "sales", // 组件内容
-            "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD(默认)，CHECKBOX，RADIO，COMBOBOX
-            "options": null, // 对应项如果是下来菜单(COMBOBOX)方式的时候，里面的值列表，可以为null
+            "type": "TEXTFIELD", // 组件类型，包括TEXTFIELD(默认)，CHECKBOX，RADIO，COMBOBOX，EDITABLE_COMBOBOX
+            "options": null, // 对应项如果是下来菜单(COMBOBOX，EDITABLE_COMBOBOX)方式的时候，里面的值列表，可以为null
             "highlightable": true, // 标识为高亮项，一般组件渲染成高亮方式，例如Label红色字体，提示使用者着重关注
             "defaultable": false, // 标识为默认项，一般组件渲染成默认项方式，提示使用者可以不修改对应值
             "emptiable": false, // 标识为留空项，一般组件渲染成留空项方式，提示使用者对应值可以为空
