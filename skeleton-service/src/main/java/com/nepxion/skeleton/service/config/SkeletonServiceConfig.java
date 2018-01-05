@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import com.nepxion.skeleton.framework.service.SkeletonService;
-import com.nepxion.skeleton.service.service.SkeletonServiceImpl;
+import com.nepxion.skeleton.engine.service.SkeletonService;
+import com.nepxion.skeleton.plugin.springcloud.impl.SpringcloudServiceImpl;
 
 @Configuration
 @Import({ com.nepxion.skeleton.framework.config.SkeletonWebConfig.class })
@@ -26,7 +26,7 @@ public class SkeletonServiceConfig {
     @Bean
     public Map<String, SkeletonService> skeletonServiceMap() {
         Map<String, SkeletonService> map = new HashMap<String, SkeletonService>();
-        map.put(null, new SkeletonServiceImpl());
+        map.put("springcloud", new SpringcloudServiceImpl());
 
         return map;
     }
