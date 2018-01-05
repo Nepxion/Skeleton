@@ -24,6 +24,7 @@ import javax.annotation.PostConstruct;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,9 @@ import com.nepxion.skeleton.framework.transport.SkeletonTransport;
 @RestController
 @Api(tags = { "脚手架接口" })
 public class SkeletonController {
+    @Value("${skeleton.default.plugin}")
+    private String skeletonDefaultPlugin;
+
     @Autowired
     private Map<String, SkeletonService> skeletonServiceMap;
 
@@ -73,7 +77,7 @@ public class SkeletonController {
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
     @ApiOperation(value = "获取默认元数据接口", notes = "获取默认界面驱动的元数据接口", response = List.class, httpMethod = "GET")
     public List<SkeletonGroup> getMetaData() {
-        return getSkeletonTransport(null).getMetaData();
+        return getSkeletonTransport(skeletonDefaultPlugin).getMetaData();
     }
 
     @RequestMapping(value = "/getMetaData/{skeletonName}", method = RequestMethod.GET)
@@ -85,7 +89,7 @@ public class SkeletonController {
     @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
     @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
-        return getSkeletonTransport(null).downloadBytes(config);
+        return getSkeletonTransport(skeletonDefaultPlugin).downloadBytes(config);
     }
 
     @RequestMapping(value = "/downloadBytes/{skeletonName}", method = RequestMethod.POST)
@@ -97,7 +101,7 @@ public class SkeletonController {
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
     @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
-        return getSkeletonTransport(null).downloadResponse(config);
+        return getSkeletonTransport(skeletonDefaultPlugin).downloadResponse(config);
     }
 
     @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
