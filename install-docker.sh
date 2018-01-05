@@ -15,11 +15,11 @@ echo 'off'
 title=Nepxion Skeleton
 color=0a
 
-PROJECT_NAME=skeleton-spring-cloud
+PROJECT_NAME=skeleton-service
 
 DOCKER_HOST=tcp://localhost:2375
 # DOCKER_CERT_PATH=/User/Neptune/.docker/machine/certs
-IMAGE_NAME=skeleton-spring-cloud
+IMAGE_NAME=skeleton-service
 MACHINE_PORT=2222
 CONTAINER_PORT=2222
 RUN_MODE=-i -t

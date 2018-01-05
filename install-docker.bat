@@ -15,11 +15,11 @@
 @title Nepxion Skeleton
 @color 0a
 
-@set PROJECT_NAME=skeleton-spring-cloud
+@set PROJECT_NAME=skeleton-service
 
 @set DOCKER_HOST=tcp://localhost:2375
 @rem @set DOCKER_CERT_PATH=C:\Users\Neptune\.docker\machine\certs
-@set IMAGE_NAME=skeleton-spring-cloud
+@set IMAGE_NAME=skeleton-service
 @set MACHINE_PORT=2222
 @set CONTAINER_PORT=2222
 @set RUN_MODE=-i -t

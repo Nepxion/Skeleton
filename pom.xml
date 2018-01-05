@@ -12,7 +12,7 @@
     <modules>
         <module>skeleton-engine</module>
         <module>skeleton-framework</module>
-        <module>skeleton-spring-cloud</module>
+        <module>skeleton-service</module>
     </modules>
 
     <properties>
