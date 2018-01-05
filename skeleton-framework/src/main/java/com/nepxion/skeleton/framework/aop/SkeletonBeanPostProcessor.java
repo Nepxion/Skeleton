@@ -17,6 +17,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
+import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.framework.annotation.SkeletonPlugin;
 
 @Component("skeletonBeanPostProcessor")
@@ -32,7 +33,10 @@ public class SkeletonBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean.getClass().isAnnotationPresent(SkeletonPlugin.class)) {
             SkeletonPlugin skeletonPluginAnnotation = bean.getClass().getAnnotation(SkeletonPlugin.class);
-            String pluginName = skeletonPluginAnnotation.name();
+            String pluginName = skeletonPluginAnnotation.name().trim();
+            if (skeletonPluginMap.containsValue(pluginName)) {
+                throw new SkeletonException("More than one plugin for name=" + pluginName);
+            }
             skeletonPluginMap.put(bean, pluginName);
         }
 
