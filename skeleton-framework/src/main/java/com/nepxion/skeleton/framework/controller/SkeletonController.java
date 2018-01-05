@@ -22,6 +22,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -70,13 +71,13 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    @ApiOperation(value = "获取元数据接口", notes = "获取默认界面驱动的元数据接口", response = List.class, httpMethod = "GET")
     public List<SkeletonGroup> getMetaData() {
         return getSkeletonTransport(null).getMetaData();
     }
 
     @RequestMapping(value = "/getMetaData/{skeletonName}", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "获取根据配置文件进行界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    @ApiOperation(value = "获取元数据接口", notes = "根据脚手架名称，获取对应的界面驱动的元数据接口", response = List.class, httpMethod = "GET")
     public List<SkeletonGroup> getMetaData(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName) {
         return getSkeletonTransport(skeletonName).getMetaData();
     }
@@ -88,7 +89,7 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/downloadBytes/{skeletonName}", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
     public byte[] downloadBytes(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
         return getSkeletonTransport(skeletonName).downloadBytes(config);
     }
@@ -100,7 +101,7 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
         return getSkeletonTransport(skeletonName).downloadResponse(config);
     }
@@ -112,7 +113,11 @@ public class SkeletonController {
 
         SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonName);
         if (skeletonTransport == null) {
-            throw new SkeletonException("No configuration for skeleton template [" + skeletonName + "]");
+            if (StringUtils.isEmpty(skeletonName)) {
+                throw new SkeletonException("No default configuration existed for skeleton");
+            } else {
+                throw new SkeletonException("No configuration existed for skeleton name=" + skeletonName);
+            }
         }
 
         return skeletonTransport;
