@@ -25,9 +25,9 @@ import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.entity.SkeletonGroup;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.service.SkeletonService;
 import com.nepxion.skeleton.engine.transport.SkeletonConfigTransport;
 import com.nepxion.skeleton.engine.transport.SkeletonDataTransport;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 public class SkeletonTransport {
     private static final String SKELETON_PREFIX_TEMPLATE_PATH = "skeleton.prefix.template.path";

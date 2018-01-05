@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.engine.service;
+package com.nepxion.skeleton.framework.service;
 
 /**
  * <p>Title: Nepxion Skeleton</p>

@@ -13,8 +13,8 @@ package com.nepxion.skeleton.plugin.springcloud;
 import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.service.SkeletonService;
 import com.nepxion.skeleton.engine.util.SkeletonUtil;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.plugin.springcloud.impl.SpringcloudServiceImpl;
 
 public class SkeletonTest {

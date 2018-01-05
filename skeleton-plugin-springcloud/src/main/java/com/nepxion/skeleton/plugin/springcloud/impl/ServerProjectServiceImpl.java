@@ -15,7 +15,7 @@ import java.io.IOException;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.service.SkeletonService;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.plugin.springcloud.generator.server.PomXmlGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.server.java.ServerApplicationClassGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.server.java.ServerConfigClassGenerator;

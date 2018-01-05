@@ -15,7 +15,7 @@ import java.io.IOException;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.service.SkeletonService;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.plugin.springcloud.generator.GitAttributesGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.GitIgnoreGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.InstallDockerShellGenerator;

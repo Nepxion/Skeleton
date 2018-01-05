@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
-import com.nepxion.skeleton.engine.service.SkeletonService;
 import com.nepxion.skeleton.framework.annotation.SkeletonPlugin;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 
 import freemarker.template.TemplateException;
 

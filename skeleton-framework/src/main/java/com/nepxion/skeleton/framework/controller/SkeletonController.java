@@ -35,8 +35,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nepxion.skeleton.engine.entity.SkeletonGroup;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
-import com.nepxion.skeleton.engine.service.SkeletonService;
 import com.nepxion.skeleton.framework.aop.SkeletonBeanPostProcessor;
+import com.nepxion.skeleton.framework.service.SkeletonService;
 import com.nepxion.skeleton.framework.transport.SkeletonTransport;
 
 @RestController
