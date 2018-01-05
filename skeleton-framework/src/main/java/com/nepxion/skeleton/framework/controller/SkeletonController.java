@@ -14,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,8 @@ public class SkeletonController {
 
     private Map<String, SkeletonTransport> skeletonTransportMap;
 
+    private List<String> skeletonPlugins;
+
     @PostConstruct
     private void initialize() {
         if (MapUtils.isEmpty(skeletonServiceMap)) {
@@ -50,12 +53,20 @@ public class SkeletonController {
         }
 
         skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
+        skeletonPlugins = new ArrayList<String>();
         for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
             String skeletonName = entry.getKey();
             SkeletonService skeletonService = entry.getValue();
             SkeletonTransport skeletonTransport = new SkeletonTransport(skeletonName, skeletonService);
             skeletonTransportMap.put(skeletonName, skeletonTransport);
+            skeletonPlugins.add(skeletonName);
         }
+    }
+
+    @RequestMapping(value = "/getPlugins", method = RequestMethod.GET)
+    @ApiOperation(value = "获取脚手架插件列表接口", notes = "获取脚手架插件列表接口", response = List.class, httpMethod = "GET")
+    public List<String> getPlugins() {
+        return skeletonPlugins;
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)

@@ -10,7 +10,7 @@ package com.nepxion.skeleton.service.config;
  * @version 1.0
  */
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
@@ -25,7 +25,7 @@ import com.nepxion.skeleton.plugin.springcloud.impl.SpringcloudServiceImpl;
 public class SkeletonServiceConfig {
     @Bean
     public Map<String, SkeletonService> skeletonServiceMap() {
-        Map<String, SkeletonService> map = new HashMap<String, SkeletonService>();
+        Map<String, SkeletonService> map = new LinkedHashMap<String, SkeletonService>();
         map.put("springcloud", new SpringcloudServiceImpl());
 
         return map;
