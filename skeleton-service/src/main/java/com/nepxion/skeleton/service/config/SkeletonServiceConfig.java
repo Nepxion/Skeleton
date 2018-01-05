@@ -10,25 +10,13 @@ package com.nepxion.skeleton.service.config;
  * @version 1.0
  */
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import com.nepxion.skeleton.engine.service.SkeletonService;
-import com.nepxion.skeleton.plugin.springcloud.impl.SpringcloudServiceImpl;
-
 @Configuration
 @Import({ com.nepxion.skeleton.framework.config.SkeletonWebConfig.class })
+@ComponentScan(basePackages = { "com.nepxion.skeleton" })
 public class SkeletonServiceConfig {
-    @Bean
-    public Map<String, SkeletonService> skeletonServiceMap() {
-        Map<String, SkeletonService> map = new LinkedHashMap<String, SkeletonService>();
-        // 非插件模式下，key为""
-        map.put("springcloud", new SpringcloudServiceImpl());
 
-        return map;
-    }
 }
