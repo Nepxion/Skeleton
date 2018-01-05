@@ -26,6 +26,7 @@ public class SkeletonServiceConfig {
     @Bean
     public Map<String, SkeletonService> skeletonServiceMap() {
         Map<String, SkeletonService> map = new LinkedHashMap<String, SkeletonService>();
+        // 非插件模式下，key为""
         map.put("springcloud", new SpringcloudServiceImpl());
 
         return map;
