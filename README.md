@@ -10,10 +10,11 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     2. 支持任何文件文件的逆向创建，包括Java类文件，配置文件，脚本文件，XML文件，YAML文件等
     3. 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
     4. 使用者根据模板原型文件创建Generator类，进行动态创建和替换
-    5. 基于Spring Cloud的调用
-    6. 支持Docker化一键部署
-    7. 支持Swagger
-    8. 支持在线生成代码并下载
+    5. 采用插件式部署方式，可以多个脚手架系统部署在同一个平台上，也可以一个平台部署一个脚手架系统，自由灵活，动态切换
+    6. 基于Spring Cloud的调用
+    7. 支持Docker化一键部署
+    8. 支持Swagger
+    9. 支持在线生成代码并下载
 
 ## 在线访问
 
@@ -51,7 +52,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ### 服务端部署
 
     1. 部署在IDE
-       导入IDE，运行skeleton-spring-cloud下的SkeletonApplication即可
+       导入IDE，运行skeleton-service下的SkeletonApplication即可
     2. 部署到Docker
        2.1 Win10配置参考：https://github.com/Nepxion/Thunder/tree/master/thunder-spring-boot-docker-example中“Win10 Docker部署”->“部署前准备工作”
        2.2 Mac配置参考：http://www.liumapp.com/articles/2017/12/27/1514347974172.html
@@ -72,17 +73,21 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
     1. skeleton-engine是脚手架的生成引擎，不依赖Spring环境，你只需要在Java环境下可以对任何格式的文本文件进行模板化创建
     2. skeleton-framework是基于Spring环境的脚手架框架，并抽象在Spring环境下的配置和行为
-    3. skeleton-spring-cloud是最终的“业务”实现，基于Spring Cloud，如果你想二次开发，引入skeleton-framework即可，然后按照skeleton-spring-cloud的结构和代码进行开发
+    3. skeleton-service是脚手架的平台，是多个脚手架生成插件的汇集之处
+    4. skeleton-plugin-springcloud是基于Spring Cloud的脚手架生成插件，您可以扩展出skeleton-plugin-dubbo，skeleton-plugin-motan等
 
 ### 配置
 
-    1. skeleton-data.properties，见skeleton-spring-cloud/src/main/resources/config/skeleton-data.properties
+    1. skeleton-data.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-data.properties
        用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
        配置文件中，“工程配置”下的productName和basePackage是必需的，其他字段可自己随便定义，建议驼峰形式命名
 
-    2. skeleton-description.xml，见skeleton-spring-cloud/src/main/resources/config/skeleton-description.xml
+    2. skeleton-description.xml，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-description.xml
        用来描述模界面驱动的数据结构，渲染和布局组件，它里面定义的组件里的value值则取值于skeleton-data.properties
        分为Group和Entity结构，一个Group包含多个Entity
+
+    3. skeleton-context.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-context.properties
+       用来配置脚手架全局上下文参数
 
 ### 规则
 
@@ -97,18 +102,21 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ### 示例
 
 #### 本地使用方式
-运行skeleton-spring-cloud/src/test/com.nepxion.skeleton.springcloud.generator.SkeletonTest.java，可在本地创建脚手架文件，具体使用方式，参考该类里的中文注释
+运行skeleton-plugin-springcloud/src/test/java/com.nepxion.skeleton.plugin.springcloud.SkeletonTest.java，可在本地创建脚手架文件，具体使用方式，参考该类里的中文注释
 
 #### Spring Cloud使用方式
 
-Spring Cloud配置文件，见skeleton-spring-cloud/src/main/resources/application.properties
+Spring Cloud配置文件，见skeleton-service/src/main/resources/application.properties
 
-Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.framework.controller.java
+Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.framework.controller.SkeletonController.java
 
-    1. 根据配置文件进行界面驱动的元数据接口
+    1. 获取脚手架插件列表接口
+    @RequestMapping(value = "/getPlugins", method = RequestMethod.GET)
+    public List<String> getPlugins();
+
+    2. 获取默认界面驱动的元数据接口
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    public List<SkeletonGroup> getMetaData()
-
+    public List<SkeletonGroup> getMetaData();
     返回JSON格式的文件，简单介绍一下格式：
     [
       {
@@ -136,10 +144,15 @@ Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.fr
       }
     ]
 
-    2. 下载脚手架Zip文件的接口，返回Zip文件的byte数组类型，Body的内容为src\main\resources\config\skeleton-data.properties 
-    @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
-    public byte[] downloadBytes(@RequestBody String config)
+    3. 根据脚手架名称，获取对应的界面驱动的元数据接口。另一个不带skeletonName参数的接口，是默认获取方式，当脚手架非插件方式存在的时候，调用它。4. 5.的2个接口都存在这样的默认方式
+    @RequestMapping(value = "/getMetaData/{skeletonName}", method = RequestMethod.GET)
+    public List<SkeletonGroup> getMetaData(@PathVariable(value = "skeletonName") String skeletonName);
 
-    3. 下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型
-    @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
-    public ResponseEntity<Resource> downloadResponse(@RequestBody String config)
+    4. 根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的byte数组类型，配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容
+    @RequestMapping(value = "/downloadBytes/{skeletonName}", method = RequestMethod.POST)
+    @ApiOperation(value = "下载脚手架", notes = "", response = byte[].class, httpMethod = "POST")
+    public byte[] downloadBytes(@PathVariable(value = "skeletonName") String skeletonName, @RequestBody String config);
+
+    5. 根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型，配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容
+    @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
+    public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") String skeletonName, @RequestBody String config);

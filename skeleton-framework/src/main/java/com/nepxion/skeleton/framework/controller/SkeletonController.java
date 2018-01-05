@@ -71,7 +71,7 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "获取默认界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    @ApiOperation(value = "获取默认元数据接口", notes = "获取默认界面驱动的元数据接口", response = List.class, httpMethod = "GET")
     public List<SkeletonGroup> getMetaData() {
         return getSkeletonTransport(null).getMetaData();
     }
@@ -83,7 +83,7 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
+    @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
     public byte[] downloadBytes(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
         return getSkeletonTransport(null).downloadBytes(config);
     }
@@ -95,7 +95,7 @@ public class SkeletonController {
     }
 
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
+    @ApiOperation(value = "下载默认脚手架", notes = "下载默认脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
     public ResponseEntity<Resource> downloadResponse(@RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
         return getSkeletonTransport(null).downloadResponse(config);
     }
