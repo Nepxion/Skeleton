@@ -10,6 +10,9 @@ package com.nepxion.skeleton.springcloud.config;
  * @version 1.0
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -21,7 +24,10 @@ import com.nepxion.skeleton.springcloud.service.SkeletonServiceImpl;
 @Import({ com.nepxion.skeleton.framework.config.SkeletonWebConfig.class })
 public class SkeletonServiceConfig {
     @Bean
-    public SkeletonService skeletonService() {
-        return new SkeletonServiceImpl();
+    public Map<String, SkeletonService> skeletonServiceMap() {
+        Map<String, SkeletonService> map = new HashMap<String, SkeletonService>();
+        map.put(null, new SkeletonServiceImpl());
+
+        return map;
     }
 }
