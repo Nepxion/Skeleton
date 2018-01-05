@@ -38,21 +38,21 @@ public class SkeletonConfigTransport {
     private SkeletonProperties skeletonDataProperties;
     private SkeletonXmlParser skeletonXmlParser;
 
-    public SkeletonConfigTransport(String skeletonName) {
-        String name = "";
-        if (StringUtils.isNotEmpty(skeletonName)) {
-            name = skeletonName + "/";
+    public SkeletonConfigTransport(String skeletonPlugin) {
+        String plugin = "";
+        if (StringUtils.isNotEmpty(skeletonPlugin)) {
+            plugin = skeletonPlugin + "/";
         }
 
         try {
-            skeletonContextProperties = new SkeletonProperties(name + SKELETON_CONTEXT_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+            skeletonContextProperties = new SkeletonProperties(plugin + SKELETON_CONTEXT_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse data properties failed", e);
             e.printStackTrace();
         }
 
         try {
-            skeletonDataProperties = new SkeletonProperties(name + SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+            skeletonDataProperties = new SkeletonProperties(plugin + SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse data properties failed", e);
             e.printStackTrace();
@@ -60,7 +60,7 @@ public class SkeletonConfigTransport {
 
         try {
             skeletonXmlParser = new SkeletonXmlParser(skeletonDataProperties);
-            skeletonXmlParser.parsePath(name + SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonXmlParser.parsePath(plugin + SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse description xml failed", e);
             e.printStackTrace();
