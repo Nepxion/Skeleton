@@ -45,8 +45,8 @@ public class SkeletonTransport {
     private SkeletonConfigTransport configTransport;
     private SkeletonDataTransport dataTransport;
 
-    public SkeletonTransport(String skeletonName, SkeletonService skeletonService) {
-        this.configTransport = new SkeletonConfigTransport(skeletonName);
+    public SkeletonTransport(String skeletonPlugin, SkeletonService skeletonService) {
+        this.configTransport = new SkeletonConfigTransport(skeletonPlugin);
         this.dataTransport = new SkeletonDataTransport() {
             @Override
             public void generate(String generatePath, SkeletonProperties skeletonProperties) throws Exception {

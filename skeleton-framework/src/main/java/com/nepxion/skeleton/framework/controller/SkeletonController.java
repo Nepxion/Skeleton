@@ -60,17 +60,17 @@ public class SkeletonController {
         skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
         skeletonPlugins = new ArrayList<String>();
         for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
-            String skeletonName = entry.getKey();
+            String skeletonPlugin = entry.getKey();
             SkeletonService skeletonService = entry.getValue();
-            SkeletonTransport skeletonTransport = new SkeletonTransport(skeletonName, skeletonService);
-            skeletonTransportMap.put(skeletonName, skeletonTransport);
-            skeletonPlugins.add(skeletonName);
+            SkeletonTransport skeletonTransport = new SkeletonTransport(skeletonPlugin, skeletonService);
+            skeletonTransportMap.put(skeletonPlugin, skeletonTransport);
+            skeletonPlugins.add(skeletonPlugin);
         }
     }
 
     @RequestMapping(value = "/getPlugins", method = RequestMethod.GET)
-    @ApiOperation(value = "获取脚手架插件列表接口", notes = "获取脚手架插件列表接口", response = List.class, httpMethod = "GET")
-    public List<String> getPlugins() {
+    @ApiOperation(value = "获取脚手架插件名列表接口", notes = "获取脚手架插件列表接口", response = List.class, httpMethod = "GET")
+    public List<String> getSkeletonPlugins() {
         return skeletonPlugins;
     }
 
@@ -80,10 +80,10 @@ public class SkeletonController {
         return getSkeletonTransport(skeletonDefaultPlugin).getMetaData();
     }
 
-    @RequestMapping(value = "/getMetaData/{skeletonName}", method = RequestMethod.GET)
-    @ApiOperation(value = "获取元数据接口", notes = "根据脚手架名称，获取对应的界面驱动的元数据接口", response = List.class, httpMethod = "GET")
-    public List<SkeletonGroup> getMetaData(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName) {
-        return getSkeletonTransport(skeletonName).getMetaData();
+    @RequestMapping(value = "/getMetaData/{skeletonPlugin}", method = RequestMethod.GET)
+    @ApiOperation(value = "获取元数据接口", notes = "根据脚手架插件名，获取对应的界面驱动的元数据接口", response = List.class, httpMethod = "GET")
+    public List<SkeletonGroup> getMetaData(@PathVariable(value = "skeletonPlugin") @ApiParam(value = "脚手架插件名", required = true) String skeletonPlugin) {
+        return getSkeletonTransport(skeletonPlugin).getMetaData();
     }
 
     @RequestMapping(value = "/downloadBytes", method = RequestMethod.POST)
@@ -92,10 +92,10 @@ public class SkeletonController {
         return getSkeletonTransport(skeletonDefaultPlugin).downloadBytes(config);
     }
 
-    @RequestMapping(value = "/downloadBytes/{skeletonName}", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
-    public byte[] downloadBytes(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
-        return getSkeletonTransport(skeletonName).downloadBytes(config);
+    @RequestMapping(value = "/downloadBytes/{skeletonPlugin}", method = RequestMethod.POST)
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架插件名，下载脚手架Zip文件的接口，返回Zip文件的byte数组类型", response = byte[].class, httpMethod = "POST")
+    public byte[] downloadBytes(@PathVariable(value = "skeletonPlugin") @ApiParam(value = "脚手架插件名", required = true) String skeletonPlugin, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonPlugin).downloadBytes(config);
     }
 
     @RequestMapping(value = "/downloadResponse", method = RequestMethod.POST)
@@ -104,23 +104,23 @@ public class SkeletonController {
         return getSkeletonTransport(skeletonDefaultPlugin).downloadResponse(config);
     }
 
-    @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
-    @ApiOperation(value = "下载脚手架", notes = "根据脚手架名称，下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
-    public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") @ApiParam(value = "脚手架名称", required = true) String skeletonName, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
-        return getSkeletonTransport(skeletonName).downloadResponse(config);
+    @RequestMapping(value = "/downloadResponse/{skeletonPlugin}", method = RequestMethod.POST)
+    @ApiOperation(value = "下载脚手架", notes = "根据脚手架插件名，下载脚手架Zip文件的接口，返回Zip文件的ResponseEntity类型", response = ResponseEntity.class, httpMethod = "POST")
+    public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonPlugin") @ApiParam(value = "脚手架插件名", required = true) String skeletonPlugin, @RequestBody @ApiParam(value = "配置文件内容，可拷贝src/main/resources/config/skeleton-data.properties的内容", required = true) String config) {
+        return getSkeletonTransport(skeletonPlugin).downloadResponse(config);
     }
 
-    private SkeletonTransport getSkeletonTransport(String skeletonName) {
+    private SkeletonTransport getSkeletonTransport(String skeletonPlugin) {
         if (MapUtils.isEmpty(skeletonTransportMap)) {
             throw new SkeletonException("Skeleton service map isn't injected or empty");
         }
 
-        SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonName);
+        SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonPlugin);
         if (skeletonTransport == null) {
-            if (StringUtils.isEmpty(skeletonName)) {
-                throw new SkeletonException("No default configuration existed for skeleton");
+            if (StringUtils.isEmpty(skeletonPlugin)) {
+                throw new SkeletonException("No configuration existed for default skeleton plugin");
             } else {
-                throw new SkeletonException("No configuration existed for skeleton name=" + skeletonName);
+                throw new SkeletonException("No configuration existed for skeleton plugin=" + skeletonPlugin);
             }
         }
 
