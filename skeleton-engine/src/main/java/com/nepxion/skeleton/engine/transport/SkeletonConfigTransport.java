@@ -30,30 +30,51 @@ import com.nepxion.skeleton.engine.util.SkeletonUtil;
 public class SkeletonConfigTransport {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonConfigTransport.class);
 
-    private static final String SKELETON_DATA_FILE = "config/skeleton-data.properties";
-    private static final String SKELETON_DESCRIPTION_FILE = "config/skeleton-description.xml";
-
+    private SkeletonProperties skeletonContextProperties;
     private SkeletonProperties skeletonDataProperties;
     private SkeletonXmlParser skeletonXmlParser;
 
-    public SkeletonConfigTransport() {
+    public SkeletonConfigTransport(String skeletonName) {
+        String name = "";
+        if (StringUtils.isNotEmpty(skeletonName)) {
+            name = "-" + skeletonName;
+        }
         try {
-            skeletonDataProperties = new SkeletonProperties(SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+            skeletonContextProperties = new SkeletonProperties("config/skeleton-context" + name + ".properties", SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
-            LOG.error("Parse properties failed", e);
+            LOG.error("Parse data properties failed", e);
+            e.printStackTrace();
+        }
+
+        try {
+            skeletonDataProperties = new SkeletonProperties("config/skeleton-data" + name + ".properties", SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
+        } catch (IOException e) {
+            LOG.error("Parse data properties failed", e);
             e.printStackTrace();
         }
 
         try {
             skeletonXmlParser = new SkeletonXmlParser(skeletonDataProperties);
-            skeletonXmlParser.parsePath(SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
+            skeletonXmlParser.parsePath("config/skeleton-description" + name + ".xml", SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
-            LOG.error("Parse xml failed", e);
+            LOG.error("Parse description xml failed", e);
             e.printStackTrace();
         } catch (DocumentException e) {
-            LOG.error("Parse xml failed", e);
+            LOG.error("Parse description xml failed", e);
             e.printStackTrace();
         }
+    }
+
+    public SkeletonProperties getContextProperties() {
+        return skeletonContextProperties;
+    }
+
+    public SkeletonProperties getDataProperties() {
+        return skeletonDataProperties;
+    }
+
+    public SkeletonXmlParser getXmlParser() {
+        return skeletonXmlParser;
     }
 
     public SkeletonProperties getProperties(String config) {
