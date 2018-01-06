@@ -13,7 +13,6 @@ export default {
 	components: {
 	},
   created () {
-	  this.$router.push('codegen');
   }
 }
 
