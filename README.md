@@ -99,6 +99,20 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Template1.jpg)
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Template2.jpg)
 
+### 插件
+
+    1. 采用插件式部署方式，多个脚手架系统部署在同一个平台上。需要采用独立工程的方式，同时避免同名类和同名配置文件冲突，规定如下，见图6
+       1.1 工程名应该是xxx-plugin-[插件名]
+       1.2 包名应该是xx.xx.xx...plugin.[插件名]
+       1.3 配置文件目录应该是resources/[插件名]，下面放config和template
+       1.4 脚手架总入口(实现SkeletonService)，上面加注解@SkeletonPlugin(name="[插件名]")
+       1.5 上述四个插件名必须统一，在本项目中，我们知道插件名叫“springcloud”。按照这种规则，我们可以扩展出多个脚手架插件，例如skeleton-plugin-dubbo，skeleton-plugin-motan等
+       1.6 插件名，将被SkeletonController接口中用到，见“Spring Cloud接口”章节
+
+图6
+
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Plugin1.jpg)
+
 ### 示例
 
 #### 本地使用方式
