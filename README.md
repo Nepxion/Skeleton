@@ -89,6 +89,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     3. skeleton-context.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-context.properties
        用来配置脚手架全局上下文参数
 
+    4. 三个配置文件它的上级目录必须为config
+
 ### 规则
 
     1. 一个Generator类对应一个template模板文件
@@ -101,7 +103,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ### 插件
 
-    1. 采用插件式部署方式，多个脚手架系统部署在同一个平台上。需要采用独立工程的方式，同时避免同名类和同名配置文件冲突，规定如下，见图6
+    1. 如果多个脚手架系统部署在同一个平台上，需要采用独立工程的方式，同时避免同名类和同名配置文件冲突，规定如下，见图6
        1.1 工程名应该是xxx-plugin-[插件名]
        1.2 包名应该是xx.xx.xx...plugin.[插件名]
        1.3 配置文件目录应该是resources/[插件名]，下面放config和template
@@ -109,9 +111,16 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
        1.5 上述四个插件名必须统一，在本项目中，我们知道插件名叫“springcloud”。按照这种规则，我们可以扩展出多个脚手架插件，例如skeleton-plugin-dubbo，skeleton-plugin-motan等
        1.6 插件名，将被SkeletonController接口中用到，见“Spring Cloud接口”章节
 
+    2. 如果一个脚手架系统部署在一个平台上，那么则没有那么多讲究，规定如下，见图7
+       2.1 脚手架总入口(实现SkeletonService)，上面加注解@SkeletonPlugin
+
 图6
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Plugin1.jpg)
+
+图7
+
+![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Plugin2.jpg)
 
 ### 示例
 
