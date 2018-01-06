@@ -16,7 +16,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     8. 支持Swagger
     9. 支持在线生成代码并下载
 
-## 在线访问
+## 在线创建
 
     1. 获取脚手架代码 
        在浏览器里输入http://skeleton.springcloud.cn访问，填入相关参数，点“生成工程”，保存代码压缩包。解压后，可获取到脚手架代码
