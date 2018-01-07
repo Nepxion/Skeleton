@@ -75,7 +75,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <mainClass>com.nepxion.skeleton.service.SkeletonApplication</mainClass>
+                    <mainClass>com.nepxion.skeleton.SkeletonApplication</mainClass>
                     <layout>JAR</layout>
                 </configuration>
                 <executions>
