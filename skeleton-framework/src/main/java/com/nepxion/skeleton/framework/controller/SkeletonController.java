@@ -58,10 +58,14 @@ public class SkeletonController {
     @PostConstruct
     private void initialize() {
         if (MapUtils.isEmpty(skeletonServiceMap)) {
-            throw new SkeletonException("Skeleton service map isn't injected or empty");
+            throw new SkeletonException("Not found any skeleton plugins");
         }
 
         Map<Object, String> skeletonPluginMap = skeletonBeanPostProcessor.getSkeletonPluginMap();
+        if (MapUtils.isEmpty(skeletonPluginMap)) {
+            throw new SkeletonException("Not found any skeleton plugins, check @SkeletonPlugin in SkeletonService implementation");
+        }
+
         skeletonTransportMap = new HashMap<String, SkeletonTransport>(skeletonServiceMap.size());
         skeletonPlugins = new ArrayList<String>();
         for (Map.Entry<String, SkeletonService> entry : skeletonServiceMap.entrySet()) {
@@ -117,15 +121,15 @@ public class SkeletonController {
 
     private SkeletonTransport getSkeletonTransport(String skeletonPlugin) {
         if (MapUtils.isEmpty(skeletonTransportMap)) {
-            throw new SkeletonException("Skeleton service map isn't injected or empty");
+            throw new SkeletonException("Not found any skeleton plugins");
         }
 
         SkeletonTransport skeletonTransport = skeletonTransportMap.get(skeletonPlugin);
         if (skeletonTransport == null) {
             if (StringUtils.isEmpty(skeletonPlugin)) {
-                throw new SkeletonException("No configuration existed for default skeleton plugin");
+                throw new SkeletonException("Not found default skeleton plugin");
             } else {
-                throw new SkeletonException("No configuration existed for skeleton plugin=" + skeletonPlugin);
+                throw new SkeletonException("Not found skeleton plugin=" + skeletonPlugin);
             }
         }
 
