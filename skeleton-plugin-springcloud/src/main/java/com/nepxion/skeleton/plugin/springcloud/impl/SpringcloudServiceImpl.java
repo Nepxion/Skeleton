@@ -25,11 +25,16 @@ import freemarker.template.TemplateException;
 @Component
 @SkeletonPlugin(name="springcloud")
 public class SpringcloudServiceImpl implements SkeletonService {
+    private SkeletonService parentProjectService = new ParentProjectServiceImpl();
+    private SkeletonService eurekaProjectService = new EurekaProjectServiceImpl();
+    private SkeletonService serverProjectService = new ServerProjectServiceImpl();
+    private SkeletonService clientProjectService = new ClientProjectServiceImpl();
+
     @Override
     public void generate(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) throws SkeletonException, TemplateException, IOException {
-        new ParentProjectServiceImpl().generate(skeletonContext, skeletonProperties);
-        new EurekaProjectServiceImpl().generate(skeletonContext, skeletonProperties);
-        new ServerProjectServiceImpl().generate(skeletonContext, skeletonProperties);
-        new ClientProjectServiceImpl().generate(skeletonContext, skeletonProperties);
+        parentProjectService.generate(skeletonContext, skeletonProperties);
+        eurekaProjectService.generate(skeletonContext, skeletonProperties);
+        serverProjectService.generate(skeletonContext, skeletonProperties);
+        clientProjectService.generate(skeletonContext, skeletonProperties);
     }
 }
