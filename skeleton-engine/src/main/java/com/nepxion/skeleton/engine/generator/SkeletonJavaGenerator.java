@@ -90,7 +90,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
             isMainCode = isMainCode();
             dataModel = getDataModel();
         } catch (Exception e) {
-            throw new SkeletonException("Get parameters error", e);
+            throw new SkeletonException(e.getMessage(), e);
         }
 
         String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstant.MAIN_JAVA_CODE_PATH : SkeletonConstant.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstant.FILE_SEPARATOR) + SkeletonConstant.FILE_SEPARATOR + className + "." + SkeletonConstant.JAVA;
