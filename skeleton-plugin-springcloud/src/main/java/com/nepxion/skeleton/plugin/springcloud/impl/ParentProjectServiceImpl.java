@@ -16,10 +16,10 @@ import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.framework.service.SkeletonService;
-import com.nepxion.skeleton.plugin.springcloud.generator.GitAttributesGenerator;
-import com.nepxion.skeleton.plugin.springcloud.generator.GitIgnoreGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.InstallDockerShellGenerator;
 import com.nepxion.skeleton.plugin.springcloud.generator.PomXmlGenerator;
+import com.nepxion.skeleton.plugin.springcloud.generator.shared.GitAttributesGenerator;
+import com.nepxion.skeleton.plugin.springcloud.generator.shared.GitIgnoreGenerator;
 
 import freemarker.template.TemplateException;
 
@@ -34,7 +34,7 @@ public class ParentProjectServiceImpl implements SkeletonService {
         new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "server", "sh", null).generate();
         new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "client", "bat", skeletonProperties.getString("serviceName") + "-server").generate();
         new InstallDockerShellGenerator(skeletonContext, skeletonProperties, "client", "sh", skeletonProperties.getString("serviceName") + "-server").generate();
-        new GitAttributesGenerator(skeletonContext, skeletonProperties).generate();
-        new GitIgnoreGenerator(skeletonContext, skeletonProperties).generate();
+        new GitAttributesGenerator(skeletonContext, skeletonProperties, null).generate();
+        new GitIgnoreGenerator(skeletonContext, skeletonProperties, null).generate();
     }
 }
