@@ -78,6 +78,9 @@
                     <imageName>${r"$"}{ImageName}</imageName>
                     <baseImage>${javaImageVersion}</baseImage>
                     <entryPoint>["java", "-jar", "/${r"$"}{project.build.finalName}.jar"]</entryPoint>
+                    <exposes>
+                        <expose>${r"$"}{ExposePort}</expose>
+                    </exposes>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -85,9 +88,6 @@
                             <include>${r"$"}{project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <exposes>
-                        <expose>${r"$"}{ExposePort}</expose>
-                    </exposes>
                 </configuration>
             </plugin>
         </plugins>
