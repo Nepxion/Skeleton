@@ -83,6 +83,22 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Architecture.jpg)
 
+### 依赖
+
+```xml
+<dependency>
+  <groupId>com.nepxion</groupId>
+  <artifactId>skeleton-engine</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.nepxion</groupId>
+  <artifactId>skeleton-framework</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
 ### 配置
 
     1. skeleton-data.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-data.properties
