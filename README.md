@@ -89,13 +89,13 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 <dependency>
   <groupId>com.nepxion</groupId>
   <artifactId>skeleton-engine</artifactId>
-  <version>1.0.0</version>
+  <version>${skeleton.version}</version>
 </dependency>
 
 <dependency>
   <groupId>com.nepxion</groupId>
   <artifactId>skeleton-framework</artifactId>
-  <version>1.0.0</version>
+  <version>${skeleton.version}</version>
 </dependency>
 ```
 
