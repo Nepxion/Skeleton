@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <version>1.0.0</version>
     <description>Nepxion Skeleton is a generic codes and files generator based on freemaker for any text formats</description>
-    <url>https://github.com/Nepxion/</url>
+    <url>http://www.nepxion.com</url>
 
     <modules>
         <module>skeleton-engine</module>
