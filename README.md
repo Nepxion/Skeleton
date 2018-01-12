@@ -1,6 +1,6 @@
 # Skeleton Generator
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Nepxion/Skeleton/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.nepxion/skeleton.svg?label=Maven%20Central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.nepxion%22%20AND%20skeleton)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?label=license)](https://github.com/Nepxion/Skeleton/blob/master/LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/com.nepxion/skeleton.svg?label=maven%20central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.nepxion%22%20AND%20skeleton)
 [![Javadocs](http://www.javadoc.io/badge/com.nepxion/skeleton.svg)](http://www.javadoc.io/doc/com.nepxion/skeleton)
 [![Build Status](https://travis-ci.org/Nepxion/Skeleton.svg?branch=master)](https://travis-ci.org/Nepxion/Skeleton)
 
