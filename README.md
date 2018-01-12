@@ -87,12 +87,14 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ### 依赖
 
 ```xml
+引擎包
 <dependency>
   <groupId>com.nepxion</groupId>
   <artifactId>skeleton-engine</artifactId>
   <version>${skeleton.version}</version>
 </dependency>
 
+框架包
 <dependency>
   <groupId>com.nepxion</groupId>
   <artifactId>skeleton-framework</artifactId>
