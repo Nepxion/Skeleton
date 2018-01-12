@@ -5,6 +5,9 @@
     <name>Nepxion Skeleton Framework</name>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
+    <description>Nepxion Skeleton is a generic codes and files generator based on freemaker for any text formats</description>
+    <url>http://www.nepxion.com</url>
+
     <parent>
         <groupId>com.nepxion</groupId>
         <artifactId>skeleton</artifactId>
