@@ -12,7 +12,7 @@
                     <div class="form-group">
                       <label v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'" class="col-sm-2 control-label">{{ item.label }}</label>
                       <div class="col-sm-8" v-if="item.type != 'RADIO' && item.type != 'CHECKBOX'">
-                        <input v-if="item.type == 'TEXTFIELD'" class="form-control" :name="item.key" :value="item.value" required>
+                        <input v-if="item.type == 'TEXTFIELD'" class="form-control" :name="item.key" v-model="modules[number].entityList[index].value" required>
                         <span v-if="item.highlightable && item.type == 'TEXTFIELD'" class="must-need">*</span>
                         <span v-if="item.note != '' && item.note != null && item.type == 'TEXTFIELD'" class="info-tip">
                           <el-tooltip class="item" effect="dark" placement="right">
