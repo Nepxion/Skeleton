@@ -325,7 +325,7 @@
     font-size: 18px;
     color: #6DB345;
     position: absolute;
-    top: -6px;
+    top: -3px;
     right: -32px;
     border:none;
     width:32px;
