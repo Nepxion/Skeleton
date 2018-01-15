@@ -24,11 +24,13 @@
                           <el-option v-if="item.type == 'COMBOBOX'" v-for="option in item.options" :key="number" :label="option" :value="option"></el-option>
                         </el-select>
                       </div>
-                      <div class="col-sm-10" v-if="item.type == 'CHECKBOX'">
+                      <div v-if="item.type == 'CHECKBOX'">
                         <label class="col-sm-2 control-label" style="margin-top: -7px;">{{ item.label }}</label>
-                        <div  :class="'col-sm-2'">
-                          <el-checkbox  :label="!item.value" :name="item.key" style="color:#666"></el-checkbox>
-                          <span v-if="!item.defaultable" class="recommend">（推荐）</span>
+                        <div class="col-sm-8">
+                          <div  :class="'col-sm-2'">
+                            <el-checkbox  :label="!item.value" :name="item.key" style="color:#666"></el-checkbox>
+                            <span v-if="!item.defaultable" class="recommend">（推荐）</span>
+                          </div>
                         </div>
                       </div>
                     </div>
