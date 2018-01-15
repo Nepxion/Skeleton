@@ -28,7 +28,7 @@
                         <label class="col-sm-2 control-label" style="margin-top: -7px;">{{ item.label }}</label>
                         <div class="col-sm-8">
                           <div  :class="'col-sm-2'">
-                            <el-checkbox  :label="!item.value" :name="item.key" style="color:#666"></el-checkbox>
+                            <el-checkbox  :label="modules[number].entityList[index].value" :name="item.key" style="color:#666"></el-checkbox>
                             <span v-if="!item.defaultable" class="recommend">（推荐）</span>
                           </div>
                         </div>

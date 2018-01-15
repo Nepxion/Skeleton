@@ -181,10 +181,11 @@
         </entity>
         <entity>
             <key>clientHystrixEnabled</key>
-            <label>客户端熔断模式</label>
+            <label>否</label>
             <description></description>
             <note>客户端熔断模式(Hystrix)。当服务端异常，客户端将启动熔断机制，并返回客户端默认定义的值</note>
-            <type>CHECKBOX</type>
+            <type>RADIO</type>
+            <value>false</value>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
