@@ -185,7 +185,6 @@
             <description></description>
             <note>客户端熔断模式(Hystrix)。当服务端异常，客户端将启动熔断机制，并返回客户端默认定义的值</note>
             <type>RADIO</type>
-            <value>false</value>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -225,7 +224,6 @@
         <entity>
             <key>dockerCertEnabled</key>
             <label>Docker认证模式</label>
-            <value>false</value>
             <description></description>
             <note>Docker认证模式。如果Docker服务器在本地，建议不需要开启</note>
             <type>RADIO</type>
