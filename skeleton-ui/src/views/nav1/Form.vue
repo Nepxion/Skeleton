@@ -33,6 +33,17 @@
                           </div>
                         </div>
                       </div>
+                      <div v-if="item.type == 'RADIO'">
+                        <label class="col-sm-2 control-label">{{ item.label }}</label>
+                        <div class="col-sm-8">
+                          <div class="col-sm-2">
+                            <el-radio v-model="modules[number].entityList[index].value" :label="true"> 是 </el-radio>
+                          </div>
+                          <div class="col-sm-2">
+                            <el-radio v-model="modules[number].entityList[index].value" :label="false"> 否 </el-radio>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </transition>
                   <transition name="fade" v-else-if="module.type == 'COMBOBOX_GROUP' && index == 1">
