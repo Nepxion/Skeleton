@@ -37,10 +37,10 @@
                         <label class="col-sm-2 control-label">{{ item.label }}</label>
                         <div class="col-sm-8">
                           <div class="col-sm-2">
-                            <el-radio v-model="modules[number].entityList[index].value" :label="true"> 是 </el-radio>
+                            <el-radio v-model="modules[number].entityList[index].value" :label="true" :name="item.key"> 是 </el-radio>
                           </div>
                           <div class="col-sm-2">
-                            <el-radio v-model="modules[number].entityList[index].value" :label="false"> 否 </el-radio>
+                            <el-radio v-model="modules[number].entityList[index].value" :label="false" :name="item.key"> 否 </el-radio>
                           </div>
                         </div>
                       </div>
@@ -314,7 +314,7 @@
             }
           }
         }
-        
+
         return list;
       },
       refresh: function () {
