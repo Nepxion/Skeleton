@@ -299,18 +299,22 @@
         this.hrShow['basic-framework'] = false;
       },
       chkEntityList: function (list) {
-        if (list[0].type == 'CHECKBOX') {
-          for (var i in list) {
-            list[i].value = true;
-          }
-        }
-        if (list[0].type == 'COMBOBOX') {
-          for (var i in list) {
-            if (list[i].value == null) {
-              list[i].value = list[i].options[0];
+        for (var i in list) {
+          if (list[i].type == 'CHECKBOX' || list[i].type == 'RADIO') {
+            if (list[i].value == 'false') {
+              list[i].value = false;
+            } else {
+              list[i].value = true;
+            }
+          } else if (list[i].type == 'COMBOBOX') {
+            for (var i in list) {
+              if (list[i].value == null) {
+                list[i].value = list[i].options[0];
+              }
             }
           }
         }
+        
         return list;
       },
       refresh: function () {
