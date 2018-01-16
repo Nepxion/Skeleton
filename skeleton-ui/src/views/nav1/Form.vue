@@ -42,7 +42,15 @@
                           <div class="col-sm-2">
                             <el-radio v-model="modules[number].entityList[index].value" :label="false" :name="item.key"> 否 </el-radio>
                           </div>
+                          <span v-if="item.highlightable && item.type == 'RADIO'" class="must-need">*</span>
+                          <span v-if="item.note != '' && item.note != null && item.type == 'RADIO'" class="info-tip">
+                          <el-tooltip class="item" effect="dark" placement="right">
+                            <div slot="content" class="content-box">{{ item.note }}</div>
+                            <el-button class="el-icon-question"></el-button>
+                          </el-tooltip>
+                        </span>
                         </div>
+
                       </div>
                     </div>
                   </transition>
