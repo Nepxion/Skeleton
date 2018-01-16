@@ -17,7 +17,7 @@
           <ul>
             <li><a href="http://docs.springcloud.cn">社区文档</a></li>
             <li><a href="http://nepxion.iteye.com/">Nepxion博客</a></li>
-            <li><a href="http://www.liumapp.com/">liumapp博客</a></li>
+            <li><a href="http://www.liumapp.com/">Liumapp博客</a></li>
           </ul>
         </div>
         <div class="ft_item">
