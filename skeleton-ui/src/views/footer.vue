@@ -34,7 +34,7 @@
           </ul>
         </div>
       </div>
-      <div class="cp"> Copyright (c) 2017, All Rights Reserved iMicroService中国 版权所有 备案号：滇ICP备14007546号-3
+      <div class="cp"> Copyright (c) 2017, All Rights Reserved iMicroService中国 版权所有
       </div>
       <div class="clearfix hidden-xs hidden-sm" id="trans_news">
         <ul id="contain">
