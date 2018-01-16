@@ -34,11 +34,11 @@
           </ul>
         </div>
       </div>
-      <div class="cp"> Copyright (c) 2017, All Rights Reserved iMicroService中国 版权所有
+      <div class="cp"> Copyright (c) 2017-2050, All Rights Reserved iMicroService中国 版权所有
       </div>
       <div class="clearfix hidden-xs hidden-sm" id="trans_news">
         <ul id="contain">
-          <li>商标声明:iMicroService中国是Nepxion,Inc.在中国以及其他国家的商标。</li>
+          <li>商标声明:iMicroService中国是iMicroService,Inc.在中国以及其他国家的商标。</li>
 
         </ul>
       </div>
