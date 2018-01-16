@@ -30,7 +30,7 @@
         <div class="ft_item">
           <h4 class="a4">常用链接</h4>
           <ul>
-            <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2508203324&amp;site=qq&amp;menu=yes"><img border="0" src="http://springcloud.cn/static/css/fox/img/ft_qq.png" alt="联系站长" title="联系站长"></a></li>
+            <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=308062799&amp;site=qq&amp;menu=yes"><img border="0" src="http://springcloud.cn/static/css/fox/img/ft_qq.png" alt="联系站长" title="联系站长"></a></li>
           </ul>
         </div>
       </div>
