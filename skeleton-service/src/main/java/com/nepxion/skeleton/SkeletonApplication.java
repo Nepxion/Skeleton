@@ -13,8 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
+import com.nepxion.skeleton.framework.config.SkeletonFrameworkConfig;
+
 @SpringBootApplication
-@Import({ com.nepxion.skeleton.framework.config.SkeletonFrameworkConfig.class })
+@Import({ SkeletonFrameworkConfig.class })
 public class SkeletonApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SkeletonApplication.class).web(true).run(args);
