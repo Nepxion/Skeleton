@@ -15,6 +15,6 @@
 @title Nepxion Skeleton
 @color 0a
 
-call mvn clean deploy -DskipTests -e -P release -pl skeleton-engine,skeleton-framework -am
+call mvn clean deploy -DskipTests -e -P release -pl skeleton-framework-starter -am
 
 pause
