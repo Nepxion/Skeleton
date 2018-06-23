@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.nepxion.skeleton.framework.configuration.SkeletonFrameworkAutoConfiguration
+com.nepxion.skeleton.framework.configuration.SkeletonAutoConfiguration
