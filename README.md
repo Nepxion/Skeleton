@@ -94,10 +94,17 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
   <version>${skeleton.version}</version>
 </dependency>
 
-框架包(建议引入skeleton-framework-starter)
+框架包
 <dependency>
   <groupId>com.nepxion</groupId>
   <artifactId>skeleton-framework</artifactId>
+  <version>${skeleton.version}</version>
+</dependency>
+
+启动包
+<dependency>
+  <groupId>com.nepxion</groupId>
+  <artifactId>skeleton-starter</artifactId>
   <version>${skeleton.version}</version>
 </dependency>
 ```
