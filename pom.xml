@@ -13,6 +13,7 @@
     <modules>
         <module>skeleton-engine</module>
         <module>skeleton-framework</module>
+        <module>skeleton-framework-starter</module>
         <module>skeleton-plugin-springcloud</module>
         <module>skeleton-service</module>
     </modules>
@@ -43,6 +44,12 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>skeleton-framework</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>skeleton-framework-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

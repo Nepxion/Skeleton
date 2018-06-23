@@ -39,7 +39,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>skeleton-framework</artifactId>
+            <artifactId>skeleton-framework-starter</artifactId>
             <version>${skeleton.version}</version>
         </dependency>
 

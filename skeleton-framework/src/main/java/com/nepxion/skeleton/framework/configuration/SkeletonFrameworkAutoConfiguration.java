@@ -1,4 +1,4 @@
-package com.nepxion.skeleton.framework.config;
+package com.nepxion.skeleton.framework.configuration;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -26,7 +26,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SkeletonFrameworkConfig extends WebMvcConfigurerAdapter {
+public class SkeletonFrameworkAutoConfiguration extends WebMvcConfigurerAdapter {
     @Value("${spring.application.name}")
     private String serviceName;
 
