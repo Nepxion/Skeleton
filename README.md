@@ -33,23 +33,23 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 图1
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Generator1.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Generator1.jpg)
 
 图2
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Generator2.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Generator2.jpg)
 
 图3
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Generator3.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Generator3.jpg)
 
 图4
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Generator4.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Generator4.jpg)
 
 图5
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Generator5.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Generator5.jpg)
 
 ## 本地部署
 ### 服务端部署
@@ -63,8 +63,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     3. 运行Swagger检验是否工作
        在浏览器里输入http://localhost:2222/swagger-ui.html访问
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Docker.jpg)
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Swagger.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Docker.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Swagger.jpg)
 
 ### 客户端部署
 
@@ -82,7 +82,7 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 图6
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Architecture.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Architecture.jpg)
 
 ### 依赖
 
@@ -131,8 +131,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
     3. 模板文件(*.template)有如下两种放置方式
        3.1 模板文件resources/template目录下(模板文件所在的前置目录名必须设置为"template"，在application.properties可以修改)，目录结构参照第一张图片
        3.2 Generator类和对应的模板文件必须放在同一个目录下(模板文件所在的前置目录名必须设置为null)，目录结构参照第二张图片   
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Template1.jpg)
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Template2.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Template1.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Template2.jpg)
 
 ### 插件
 
@@ -149,11 +149,11 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 图7
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Plugin1.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Plugin1.jpg)
 
 图8
 
-![Alt text](https://github.com/Nepxion/Skeleton/blob/master/skeleton-doc/Plugin2.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Plugin2.jpg)
 
 ### 示例
 
