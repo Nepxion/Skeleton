@@ -105,13 +105,13 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ### 配置
 - skeleton-data.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-data.properties
-  用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
-  配置文件中，“工程配置”下的productName和basePackage是必需的，其他字段可自己随便定义，建议驼峰形式命名
+  - 用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
+  - 配置文件中，“工程配置”下的productName和basePackage是必需的，其他字段可自己随便定义，建议驼峰形式命名
 - skeleton-description.xml，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-description.xml
-  用来描述模界面驱动的数据结构，渲染和布局组件，它里面定义的组件里的value值则取值于skeleton-data.properties
-  分为Group和Entity结构，一个Group包含多个Entity
+  - 用来描述模界面驱动的数据结构，渲染和布局组件，它里面定义的组件里的value值则取值于skeleton-data.properties
+  - 分为Group和Entity结构，一个Group包含多个Entity
 - skeleton-context.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-context.properties
-  用来配置脚手架全局上下文参数
+  - 用来配置脚手架全局上下文参数
 - 三个配置文件它的上级目录必须为config
 
 ### 规则
