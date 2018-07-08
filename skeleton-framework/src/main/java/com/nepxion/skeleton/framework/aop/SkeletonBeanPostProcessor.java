@@ -14,12 +14,10 @@ import java.util.Map;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.stereotype.Component;
 
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.framework.annotation.SkeletonPlugin;
 
-@Component("skeletonBeanPostProcessor")
 public class SkeletonBeanPostProcessor implements BeanPostProcessor {
     private Map<Object, String> skeletonPluginMap = new HashMap<Object, String>();
 
