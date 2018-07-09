@@ -40,6 +40,7 @@ import com.nepxion.skeleton.framework.transport.SkeletonTransport;
 
 @RestController
 @Api(tags = { "脚手架接口" })
+// @RequestMapping(path = "/skeleton")
 public class SkeletonController {
     @Value("${skeleton.default.plugin:}")
     private String skeletonDefaultPlugin;
