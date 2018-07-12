@@ -17,6 +17,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = { "com.nepxion.skeleton.plugin.springcloud.impl" })
 public class SkeletonApplication {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(SkeletonApplication.class).web(true).run(args);
+        new SpringApplicationBuilder(SkeletonApplication.class).run(args);
     }
 }
