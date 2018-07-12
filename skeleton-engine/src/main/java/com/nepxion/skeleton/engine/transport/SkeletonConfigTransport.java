@@ -46,15 +46,15 @@ public class SkeletonConfigTransport {
         try {
             skeletonContextProperties = new SkeletonProperties(plugin + SKELETON_CONTEXT_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
-            LOG.error("Parse data properties failed", e);
-            e.printStackTrace();
+            LOG.error("Parse context properties failed", e);
+            throw new SkeletonException("Parse context properties failed", e);
         }
 
         try {
             skeletonDataProperties = new SkeletonProperties(plugin + SKELETON_DATA_FILE, SkeletonConstant.ENCODING_GBK, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse data properties failed", e);
-            e.printStackTrace();
+            throw new SkeletonException("Parse data properties failed", e);
         }
 
         try {
@@ -62,10 +62,10 @@ public class SkeletonConfigTransport {
             skeletonXmlParser.parsePath(plugin + SKELETON_DESCRIPTION_FILE, SkeletonConstant.ENCODING_UTF_8);
         } catch (IOException e) {
             LOG.error("Parse description xml failed", e);
-            e.printStackTrace();
+            throw new SkeletonException("Parse description xml failed", e);
         } catch (DocumentException e) {
             LOG.error("Parse description xml failed", e);
-            e.printStackTrace();
+            throw new SkeletonException("Parse description xml failed", e);
         }
     }
 
