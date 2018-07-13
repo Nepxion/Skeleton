@@ -78,8 +78,12 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Architecture.jpg)
 
-### 依赖
+## 兼容
+最新版本兼容
+- Spring 4.x.x和Spring Boot 1.x.x
+- Spring 5.x.x和Spring Boot 2.x.x，但需要手工去除Swagger等第三方包引入的低版本Spring依赖包
 
+### 依赖
 ```xml
 引擎包
 <dependency>
@@ -144,7 +148,6 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Plugin2.jpg)
 
 ### 示例
-
 #### 本地使用方式
 运行skeleton-plugin-springcloud/src/test/java/com.nepxion.skeleton.plugin.springcloud.SkeletonTest.java，可在本地创建脚手架文件，具体使用方式，参考该类里的中文注释
 
