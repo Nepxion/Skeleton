@@ -10,11 +10,13 @@ package com.nepxion.skeleton.engine.transport;
  */
 
 import java.io.File;
+import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
 import com.nepxion.skeleton.engine.util.FileUtil;
@@ -33,9 +35,12 @@ public abstract class SkeletonDataTransport {
             throw new SkeletonException("File name is null or empty");
         }
 
-        try {
-            String canonicalPath = SkeletonUtil.getCanonicalPath(generatePath, fileName, skeletonProperties);
+        String canonicalPath = SkeletonUtil.getCanonicalPath(generatePath, fileName, skeletonProperties);
+        String canonicalFileName = SkeletonUtil.getCanonicalFileName(fileName, skeletonProperties);
 
+        String deletedDirectoryPath = canonicalPath.endsWith(SkeletonConstant.FILE_SEPARATOR) ? canonicalPath + UUID.randomUUID() : canonicalPath + SkeletonConstant.FILE_SEPARATOR + UUID.randomUUID();
+        canonicalPath = deletedDirectoryPath + SkeletonConstant.FILE_SEPARATOR + canonicalFileName;
+        try {
             generate(canonicalPath, skeletonProperties);
 
             String zipFilePath = ZipUtil.zip(canonicalPath, null);
@@ -47,7 +52,7 @@ public abstract class SkeletonDataTransport {
         } catch (Exception e) {
             throw new SkeletonException(e.getMessage(), e);
         } finally {
-            File directory = new File(generatePath);
+            File directory = new File(deletedDirectoryPath);
 
             FileUtil.forceDeleteDirectory(directory, 5);
         }
