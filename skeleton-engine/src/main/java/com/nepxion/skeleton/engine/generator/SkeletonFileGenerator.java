@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.entity.SkeletonFileType;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
@@ -44,13 +43,14 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
     }
 
     private void initialize() {
-        /*SkeletonFileType fileType = skeletonContext.getFileType();
-        if (fileType != null && fileType == SkeletonFileType.JAVA) {
-            throw new SkeletonException("Invalid file type for " + fileType);
-        }*/
+        // SkeletonFileType fileType = skeletonContext.getFileType();
+        // if (fileType != null && fileType == SkeletonFileType.JAVA) {
+        //    throw new SkeletonException("Invalid file type for " + fileType);
+        // }
 
         String generatePath = skeletonContext.getGeneratePath();
         String projectType = skeletonContext.getProjectType();
+
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
@@ -63,6 +63,7 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
         String fileName = null;
         String outputPath = null;
         Object dataModel = null;
+
         try {
             fileName = getFileName();
             outputPath = getOutputPath();
@@ -71,15 +72,16 @@ public abstract class SkeletonFileGenerator extends AbstractSkeletonGenerator {
             throw new SkeletonException(e.getMessage(), e);
         }
 
-        String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + fileName;
+        String fullTemplatePath = getFullTemplatePath();
+        String fullOutputPath = SkeletonUtil.formatGeneratePath(outputPath) + fileName;
 
-        LOG.info("--------------- File Generator Information ---------------");
-        LOG.info("Template Path : {}", getSkeletonContext().getConfig().getTemplatePath() + SkeletonConstant.FILE_SEPARATOR + getTemplateName());
-        LOG.info("Output Path : {}", fullPath);
-        LOG.info("Data Model : {}", dataModel);
-        LOG.info("----------------------------------------------------------");
+        LOG.debug("--------------- File Generator Information ---------------");
+        LOG.debug("Template Path : {}", fullTemplatePath);
+        LOG.debug("Output Path : {}", fullOutputPath);
+        LOG.debug("Data Model : {}", dataModel);
+        LOG.debug("----------------------------------------------------------");
 
-        return fullPath;
+        return fullOutputPath;
     }
 
     protected String getOutputPath() {

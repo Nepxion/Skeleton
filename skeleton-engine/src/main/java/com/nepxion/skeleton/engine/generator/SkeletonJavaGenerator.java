@@ -50,6 +50,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     private void initialize() {
         String generatePath = skeletonContext.getGeneratePath();
         String projectType = skeletonContext.getProjectType();
+
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
@@ -82,6 +83,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         String outputPath = null;
         boolean isMainCode = true;
         Object dataModel = null;
+
         try {
             className = getClassName();
             packagePath = getPackage();
@@ -92,16 +94,17 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
             throw new SkeletonException(e.getMessage(), e);
         }
 
-        String fullPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstant.MAIN_JAVA_CODE_PATH : SkeletonConstant.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstant.FILE_SEPARATOR) + SkeletonConstant.FILE_SEPARATOR + className + "." + SkeletonConstant.JAVA;
+        String fullTemplatePath = getFullTemplatePath();
+        String fullOutputPath = SkeletonUtil.formatGeneratePath(outputPath) + (isMainCode ? SkeletonConstant.MAIN_JAVA_CODE_PATH : SkeletonConstant.TEST_JAVA_CODE_PATH) + packagePath.replace(".", SkeletonConstant.FILE_SEPARATOR) + SkeletonConstant.FILE_SEPARATOR + className + "." + SkeletonConstant.JAVA;
 
-        LOG.info("--------------- Java Generator Information ---------------");
-        LOG.info("Template Path : {}", getSkeletonContext().getConfig().getTemplatePath() + SkeletonConstant.FILE_SEPARATOR + getTemplateName());
-        LOG.info("Output Path : {}", fullPath);
-        LOG.info("Package : {}", packagePath);
-        LOG.info("Data Model : {}", dataModel);
-        LOG.info("----------------------------------------------------------");
+        LOG.debug("--------------- Java Generator Information ---------------");
+        LOG.debug("Template Path : {}", fullTemplatePath);
+        LOG.debug("Output Path : {}", fullOutputPath);
+        LOG.debug("Package : {}", packagePath);
+        LOG.debug("Data Model : {}", dataModel);
+        LOG.debug("----------------------------------------------------------");
 
-        return fullPath;
+        return fullOutputPath;
     }
 
     protected String getPackage() {

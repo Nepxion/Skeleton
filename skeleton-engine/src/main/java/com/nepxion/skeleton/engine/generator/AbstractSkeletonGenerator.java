@@ -58,6 +58,15 @@ public abstract class AbstractSkeletonGenerator {
         return skeletonConfig.getTemplate(templateName);
     }
 
+    public String getFullTemplatePath() {
+        SkeletonConfig skeletonConfig = skeletonContext.getConfig();
+        String templatePath = skeletonConfig.getTemplatePath();
+        String templateName = getTemplateName();
+        String fullTemplatePath = templatePath.endsWith(SkeletonConstant.FILE_SEPARATOR) ? templatePath + templateName : templatePath + SkeletonConstant.FILE_SEPARATOR + templateName;
+
+        return fullTemplatePath;
+    }
+
     public void generate() throws SkeletonException, TemplateException, IOException {
         String path = getPath();
 
