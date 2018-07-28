@@ -27,6 +27,14 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.nepxion</groupId>
+                <artifactId>skeleton</artifactId>
+                <version>${skeleton.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
@@ -38,15 +46,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.nepxion</groupId>
             <artifactId>skeleton-starter</artifactId>
-            <version>${skeleton.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.nepxion</groupId>
             <artifactId>skeleton-plugin-springcloud</artifactId>
-            <version>${skeleton.version}</version>
         </dependency>
 
         <dependency>
