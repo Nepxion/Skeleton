@@ -6,7 +6,7 @@
     <name>Nepxion Skeleton</name>
     <packaging>pom</packaging>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.16</version>
+    <version>1.0.17</version>
     <description>Nepxion Skeleton is a generic codes and files generator based on freemaker for any text formats</description>
     <url>http://www.nepxion.com</url>
 
