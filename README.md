@@ -68,7 +68,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Swagger.jpg)
 
 ### 客户端部署
-- 在skeleton-ui目录中执行npm install，结束后执行npm run dev，具体参考该目录下的README.md
+- 拉取https://github.com/Nepxion/Discovery.git代码
+- 在根中执行npm install，结束后执行npm run dev，具体参考该目录下的README.md
 - 在浏览器里输入[http://localhost:7777/](http://localhost:7777/)访问
 
 ## 二次开发
@@ -76,8 +77,8 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 - skeleton-engine是脚手架的生成引擎，不依赖Spring环境，你只需要在Java环境下可以对任何格式的文本文件进行模板化创建
 - skeleton-framework是基于Spring环境的脚手架框架，并抽象在Spring环境下的配置和行为
 - skeleton-service是脚手架的平台，是多个脚手架生成插件的汇集之处
+- skeleton-starter是脚手架的Starter
 - skeleton-plugin-springcloud是基于Spring Cloud的脚手架生成插件，您可以扩展出skeleton-plugin-dubbo，skeleton-plugin-motan等
-- skeleton-ui是基于vue的脚手架界面
 
 图6
 
