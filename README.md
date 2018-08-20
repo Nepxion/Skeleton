@@ -116,6 +116,15 @@ Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文
 </dependency>
 ```
 
+## 用法
+```java
+@SpringBootApplication
+@EnableSkeleton
+@Import(SpringCloudPluginConfiguration.class)
+public class SkeletonApplication {
+}
+```
+
 ### 配置
 - skeleton-data.properties，见skeleton-plugin-springcloud/src/main/resources/springcloud/config/skeleton-data.properties
   - 用来描述模板文件的全局配置值，里面的值替换模板文件里的动态变量(用${}表示)，脚手架生成需要依赖这个文件
