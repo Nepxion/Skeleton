@@ -1,4 +1,4 @@
-package com.nepxion.skeleton;
+package com.nepxion.skeleton.service;
 
 /**
  * <p>Title: Nepxion Skeleton</p>
@@ -11,10 +11,14 @@ package com.nepxion.skeleton;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+
+import com.nepxion.skeleton.annotation.EnableSkeleton;
+import com.nepxion.skeleton.plugin.springcloud.configuration.SpringCloudPluginConfiguration;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.nepxion.skeleton.plugin.springcloud.impl" })
+@EnableSkeleton
+@Import(SpringCloudPluginConfiguration.class)
 public class SkeletonApplication {
     public static void main(String[] args) {
         new SpringApplicationBuilder(SkeletonApplication.class).run(args);

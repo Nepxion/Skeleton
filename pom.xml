@@ -19,6 +19,7 @@
     </modules>
 
     <properties>
+        <matrix.version>2.0.1</matrix.version>
         <commons.lang3.version>3.6</commons.lang3.version>
         <commons.collections4.version>4.1</commons.collections4.version>
         <commons.io.version>2.5</commons.io.version>
@@ -60,6 +61,12 @@
             </dependency>
 
             <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>matrix-aop-starter</artifactId>
+                <version>${matrix.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
@@ -98,7 +105,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>            
+                <version>${spring.version}</version>
             </dependency>
 
             <dependency>

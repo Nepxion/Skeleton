@@ -11,8 +11,6 @@ package com.nepxion.skeleton.plugin.springcloud.impl;
 
 import java.io.IOException;
 
-import org.springframework.stereotype.Component;
-
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.exception.SkeletonException;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
@@ -21,7 +19,6 @@ import com.nepxion.skeleton.framework.service.SkeletonService;
 
 import freemarker.template.TemplateException;
 
-@Component
 @SkeletonPlugin(name="springcloud")
 public class SpringcloudServiceImpl implements SkeletonService {
     private SkeletonService parentProjectService = new ParentProjectServiceImpl();

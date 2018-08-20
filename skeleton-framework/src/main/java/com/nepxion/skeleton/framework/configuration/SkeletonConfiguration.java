@@ -10,16 +10,21 @@ package com.nepxion.skeleton.framework.configuration;
  */
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import com.nepxion.skeleton.framework.aop.SkeletonBeanPostProcessor;
+import com.nepxion.skeleton.framework.controller.SkeletonController;
 
 @Configuration
-@ComponentScan(basePackages = { "com.nepxion.skeleton.framework.controller" })
+// @ComponentScan(basePackages = { "com.nepxion.skeleton.framework.controller" })
 @Import(SwaggerConfiguration.class)
-public class SkeletonAutoConfiguration {
+public class SkeletonConfiguration {
+    @Bean
+    public SkeletonController skeletonController() {
+        return new SkeletonController();
+    }
+
     @Bean
     public SkeletonBeanPostProcessor skeletonBeanPostProcessor() {
         return new SkeletonBeanPostProcessor();
