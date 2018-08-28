@@ -1,10 +1,10 @@
 # Skeleton Generator
+![CoL](https://tokei.rs/b1/github/Nepxion/Skeleton)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?label=license)](https://github.com/Nepxion/Skeleton/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.nepxion/skeleton.svg?label=maven%20central)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.nepxion%22%20AND%20skeleton)
 [![Javadocs](http://www.javadoc.io/badge/com.nepxion/skeleton-engine.svg)](http://www.javadoc.io/doc/com.nepxion/skeleton-engine)
 [![Build Status](https://travis-ci.org/Nepxion/Skeleton.svg?branch=master)](https://travis-ci.org/Nepxion/Skeleton)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b02d6f4cc1ac4a58a6e911f20d494481)](https://www.codacy.com/project/HaojunRen/Skeleton/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nepxion/Skeleton&amp;utm_campaign=Badge_Grade_Dashboard)
-![CoL](https://tokei.rs/b1/github/Nepxion/Skeleton)
 
 Nepxion Skeleton是一款基于FreeMarker的对任何文本格式的代码和文件的生成器，可以轻松快速实现对框架代码的一键创建，并提供Docker化的基于Spring Cloud的脚手架一键生成
 
