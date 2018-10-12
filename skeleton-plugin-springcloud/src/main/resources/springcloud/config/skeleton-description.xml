@@ -88,7 +88,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>Dalston.SR5;Edgware.SR4</options>
+            <options>Edgware.SR4;Dalston.SR5</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -100,7 +100,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>1.4.7.RELEASE;1.5.14.RELEASE</options>
+            <options>1.5.16.RELEASE;1.5.15.RELEASE;1.5.14.RELEASE;1.5.13.RELEASE;1.5.12.RELEASE;1.5.11.RELEASE;1.5.10.RELEASE;1.5.9.RELEASE;1.5.8.RELEASE</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
@@ -112,7 +112,7 @@
             <description></description>
             <note></note>
             <type>COMBOBOX</type>
-            <options>1.9;1.8;1.7</options>
+            <options>1.9;1.8;1.7;1.6</options>
             <highlightable>false</highlightable>
             <defaultable>true</defaultable>
             <emptiable>false</emptiable>
