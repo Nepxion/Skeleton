@@ -18,10 +18,10 @@
         <prudent>true</prudent>
     </appender>
 
-    <appender name ="FILE_ASYNC" class= "ch.qos.logback.classic.AsyncAppender">
-       <discardingThreshold>0</discardingThreshold>  
-       <queueSize>512</queueSize>
-       <appender-ref ref ="FILE"/>
+    <appender name="FILE_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>512</queueSize>
+        <appender-ref ref="FILE"/>
     </appender>
 
     <!-- Console output -->
