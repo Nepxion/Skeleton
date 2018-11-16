@@ -54,6 +54,9 @@ public class SwaggerConfiguration extends WebMvcConfigurerAdapter {
     @Value("${swagger.service.contact.email:1394997@qq.com}")
     private String contactEmail;
 
+    @Value("${swagger.service.termsOfServiceUrl:http://www.nepxion.com")
+    private String termsOfServiceUrl;
+
     @Value("${swagger.cors.registry.enabled:true}")
     private Boolean corsRegistryEnabled;
 
@@ -75,6 +78,7 @@ public class SwaggerConfiguration extends WebMvcConfigurerAdapter {
                 .license(license)
                 .licenseUrl(licenseUrl)
                 .contact(new Contact(contactName, contactUrl, contactEmail))
+                .termsOfServiceUrl(termsOfServiceUrl)
                 .build();
     }
 
