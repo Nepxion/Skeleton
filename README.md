@@ -90,7 +90,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 ## 兼容
 最新版本兼容
 - Spring 4.x.x和Spring Boot 1.x.x
-- Spring 5.x.x和Spring Boot 2.x.x，但需要手工去除Swagger等第三方包引入的低版本Spring依赖包
+- Spring 5.x.x和Spring Boot 2.x.x
 
 ### 依赖
 ```xml
