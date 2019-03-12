@@ -18,7 +18,7 @@
     </parent>
 
     <properties>
-        <skeleton.version>2.0.6</skeleton.version>
+        <skeleton.version>2.0.7</skeleton.version>
         <!-- <spring.cloud.version>Edgware.SR5</spring.cloud.version> -->
         <spring.cloud.version>Finchley.SR2</spring.cloud.version>
         <java.version>1.8</java.version>

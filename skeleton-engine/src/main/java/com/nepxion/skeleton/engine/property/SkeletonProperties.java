@@ -27,15 +27,18 @@ import com.nepxion.skeleton.engine.util.MathsUtil;
 
 public class SkeletonProperties implements Serializable {
     static {
-        System.out.println("");
-        System.out.println("╔═══╦╗    ╔╗    ╔╗");
-        System.out.println("║╔═╗║║    ║║   ╔╝╚╗");
-        System.out.println("║╚══╣║╔╦══╣║╔══╬╗╔╬══╦══╗");
-        System.out.println("╚══╗║╚╝╣║═╣║║║═╣║║║╔╗║╔╗║");
-        System.out.println("║╚═╝║╔╗╣║═╣╚╣║═╣║╚╣╚╝║║║║");
-        System.out.println("╚═══╩╝╚╩══╩═╩══╝╚═╩══╩╝╚╝");
-        System.out.println("Nepxion Skeleton  v2.0.6");
-        System.out.println("");
+        String logoShown = System.getProperty("nepxion.logo.shown", "true");
+        if (Boolean.valueOf(logoShown)) {
+            System.out.println("");
+            System.out.println("╔═══╦╗    ╔╗    ╔╗");
+            System.out.println("║╔═╗║║    ║║   ╔╝╚╗");
+            System.out.println("║╚══╣║╔╦══╣║╔══╬╗╔╬══╦══╗");
+            System.out.println("╚══╗║╚╝╣║═╣║║║═╣║║║╔╗║╔╗║");
+            System.out.println("║╚═╝║╔╗╣║═╣╚╣║═╣║╚╣╚╝║║║║");
+            System.out.println("╚═══╩╝╚╩══╩═╩══╝╚═╩══╩╝╚╝");
+            System.out.println("Nepxion Skeleton  v2.0.7");
+            System.out.println("");
+        }
     }
 
     private static final long serialVersionUID = 1722927234615067236L;
