@@ -30,9 +30,6 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     @Value("${spring.application.name}")
     private String serviceName;
 
-    @Value("${swagger.service.base.package:com.nepxion.skeleton.framework.controller}")
-    private String basePackage;
-
     @Value("${swagger.service.description:Skeleton Spring Cloud Restful APIs}")
     private String description;
 
@@ -60,13 +57,13 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     @Value("${swagger.cors.registry.enabled:true}")
     private Boolean corsRegistryEnabled;
 
-    @Bean
+    @Bean("skeleton")
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("skeleton")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(basePackage)) // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
+                .apis(RequestHandlerSelectors.basePackage("com.nepxion.skeleton.framework.controller")) // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
                 .paths(PathSelectors.any())
                 .build();
     }
