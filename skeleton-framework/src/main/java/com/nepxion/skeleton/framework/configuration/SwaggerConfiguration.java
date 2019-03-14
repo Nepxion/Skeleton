@@ -57,7 +57,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     @Value("${swagger.cors.registry.enabled:true}")
     private Boolean corsRegistryEnabled;
 
-    @Bean("skeleton")
+    @Bean("skeletonDocket")
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("skeleton")
