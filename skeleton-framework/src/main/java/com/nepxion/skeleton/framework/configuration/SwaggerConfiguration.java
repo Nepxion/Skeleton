@@ -27,6 +27,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration implements WebMvcConfigurer {
+    public static final String BASE_PACKAGE = "com.nepxion.skeleton.framework.controller";
+
     @Value("${spring.application.name}")
     private String serviceName;
 
@@ -63,7 +65,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
                 .groupName("skeleton")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.nepxion.skeleton.framework.controller")) // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
+                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE)) // 扫描该包下的所有需要在Swagger中展示的API，@ApiIgnore注解标注的除外
                 .paths(PathSelectors.any())
                 .build();
     }
