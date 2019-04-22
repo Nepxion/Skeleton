@@ -23,12 +23,18 @@ import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
 
+import com.nepxion.banner.BannerConstant;
+import com.nepxion.banner.Description;
+import com.nepxion.banner.LogoBanner;
+import com.nepxion.banner.NepxionBanner;
+import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.util.MathsUtil;
+import com.taobao.text.Color;
 
 public class SkeletonProperties implements Serializable {
     static {
-        String logoShown = System.getProperty("nepxion.logo.shown", "true");
-        if (Boolean.valueOf(logoShown)) {
+        /*String bannerShown = System.getProperty(BannerConstant.BANNER_SHOWN, "true");
+        if (Boolean.valueOf(bannerShown)) {
             System.out.println("");
             System.out.println("╔═══╦╗    ╔╗    ╔╗");
             System.out.println("║╔═╗║║    ║║   ╔╝╚╗");
@@ -36,9 +42,13 @@ public class SkeletonProperties implements Serializable {
             System.out.println("╚══╗║╚╝╣║═╣║║║═╣║║║╔╗║╔╗║");
             System.out.println("║╚═╝║╔╗╣║═╣╚╣║═╣║╚╣╚╝║║║║");
             System.out.println("╚═══╩╝╚╩══╩═╩══╝╚═╩══╩╝╚╝");
-            System.out.println("Nepxion Skeleton  v2.0.8");
+            System.out.println("Nepxion Skeleton  v" + SkeletonConstant.SKELETON_VERSION);
             System.out.println("");
-        }
+        }*/
+
+        LogoBanner logoBanner = new LogoBanner(SkeletonProperties.class, "/com/nepxion/skeleton/resource/logo.txt", "Welcome to Nepxion", 8, 5, new Color[] { Color.red, Color.green, Color.cyan, Color.blue, Color.yellow, Color.magenta, Color.red, Color.green }, true);
+
+        NepxionBanner.show(logoBanner, new Description(BannerConstant.VERSION + ":", SkeletonConstant.SKELETON_VERSION, 0, 1), new Description(BannerConstant.GITHUB + ":", BannerConstant.NEPXION_GITHUB + "/Skeleton", 0, 1));
     }
 
     private static final long serialVersionUID = 1722927234615067236L;
