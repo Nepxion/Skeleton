@@ -236,3 +236,7 @@ public byte[] downloadBytes(@PathVariable(value = "skeletonName") String skeleto
 @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
 public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") String skeletonName, @RequestBody String config);
 ```	
+
+## Star走势图
+
+[![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton)
