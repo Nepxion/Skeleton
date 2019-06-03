@@ -94,30 +94,25 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 ### 依赖
 ```xml
-<dependency>
-    <groupId>com.nepxion</groupId>
-    <artifactId>skeleton</artifactId>
-    <version>${skeleton.version}</version>
-    <type>pom</type>
-    <scope>import</scope>
-</dependency>
-
 引擎包
 <dependency>
     <groupId>com.nepxion</groupId>
     <artifactId>skeleton-engine</artifactId>
+    <version>${skeleton.version}</version>
 </dependency>
 
 框架包
 <dependency>
     <groupId>com.nepxion</groupId>
     <artifactId>skeleton-framework</artifactId>
+    <version>${skeleton.version}</version>
 </dependency>
 
 启动包
 <dependency>
     <groupId>com.nepxion</groupId>
     <artifactId>skeleton-starter</artifactId>
+    <version>${skeleton.version}</version>
 </dependency>
 ```
 
