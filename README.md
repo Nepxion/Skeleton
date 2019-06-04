@@ -71,7 +71,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Swagger.jpg)
 
 ### 客户端部署
-- 拉取https://github.com/Nepxion/Discovery.git代码
+- 拉取[https://github.com/Nepxion/DiscoveryUI](https://github.com/Nepxion/DiscoveryUI)代码
 - 在根中执行npm install，结束后执行npm run dev，具体参考该目录下的README.md
 - 在浏览器里输入[http://localhost:7777/](http://localhost:7777/)访问
 
