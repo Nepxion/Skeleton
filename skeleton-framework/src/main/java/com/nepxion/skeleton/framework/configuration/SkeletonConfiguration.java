@@ -18,7 +18,7 @@ import com.nepxion.skeleton.framework.controller.SkeletonController;
 
 @Configuration
 // @ComponentScan(basePackages = { "com.nepxion.skeleton.framework.controller" })
-@Import(SwaggerConfiguration.class)
+@Import({ SwaggerConfiguration.class, CorsRegistryConfiguration.class })
 public class SkeletonConfiguration {
     @Bean
     public SkeletonController skeletonController() {

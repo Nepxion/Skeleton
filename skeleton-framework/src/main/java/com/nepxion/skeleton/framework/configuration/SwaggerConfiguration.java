@@ -1,8 +1,8 @@
 package com.nepxion.skeleton.framework.configuration;
 
 /**
- * <p>Title: Nepxion Discovery</p>
- * <p>Description: Nepxion Discovery</p>
+ * <p>Title: Nepxion Skeleton</p>
+ * <p>Description: Nepxion Skeleton For Freemarker</p>
  * <p>Copyright: Copyright (c) 2017-2050</p>
  * <p>Company: Nepxion</p>
  * @author Haojun Ren
@@ -21,12 +21,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration implements WebMvcConfigurer {
+public class SwaggerConfiguration {
     public static final String BASE_PACKAGE = "com.nepxion.skeleton.framework.controller";
 
     @Value("${spring.application.name}")
@@ -56,9 +54,6 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     @Value("${swagger.service.termsOfServiceUrl:http://www.nepxion.com")
     private String termsOfServiceUrl;
 
-    @Value("${swagger.cors.registry.enabled:true}")
-    private Boolean corsRegistryEnabled;
-
     @Bean("skeletonDocket")
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -82,14 +77,4 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
                 .build();
     }
 
-    // 解决跨域问题
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        if (corsRegistryEnabled) {
-            registry.addMapping("/**")
-                    .allowedHeaders("*")
-                    .allowedMethods("*")
-                    .allowedOrigins("*");
-        }
-    }
 }
