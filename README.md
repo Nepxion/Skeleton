@@ -12,7 +12,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 微信和公众号
 
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/zxing-doc/微信-1.jpg)
-![Alt text](https://github.com/Nepxion/Docs/blob/master/zxing-doc/公众号-1.jpg) 
+![Alt text](https://github.com/Nepxion/Docs/blob/master/zxing-doc/公众号-1.jpg)
 
 ## 简介
 - 严格遵照Maven结构进行脚手架编排
