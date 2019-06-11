@@ -68,7 +68,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
   - 在浏览器里输入[http://localhost:2222/swagger-ui.html](http://localhost:2222/swagger-ui.html)访问
 
 ![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Docker.jpg)
-![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Swagger.jpg)
+![Alt text](https://github.com/Nepxion/Docs/blob/master/skeleton-doc/Swagger.jpg) 
 
 ### 客户端部署
 - 拉取[https://github.com/Nepxion/DiscoveryUI](https://github.com/Nepxion/DiscoveryUI)代码
