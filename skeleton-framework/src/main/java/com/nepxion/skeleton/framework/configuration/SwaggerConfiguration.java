@@ -51,7 +51,7 @@ public class SwaggerConfiguration {
     @Value("${swagger.service.contact.email:1394997@qq.com}")
     private String contactEmail;
 
-    @Value("${swagger.service.termsOfServiceUrl:http://www.nepxion.com")
+    @Value("${swagger.service.termsOfServiceUrl:http://www.nepxion.com}")
     private String termsOfServiceUrl;
 
     @Bean("skeletonDocket")
