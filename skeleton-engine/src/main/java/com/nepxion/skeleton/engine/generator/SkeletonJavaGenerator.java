@@ -27,6 +27,7 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
     private static final Logger LOG = LoggerFactory.getLogger(SkeletonJavaGenerator.class);
 
     protected String defaultBasePackage;
+    protected String defaultTopBasePackage;
     protected String defaultOutputPath;
 
     public SkeletonJavaGenerator(SkeletonContext skeletonContext, SkeletonProperties skeletonProperties) {
@@ -52,11 +53,16 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         String projectType = skeletonContext.getProjectType();
 
         defaultBasePackage = SkeletonUtil.getBasePackagePath(projectType, skeletonProperties);
+        defaultTopBasePackage = SkeletonUtil.getBasePackagePath(skeletonProperties);
         defaultOutputPath = SkeletonUtil.getOutputPath(generatePath, projectType, skeletonProperties);
     }
 
     public String getDefaultBasePackage() {
         return defaultBasePackage;
+    }
+
+    public String getDefaultTopBasePackage() {
+        return defaultTopBasePackage;
     }
 
     public String getDefaultOutputPath() {
@@ -113,6 +119,14 @@ public abstract class SkeletonJavaGenerator extends AbstractSkeletonGenerator {
         }
 
         return defaultBasePackage;
+    }
+
+    protected String getTopPackage() {
+        if (StringUtils.isEmpty(defaultTopBasePackage)) {
+            throw new IllegalArgumentException("Default top base package is null or empty");
+        }
+
+        return defaultTopBasePackage;
     }
 
     protected String getOutputPath() {

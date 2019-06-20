@@ -52,6 +52,7 @@ public class SkeletonConstant {
     public static final String PROJECT_NAME = "projectName";
     public static final String PACKAGE = "package";
     public static final String BASE_PACKAGE = "basePackage";
+    public static final String TOP_BASE_PACKAGE = "topBasePackage";
     public static final String CLASS_NAME = "className";
     public static final String CLASS_PATH = "classPath";
 
