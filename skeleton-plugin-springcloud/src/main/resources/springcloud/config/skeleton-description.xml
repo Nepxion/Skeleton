@@ -8,21 +8,10 @@
         <layout>VERTICAL</layout>
         <titledBorder>true</titledBorder>
         <entity>
-            <key>projectName</key>
-            <label>工程名</label>
-            <description></description>
-            <note>首字母必须小写，中间只允许出现“-”。例如工程名=payment-ccb，表示用Spring Cloud为CCB(中国建设银行)搭建一套Payment(支付)系统的工程</note>
-            <type>TEXTFIELD</type>
-            <highlightable>true</highlightable>
-            <defaultable>false</defaultable>
-            <emptiable>false</emptiable>
-            <editable>true</editable>
-        </entity>
-        <entity>
             <key>basePackage</key>
-            <label>包路径</label>
+            <label>Package</label>
             <description></description>
-            <note>将作为所有Java代码的上层路径。工程名、包路径和子工程类型三者组合起来解析出相关目录和结构规则，例如工程名=payment-ccb，包路径=cn.springcloud，子工程类型=server，那么子工程名为payment-ccb-server，里面类路径为cn.springcloud.payment.ccb.server
+            <note>将作为所有Java代码的上层路径。Artifact Id、Package和子工程类型三者组合起来解析出相关目录和结构规则，例如Artifact Id=payment-ccb，Package=cn.springcloud，子工程类型=server，那么子工程名为payment-ccb-server，里面类路径为cn.springcloud.payment.ccb.server
             </note>
             <type>TEXTFIELD</type>
             <highlightable>true</highlightable>
@@ -30,14 +19,6 @@
             <emptiable>false</emptiable>
             <editable>true</editable>
         </entity>
-    </group>
-    <group>
-        <key>pom</key>
-        <label>POM配置</label>
-        <description></description>
-        <type>MIX_GROUP</type>
-        <layout>VERTICAL</layout>
-        <titledBorder>true</titledBorder>
         <entity>
             <key>pomGroupId</key>
             <label>Group Id</label>

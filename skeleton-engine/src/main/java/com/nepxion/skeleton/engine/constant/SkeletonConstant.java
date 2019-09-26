@@ -49,7 +49,7 @@ public class SkeletonConstant {
     public static final String EMAIL = "email";
     public static final String VERSION = "version";
 
-    public static final String PROJECT_NAME = "projectName";
+    public static final String POM_ARTIFACT_ID = "pomArtifactId";
     public static final String PACKAGE = "package";
     public static final String BASE_PACKAGE = "basePackage";
     public static final String TOP_BASE_PACKAGE = "topBasePackage";

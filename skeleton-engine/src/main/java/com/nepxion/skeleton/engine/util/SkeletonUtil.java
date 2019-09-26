@@ -29,7 +29,7 @@ public class SkeletonUtil {
     }
 
     public static String getBaseDirectoryName(String projectType, SkeletonProperties skeletonProperties) {
-        return skeletonProperties.getString(SkeletonConstant.PROJECT_NAME) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.POM_ARTIFACT_ID) + (StringUtils.isNotEmpty(projectType) ? "-" + projectType : "");
     }
 
     public static String getBasePackagePath(SkeletonProperties skeletonProperties) {
@@ -37,9 +37,7 @@ public class SkeletonUtil {
     }
 
     public static String getBasePackagePath(String projectType, SkeletonProperties skeletonProperties) {
-        String projectName = skeletonProperties.getString(SkeletonConstant.PROJECT_NAME);
-
-        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatProjectName(projectName) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
+        return skeletonProperties.getString(SkeletonConstant.BASE_PACKAGE) + "." + formatProjectName(skeletonProperties.getString(SkeletonConstant.POM_ARTIFACT_ID)) + (StringUtils.isNotEmpty(projectType) ? "." + projectType : "");
     }
 
     public static String getCanonicalFileName(String fileName, SkeletonProperties skeletonProperties) {
