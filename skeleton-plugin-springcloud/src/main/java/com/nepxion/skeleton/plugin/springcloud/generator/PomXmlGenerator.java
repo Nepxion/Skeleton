@@ -12,7 +12,6 @@ package com.nepxion.skeleton.plugin.springcloud.generator;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.nepxion.skeleton.engine.constant.SkeletonConstant;
 import com.nepxion.skeleton.engine.context.SkeletonContext;
 import com.nepxion.skeleton.engine.generator.SkeletonFileGenerator;
 import com.nepxion.skeleton.engine.property.SkeletonProperties;
