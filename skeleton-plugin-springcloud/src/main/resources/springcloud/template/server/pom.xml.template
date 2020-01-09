@@ -12,7 +12,7 @@
     </parent>
 
     <properties>
-        <swagger.version>2.7.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
     </properties>
 
     <dependencies>

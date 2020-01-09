@@ -9,24 +9,20 @@ package com.nepxion.skeleton.framework.configuration;
  * @version 1.0
  */
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@ConditionalOnProperty(value = "cors.registry.enabled", matchIfMissing = false)
 public class CorsRegistryConfiguration implements WebMvcConfigurer {
-    @Value("${cors.registry.enabled:true}")
-    private Boolean corsRegistryEnabled;
-
     // 解决跨域问题
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        if (corsRegistryEnabled) {
-            registry.addMapping("/**")
-                    .allowedHeaders("*")
-                    .allowedMethods("*")
-                    .allowedOrigins("*");
-        }
+        registry.addMapping("/**")
+                .allowedHeaders("*")
+                .allowedMethods("*")
+                .allowedOrigins("*");
     }
 }

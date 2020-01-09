@@ -45,7 +45,7 @@ public class ServerConfig extends WebMvcConfigurerAdapter {
     @Value("${r"$"}{swagger.service.contact.email}")
     private String contactEmail;
 
-    @Value("${r"$"}{swagger.cors.registry.enabled:true}")
+    @Value("${r"$"}{swagger.cors.registry.enabled:false}")
     private Boolean corsRegistryEnabled;
 
     @Bean
