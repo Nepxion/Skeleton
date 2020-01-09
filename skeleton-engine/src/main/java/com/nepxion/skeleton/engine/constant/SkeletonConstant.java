@@ -10,7 +10,7 @@ package com.nepxion.skeleton.engine.constant;
  */
 
 public class SkeletonConstant {
-    public static final String SKELETON_VERSION = "2.1.0";
+    public static final String SKELETON_VERSION = "2.1.1";
 
     public static final String HTTP = "http://";
     public static final String FILE_SEPARATOR = "/"; // File.separator
