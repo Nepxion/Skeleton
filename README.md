@@ -228,4 +228,4 @@ public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeleton
 
 ## Star走势图
 
-[![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton)
+[![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton) 
