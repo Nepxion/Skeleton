@@ -15,6 +15,6 @@
 @title Nepxion Skeleton
 @color 0a
 
-call mvn versions:set -DgenerateBackupPoms=false -DnewVersion=2.1.3
+call mvn versions:set -DgenerateBackupPoms=false -DnewVersion=2.2.0
 
 pause
