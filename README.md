@@ -164,7 +164,6 @@ public class SkeletonApplication {
 运行skeleton-plugin-springcloud/src/test/java/com.nepxion.skeleton.plugin.springcloud.SkeletonTest.java，可在本地创建脚手架文件，具体使用方式，参考该类里的中文注释
 
 #### Spring Cloud使用方式
-
 Spring Cloud配置文件，见skeleton-service/src/main/resources/application.properties
 
 Spring Cloud接口，见skeleton-framework/src/main/java/com.nepxion.skeleton.framework.controller.SkeletonController.java
@@ -227,5 +226,4 @@ public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeleton
 ```	
 
 ## Star走势图
-
 [![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton)
