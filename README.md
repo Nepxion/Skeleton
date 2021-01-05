@@ -8,7 +8,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 ![](http://nepxion.gitee.io/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/文档-1.jpg)
 
-## 简介
+## 简介 
 - 严格遵照Maven结构进行脚手架编排
 - 支持任何文件文件的逆向创建，包括Java类文件，配置文件，脚本文件，XML文件，YAML文件等
 - 使用者只需要关注模板原型文件的编辑（遵循FreeMarker语法），并设置动态变量
