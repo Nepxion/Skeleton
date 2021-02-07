@@ -4,7 +4,7 @@
 Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码和文件的生成器，可以轻松快速实现对框架代码的一键创建，支持多套脚手架系统在同一个脚手架服务下工作，并内置提供Docker化的基于Spring Cloud的脚手架一键生成
 
 ## 请联系我
-微信、钉钉、公众号和文档 
+微信、钉钉、公众号和文档
 
 ![](http://nepxion.gitee.io/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/文档-1.jpg)
 
