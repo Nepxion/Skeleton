@@ -6,7 +6,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 ## 请联系我
 微信、钉钉、公众号和文档
 
-![](http://nepxion.gitee.io/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/docs/zxing-doc/文档-1.jpg)
+![](http://nepxion.gitee.io/discovery/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/文档-1.jpg)
 
 ## 简介
 - 严格遵照Maven结构进行脚手架编排
@@ -32,23 +32,23 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 图1
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Generator1.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Generator1.jpg)
 
 图2
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Generator2.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Generator2.jpg)
 
 图3
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Generator3.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Generator3.jpg)
 
 图4
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Generator4.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Generator4.jpg)
 
 图5
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Generator5.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Generator5.jpg)
 
 ## 本地部署
 ### 服务端部署
@@ -61,8 +61,8 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 - 运行Swagger检验是否工作
   - 在浏览器里输入[http://localhost:2222/swagger-ui.html](http://localhost:2222/swagger-ui.html)访问
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Docker.jpg)
-![](http://nepxion.gitee.io/docs/skeleton-doc/Swagger.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Docker.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Swagger.jpg)
 
 ### 客户端部署
 - 拉取[https://github.com/Nepxion/DiscoveryUI](https://github.com/Nepxion/DiscoveryUI)代码
@@ -79,7 +79,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 图6
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Architecture.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Architecture.jpg)
 
 ## 兼容
 最新版本兼容
@@ -136,8 +136,8 @@ public class SkeletonApplication {
 - 模板文件(*.template)有如下两种放置方式
   - 模板文件resources/template目录下(模板文件所在的前置目录名必须设置为"template"，在application.properties可以修改)，目录结构参照第一张图片
   - Generator类和对应的模板文件必须放在同一个目录下(模板文件所在的前置目录名必须设置为null)，目录结构参照第二张图片   
-![](http://nepxion.gitee.io/docs/skeleton-doc/Template1.jpg)
-![](http://nepxion.gitee.io/docs/skeleton-doc/Template2.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Template1.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Template2.jpg)
 
 ### 插件
 - 如果多个脚手架系统部署在同一个平台上，需要采用独立工程的方式，同时避免同名类和同名配置文件冲突，规定如下，见图7
@@ -153,11 +153,11 @@ public class SkeletonApplication {
 
 图7
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Plugin1.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Plugin1.jpg)
 
 图8
 
-![](http://nepxion.gitee.io/docs/skeleton-doc/Plugin2.jpg)
+![](http://nepxion.gitee.io/discovery/docs/skeleton-doc/Plugin2.jpg)
 
 ### 示例
 #### 本地使用方式
