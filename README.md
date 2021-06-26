@@ -1,12 +1,9 @@
 # Nepxion Skeleton
 ![Total visits](https://komarev.com/ghpvc/?username=Nepxion&label=total%20visits&color=blue)  [![Total lines](https://tokei.rs/b1/github/Nepxion/Skeleton?category=lines)](https://tokei.rs/b1/github/Nepxion/Skeleton?category=lines)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?label=license)](https://github.com/Nepxion/Skeleton/blob/master/LICENSE)  [![Maven Central](https://img.shields.io/maven-central/v/com.nepxion/skeleton.svg?label=maven%20central)](https://search.maven.org/artifact/com.nepxion/skeleton)  [![Javadocs](http://www.javadoc.io/badge/com.nepxion/skeleton-engine.svg)](http://www.javadoc.io/doc/com.nepxion/skeleton-engine)  [![Build Status](https://travis-ci.org/Nepxion/Skeleton.svg?branch=master)](https://travis-ci.org/Nepxion/Skeleton)  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b02d6f4cc1ac4a58a6e911f20d494481)](https://www.codacy.com/project/HaojunRen/Skeleton/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nepxion/Skeleton&amp;utm_campaign=Badge_Grade_Dashboard)  [![Stars](https://img.shields.io/github/stars/Nepxion/Skeleton.svg?label=Stars&tyle=flat&logo=GitHub)](https://github.com/Nepxion/Skeleton/stargazers)  [![Stars](https://gitee.com/Nepxion/Skeleton/badge/star.svg)](https://gitee.com/nepxion/Skeleton/stargazers)
 
+<a href="https://github.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/github.png"></a>&nbsp;  <a href="https://gitee.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/gitee.png"></a>&nbsp;  <a href="https://search.maven.org/search?q=g:com.nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/maven.png"></a>&nbsp;  <a href="http://nepxion.gitee.io/discovery/docs/zxing-doc/%E5%BE%AE%E4%BF%A1.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/wechat.png"></a>&nbsp;  <a href="http://nepxion.gitee.io/discovery/docs/zxing-doc/%E9%92%89%E9%92%89.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/dingding.png"></a>&nbsp;  <a href="http://nepxion.gitee.io/discovery/docs/zxing-doc/%E5%85%AC%E4%BC%97%E5%8F%B7.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/gongzhonghao.png"></a>&nbsp;  <a href="mailto:1394997@qq.com" tppabs="#"><img width="25" height="25" src="http://nepxion.gitee.io/discovery/docs/icon-doc/email.png"></a>
+
 Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码和文件的生成器，可以轻松快速实现对框架代码的一键创建，支持多套脚手架系统在同一个脚手架服务下工作，并内置提供Docker化的基于Spring Cloud的脚手架一键生成
-
-## 请联系我
-微信、钉钉、公众号和文档
-
-![](http://nepxion.gitee.io/discovery/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/文档-1.jpg)
 
 ## 简介
 - 严格遵照Maven结构进行脚手架编排
@@ -178,8 +175,8 @@ public List<String> getPlugins();
 @RequestMapping(value = "/getMetaData", method = RequestMethod.GET)
 public List<SkeletonGroup> getMetaData();
 ```
-返回JSON格式的文件，简单介绍一下格式：
-```xml
+返回JSON格式的文件，如下：
+```
 [
   {
     "key": "project", // 组所对应的唯一Key
@@ -224,6 +221,11 @@ public byte[] downloadBytes(@PathVariable(value = "skeletonName") String skeleto
 @RequestMapping(value = "/downloadResponse/{skeletonName}", method = RequestMethod.POST)
 public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeletonName") String skeletonName, @RequestBody String config);
 ```	
+
+## 请联系我
+微信、钉钉、公众号和文档
+
+![](http://nepxion.gitee.io/discovery/docs/zxing-doc/微信-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/钉钉-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/公众号-1.jpg)![](http://nepxion.gitee.io/discovery/docs/zxing-doc/文档-1.jpg)
 
 ## Star走势图
 [![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton)
