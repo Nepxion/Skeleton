@@ -1,7 +1,7 @@
 # Nepxion Skeleton
 ![Total visits](https://visitor-badge.laobi.icu/badge?page_id=Nepxion&title=total%20visits)  [![Total lines](https://tokei.rs/b1/github/Nepxion/Skeleton?category=lines)](https://tokei.rs/b1/github/Nepxion/Skeleton?category=lines)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?label=license)](https://github.com/Nepxion/Skeleton/blob/master/LICENSE)  [![Maven Central](https://img.shields.io/maven-central/v/com.nepxion/skeleton.svg?label=maven)](https://search.maven.org/artifact/com.nepxion/skeleton)  [![Javadocs](http://www.javadoc.io/badge/com.nepxion/skeleton-engine.svg)](http://www.javadoc.io/doc/com.nepxion/skeleton-engine)  [![Build Status](https://github.com/Nepxion/Skeleton/workflows/build/badge.svg)](https://github.com/Nepxion/Skeleton/actions)  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e8f79f2e62d1409aa7b1ac722ecd6591)](https://www.codacy.com/gh/Nepxion/Skeleton/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Nepxion/Skeleton&amp;utm_campaign=Badge_Grade)  [![Stars](https://img.shields.io/github/stars/Nepxion/Skeleton.svg?label=Stars&style=flat&logo=GitHub)](https://github.com/Nepxion/Skeleton/stargazers)  [![Stars](https://gitee.com/Nepxion/Skeleton/badge/star.svg)](https://gitee.com/Nepxion/Skeleton/stargazers)
 
-<a href="https://github.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/github.png"></a>&nbsp;  <a href="https://gitee.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/gitee.png"></a>&nbsp;  <a href="https://search.maven.org/search?q=g:com.nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/maven.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery//docs/contact-doc/wechat.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/wechat.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery//docs/contact-doc/dingding.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/dingding.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery//docs/contact-doc/gongzhonghao.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/gongzhonghao.png"></a>&nbsp;  <a href="mailto:1394997@qq.com" tppabs="#"><img width="25" height="25" src="https://nepxion.github.io/Discovery//docs/icon-doc/email.png"></a>
+<a href="https://github.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/github.png"></a>&nbsp;  <a href="https://gitee.com/Nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/gitee.png"></a>&nbsp;  <a href="https://search.maven.org/search?q=g:com.nepxion" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/maven.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery/docs/contact-doc/wechat.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/wechat.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery/docs/contact-doc/dingding.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/dingding.png"></a>&nbsp;  <a href="https://nepxion.github.io/Discovery/docs/contact-doc/gongzhonghao.jpg" tppabs="#" target="_blank"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/gongzhonghao.png"></a>&nbsp;  <a href="mailto:1394997@qq.com" tppabs="#"><img width="25" height="25" src="https://nepxion.github.io/Discovery/docs/icon-doc/email.png"></a>
 
 Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码和文件的生成器，可以轻松快速实现对框架代码的一键创建，支持多套脚手架系统在同一个脚手架服务下工作，并内置提供Docker化的基于Spring Cloud的脚手架一键生成
 
@@ -29,23 +29,23 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 图1
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Generator1.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Generator1.jpg)
 
 图2
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Generator2.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Generator2.jpg)
 
 图3
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Generator3.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Generator3.jpg)
 
 图4
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Generator4.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Generator4.jpg)
 
 图5
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Generator5.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Generator5.jpg)
 
 ## 本地部署
 ### 服务端部署
@@ -58,8 +58,8 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 - 运行Swagger检验是否工作
   - 在浏览器里输入[http://localhost:2222/swagger-ui.html](http://localhost:2222/swagger-ui.html)访问
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Docker.jpg)
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Swagger.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Docker.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Swagger.jpg)
 
 ### 客户端部署
 - 拉取[https://github.com/Nepxion/DiscoveryUI](https://github.com/Nepxion/DiscoveryUI)代码
@@ -76,7 +76,7 @@ Nepxion Skeleton是一款基于FreeMarker，支持对任何文本格式的代码
 
 图6
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Architecture.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Architecture.jpg)
 
 ## 兼容
 最新版本兼容
@@ -133,8 +133,8 @@ public class SkeletonApplication {
 - 模板文件(*.template)有如下两种放置方式
   - 模板文件resources/template目录下(模板文件所在的前置目录名必须设置为"template"，在application.properties可以修改)，目录结构参照第一张图片
   - Generator类和对应的模板文件必须放在同一个目录下(模板文件所在的前置目录名必须设置为null)，目录结构参照第二张图片   
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Template1.jpg)
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Template2.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Template1.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Template2.jpg)
 
 ### 插件
 - 如果多个脚手架系统部署在同一个平台上，需要采用独立工程的方式，同时避免同名类和同名配置文件冲突，规定如下，见图7
@@ -150,11 +150,11 @@ public class SkeletonApplication {
 
 图7
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Plugin1.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Plugin1.jpg)
 
 图8
 
-![](https://nepxion.github.io/Discovery//docs/skeleton-doc/Plugin2.jpg)
+![](https://nepxion.github.io/Discovery/docs/skeleton-doc/Plugin2.jpg)
 
 ### 示例
 #### 本地使用方式
@@ -225,7 +225,7 @@ public ResponseEntity<Resource> downloadResponse(@PathVariable(value = "skeleton
 ## 请联系我
 微信、钉钉、公众号和文档
 
-![](https://nepxion.github.io/Discovery//docs/contact-doc/wechat-1.jpg)![](https://nepxion.github.io/Discovery//docs/contact-doc/dingding-1.jpg)![](https://nepxion.github.io/Discovery//docs/contact-doc/gongzhonghao-1.jpg)![](https://nepxion.github.io/Discovery//docs/contact-doc/document-1.jpg)
+![](https://nepxion.github.io/Discovery/docs/contact-doc/wechat-1.jpg)![](https://nepxion.github.io/Discovery/docs/contact-doc/dingding-1.jpg)![](https://nepxion.github.io/Discovery/docs/contact-doc/gongzhonghao-1.jpg)![](https://nepxion.github.io/Discovery/docs/contact-doc/document-1.jpg)
 
 ## Star走势图
 [![Stargazers over time](https://starchart.cc/Nepxion/Skeleton.svg)](https://starchart.cc/Nepxion/Skeleton)
